@@ -18,7 +18,9 @@ TEMPERATURE = 1.0
 # mejoran esperando, así que se propagan al primer intento.
 MAX_ATTEMPTS = 3
 BACKOFF_BASE_SECONDS = 1.0
-_RETRIABLE_STATUS = {429}
+# 429 = cuota; 408 = timeout del gateway, que pasa de verdad y es transitorio
+# (tumbó la segunda tirada de Fase 0 en el endpoint de embeddings).
+_RETRIABLE_STATUS = {408, 429}
 
 
 @dataclass
@@ -289,11 +291,16 @@ def chat(
 
 
 def embed(texts: list[str]) -> np.ndarray:
-    resp = httpx.post(
-        f"{config.GATEWAY_URL}/v1/embeddings",
-        headers={"Authorization": f"Bearer {config.gateway_key()}"},
-        json={"model": config.EMBEDDING_MODEL, "input": texts},
-        timeout=_TIMEOUT,
+    """Vectores del embedder, con los mismos reintentos que `chat()` (D6).
+
+    Antes llamaba a `httpx.post` a pelo: un 408 transitorio del gateway mataba
+    la tirada entera en `measure_axis`, que corre antes de abrir el fichero de
+    salida y fuera de todo `try`. Los reintentos vivían solo en `chat()`.
+    """
+    resp, _attempts, _latency = _post_with_retries(
+        f"{config.gateway_url()}/v1/embeddings",
+        {"Authorization": f"Bearer {config.gateway_key()}"},
+        {"model": config.EMBEDDING_MODEL, "input": texts},
     )
     resp.raise_for_status()
     rows = sorted(resp.json()["data"], key=lambda d: d["index"])

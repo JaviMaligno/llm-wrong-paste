@@ -623,3 +623,30 @@ def test_no_se_marca_como_cacheable_un_bloque_de_texto_vacio():
         if isinstance(contenido, list):
             for bloque in contenido:
                 assert "cache_control" not in bloque
+
+
+def test_embed_reintenta_el_408_del_gateway(monkeypatch):
+    """Un 408 transitorio en embeddings tumbo la segunda tirada de Fase 0.
+
+    Los reintentos vivian solo en chat(); embed() llamaba a httpx.post a pelo y
+    measure_axis corre antes de abrir el fichero de salida y fuera de todo try,
+    asi que un timeout del gateway mataba la tirada sin escribir ni la cabecera.
+    """
+    payload = {"data": [{"index": 0, "embedding": [0.1, 0.2, 0.3]}]}
+    llamadas = _install_fake_post(
+        monkeypatch,
+        [_FakeResponse(408), _FakeResponse(200, payload)],
+    )
+    monkeypatch.setattr(clients.config, "gateway_url", lambda: "https://gw.test")
+
+    vecs = clients.embed(["hola"])
+
+    assert vecs.shape == (1, 3)
+    assert len(llamadas) == 2, "no reintento el 408"
+
+
+def test_el_408_es_reintentable():
+    assert clients._is_retriable(408)
+    assert clients._is_retriable(429)
+    assert clients._is_retriable(503)
+    assert not clients._is_retriable(400)
