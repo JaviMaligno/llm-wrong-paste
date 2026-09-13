@@ -1,0 +1,150 @@
+import json
+
+import pytest
+
+import wrongpaste.prefixes as prefixes
+from wrongpaste.topics import Topic
+
+TOPIC = Topic(id="mudanza", opening="quiero mudarme", goals=("a", "b"))
+
+TRANSCRIPT = [
+    {"role": "user", "content": "quiero mudarme", "tag": "opening"},
+    {"role": "assistant", "content": "cuéntame más", "tag": "assistant"},
+]
+
+
+@pytest.fixture(autouse=True)
+def _isolated_dir(tmp_path, monkeypatch):
+    """Ningún test escribe en `runs/prefixes` de verdad."""
+    monkeypatch.setattr(prefixes, "PREFIX_DIR", tmp_path / "prefixes")
+
+
+def _stub_build(monkeypatch, transcript=None, calls=None):
+    """Corta la única puerta de red: `build_prefix`."""
+
+    def fake_build(model_id, topic, n_turns):
+        if calls is not None:
+            calls.append((model_id, topic.id, n_turns))
+        return list(transcript or TRANSCRIPT), [{"total_tokens": 1}]
+
+    monkeypatch.setattr(prefixes, "build_prefix", fake_build)
+
+
+def test_prefix_id_is_deterministic():
+    first = prefixes.prefix_id("mudanza", 2, prefixes.PREFIX_MODEL, TRANSCRIPT)
+    second = prefixes.prefix_id("mudanza", 2, prefixes.PREFIX_MODEL, TRANSCRIPT)
+
+    assert first == second
+    assert len(first) == 16
+    assert all(c in "0123456789abcdef" for c in first)
+
+
+def test_prefix_id_changes_with_the_transcript():
+    base = prefixes.prefix_id("mudanza", 2, prefixes.PREFIX_MODEL, TRANSCRIPT)
+    other = [dict(m) for m in TRANSCRIPT]
+    other[-1]["content"] = "otra respuesta"
+
+    assert prefixes.prefix_id("mudanza", 2, prefixes.PREFIX_MODEL, other) != base
+
+
+def test_prefix_id_changes_with_the_tags():
+    """Las etiquetas son parte del contexto guardado, no adorno."""
+    base = prefixes.prefix_id("mudanza", 2, prefixes.PREFIX_MODEL, TRANSCRIPT)
+    other = [dict(m) for m in TRANSCRIPT]
+    other[0]["tag"] = "user_sim"
+
+    assert prefixes.prefix_id("mudanza", 2, prefixes.PREFIX_MODEL, other) != base
+
+
+def test_prefix_id_changes_with_topic_length_and_model():
+    base = prefixes.prefix_id("mudanza", 2, prefixes.PREFIX_MODEL, TRANSCRIPT)
+
+    assert prefixes.prefix_id("hacer-pan", 2, prefixes.PREFIX_MODEL, TRANSCRIPT) != base
+    assert prefixes.prefix_id("mudanza", 10, prefixes.PREFIX_MODEL, TRANSCRIPT) != base
+    assert prefixes.prefix_id("mudanza", 2, "claude-opus-5", TRANSCRIPT) != base
+
+
+def test_generate_prefix_uses_the_fixed_prefix_model(monkeypatch):
+    calls: list[tuple] = []
+    _stub_build(monkeypatch, calls=calls)
+
+    prefix = prefixes.generate_prefix(TOPIC, 2)
+
+    assert calls == [(prefixes.PREFIX_MODEL, "mudanza", 2)]
+    assert prefix["prefix_model"] == prefixes.PREFIX_MODEL
+    assert prefix["topic_id"] == "mudanza"
+    assert prefix["n_turns"] == 2
+    assert prefix["transcript"] == TRANSCRIPT
+    assert prefix["usages"] == [{"total_tokens": 1}]
+    assert prefix["prefix_id"] == prefixes.prefix_id(
+        "mudanza", 2, prefixes.PREFIX_MODEL, TRANSCRIPT
+    )
+
+
+def test_generate_prefix_does_not_write_anything(monkeypatch):
+    _stub_build(monkeypatch)
+    prefixes.generate_prefix(TOPIC, 2)
+
+    assert not prefixes.PREFIX_DIR.exists()
+
+
+def test_save_and_load_round_trip(monkeypatch):
+    _stub_build(monkeypatch)
+    prefix = prefixes.generate_prefix(TOPIC, 2)
+
+    path = prefixes.save_prefix(prefix)
+
+    assert path.name == f"{prefix['prefix_id']}.json"
+    assert json.loads(path.read_text(encoding="utf-8")) == prefix
+    assert prefixes.load_prefix(prefix["prefix_id"]) == prefix
+
+
+def test_ensure_prefix_generates_when_missing(monkeypatch):
+    calls: list[tuple] = []
+    _stub_build(monkeypatch, calls=calls)
+
+    prefix = prefixes.ensure_prefix(TOPIC, 2)
+
+    assert len(calls) == 1
+    assert prefixes.prefix_path(prefix["prefix_id"]).exists()
+
+
+def test_ensure_prefix_does_not_regenerate_when_the_file_exists(monkeypatch):
+    calls: list[tuple] = []
+    _stub_build(monkeypatch, calls=calls)
+    first = prefixes.ensure_prefix(TOPIC, 2)
+
+    second = prefixes.ensure_prefix(TOPIC, 2)
+
+    assert len(calls) == 1, "el segundo paso no debe volver a llamar al modelo"
+    assert second == first
+    assert len(list(prefixes.PREFIX_DIR.glob("*.json"))) == 1
+
+
+def test_ensure_prefix_is_per_topic_and_length(monkeypatch):
+    _stub_build(monkeypatch)
+    short = prefixes.ensure_prefix(TOPIC, 2)
+    long = prefixes.ensure_prefix(TOPIC, 10)
+    other = prefixes.ensure_prefix(
+        Topic(id="hacer-pan", opening="quiero hacer pan", goals=("a",)), 2
+    )
+
+    ids = {short["prefix_id"], long["prefix_id"], other["prefix_id"]}
+    assert len(ids) == 3
+    assert len(list(prefixes.PREFIX_DIR.glob("*.json"))) == 3
+
+
+def test_every_model_gets_the_very_same_prefix(monkeypatch):
+    """D1: el eje x no puede depender de quién conteste."""
+    _stub_build(monkeypatch)
+    prefixes.ensure_prefix(TOPIC, 2)
+
+    served = [prefixes.ensure_prefix(TOPIC, 2) for _ in range(3)]
+
+    assert all(p["transcript"] == served[0]["transcript"] for p in served)
+    assert len({p["prefix_id"] for p in served}) == 1
+
+
+def test_find_prefix_returns_none_when_the_dir_is_empty(monkeypatch):
+    _stub_build(monkeypatch)
+    assert prefixes.find_prefix("mudanza", 2) is None

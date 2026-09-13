@@ -1,4 +1,5 @@
 import subprocess
+import time
 from dataclasses import dataclass
 
 import httpx
@@ -8,12 +9,27 @@ from wrongpaste import config
 
 _TIMEOUT = httpx.Timeout(300.0)
 
+# D9: muestreo explícito. No se delega en el default de cada proveedor, que
+# puede cambiar sin avisar y que no es el mismo en los tres.
+TEMPERATURE = 1.0
+
+# D6: los fallos son datos, no caída. Tres intentos con backoff exponencial
+# (1 s / 2 s / 4 s) para 429 y 5xx; el resto de 4xx son errores nuestros y no
+# mejoran esperando, así que se propagan al primer intento.
+MAX_ATTEMPTS = 3
+BACKOFF_BASE_SECONDS = 1.0
+_RETRIABLE_STATUS = {429}
+
 
 @dataclass
 class Reply:
     text: str
     usage: dict
     raw: dict
+    stop_reason: str | None = None
+    response_model: str | None = None
+    attempts: int = 1
+    latency_ms: float | None = None
 
 
 def _gcp_token() -> str:
@@ -29,6 +45,7 @@ def _gateway_body(model_id: str, messages: list[dict], max_tokens: int) -> dict:
         "model": model_id,
         "messages": messages,
         "max_completion_tokens": max_tokens,
+        "temperature": TEMPERATURE,
     }
 
 
@@ -37,7 +54,41 @@ def _vertex_openai_body(model_id: str, messages: list[dict], max_tokens: int) ->
         "model": f"google/{model_id}",
         "messages": messages,
         "max_tokens": max_tokens,
+        "temperature": TEMPERATURE,
     }
+
+
+def _as_blocks(content) -> list[dict]:
+    """Normaliza el contenido de un mensaje a lista de bloques.
+
+    Claude acepta `content` como cadena o como lista de bloques, pero
+    `cache_control` solo se puede colgar de un bloque.
+    """
+    if isinstance(content, str):
+        return [{"type": "text", "text": content}]
+    return [dict(block) for block in content]
+
+
+def _mark_cacheable_prefix(convo: list[dict]) -> list[dict]:
+    """Pone el breakpoint de caché al final del prefijo (D10).
+
+    El pegote es siempre el último mensaje de la lista, así que el breakpoint
+    va en el último bloque del **penúltimo** mensaje: de ese modo el prefijo
+    entero —idéntico entre las celdas que comparten `prefix_id`— se sirve de
+    caché en la llamada del pegote, que es justo el ahorro que la Fase 1
+    necesita medir.
+
+    Devuelve una lista nueva: no muta la transcripción del llamante.
+    """
+    marked = [dict(m) for m in convo]
+    if len(marked) < 2:
+        # Un solo mensaje: no hay prefijo estable que cachear delante de él.
+        return marked
+    target = marked[-2]
+    blocks = _as_blocks(target["content"])
+    blocks[-1] = {**blocks[-1], "cache_control": {"type": "ephemeral"}}
+    target["content"] = blocks
+    return marked
 
 
 def _anthropic_body(messages: list[dict], max_tokens: int) -> dict:
@@ -49,58 +100,126 @@ def _anthropic_body(messages: list[dict], max_tokens: int) -> dict:
     convo = [m for m in messages if m["role"] != "system"]
     body = {
         "anthropic_version": "vertex-2023-10-16",
-        "messages": convo,
+        "messages": _mark_cacheable_prefix(convo),
         "max_tokens": max_tokens,
+        # OJO (D9): `budget_tokens` devuelve 400 en Opus 5 y Sonnet 5. El modo
+        # adaptativo es la única forma de razonamiento en la familia 5, y hay
+        # que mandarlo siempre para que Sonnet 5 y Opus 5 sean comparables.
+        "thinking": {"type": "adaptive"},
+        # NO mandar `temperature` / `top_p` / `top_k`: en la familia Claude 5
+        # los parámetros de muestreo están ELIMINADOS y devuelven 400, igual
+        # que `budget_tokens`. La versión original de D9 pedía temperatura
+        # explícita en los tres cuerpos; era un error y habría tumbado todas
+        # las celdas de Claude. Aquí el muestreo lo fija el proveedor, y eso
+        # se registra como tal en `request_params`.
     }
     if system:
         body["system"] = system
     return body
 
 
-def chat(model_id: str, messages: list[dict], max_tokens: int = 1024) -> Reply:
+def _backoff_seconds(attempt: int) -> float:
+    """Espera antes del intento `attempt + 1`: 1 s, 2 s, 4 s."""
+    return BACKOFF_BASE_SECONDS * (2 ** (attempt - 1))
+
+
+def _is_retriable(status_code: int) -> bool:
+    return status_code in _RETRIABLE_STATUS or status_code >= 500
+
+
+def _post_with_retries(url: str, headers: dict, body: dict) -> tuple[httpx.Response, int, float]:
+    """POST con reintentos de 429 y 5xx (D6).
+
+    Devuelve la respuesta, el número de intentos consumidos y la latencia
+    total en milisegundos (sueltas de backoff incluidas). Si se agotan los
+    intentos, propaga el `HTTPStatusError` con el recuento de intentos
+    colgado en el atributo `attempts`, para que el runner pueda registrarlo.
+    """
+    started = time.perf_counter()
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        resp = httpx.post(url, headers=headers, json=body, timeout=_TIMEOUT)
+        if resp.status_code < 400:
+            latency_ms = (time.perf_counter() - started) * 1000.0
+            return resp, attempt, latency_ms
+        if attempt < MAX_ATTEMPTS and _is_retriable(resp.status_code):
+            time.sleep(_backoff_seconds(attempt))
+            continue
+        try:
+            resp.raise_for_status()
+        except httpx.HTTPStatusError as exc:
+            exc.attempts = attempt
+            raise
+    raise AssertionError("inalcanzable")  # pragma: no cover
+
+
+def _openai_reply(data: dict, attempts: int, latency_ms: float) -> Reply:
+    choice = (data.get("choices") or [{}])[0]
+    return Reply(
+        text=(choice.get("message") or {}).get("content") or "",
+        usage=data.get("usage", {}),
+        raw=data,
+        stop_reason=choice.get("finish_reason"),
+        response_model=data.get("model"),
+        attempts=attempts,
+        latency_ms=latency_ms,
+    )
+
+
+def chat(
+    model_id: str,
+    messages: list[dict],
+    max_tokens: int = 1024,
+    request_params_out: dict | None = None,
+) -> Reply:
+    """Una llamada al modelo, con reintentos y trazabilidad.
+
+    `request_params_out`, si se pasa, se rellena con el cuerpo enviado sin
+    `messages`, que es lo que cada fila del JSONL guarda como `request_params`
+    (D9). Se rellena antes de llamar, así que también queda disponible cuando
+    la llamada acaba en error.
+    """
     model = config.MODELS[model_id]
 
     if model.provider == "gateway":
-        resp = httpx.post(
-            f"{config.GATEWAY_URL}/v1/chat/completions",
-            headers={"Authorization": f"Bearer {config.gateway_key()}"},
-            json=_gateway_body(model_id, messages, max_tokens),
-            timeout=_TIMEOUT,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        return Reply(data["choices"][0]["message"]["content"] or "", data.get("usage", {}), data)
-
-    if model.provider == "vertex_openai":
-        resp = httpx.post(
-            config.VERTEX_OPENAI_URL.format(project=config.GCP_PROJECT),
-            headers={"Authorization": f"Bearer {_gcp_token()}"},
-            json=_vertex_openai_body(model_id, messages, max_tokens),
-            timeout=_TIMEOUT,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        return Reply(data["choices"][0]["message"]["content"] or "", data.get("usage", {}), data)
-
-    if model.provider == "vertex_anthropic":
+        url = f"{config.GATEWAY_URL}/v1/chat/completions"
+        headers = {"Authorization": f"Bearer {config.gateway_key()}"}
+        body = _gateway_body(model_id, messages, max_tokens)
+    elif model.provider == "vertex_openai":
+        url = config.VERTEX_OPENAI_URL.format(project=config.GCP_PROJECT)
+        headers = {"Authorization": f"Bearer {_gcp_token()}"}
+        body = _vertex_openai_body(model_id, messages, max_tokens)
+    elif model.provider == "vertex_anthropic":
         url = config.VERTEX_ANTHROPIC_URL.format(
             project=config.GCP_PROJECT, model=model_id
         )
-        resp = httpx.post(
-            url,
-            headers={
-                "Authorization": f"Bearer {_gcp_token()}",
-                "x-goog-user-project": config.GCP_PROJECT,
-            },
-            json=_anthropic_body(messages, max_tokens),
-            timeout=_TIMEOUT,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        text = "".join(b["text"] for b in data["content"] if b["type"] == "text")
-        return Reply(text, data.get("usage", {}), data)
+        headers = {
+            "Authorization": f"Bearer {_gcp_token()}",
+            "x-goog-user-project": config.GCP_PROJECT,
+        }
+        body = _anthropic_body(messages, max_tokens)
+    else:
+        raise ValueError(f"proveedor desconocido: {model.provider}")
 
-    raise ValueError(f"proveedor desconocido: {model.provider}")
+    if request_params_out is not None:
+        request_params_out.clear()
+        request_params_out.update({k: v for k, v in body.items() if k != "messages"})
+
+    resp, attempts, latency_ms = _post_with_retries(url, headers, body)
+    data = resp.json()
+
+    if model.provider in ("gateway", "vertex_openai"):
+        return _openai_reply(data, attempts, latency_ms)
+
+    text = "".join(b["text"] for b in data.get("content", []) if b["type"] == "text")
+    return Reply(
+        text=text,
+        usage=data.get("usage", {}),
+        raw=data,
+        stop_reason=data.get("stop_reason"),
+        response_model=data.get("model"),
+        attempts=attempts,
+        latency_ms=latency_ms,
+    )
 
 
 def embed(texts: list[str]) -> np.ndarray:

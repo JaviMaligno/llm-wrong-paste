@@ -8,3 +8,10 @@ goals:
 - Entender cómo funcionan los tramos horarios
 - Decidir si me conviene tarifa fija o indexada
 - Saber qué pasos dar para cambiarme de compañía
+
+# Hueco D13 — tarea verificable del tema, para que la Fase 2 corra sobre estos
+# mismos temas y quede pareada con la Fase 1. En Fase 0 los tres van a None:
+# aquí no se inventa ninguna tarea todavía.
+# task:
+# expected:
+# verifier:

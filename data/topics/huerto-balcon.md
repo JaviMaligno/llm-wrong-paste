@@ -8,3 +8,10 @@ goals:
 - Aprender cada cuánto regar sin pasarme
 - Saber qué tierra y qué abono comprar
 - Entender qué plantar en cada época del año
+
+# Hueco D13 — tarea verificable del tema, para que la Fase 2 corra sobre estos
+# mismos temas y quede pareada con la Fase 1. En Fase 0 los tres van a None:
+# aquí no se inventa ninguna tarea todavía.
+# task:
+# expected:
+# verifier:
