@@ -1,8 +1,24 @@
+"""Configuración del arnés: plantel de modelos y puntos de acceso.
+
+El endpoint del gateway y el identificador del proyecto de GCP **no se
+versionan** (D17). No son secretos, pero sí material de trabajo interno, y este
+repositorio es público porque los datos crudos de `runs/` son el producto. Se
+leen de las variables de entorno `WRONGPASTE_GATEWAY_URL` y
+`WRONGPASTE_GCP_PROJECT`, sin valor por defecto: cualquier default plausible
+publicaría justo lo que se quiere dejar fuera.
+
+La lectura es **perezosa** —dentro de la función que necesita el valor, no al
+importar— para que importar este módulo siga funcionando sin entorno. Eso es lo
+que permite que la suite offline entera corra en una máquina recién clonada.
+"""
+
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
-GCP_PROJECT = "data-science-364702"
-GATEWAY_URL = "https://litellm.infra.skyc.cloud"
+GATEWAY_URL_ENV = "WRONGPASTE_GATEWAY_URL"
+GCP_PROJECT_ENV = "WRONGPASTE_GCP_PROJECT"
+
 GATEWAY_KEY_PATH = Path.home() / ".acp-blog-paste-key"
 
 VERTEX_ANTHROPIC_URL = (
@@ -15,6 +31,55 @@ VERTEX_OPENAI_URL = (
 )
 
 EMBEDDING_MODEL = "text-embedding-3-small-tst"
+
+
+class MissingConfig(RuntimeError):
+    """Falta un ajuste de entorno obligatorio para hablar con un proveedor."""
+
+
+def _required_env(env_var: str, que_es: str) -> str:
+    """Devuelve la variable de entorno, o explica cómo ponerla.
+
+    El mensaje tiene que bastar para desatascarse sin leer el código: qué falta,
+    para qué sirve y por qué no viene puesta de fábrica.
+    """
+    value = os.environ.get(env_var, "").strip()
+    if not value:
+        raise MissingConfig(
+            f"Falta la variable de entorno {env_var} ({que_es}). "
+            "No se versiona en este repositorio, que es público, así que hay "
+            "que exportarla antes de cualquier llamada real:\n"
+            f"    export {env_var}=...\n"
+            "Los tests offline (`pytest -m \"not live\"`) no la necesitan."
+        )
+    return value
+
+
+def gateway_url() -> str:
+    """URL base del gateway LiteLLM, sin barra final."""
+    return _required_env(GATEWAY_URL_ENV, "URL base del gateway LiteLLM").rstrip("/")
+
+
+def gcp_project() -> str:
+    """Identificador del proyecto de GCP donde vive Vertex AI."""
+    return _required_env(GCP_PROJECT_ENV, "proyecto de GCP con Vertex AI habilitado")
+
+
+def __getattr__(name: str) -> str:
+    """Resuelve `config.GATEWAY_URL` y `config.GCP_PROJECT` de forma perezosa.
+
+    PEP 562: Python solo llama aquí cuando el nombre **no** existe como global
+    del módulo, así que estos dos nombres se leen del entorno en el momento de
+    usarlos —y fallan con el mensaje de `_required_env`— en vez de quedar
+    congelados al importar. Es compatibilidad para los usos que todavía los
+    tratan como constantes; lo que se debe llamar es `gateway_url()` y
+    `gcp_project()`.
+    """
+    if name == "GATEWAY_URL":
+        return gateway_url()
+    if name == "GCP_PROJECT":
+        return gcp_project()
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 
 @dataclass(frozen=True)
@@ -41,4 +106,10 @@ MODELS = {m.id: m for m in _ROSTER}
 
 
 def gateway_key() -> str:
+    """Clave virtual del gateway, leída del fichero del desarrollador."""
+    if not GATEWAY_KEY_PATH.exists():
+        raise MissingConfig(
+            f"No existe {GATEWAY_KEY_PATH}. Ahí va la clave virtual del "
+            "gateway, en una sola línea y sin comillas."
+        )
     return GATEWAY_KEY_PATH.read_text().strip()

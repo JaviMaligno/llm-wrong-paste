@@ -20,7 +20,9 @@ import json
 from pathlib import Path
 from typing import Any
 
-from wrongpaste.conversation import build_prefix
+from wrongpaste.clients import Reply
+from wrongpaste.conversation import build_prefix, reply_traces
+from wrongpaste.simulated_user import USER_MODEL
 from wrongpaste.topics import Topic
 
 # Modelo que hace de asistente al fabricar el prefijo. Es el mismo que hace de
@@ -71,15 +73,41 @@ def generate_prefix(topic: Topic, n_turns: int) -> dict[str, Any]:
 
     No lo guarda: eso es cosa de `save_prefix`, para que los tests y el paso de
     medición de ejes (D12) puedan generar sin ensuciar el repo.
+
+    `conversation.build_prefix` devuelve **tres** valores desde D5:
+    `(transcript, usages, replies)`. Los `Reply` NO se guardan tal cual —
+    arrastran `raw`, la respuesta entera del proveedor, que no es serializable
+    a JSON— sino que pasan por `conversation.reply_traces()`, que deja el
+    `stop_reason`, el `response_model`, los `attempts` y la latencia de cada
+    llamada. El prefijo también es una tirada contra un modelo y también hay
+    que poder auditar si alguno de sus turnos se cortó por `max_tokens` o
+    necesitó reintentos (D5/D6).
+
+    **Las dos mitades del prefijo se auditan por separado.** En un prefijo
+    hablan dos papeles: el asistente (`PREFIX_MODEL`) y el usuario simulado. Sus
+    trazas van en `reply_traces` y `user_reply_traces` respectivamente. Sin la
+    segunda —que es lo que pasaba antes, porque `build_prefix` se llamaba sin
+    `user_replies_out`— el `stop_reason` de los turnos del usuario simulado no
+    llegaba a ninguna parte: un turno suyo cortado por el tope se quedaba dentro
+    del contexto compartido, se le servía idéntico a los tres modelos evaluados
+    (D1) y ninguna fila del JSONL podía decirlo. `run_phase0` lee
+    `user_reply_traces` al abrir un prefijo y manda la celda a `harness_error`
+    si trae un turno roto.
     """
-    transcript, usages = build_prefix(PREFIX_MODEL, topic, n_turns)
+    user_replies: list[Reply] = []
+    transcript, usages, replies = build_prefix(
+        PREFIX_MODEL, topic, n_turns, user_replies_out=user_replies
+    )
     return {
         "prefix_id": prefix_id(topic.id, n_turns, PREFIX_MODEL, transcript),
         "topic_id": topic.id,
         "n_turns": int(n_turns),
         "prefix_model": PREFIX_MODEL,
+        "user_model": USER_MODEL,
         "transcript": transcript,
         "usages": usages,
+        "reply_traces": reply_traces(replies),
+        "user_reply_traces": reply_traces(user_replies),
     }
 
 

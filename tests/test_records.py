@@ -3,6 +3,7 @@ después si sale mal (D5, D6, D7, D11, D15/D17)."""
 
 import dataclasses
 import json
+import warnings
 
 import pytest
 
@@ -83,7 +84,11 @@ def test_conversation_id_explicito_no_se_pisa():
 
 def test_to_json_no_pierde_ningun_campo():
     """(c) Todo campo del dataclass acaba en la fila, y la fila es JSON."""
-    esperados = {f.name for f in dataclasses.fields(ConversationRecord)}
+    # `similarity_text_truncated` no es campo almacenado sino columna derivada
+    # (OR de los dos truncados de D2), y aun así tiene que salir en la fila.
+    esperados = {f.name for f in dataclasses.fields(ConversationRecord)} | {
+        "similarity_text_truncated"
+    }
     fila = _control_record().to_json()
 
     assert set(fila) == esperados
@@ -121,7 +126,9 @@ def test_la_fila_lleva_los_campos_que_exige_el_documento_de_correcciones():
         "similarity_rank",
         "similarity_pct",
         "ranking",
-        "similarity_text_truncated",
+        # D2: el truncado, desglosado por texto embebido
+        "similarity_user_truncated",
+        "similarity_full_truncated",
         # D7: el pegote y los dos turnos posteriores
         "paste_index",
         "post_indices",
@@ -146,6 +153,10 @@ def test_la_fila_lleva_los_campos_que_exige_el_documento_de_correcciones():
         "attempts",
     }
     assert obligatorios <= set(ConversationRecord.field_names())
+    # El nombre viejo sobrevive como columna derivada: no es campo almacenado,
+    # pero la fila escrita al JSONL lo sigue llevando.
+    assert "similarity_text_truncated" not in ConversationRecord.field_names()
+    assert "similarity_text_truncated" in _control_record().to_json()
 
 
 def test_fila_con_pegote_y_turnos_posteriores():
@@ -172,6 +183,99 @@ def test_fila_con_pegote_y_turnos_posteriores():
     assert fila["post_indices"] == [6, 8]
     assert fila["artifact_kind"] == "stacktrace"
     assert all(m["tag"] in MESSAGE_TAGS for m in fila["transcript"])
+
+
+# --- D2: el truncado, desglosado ------------------------------------------
+
+
+def test_los_dos_truncados_existen_por_separado_y_se_serializan():
+    """El caso que motivó partir el booleano: solo la conversación entera se
+    pasa de los 24.000 caracteres, así que la similaridad primaria está sana y
+    la fila tiene que poder decirlo."""
+    rec = ConversationRecord(
+        model_id="claude-opus-5",
+        topic_id="mudanza",
+        n_turns=10,
+        similarity_user=0.42,
+        similarity_full=0.19,
+        similarity_user_truncated=False,
+        similarity_full_truncated=True,
+    )
+    fila = json.loads(json.dumps(rec.to_json(), ensure_ascii=False))
+
+    assert fila["similarity_user_truncated"] is False
+    assert fila["similarity_full_truncated"] is True
+    # Y la columna derivada viaja con ellos, en la misma fila.
+    assert fila["similarity_text_truncated"] is True
+
+
+@pytest.mark.parametrize(
+    ("user", "full", "esperado"),
+    [
+        (False, False, False),
+        (True, False, True),
+        (False, True, True),
+        (True, True, True),
+    ],
+)
+def test_similarity_text_truncated_es_el_or_de_los_dos(user, full, esperado):
+    rec = ConversationRecord(
+        model_id="m",
+        topic_id="t",
+        similarity_user_truncated=user,
+        similarity_full_truncated=full,
+    )
+
+    assert rec.similarity_text_truncated is esperado
+    assert rec.to_json()["similarity_text_truncated"] is esperado
+
+
+def test_similarity_text_truncated_se_recalcula_al_cambiar_los_campos():
+    """Es una propiedad, no una copia congelada en el constructor."""
+    rec = ConversationRecord(model_id="m", topic_id="t")
+    assert rec.similarity_text_truncated is False
+
+    rec.similarity_user_truncated = True
+    assert rec.similarity_text_truncated is True
+    assert rec.to_json()["similarity_text_truncated"] is True
+
+
+def test_similarity_text_truncated_no_se_puede_asignar():
+    """Derivada de verdad: quien quiera marcar truncado marca cuál de los dos."""
+    rec = ConversationRecord(model_id="m", topic_id="t")
+    with pytest.raises(AttributeError):
+        rec.similarity_text_truncated = True
+
+
+def test_el_nombre_viejo_sigue_aceptandose_en_el_constructor():
+    """Compatibilidad: un llamador sin migrar no revienta, pero avisa — el OR no
+    se puede repartir, así que se marcan los dos por el lado pesimista."""
+    with pytest.deprecated_call():
+        rec = ConversationRecord(
+            model_id="m", topic_id="t", similarity_text_truncated=True
+        )
+
+    assert rec.similarity_user_truncated is True
+    assert rec.similarity_full_truncated is True
+    assert rec.similarity_text_truncated is True
+
+
+def test_el_nombre_viejo_coherente_con_el_desglose_no_avisa_ni_lo_pisa():
+    """Releer una fila ya desglosada (ida y vuelta por JSON) no la degrada."""
+    original = ConversationRecord(
+        model_id="m",
+        topic_id="t",
+        similarity_user_truncated=False,
+        similarity_full_truncated=True,
+    )
+    fila = original.to_json()
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", DeprecationWarning)
+        copia = ConversationRecord(**fila)
+
+    assert copia.similarity_user_truncated is False
+    assert copia.similarity_full_truncated is True
 
 
 def test_celda_fallida_se_registra_como_dato():
@@ -219,7 +323,7 @@ def test_run_header_serializa_con_kind_run_header():
         topics_sha="9012ghi",
         master_seed=20260913,
         roster=["gpt-5.6-sol-tst", "gpt-5.6-luna-tst", "claude-opus-5"],
-        planned_cells=24,
+        planned_cells=27,
         embedding_model="text-embedding-3-small-tst",
         prefix_model="gpt-5.6-terra-tst",
         user_model="gpt-5.6-terra-tst",
@@ -230,13 +334,22 @@ def test_run_header_serializa_con_kind_run_header():
 
     assert linea["kind"] == "run_header"
     assert linea["run_id"] == "p0-20260913T101500"
-    assert linea["planned_cells"] == 24
+    assert linea["planned_cells"] == 27
     assert linea["schema_version"] == SCHEMA_VERSION
     # Todos los campos de D5 viajan en la cabecera.
     assert set(linea) == {"kind"} | {
         f.name for f in dataclasses.fields(RunHeader)
     }
     assert json.loads(json.dumps(linea, ensure_ascii=False))["phase"] == "0"
+
+
+def test_el_ejemplo_del_docstring_de_run_header_cuenta_las_celdas_de_control():
+    """La Fase 0 son 27 celdas: 24 con pegote más las 3 de control de D11. El
+    ejemplo de fichero truncado tiene que decir 27, o enseña a contar mal."""
+    doc = RunHeader.__doc__ or ""
+
+    assert "planned_cells: 27" in doc
+    assert "planned_cells: 24" not in doc
 
 
 def test_run_header_line_acepta_campos_sueltos():

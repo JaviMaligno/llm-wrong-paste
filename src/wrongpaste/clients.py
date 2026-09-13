@@ -40,10 +40,21 @@ def _gcp_token() -> str:
     return out.stdout.strip()
 
 
+def _api_message(message: dict) -> dict:
+    """Deja el mensaje como lo espera el proveedor: solo `role` y `content`.
+
+    El transcript lleva además `tag` (D5), que es metadato nuestro: los
+    proveedores rechazan claves desconocidas dentro de `messages`. Sanear aquí
+    permite pasarle a `chat()` la transcripción etiquetada, que es la única
+    forma de que el breakpoint de caché sepa dónde acaba el prefijo.
+    """
+    return {"role": message["role"], "content": message["content"]}
+
+
 def _gateway_body(model_id: str, messages: list[dict], max_tokens: int) -> dict:
     return {
         "model": model_id,
-        "messages": messages,
+        "messages": [_api_message(m) for m in messages],
         "max_completion_tokens": max_tokens,
         "temperature": TEMPERATURE,
     }
@@ -52,7 +63,7 @@ def _gateway_body(model_id: str, messages: list[dict], max_tokens: int) -> dict:
 def _vertex_openai_body(model_id: str, messages: list[dict], max_tokens: int) -> dict:
     return {
         "model": f"google/{model_id}",
-        "messages": messages,
+        "messages": [_api_message(m) for m in messages],
         "max_tokens": max_tokens,
         "temperature": TEMPERATURE,
     }
@@ -69,22 +80,63 @@ def _as_blocks(content) -> list[dict]:
     return [dict(block) for block in content]
 
 
+# Etiquetas (D5) que marcan que el prefijo compartido ya se acabó: el primer
+# mensaje con una de ellas es el pegote, la reparación o un turno posterior,
+# y ninguno de los tres pertenece al prefijo que se sirve de caché (D10).
+POST_PREFIX_TAGS: frozenset[str] = frozenset({"paste", "repair", "post"})
+
+
+def _prefix_breakpoint_index(convo: list[dict]) -> int | None:
+    """Índice del mensaje donde acaba el prefijo compartido, o `None`.
+
+    Con etiquetas (el caso normal: todo lo que fabrica `conversation.py`), el
+    prefijo acaba en el **último mensaje con `tag == "assistant"` anterior al
+    primer mensaje etiquetado con `POST_PREFIX_TAGS`**. No se supone ninguna
+    posición: en la llamada del pegote ese mensaje es el penúltimo, pero en
+    los dos turnos `post` de D7 y en las celdas de control de D11 el último
+    mensaje es un turno de usuario posterior, y contar posiciones dejaría el
+    breakpoint sobre la reacción al pegote o sobre un asistente de después —
+    es decir, sobre texto que cambia de celda en celda y que por tanto no se
+    puede cachear entre celdas que comparten `prefix_id`.
+
+    Sin etiquetas (llamada suelta, transcripciones crudas) no hay forma de
+    saber dónde acaba el prefijo: se **degrada** a marcar el penúltimo
+    mensaje, que es lo correcto solo si el último es el pegote. Quien llame
+    con transcripciones sin etiquetar asume esa degradación.
+    """
+    if not any(message.get("tag") for message in convo):
+        return len(convo) - 2 if len(convo) >= 2 else None
+
+    boundary = len(convo)
+    for index, message in enumerate(convo):
+        if message.get("tag") in POST_PREFIX_TAGS:
+            boundary = index
+            break
+
+    for index in range(boundary - 1, -1, -1):
+        if convo[index].get("tag") == "assistant":
+            return index
+    # Prefijo sin ninguna respuesta del asistente: no hay nada estable que
+    # cachear delante del pegote.
+    return None
+
+
 def _mark_cacheable_prefix(convo: list[dict]) -> list[dict]:
     """Pone el breakpoint de caché al final del prefijo (D10).
 
-    El pegote es siempre el último mensaje de la lista, así que el breakpoint
-    va en el último bloque del **penúltimo** mensaje: de ese modo el prefijo
-    entero —idéntico entre las celdas que comparten `prefix_id`— se sirve de
-    caché en la llamada del pegote, que es justo el ahorro que la Fase 1
-    necesita medir.
+    El prefijo —idéntico entre todas las celdas que comparten `prefix_id`— es
+    lo que interesa servir de caché; lo que venga después (pegote, reacción,
+    turnos `post`) cambia en cada celda. Dónde acaba el prefijo lo decide
+    `_prefix_breakpoint_index` a partir de las etiquetas, no de la posición.
 
-    Devuelve una lista nueva: no muta la transcripción del llamante.
+    Devuelve una lista nueva, ya en forma de API (sin `tag`): no muta la
+    transcripción del llamante, que se guarda tal cual en el JSONL.
     """
-    marked = [dict(m) for m in convo]
-    if len(marked) < 2:
-        # Un solo mensaje: no hay prefijo estable que cachear delante de él.
+    marked = [_api_message(m) for m in convo]
+    target_index = _prefix_breakpoint_index(convo)
+    if target_index is None:
         return marked
-    target = marked[-2]
+    target = marked[target_index]
     blocks = _as_blocks(target["content"])
     blocks[-1] = {**blocks[-1], "cache_control": {"type": "ephemeral"}}
     target["content"] = blocks
@@ -172,6 +224,14 @@ def chat(
     request_params_out: dict | None = None,
 ) -> Reply:
     """Una llamada al modelo, con reintentos y trazabilidad.
+
+    **`messages` se pasa ETIQUETADO** (con el `tag` de D5) siempre que venga de
+    `conversation.py`. Quitar el `tag` es trabajo de este módulo y se hace en el
+    último momento, dentro de cada `_*_body`, **después** de decidir dónde va el
+    breakpoint de caché: las etiquetas son lo único que dice dónde acaba el
+    prefijo compartido (D10). Si llegan mensajes sin etiquetar —una llamada
+    suelta, el usuario simulado—, `_prefix_breakpoint_index` cae en su rama
+    degradada, que solo acierta si el último mensaje es el pegote.
 
     `request_params_out`, si se pasa, se rellena con el cuerpo enviado sin
     `messages`, que es lo que cada fila del JSONL guarda como `request_params`

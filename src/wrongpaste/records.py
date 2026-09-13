@@ -2,16 +2,18 @@
 
 Aquí vive todo lo que hay que poder reconstruir *después* de gastar el dinero:
 identidad de la celda (D5), resultado o fallo (D6), índices de los turnos
-posteriores al pegote (D7), brazo de control sin pegote (D11) y las dos
-etiquetas que sostienen la interpretación del artículo — `model_label` y
-`artifact_kind` (D15/D17).
+posteriores al pegote (D7), brazo de control sin pegote (D11), las dos
+similaridades de D2 con su truncado desglosado por texto, y las dos etiquetas
+que sostienen la interpretación del artículo — `model_label` y `artifact_kind`
+(D15/D17).
 
 El fichero no llama a nadie: es hoja del grafo de importaciones a propósito,
 para que el runner, el verificador y el análisis puedan importarlo sin
 arrastrar clientes HTTP.
 """
 
-from dataclasses import asdict, dataclass, field, fields
+import warnings
+from dataclasses import InitVar, asdict, dataclass, field, fields
 from typing import Any, Literal
 
 # Versión del esquema de fila. Se sube cuando un cambio rompe a quien lea
@@ -24,7 +26,22 @@ N_STRATA = 8
 
 # Vocabulario cerrado de D6: un fallo es un dato, no una caída.
 Status = Literal["ok", "http_error", "timeout", "refusal", "empty"]
-STATUSES: tuple[str, ...] = ("ok", "http_error", "timeout", "refusal", "empty")
+# D6: vocabulario cerrado de estados de una fila. Vive AQUÍ, en el módulo hoja,
+# y no se amplía desde fuera: registrarlo como efecto secundario de importar el
+# runner hacía que un análisis que importara solo `records` rechazara filas
+# perfectamente válidas de su propio JSONL.
+#   truncated     -> el modelo se cortó por el `max_tokens` que mandamos nosotros
+#   harness_error -> falló el arnés (usuario simulado, prefijo): NO es conducta
+#                    del modelo evaluado y nunca debe confundirse con `refusal`
+STATUSES: tuple[str, ...] = (
+    "ok",
+    "http_error",
+    "timeout",
+    "refusal",
+    "empty",
+    "truncated",
+    "harness_error",
+)
 
 # D11: el brazo de control no lleva pegote.
 Condition = Literal["paste", "no_paste"]
@@ -115,8 +132,15 @@ class ConversationRecord:
     similarity_pct: float | None = None
     # Los 64 pares {artifact_id, similarity} del ranking de esta celda.
     ranking: list[dict] | None = None
-    # True si hubo que recortar el texto antes de embeberlo (guarda de D2).
-    similarity_text_truncated: bool = False
+    # Guarda de longitud de D2, desglosada por texto embebido. Un solo booleano
+    # no servía: en la práctica solo la conversación entera se pasa de los
+    # 24.000 caracteres, así que una fila marcada como truncada no permitía
+    # saber si la afectada era la similaridad **primaria** (la que estratifica)
+    # o solo la secundaria. Con los dos campos, el análisis puede descartar las
+    # filas cuyo eje x está recortado sin tirar las que solo tienen la métrica
+    # secundaria tocada.
+    similarity_user_truncated: bool = False
+    similarity_full_truncated: bool = False
 
     # --- transcripción ----------------------------------------------------
     # Índice del mensaje del pegote dentro de `transcript`; None en el control.
@@ -153,7 +177,32 @@ class ConversationRecord:
     error_body: str | None = None
     attempts: int = 1
 
-    def __post_init__(self) -> None:
+    # --- compatibilidad: el booleano colapsado de antes --------------------
+    # No es un campo de la fila (no se almacena ni sale de `asdict`): es solo
+    # el nombre antiguo, que se sigue aceptando en el constructor porque hay
+    # llamadores sin migrar. Para leerlo está la propiedad derivada del mismo
+    # nombre, definida justo debajo de la clase.
+    similarity_text_truncated: InitVar[bool | None] = None
+
+    def __post_init__(self, similarity_text_truncated: bool | None) -> None:
+        legacy = bool(similarity_text_truncated)
+        ya_desglosado = self.similarity_user_truncated or self.similarity_full_truncated
+        if legacy and not ya_desglosado:
+            # El valor antiguo era el OR de los dos truncados, y un OR no se
+            # puede deshacer: no hay forma de saber cuál de los dos textos se
+            # recortó. Se marcan **los dos**, que es el lado pesimista (una
+            # fila de más marcada como sospechosa, nunca una de menos sin
+            # marcar), y se avisa para que el llamador se migre.
+            warnings.warn(
+                "similarity_text_truncated ya no se almacena: es el OR "
+                "derivado de similarity_user_truncated y "
+                "similarity_full_truncated. El valor colapsado no se puede "
+                "repartir, así que se marcan los dos; pásalos por separado.",
+                DeprecationWarning,
+                stacklevel=3,
+            )
+            self.similarity_user_truncated = True
+            self.similarity_full_truncated = True
         if not self.conversation_id and self.model_id and self.topic_id:
             self.conversation_id = make_conversation_id(
                 self.model_id, self.topic_id, self.n_turns, self.replicate_idx
@@ -168,13 +217,46 @@ class ConversationRecord:
             )
 
     def to_json(self) -> dict[str, Any]:
-        """Diccionario listo para `json.dumps`, sin perder ningún campo."""
-        return asdict(self)
+        """Diccionario listo para `json.dumps`, sin perder ningún campo.
+
+        Lleva además la columna derivada `similarity_text_truncated`, que no es
+        campo del dataclass pero sí de la fila: quien solo quiera saber si se
+        recortó *algo* la sigue encontrando donde estaba, sin recomponer el OR.
+        """
+        data = asdict(self)
+        data["similarity_text_truncated"] = self.similarity_text_truncated
+        return data
 
     @classmethod
     def field_names(cls) -> tuple[str, ...]:
-        """Nombres de los campos, para que el verificador compruebe columnas."""
+        """Nombres de los campos, para que el verificador compruebe columnas.
+
+        Son los campos almacenados; las columnas derivadas de `to_json` (hoy
+        solo `similarity_text_truncated`) no salen aquí. Para comprobar la fila
+        tal y como se escribe, mira las claves de `to_json()`.
+        """
         return tuple(f.name for f in fields(cls))
+
+
+def _similarity_text_truncated(self: ConversationRecord) -> bool:
+    """OR de los dos truncados de D2: ¿se recortó *algún* texto embebido?
+
+    Es el nombre que tenía el booleano colapsado antes de partirlo en
+    `similarity_user_truncated` (afecta a la similaridad primaria, la que
+    estratifica) y `similarity_full_truncated` (solo a la secundaria). Se
+    mantiene como propiedad derivada para no romper a quien ya lo leía, pero
+    quien tenga que decidir si una fila sirve para el eje x debe mirar
+    `similarity_user_truncated`: esta propiedad no distingue.
+    """
+    return bool(self.similarity_user_truncated or self.similarity_full_truncated)
+
+
+# Se engancha después de crear la clase a propósito: dentro del cuerpo, el
+# nombre ya lo ocupa el `InitVar` homónimo del constructor, y `@dataclass`
+# tomaría la propiedad como valor por defecto de ese parámetro.
+ConversationRecord.similarity_text_truncated = property(  # type: ignore[assignment]
+    _similarity_text_truncated
+)
 
 
 @dataclass
@@ -183,7 +265,10 @@ class RunHeader:
 
     Sirve para dos cosas: reproducir la tirada (semilla maestra, plantel, sha
     del código y de los datos) y detectar un fichero truncado — si la cabecera
-    dice `planned_cells: 24` y hay 19 filas, el fichero está incompleto.
+    dice `planned_cells: 27` y hay 19 filas, el fichero está incompleto.
+
+    27 son las 24 celdas con pegote más las 3 de control sin pegote de D11, que
+    también se planifican, se corren y se escriben.
     """
 
     run_id: str = ""
