@@ -1,0 +1,489 @@
+{
+  "prefix_id": "47ef15df47f6d13d",
+  "topic_id": "hacer-pan",
+  "n_turns": 10,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Quiero aprender a hacer pan en casa y siempre me sale como un ladrillo.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "¡Es muy normal al empezar! Un pan “ladrillo” suele deberse a una de estas causas: poca agua, levadura inactiva, poco fermentado o añadir demasiada harina al amasar.\n\nPrueba esta receta sencilla y bastante fiable:\n\n## Pan básico casero\n\n### Ingredientes\n- 500 g de harina de fuerza o panificable  \n- 350 g de agua tibia (no caliente)\n- 10 g de sal\n- 5–7 g de levadura seca de panadero  \n  *(o 15–20 g de levadura fresca)*\n- 1 cucharadita de azúcar o miel, opcional\n\n> Si no tienes báscula, merece mucho la pena conseguir una: medir harina “a tazas” suele causar panes secos y densos.\n\n### Paso a paso\n\n1. **Activa la levadura**  \n   Mezcla el agua tibia con la levadura y el azúcar. Espera 5–10 minutos. Debe formar espuma o burbujas.  \n   Si no pasa nada, la levadura puede estar caducada o el agua demasiado caliente.\n\n2. **Mezcla**  \n   Añade la harina y mezcla hasta que no queden zonas secas. Deja reposar 15 minutos.\n\n3. **Añade la sal y amasa**  \n   Amasa unos 8–10 minutos. La masa debe quedar suave, algo pegajosa, pero manejable.  \n   **No añadas harina sin parar**: una masa un poco pegajosa produce pan esponjoso; una masa seca produce ladrillos.\n\n4. **Primer levado**  \n   Pon la masa en un bol ligeramente aceitado, tapa y deja fermentar entre 1 y 2 horas, hasta que casi doble su tamaño.  \n   El tiempo depende de la temperatura: en invierno puede tardar bastante más.\n\n5. **Forma el pan**  \n   Saca la masa con cuidado, aplástala ligeramente para quitar burbujas grandes y forma una bola o barra. Ponla sobre papel de horno o en un molde.\n\n6. **Segundo levado**  \n   Tapa y deja reposar 45–60 minutos. Debe verse hinchada. Si la horneas antes de tiempo, quedará compacta.\n\n7. **Hornea**  \n   Precalienta el horno a 230 °C. Haz un corte superficial en la parte superior.  \n   Hornea:\n   - 15 minutos a 230 °C\n   - Luego 25–30 minutos a 200 °C\n\n   Para una corteza mejor, coloca una bandeja con agua caliente en la base del horno durante los primeros 15 minutos.\n\n8. **Enfría antes de cortar**  \n   Déjalo enfriar al menos 45 minutos sobre una rejilla. Si lo cortas caliente, la miga puede parecer apelmazada.\n\n## Errores típicos que hacen pan “ladrillo”\n\n- **Usar levadura química tipo Royal**: no sirve para pan de levadura.\n- **Agua demasiado caliente**: mata la levadura. Debe estar tibia, como temperatura corporal.\n- **Añadir demasiada harina durante el amasado**: reseca la masa.\n- **No dejar que leve lo suficiente**: el pan necesita tiempo, no solo reloj; busca que aumente claramente de volumen.\n- **Harina floja**: para empezar, usa harina de fuerza o panificable.\n- **Horno poco caliente al principio**: el golpe inicial de calor ayuda a que crezca.\n\nUna regla muy útil: la masa de pan debe sentirse más húmeda de lo que intuitivamente crees. Es preferible aprender a manejar una masa algo pegajosa que “arreglarla” con harina y terminar con un ladrillo.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Para saber por qué no sube, en qué momento notas el problema: la masa apenas crece durante el levado o sube y luego se desinfla al hornearla?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "No puedo ver tu masa, pero esa diferencia es clave para diagnosticarlo:\n\n- **Si apenas crece durante el levado:** suele ser problema de levadura, temperatura o tiempo.  \n  - Levadura caducada o dañada por agua muy caliente.  \n  - Ambiente frío: déjala más tiempo, no solo “una hora”.  \n  - Masa demasiado seca por exceso de harina.  \n  - Mucha sal en contacto directo con la levadura al principio.\n\n- **Si crece bien y se desinfla al hornear:** normalmente está **sobrefermentada** o le falta tensión al formar.  \n  - Ha levado demasiado y la estructura ya no aguanta.  \n  - Al manipularla antes de hornear se desgasifica en exceso.  \n  - El horno no estaba suficientemente precalentado.  \n  - La masa tiene demasiada agua para la harina usada o poco amasado/desarrollo de gluten.\n\nHaz esta prueba con el dedo antes de hornear: presiona suavemente la masa.\n- Si recupera el hueco enseguida: aún le falta levar.\n- Si vuelve lentamente y deja una pequeña marca: está lista.\n- Si no recupera nada y se hunde: probablemente se ha pasado de levado.\n\nSi me dices qué harina, levadura, cantidades, temperatura aproximada y cuánto tiempo la dejas levar, puedo ayudarte a localizar la causa.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Normalmente apenas me crece durante el primer levado; uso levadura seca, pero mi cocina suele estar bastante fría. ¿Tengo que usar masa madre o con esa levadura debería bastar?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "No necesitas masa madre: con levadura seca debería subir sin problema. De hecho, para aprender suele ser más fácil y predecible que la masa madre.\n\nSi tu cocina está fría, el problema casi seguro es **temperatura + paciencia**, no falta de masa madre.\n\n### Qué hacer\n\n- Usa agua tibia, aproximadamente **30–35 °C**. Debe sentirse tibia al dedo, nunca caliente.\n- Comprueba que la levadura funciona: mezcla levadura seca con agua tibia y una pizca de azúcar. En 5–10 minutos debería haber espuma o burbujas.\n- Deja levar hasta que la masa haya crecido claramente, idealmente cerca del doble. En una cocina fría puede tardar **2, 3 o incluso 4 horas**.\n- No te guíes solo por “una hora”: mira el volumen.\n\n### Sitios cálidos para fermentar\n\nBusca una temperatura suave, alrededor de **24–28 °C**:\n\n1. **Horno apagado con la luz encendida**  \n   Suele crear un ambiente templado. Comprueba que no se caliente demasiado.\n\n2. **Microondas apagado con una taza de agua caliente dentro**  \n   Pon el bol tapado junto a la taza. No enciendas el microondas.\n\n3. **Cerca de una fuente de calor suave**  \n   Por ejemplo, encima de la nevera o cerca de un radiador, pero no pegado.\n\n4. **Nevera, si tienes tiempo**  \n   Puedes dejar la masa tapada toda la noche en la nevera. Subirá lentamente y tendrá mejor sabor. Después, déjala 1–2 horas a temperatura ambiente antes de formar u hornear, según lo hinchada que esté.\n\n### Cantidad orientativa de levadura\n\nPara 500 g de harina:\n- **7 g de levadura seca**: buena cantidad para un levado normal.\n- Si hace mucho frío, no hace falta duplicarla; mejor dar calor suave y más tiempo.\n\nTambién revisa que no confundas:\n- **Levadura seca de panadero**: sí sirve.\n- **Levadura química / polvo de hornear / Royal**: no sirve para fermentar pan.\n\nUn método muy fiable para tu caso: haz la masa, tápala y métela en el horno apagado con la luz encendida. Marca el nivel inicial con una goma elástica o cinta en el bol y espera a que aumente aproximadamente al doble.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Voy a probar con levadura seca y el horno apagado con la luz encendida; ¿cómo sé que he amasado lo suficiente antes de dejarla levar?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Con masa de pan, no hace falta amasar “hasta que deje de pegarse”. Lo que buscas es desarrollar gluten para que pueda atrapar el gas de la levadura.\n\n## Señales de que está suficientemente amasada\n\n- La masa pasa de rugosa y rota a verse **más lisa y elástica**.\n- Al estirarla, ofrece resistencia pero no se rompe enseguida.\n- Si presionas con un dedo, recupera parte de la forma.\n- Se despega bastante del bol o mesa, aunque puede seguir algo pegajosa.\n\n## La prueba de la ventana\n\nEs la mejor prueba:\n\n1. Coge un trocito de masa.\n2. Estíralo suavemente entre los dedos.\n3. Si puedes formar una película fina, casi translúcida, sin que se rompa enseguida, está lista.\n\nSi se rompe rápido y el borde se ve irregular, sigue amasando o déjala reposar 10 minutos y vuelve a intentarlo.\n\n## Cuánto tiempo orientativo\n\nPara una masa básica de 500 g de harina:\n\n- **A mano:** 8–12 minutos de amasado activo.\n- **Con amasadora:** 6–8 minutos a velocidad baja-media.\n\nPero el reposo también ayuda muchísimo. Una forma fácil, especialmente si la masa está pegajosa:\n\n1. Mezcla harina y agua hasta que no haya partes secas.\n2. Deja reposar **20 minutos**.\n3. Añade sal y levadura.\n4. Amasa solo **5–8 minutos**.\n\nOtra opción aún más cómoda es hacer pliegues:\n\n1. Tras mezclar, deja reposar 20 minutos.\n2. Estira un lado de la masa y dóblalo hacia el centro.\n3. Gira el bol y repite 4 veces.\n4. Deja reposar 20–30 minutos.\n5. Repite 2 o 3 rondas.\n\nCon esto desarrollas gluten sin tener que pelearte con la masa ni añadir harina extra.\n\nUn detalle importante: si la masa está muy pegajosa, mójate o úntate apenas las manos con aceite en vez de añadir más harina. Agregar harina de más es una causa muy frecuente de panes densos.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿La prueba de la ventana se hace justo después de amasar o también sirve si dejo reposar la masa unos minutos?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Sirve en ambos momentos, y de hecho suele mejorar tras reposar.\n\n- **Justo después de amasar:** te indica cuánto gluten has desarrollado con el trabajo mecánico.\n- **Tras 10–20 minutos de reposo:** la masa se relaja y la harina termina de hidratarse, así que normalmente se estira mejor. Es un buen momento para hacer la prueba sin seguir amasando de más.\n\nUn método práctico:\n\n1. Mezcla harina y agua y deja reposar 15–20 minutos.\n2. Añade levadura y sal.\n3. Amasa 5–8 minutos.\n4. Deja reposar 10 minutos.\n5. Haz la prueba de la ventana.\n\nSi todavía se rompe con facilidad, haz unos pliegues o amasa 2–3 minutos más, deja reposar otros 10 minutos y vuelve a comprobar.\n\nNo hace falta lograr una membrana perfecta y transparente en un pan básico. Si puedes estirar un trocito hasta formar una capa fina antes de que se rompa, ya tienes suficiente estructura para que fermente y crezca bien.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Entonces la haré después de esos diez minutos de reposo; cuando ya haya levado y vaya a hornearla, ¿puedo apañarme bien con una bandeja normal y vapor aunque no tenga piedra?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Sí, perfectamente. Una bandeja normal funciona bien; la piedra ayuda algo con el golpe de calor, pero no es necesaria para conseguir un pan decente.\n\n### Cómo hornear con bandeja normal\n\n1. **Precalienta bien el horno**  \n   Pon la bandeja donde hornearás dentro del horno y precalienta al menos **25–30 minutos** a 230–240 °C.  \n   Si la masa está sobre papel de horno, luego puedes deslizarla sobre la bandeja caliente.\n\n2. **Haz un corte antes de hornear**  \n   Con cuchilla, cúter limpio o cuchillo muy afilado, haz un corte de unos **0,5–1 cm de profundidad**. Así el pan sabe por dónde expandirse.\n\n3. **Añade vapor al principio**  \n   Coloca otra bandeja metálica vacía en la parte baja del horno durante el precalentamiento.  \n   Justo al meter el pan, vierte con cuidado un vaso pequeño de agua muy caliente en esa bandeja y cierra enseguida.\n\n   El vapor ayuda a que la corteza no se endurezca demasiado rápido y permite que el pan crezca en los primeros minutos.\n\n4. **Hornea**  \n   Para una hogaza de unos 500 g de harina:\n   - 15–20 minutos a 230 °C con vapor.\n   - Retira la bandeja de agua o abre la puerta unos segundos para soltar el vapor.\n   - Baja a 200–210 °C y hornea otros 20–25 minutos.\n\n5. **Comprueba que está hecho**  \n   Debe verse bien dorado y, al golpear la base, sonar hueco. Si tienes termómetro, el centro debería estar cerca de **95–98 °C**.\n\n### Alternativa aún más fácil: recipiente con tapa\n\nSi tienes una olla de hierro, una cazuela apta para horno o una fuente gruesa con tapa, puedes hornear el pan dentro:\n\n- Precalienta olla y tapa a 230 °C.\n- Mete la masa con papel de horno.\n- Hornea 20–25 minutos tapado.\n- Destapa y hornea 15–20 minutos más a 200–210 °C.\n\nLa tapa atrapa el vapor que suelta la propia masa y suele dar resultados muy buenos sin bandejas con agua.\n\n**Precaución:** no viertas agua sobre vidrio, piedras de horno o resistencias, y usa una bandeja metálica resistente. El vapor quema mucho: abre el horno alejando cara y manos.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Y para conservarlo después, qué me recomiendas para que no se ponga duro al día siguiente ni se reblandezca demasiado la corteza?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para un pan casero, lo ideal es aceptar un pequeño equilibrio: si mantienes la corteza muy crujiente, la miga se seca antes; si lo cierras herméticamente, la miga queda más tierna pero la corteza se ablanda.\n\n## Para el día siguiente: bolsa de papel o paño\n\nCuando esté **completamente frío**, guárdalo:\n\n- En una **bolsa de papel**, o\n- Envuelto en un **paño de algodón o lino**, o\n- En una panera que no cierre de forma totalmente hermética.\n\nAsí conserva una corteza razonablemente seca sin resecarse tan rápido.\n\nSi ya lo has cortado, pon la parte cortada **apoyada sobre una tabla o plato**, y cubre el resto con el paño o mételo en bolsa de papel. Así proteges la miga expuesta.\n\n## Evita la nevera\n\nNo lo guardes en el frigorífico: el pan se pone duro y seco antes por un proceso llamado retrogradación del almidón. Aunque parezca una contradicción, la nevera suele acelerar el envejecimiento del pan.\n\n## Para más de 1–2 días: congelar\n\nEs la mejor opción.\n\n1. Deja enfriar el pan por completo.\n2. Córtalo en rebanadas o en mitades.\n3. Mételo en una bolsa de congelación bien cerrada.\n4. Congélalo el mismo día de horneado, cuando aún está fresco.\n\nDespués puedes:\n- Sacar una rebanada y tostarla directamente.\n- Descongelar una pieza a temperatura ambiente.\n- Calentar el pan entero o media hogaza en horno a **180 °C durante 8–12 minutos**.\n\n## Para recuperar corteza crujiente\n\nSi al día siguiente la corteza está blanda:\n\n1. Humedece muy ligeramente la superficie con unas gotas de agua o con la mano mojada.\n2. Hornea a **180–200 °C durante 5–10 minutos**.\n3. Déjalo enfriar 5 minutos sobre rejilla.\n\nVolverá a quedar crujiente por fuera y más agradable por dentro.\n\nY un detalle importante: deja que el pan se enfríe sobre una **rejilla**, no sobre la bandeja. Si queda sobre una superficie plana, el vapor se acumula debajo y ablanda la base.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Perfecto, lo congelaré en rebanadas el mismo día. ¿Hay alguna señal clara de que el pan se ha quedado corto o se ha pasado de horno, aparte del color de la corteza?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Sí. El color ayuda, pero hay varias señales más fiables:\n\n## Señales de que está bien horneado\n\n- **Temperatura interior:** la más precisa. En el centro del pan debe marcar aproximadamente **95–98 °C**.\n- **Peso:** al levantarlo debe sentirse relativamente ligero para su tamaño; ha perdido bastante agua.\n- **Base firme:** al golpear la parte inferior suele sonar algo hueca, aunque esta prueba no es infalible.\n- **Corteza seca y rígida:** no debe sentirse blanda ni hundirse fácilmente al presionarla.\n- **Grietas/corte abierto:** el corte que hiciste suele haberse expandido y verse seco, no húmedo o pastoso.\n\n## Si se ha quedado corto de horno\n\nPuede ocurrir aunque la corteza ya parezca dorada, especialmente si el horno calienta fuerte por fuera.\n\nSeñales:\n- Al enfriar, la corteza se arruga o se ablanda mucho.\n- Al cortarlo, la miga está húmeda, gomosa o parece “masa cocida”.\n- El pan se hunde o se aplasta con facilidad.\n- La base está pálida y blanda.\n- Huele más a harina o levadura cruda que a pan tostado.\n\nSolución: devuélvelo al horno a **180–200 °C durante 5–10 minutos**, directamente sobre la rejilla si puedes.\n\n## Si se ha pasado de horno\n\nSeñales:\n- Corteza demasiado gruesa, muy dura o amarga.\n- Miga seca, desmigada y poco flexible.\n- Base muy oscura o casi quemada.\n- Al cortarlo, salen muchas migas secas en vez de una miga algo elástica.\n\nSi se dora demasiado antes de estar hecho, cúbrelo flojamente con papel de aluminio durante la parte final del horneado y baja el horno unos 10–20 °C.\n\nPara tus primeras hogazas, un termómetro de cocina es la herramienta más clara: pincha por la base o por un lateral para no estropear la parte superior.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿La temperatura interior la puedo medir con un termómetro normal de cocina pinchando el centro, o hay que hacerlo justo al sacarlo del horno?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Sí: un termómetro normal de cocina de sonda sirve perfectamente, siempre que pueda medir al menos hasta unos 100 °C.\n\nMídelo **al final del horneado, con el pan todavía dentro del horno o justo al sacarlo**. No esperes varios minutos: al enfriarse, la temperatura empieza a bajar y la lectura deja de reflejar bien el punto de cocción.\n\n### Cómo medirlo\n\n- Pincha desde la **base o un lateral**, hacia el centro, para que el agujero no se vea apenas.\n- Procura que la punta llegue al centro de la miga, no se quede cerca de la corteza.\n- Evita tocar la bandeja: alteraría la lectura.\n- Espera a que el número se estabilice.\n\nPara una hogaza común:\n- **95–98 °C:** cocida.\n- **93–94 °C:** probablemente le falten unos minutos.\n- **Por encima de 99–100 °C:** no necesariamente está quemada, pero vigila porque puede empezar a resecarse si sigue mucho rato.\n\nSi el pan ya está fuera y marca 95 °C, no pasa nada: puedes volver a meterlo unos minutos si tienes dudas. Después, enfríalo siempre sobre una rejilla al menos 45–60 minutos antes de rebanarlo.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Tengo un termómetro de sonda normal, así que lo pincharé por la base al final y buscaré unos 96 °C antes de sacarlo.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Perfecto: pinchar por la base y buscar **96 °C en el centro** es una referencia excelente.\n\nUn par de matices útiles:\n\n- Mide al final del tiempo previsto; si marca 93–94 °C, dale 5 minutos más y vuelve a comprobar.\n- Si has usado una hogaza grande o muy húmeda, 96–98 °C va especialmente bien.\n- Al sacarlo, déjalo sobre rejilla: seguirá asentándose por dentro mientras baja de temperatura.\n- Espera al menos 45–60 minutos antes de cortarlo, aunque huela irresistible.\n\nCon levado suficiente, masa bien desarrollada y ese control de temperatura, deberías dejar atrás los panes-ladrillo.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 857,
+      "prompt_tokens": 23,
+      "total_tokens": 880,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 55,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 149,
+        "engine_ttlt_ms": 7688,
+        "pre_inference_ms": 58,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1069,
+        "service_ttlt_ms": 8599,
+        "user_visible_ttft_ms": 1010
+      }
+    },
+    {
+      "completion_tokens": 346,
+      "prompt_tokens": 863,
+      "total_tokens": 1209,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 48,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 134,
+        "engine_ttlt_ms": 3647,
+        "pre_inference_ms": 69,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 574,
+        "service_ttlt_ms": 4084,
+        "user_visible_ttft_ms": 505
+      }
+    },
+    {
+      "completion_tokens": 517,
+      "prompt_tokens": 1200,
+      "total_tokens": 1717,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 1197
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 315,
+        "engine_ttlt_ms": 5109,
+        "pre_inference_ms": 77,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1369,
+        "service_ttlt_ms": 6083,
+        "user_visible_ttft_ms": 1292
+      }
+    },
+    {
+      "completion_tokens": 467,
+      "prompt_tokens": 1756,
+      "total_tokens": 2223,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1197,
+        "cache_write_tokens": 556
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 277,
+        "engine_ttlt_ms": 4742,
+        "pre_inference_ms": 69,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 717,
+        "service_ttlt_ms": 5179,
+        "user_visible_ttft_ms": 649
+      }
+    },
+    {
+      "completion_tokens": 229,
+      "prompt_tokens": 2254,
+      "total_tokens": 2483,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1753,
+        "cache_write_tokens": 498
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 145,
+        "engine_ttlt_ms": 2233,
+        "pre_inference_ms": 81,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1136,
+        "service_ttlt_ms": 3204,
+        "user_visible_ttft_ms": 1055
+      }
+    },
+    {
+      "completion_tokens": 538,
+      "prompt_tokens": 2532,
+      "total_tokens": 3070,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2251,
+        "cache_write_tokens": 278
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 120,
+        "engine_ttlt_ms": 4976,
+        "pre_inference_ms": 77,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1109,
+        "service_ttlt_ms": 5942,
+        "user_visible_ttft_ms": 1033
+      }
+    },
+    {
+      "completion_tokens": 545,
+      "prompt_tokens": 3109,
+      "total_tokens": 3654,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 35,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2529,
+        "cache_write_tokens": 577
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 161,
+        "engine_ttlt_ms": 5245,
+        "pre_inference_ms": 89,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1155,
+        "service_ttlt_ms": 6231,
+        "user_visible_ttft_ms": 1066
+      }
+    },
+    {
+      "completion_tokens": 442,
+      "prompt_tokens": 3661,
+      "total_tokens": 4103,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3106,
+        "cache_write_tokens": 552
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 126,
+        "engine_ttlt_ms": 4655,
+        "pre_inference_ms": 86,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 585,
+        "service_ttlt_ms": 5110,
+        "user_visible_ttft_ms": 499
+      }
+    },
+    {
+      "completion_tokens": 279,
+      "prompt_tokens": 4139,
+      "total_tokens": 4418,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3658,
+        "cache_write_tokens": 478
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 154,
+        "engine_ttlt_ms": 2763,
+        "pre_inference_ms": 89,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1140,
+        "service_ttlt_ms": 3742,
+        "user_visible_ttft_ms": 1051
+      }
+    },
+    {
+      "completion_tokens": 150,
+      "prompt_tokens": 4457,
+      "total_tokens": 4607,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 4136,
+        "cache_write_tokens": 318
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 147,
+        "engine_ttlt_ms": 1753,
+        "pre_inference_ms": 82,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 598,
+        "service_ttlt_ms": 2201,
+        "user_visible_ttft_ms": 516
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 9953.736208990449
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 5875.989691994619
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 8073.236058000475
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 6701.368285022909
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 4979.361158009851
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 7442.378325999016
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 8070.424887991976
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 7201.863585010869
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 6544.292236008914
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 4462.035347998608
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2808.3870419941377
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3204.6208729734644
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2671.0352879890706
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3433.766909991391
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3456.4364660182036
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3071.2014510063455
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3919.058925996069
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 4513.131183979567
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3220.1139780227095
+    }
+  ]
+}

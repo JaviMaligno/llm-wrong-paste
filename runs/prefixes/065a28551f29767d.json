@@ -1,0 +1,489 @@
+{
+  "prefix_id": "065a28551f29767d",
+  "topic_id": "elegir-colegio",
+  "n_turns": 10,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Tengo que elegir colegio para mi hija el año que viene y me está agobiando bastante la decisión.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "Es totalmente normal que te agobie: elegir colegio mezcla logística, valores, expectativas y el miedo a equivocarse. Pero no existe “el colegio perfecto”; suele haber varios colegios suficientemente buenos, y lo importante es encontrar el que mejor encaje con vuestra hija y vuestra familia.\n\nPuede ayudarte reducirlo a unos pocos criterios prioritarios, por ejemplo:\n\n- **Bienestar de tu hija:** ambiente, trato del profesorado, convivencia, adaptación.\n- **Proyecto educativo:** metodología, idiomas, atención a ritmos distintos, deberes, tecnología, valores.\n- **Logística familiar:** distancia, horarios, comedor, actividades, transporte.\n- **Comunidad y comunicación:** relación con las familias, estabilidad del equipo docente, tamaño del centro.\n- **Coste real:** cuotas, comedor, uniformes, excursiones, extraescolares.\n- **Necesidades concretas:** apoyo educativo, alergias, sensibilidad, altas capacidades, carácter más tranquilo o sociable, etc.\n\nSi vais a visitar centros, intenta fijarte menos en la presentación “bonita” y más en cosas observables: cómo hablan los adultos a los niños, si los alumnos parecen tranquilos y atendidos, cómo resuelven conflictos, qué ocurre con quien necesita apoyo y cómo se comunican con las familias.\n\nTambién puede servir hacer una tabla sencilla con 3–5 colegios y puntuar cada criterio del 1 al 5. No decidirá por vosotros, pero baja mucho la sensación de caos.\n\nY una idea importante: la elección no determina por completo su futuro. Una niña acompañada, querida y escuchada puede desarrollarse bien en muchos entornos distintos.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me cuesta incluso saber por dónde empezar: ¿qué diferencias reales hay entre un colegio público, concertado y privado más allá del precio?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Yo empezaría por entender bien esas diferencias, porque me preocupa que el tipo de centro condicione el ambiente, la admisión o el apoyo que pueda recibir mi hija, no solo lo que paguemos.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me interesa saber si, en la práctica, cambian mucho el perfil de las familias, la libertad para elegir proyecto educativo o la atención a alumnos con necesidades según sea público, concertado o privado.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Yo miraría cada centro concreto más que la etiqueta, pero sí quiero entender qué suele cambiar de verdad: quién fija las plazas y las cuotas, cuánta diversidad hay, cómo se organiza el apoyo educativo y cuánto margen tiene el colegio para su proyecto.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "También quiero tener claro cómo funcionan los puntos de admisión en los públicos y concertados, porque no sé hasta qué punto la cercanía al domicilio puede determinar nuestras opciones.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me vendría bien entender qué criterios dan puntos —domicilio, hermanos, renta, trabajo, discapacidad u otros— y si las reglas son iguales en públicos y concertados o dependen de la comunidad autónoma.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Vivo en una comunidad donde las normas pueden variar, así que quiero revisar el baremo oficial de mi zona: ¿la cercanía puntúa igual para públicos y concertados y qué criterios suelen desempatar?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Voy a buscar el baremo y el calendario oficial de mi comunidad, porque normalmente se aplica tanto a públicos como a concertados, aunque los puntos exactos y los desempates varían.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Exacto: el **baremo y el calendario oficial de admisión de tu comunidad autónoma** son la fuente decisiva. En general, el proceso de escolarización para centros **públicos y concertados** está regulado por la misma administración y suele usar criterios parecidos, aunque puede haber diferencias concretas según la comunidad.\n\nAl revisarlo, busca estos apartados:\n\n1. **Área de influencia / proximidad**\n   - Si vuestro domicilio está dentro del área de influencia del centro, suele dar la máxima puntuación por cercanía.\n   - A veces hay una puntuación distinta por estar en un área limítrofe.\n   - Normalmente cuenta el domicilio familiar, pero en algunas comunidades también puede valorarse el lugar de trabajo de madre, padre o tutor.\n   - Confirma qué documentos exigen para acreditarlo y hasta qué fecha debe constar el domicilio.\n\n2. **Hermanos matriculados en el centro**\n   - Suele ser uno de los criterios con más peso tras la proximidad.\n   - Puede incluir situaciones de acogimiento o hermanos que seguirán escolarizados el curso siguiente.\n\n3. **Renta familiar**\n   - Algunas comunidades dan puntos a familias con rentas bajas o beneficiarias de determinadas ayudas.\n   - No siempre se aplica igual ni tiene el mismo peso.\n\n4. **Discapacidad**\n   - Puede puntuar la discapacidad de la alumna, de progenitores o de hermanos, normalmente a partir de un grado reconocido oficialmente.\n\n5. **Familia numerosa, monoparental u otras circunstancias**\n   - Dependiendo de la comunidad, pueden contar familia numerosa, monoparental, parto múltiple, acogimiento, víctima de violencia de género o terrorismo, etc.\n\n6. **Criterios propios o complementarios del centro**\n   - En algunos lugares pueden existir criterios complementarios autorizados, pero deben estar publicados y no pueden ser arbitrarios.\n   - Conviene revisar la ficha de cada centro, no solo el baremo general.\n\n7. **Desempates**\n   - Si dos solicitudes tienen la misma puntuación, suele haber un orden de desempate fijado: por ejemplo, mayor puntuación en hermanos, proximidad, renta, discapacidad u otros criterios.\n   - Si persiste el empate, es frecuente que se use un sorteo público o un número aleatorio asignado a la solicitud.\n\nPara buscarlo, prueba con: **“admisión escolar [nombre de tu comunidad] 2026-2027 baremo”** o entra directamente en la web de la Consejería/Departamento de Educación. Descarga tanto la **resolución de admisión** como el **mapa de áreas de influencia** y la ficha de los centros que os interesen.\n\nUna precaución útil: no asumáis que un colegio cercano tiene automáticamente plaza o que una dirección “cerca” pertenece a su zona. Lo importante es la **zonificación administrativa exacta** de vuestra calle y número.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "También quiero saber cuánto debería pesar la distancia en la decisión: me atrae un colegio algo más lejano por su proyecto, pero no sé si el trayecto diario acaba compensando.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "La distancia suele pesar más de lo que parece al principio, porque no afecta solo a “llegar al colegio”: afecta al descanso, las prisas, la autonomía, las amistades, las extraescolares y la vida familiar durante muchos años.\n\nNo hay una regla universal, pero sí algunas preguntas útiles para valorar si el proyecto compensa el trayecto.\n\n### Qué mirar del trayecto real\n\n- **Tiempo puerta a puerta**, no solo kilómetros: vestirse, caminar hasta la parada, esperas, tráfico, aparcamiento, entrada y recogida.\n- **Tiempo diario total**: 20 minutos extra por trayecto son unos 40 minutos al día; a lo largo de un curso se convierten en muchas horas.\n- **Fiabilidad**: no es igual un trayecto de 25 minutos previsible que uno de 25–50 según tráfico o transporte.\n- **Quién lo hará**: coche familiar, ruta escolar, transporte público, caminando… y si será sostenible cuando cambien horarios o haya otro hijo/a, trabajo, enfermedad, lluvia, etc.\n- **Edad y autonomía futura**: un centro cercano puede permitir que, cuando crezca, vaya andando o quede con amigos sin depender siempre de adultos.\n- **Red social de barrio**: si la mayoría de compañeros vive cerca, es más fácil que haya parques, cumpleaños, deberes compartidos y amistades espontáneas. Un colegio lejano no impide tener amigos, pero exige más organización de las familias.\n- **Jornada completa**: añade comedor, extraescolares, reuniones, festivales, tutorías y días de salida anticipada. Conviene imaginar un martes de febrero con lluvia, no solo una visita al centro.\n\n### Una orientación práctica\n\nPara Infantil y Primaria, muchas familias consideran especialmente llevadero un colegio al que se llega caminando o con un trayecto corto y estable. Si el desplazamiento habitual se acerca o supera los **30–40 minutos por sentido**, merece la pena pedirle al proyecto educativo que sea realmente diferencial, no solo atractivo en el folleto.\n\nNo significa que un colegio más lejano sea una mala decisión. Puede compensar si ofrece algo importante para vuestra hija: un apoyo educativo especializado, una metodología que encaja claramente con ella, continuidad con hermanos, un entorno lingüístico concreto o un ambiente excepcionalmente adecuado. Pero conviene distinguir entre:\n\n- “Me gusta más este proyecto”  \ny  \n- “Este proyecto cubre una necesidad relevante que el cercano no cubre”.\n\nLa segunda razón suele justificar mejor el coste diario del trayecto.\n\n### Un ejercicio útil\n\nElegid dos o tres centros y haced el recorrido en horarios reales de entrada y salida, idealmente un día laborable. Después puntuad del 1 al 5:\n\n| Aspecto | Centro cercano | Centro más lejano |\n|---|---:|---:|\n| Bienestar y clima escolar |  |  |\n| Proyecto educativo |  |  |\n| Apoyo a necesidades de vuestra hija |  |  |\n| Trayecto y cansancio |  |  |\n| Autonomía futura |  |  |\n| Amistades y vida de barrio |  |  |\n| Compatibilidad con trabajo y familia |  |  |\n| Coste económico real |  |  |\n\nY añadid una pregunta final: **“¿Podemos sostener esta rutina con calma durante seis o nueve años, no solo el primer curso?”**\n\nEn muchos casos, un buen colegio cercano gana valor con el tiempo precisamente porque deja más energía para que la niña juegue, descanse y tenga vida fuera del aula.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 358,
+      "prompt_tokens": 27,
+      "total_tokens": 385,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 18,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 146,
+        "engine_ttlt_ms": 3969,
+        "pre_inference_ms": 82,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 1093,
+        "service_ttlt_ms": 4918,
+        "user_visible_ttft_ms": 1010
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 394,
+      "total_tokens": 1418,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 96,
+        "engine_ttlt_ms": 10489,
+        "pre_inference_ms": 61,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1339,
+        "service_ttlt_ms": 11727,
+        "user_visible_ttft_ms": 1278
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 446,
+      "total_tokens": 1470,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 155,
+        "engine_ttlt_ms": 10895,
+        "pre_inference_ms": 69,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1245,
+        "service_ttlt_ms": 11981,
+        "user_visible_ttft_ms": 1176
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 496,
+      "total_tokens": 1520,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 106,
+        "engine_ttlt_ms": 10700,
+        "pre_inference_ms": 65,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1336,
+        "service_ttlt_ms": 11926,
+        "user_visible_ttft_ms": 1271
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 557,
+      "total_tokens": 1581,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 152,
+        "engine_ttlt_ms": 11560,
+        "pre_inference_ms": 83,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 1420,
+        "service_ttlt_ms": 12823,
+        "user_visible_ttft_ms": 1337
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 601,
+      "total_tokens": 1625,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 13,
+        "engine_ttft_ms": 155,
+        "engine_ttlt_ms": 13508,
+        "pre_inference_ms": 63,
+        "service_tbt_ms": 13,
+        "service_ttft_ms": 1385,
+        "service_ttlt_ms": 14734,
+        "user_visible_ttft_ms": 1322
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 655,
+      "total_tokens": 1679,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 157,
+        "engine_ttlt_ms": 10570,
+        "pre_inference_ms": 83,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 853,
+        "service_ttlt_ms": 11263,
+        "user_visible_ttft_ms": 770
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 707,
+      "total_tokens": 1731,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 145,
+        "engine_ttlt_ms": 9502,
+        "pre_inference_ms": 164,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1458,
+        "service_ttlt_ms": 10811,
+        "user_visible_ttft_ms": 1294
+      }
+    },
+    {
+      "completion_tokens": 649,
+      "prompt_tokens": 755,
+      "total_tokens": 1404,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 35,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 121,
+        "engine_ttlt_ms": 6472,
+        "pre_inference_ms": 89,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1373,
+        "service_ttlt_ms": 7720,
+        "user_visible_ttft_ms": 1284
+      }
+    },
+    {
+      "completion_tokens": 787,
+      "prompt_tokens": 1406,
+      "total_tokens": 2193,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 36,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 1403
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 128,
+        "engine_ttlt_ms": 9098,
+        "pre_inference_ms": 80,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 1384,
+        "service_ttlt_ms": 10350,
+        "user_visible_ttft_ms": 1304
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 6600.025713996729
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13236.46089801332
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13566.7000169924
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13412.839250988327
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 14426.067307998892
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 16576.263308990747
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12998.144732002402
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12801.623028994072
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 9397.439869993832
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12116.594856983284
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3200.8021739893593
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2457.339040003717
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3419.973309006309
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2628.1933059799485
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2984.990126977209
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2770.006350008771
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3435.5103890120517
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3448.9907509996556
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3500.3176870231982
+    }
+  ]
+}

@@ -1,0 +1,489 @@
+{
+  "prefix_id": "58f32881ee84bf83",
+  "topic_id": "factura-luz",
+  "n_turns": 10,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Me ha llegado la factura de la luz al doble que el mes pasado y no entiendo nada de lo que pone.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "Claro, es bastante común que una factura suba mucho por motivos que no se ven a simple vista. Si quieres, puedes subir una foto de la factura (tapando nombre, DNI, dirección, CUPS, número de contrato y códigos QR) o copiar aquí estos datos:\n\n- Importe total y periodo facturado (fechas y número de días).\n- Consumo en kWh de esta factura y de la anterior.\n- Precio del kWh o apartado “energía consumida”.\n- Potencia contratada y coste de potencia.\n- Si pone “lectura real” o “estimada”.\n- Impuestos, alquiler de contador y cualquier “regularización” o “ajuste”.\n- Nombre de la tarifa/comercializadora y país.\n\nMientras tanto, revisa estas causas frecuentes:\n\n1. **La factura cubre más días**  \n   A veces una factura es de 30 días y otra de 50–60, por cambios de ciclo o retrasos. El total puede duplicarse aunque gastes igual al día.\n\n2. **Ha aumentado el consumo en kWh**  \n   Calefacción eléctrica, aire acondicionado, termo eléctrico, secadora, horno o un radiador pueden dispararlo. Compara los kWh, no solo los euros.\n\n3. **Lectura estimada y posterior regularización**  \n   Si antes te cobraron una estimación baja, ahora pueden estar corrigiendo el consumo real acumulado. Busca palabras como “regularización”, “lectura estimada” o “ajuste”.\n\n4. **Cambio de tarifa o fin de descuento**  \n   Puede haber terminado una promoción, cambiado el precio fijo o aplicado una renovación de contrato con condiciones distintas.\n\n5. **Costes no relacionados directamente con el consumo**  \n   Revisa si hay servicios de mantenimiento, seguros, cuotas adicionales, intereses o pagos atrasados incluidos.\n\n6. **Potencia contratada**  \n   Aunque no consumas luz, la potencia se paga cada día. No suele explicar por sí sola que se duplique de un mes a otro, salvo que haya cambiado.\n\nSi me mandas los importes y los kWh de ambas facturas, te digo exactamente qué parte ha subido y si parece razonable o reclamable.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Te paso los datos cuando los localice; de momento, ¿me explicas cómo distinguir en la factura lo que pago por potencia contratada de lo que pago por consumo?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Sí. En una factura española normalmente aparecen separados en dos conceptos principales:\n\n### 1. Potencia contratada: pagas por tener “capacidad” disponible\n\nBúscala como:\n\n- **Término de potencia**\n- **Potencia contratada**\n- **Peaje de potencia**\n- **Coste por potencia**\n- A veces: “Facturación por potencia contratada”\n\nSuele aparecer con una operación parecida a esta:\n\n> Potencia: 4,6 kW × 30 días × 0,10 €/kW día = 13,80 €\n\no, si tienes discriminación horaria:\n\n> P1: 4,6 kW × días × precio  \n> P2: 4,6 kW × días × precio\n\n**Cómo reconocerlo:** lleva unidades como **kW**, **días** y **€/kW·día**.  \nLo pagas aunque no consumas nada. Es la parte fija de la factura.\n\nLa potencia contratada suele ser un número como **3,45 kW**, **4,6 kW**, **5,75 kW**, etc. Cuanta más potencia tengas, más aparatos podrás usar a la vez sin que “salten los plomos”, pero más pagarás cada día.\n\n---\n\n### 2. Consumo: pagas por la electricidad que has utilizado\n\nBúscala como:\n\n- **Término de energía**\n- **Energía consumida**\n- **Facturación por energía**\n- **Coste de la energía**\n- “Consumo” o “Energía activa”\n\nLa operación suele ser algo como:\n\n> Energía: 250 kWh × 0,15 €/kWh = 37,50 €\n\nCon tarifa por horas puede aparecer dividida por periodos:\n\n> P1 / punta: 40 kWh × precio  \n> P2 / llano: 80 kWh × precio  \n> P3 / valle: 130 kWh × precio\n\n**Cómo reconocerlo:** lleva **kWh** y **€/kWh**.  \nEs la parte variable: si consumes el doble de kWh, aproximadamente se duplica esta parte.\n\n---\n\n### Ejemplo completo rápido\n\nEn una factura de 30 días podrías ver:\n\n| Concepto | Cálculo | Importe |\n|---|---:|---:|\n| Potencia contratada | 4,6 kW × 30 días × precio | 15 € |\n| Energía consumida | 300 kWh × precio | 45 € |\n| Impuesto eléctrico, alquiler contador e IVA | — | 15 € |\n| **Total** | — | **75 €** |\n\nEn ese ejemplo, aunque no hubieras consumido nada, no pagarías cero: pagarías potencia, contador e impuestos asociados.\n\n---\n\n### Dónde suele estar en el PDF o la app\n\nBusca un apartado llamado:\n\n- **Detalle de la factura**\n- **Detalle de facturación**\n- **Información de facturación**\n- **Conceptos facturados**\n\nNo te fijes solo en el gráfico de consumo o en el importe total. Para comparar una factura con otra, anota estas cuatro cifras:\n\n1. **Días facturados**\n2. **Potencia contratada (kW)**\n3. **Consumo total (kWh)**\n4. **Importe de energía consumida (€)**\n\nCuando los encuentres, puedes pasarme esos datos de ambas facturas y vemos si la subida viene de la parte fija, del consumo o de algún cargo adicional.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Vale, buscaré esos apartados; también quiero saber cómo comprobar si la potencia que tengo contratada es más alta de lo que realmente necesito.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Cuando encuentre la potencia contratada, ¿dónde puedo ver cuál ha sido mi máxima potencia demandada? Quiero saber si puedo bajarla sin que me salte el automático al poner varios aparatos.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Miraría en la factura o en el área de cliente un apartado como “potencia máxima demandada”, “maxímetro” o “curva de carga”, normalmente separado para P1 y P2. Si no aparece, puedo consultar el contador inteligente o pedir a la distribuidora el histórico de potencias máximas antes de bajar nada.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Exacto. Para decidir si puedes bajar potencia, busca ese dato en este orden:\n\n1. **Área de cliente de la distribuidora**  \n   Es la fuente más útil, no necesariamente la comercializadora que te cobra. Busca apartados como:\n   - “Curva de carga”\n   - “Potencia demandada”\n   - “Potencia máxima”\n   - “Datos de consumo”\n   - “Datos horarios” o “cuartohorarios”\n\n   Normalmente permite descargar datos por intervalos de 15 minutos. La potencia máxima registrada en esos intervalos te orienta sobre el mínimo que necesitas.\n\n2. **Factura de luz**  \n   Puede figurar como:\n   - “Potencia máxima demandada”\n   - “Potencia demandada P1 / P2”\n   - “Excesos de potencia”\n   - “Maxímetro”\n\n   Pero en viviendas domésticas es frecuente que no aparezca claramente. El término **maxímetro** es más habitual en suministros con potencias elevadas o empresas.\n\n3. **Contador inteligente**  \n   Algunos contadores permiten consultar datos desde su pantalla, aunque no siempre muestran de forma sencilla el máximo histórico. La información del portal de la distribuidora suele ser más clara y completa.\n\n4. **Distribuidora**  \n   Si no tienes acceso al portal, puedes pedirles el histórico de potencia demandada. La distribuidora se identifica en la factura; no es necesariamente Endesa, Iberdrola, Naturgy, Repsol, etc., porque esas pueden ser comercializadoras.\n\n### Cómo interpretar el dato\n\nSi, por ejemplo:\n\n- Tienes contratados **4,6 kW**.\n- Tu máxima potencia registrada durante varios meses es **2,9 kW**.\n\nProbablemente podrías plantearte bajar a **3,45 kW**, dejando margen para coincidencias puntuales de aparatos.\n\nPero no conviene elegir la potencia exactamente igual al máximo registrado: deja aproximadamente un **10–20 % de margen**, especialmente si no hay datos de invierno/verano o si usas aparatos potentes ocasionalmente.\n\n### Aparatos que suelen coincidir y elevar la potencia\n\n- Horno: aprox. 1,5–3 kW.\n- Vitro/inducción: puede superar 2 kW por zona.\n- Termo eléctrico: 1–2 kW.\n- Lavadora o lavavajillas calentando agua: 1,5–2,2 kW.\n- Secadora: 1,5–3 kW.\n- Aire acondicionado o calefactor eléctrico: 1–2,5 kW.\n- Cargador de coche eléctrico: desde unos 2,3 kW en adelante.\n\nPor ejemplo, horno + termo + lavavajillas calentando agua pueden superar fácilmente 4,6 kW.\n\nEn tarifas domésticas 2.0TD puedes contratar una potencia distinta en **P1 (punta)** y **P2 (valle)**. Muchas personas mantienen una potencia más baja en P1 y algo mayor en P2 si cargan un coche eléctrico de madrugada, por ejemplo.\n\nCuando tengas la potencia contratada y el máximo demandado —idealmente de varios meses— puedo ayudarte a estimar una potencia razonable y el ahorro aproximado.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Cuando tenga esos datos, también quiero entender bien los tramos punta, llano y valle para saber si me compensa cambiar hábitos o tarifa.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Perfecto. En España, si tienes una tarifa regulada o una tarifa doméstica con discriminación horaria, suele haber tres periodos de energía: **punta, llano y valle**. No confundas estos periodos de consumo con los dos periodos de potencia, P1 y P2.\n\n## Horarios habituales de punta, llano y valle\n\nDe lunes a viernes no festivos nacionales:\n\n| Periodo | Horario | Suele ser |\n|---|---|---|\n| **Punta** | 10:00–14:00 y 18:00–22:00 | Más caro |\n| **Llano** | 08:00–10:00, 14:00–18:00 y 22:00–00:00 | Precio intermedio |\n| **Valle** | 00:00–08:00 | Más barato |\n\nLos **fines de semana y festivos nacionales**, todas las horas son normalmente **valle**.\n\nEstos horarios se aplican en la península y Baleares para la estructura 2.0TD. En Canarias, Ceuta y Melilla pueden variar.\n\n## Qué aparatos compensa mover\n\nSi tienes precio distinto por periodos, prioriza mover a **valle** o, si no puedes, a **llano**:\n\n- Lavadora, lavavajillas y secadora.\n- Termo eléctrico: programarlo para calentar de madrugada puede ayudar, si el depósito conserva bien el calor.\n- Carga de coche eléctrico.\n- Bomba de piscina.\n- Acumuladores eléctricos o calefacción programable.\n\nPara consumos pequeños —móvil, router, nevera, luces— el cambio de horario suele tener un efecto menor. No conviene poner lavadoras o lavavajillas sin supervisión si el fabricante o el seguro del hogar no recomiendan dejarlos funcionando mientras duermes o no hay nadie en casa.\n\n## Cómo ver si realmente te conviene cambiar hábitos\n\nEn la factura o portal busca el consumo separado por:\n\n- **Energía P1 / Punta**: kWh.\n- **Energía P2 / Llano**: kWh.\n- **Energía P3 / Valle**: kWh.\n\nDespués compara el reparto. Por ejemplo:\n\n| Periodo | Consumo | Lectura |\n|---|---:|---|\n| Punta | 100 kWh | Bastante; hay margen para mover usos |\n| Llano | 80 kWh | Normal |\n| Valle | 40 kWh | Poco; quizá no se aprovechan noches y fines de semana |\n\nSi buena parte de tus kWh está en punta, puedes ahorrar desplazando los aparatos flexibles. Si la mayoría ya está en valle, cambiar hábitos aportará poco y conviene revisar más los precios de tu contrato.\n\n## Ojo: los horarios no garantizan por sí solos el precio\n\nHay dos situaciones distintas:\n\n- **PVPC (mercado regulado):** el precio cambia cada hora. Punta/llano/valle indica principalmente los peajes y cargos, pero el coste final puede variar mucho entre horas.\n- **Mercado libre:** tu contrato puede tener tres precios, uno solo las 24 horas, precios por franjas propios o condiciones distintas. Hay que mirar el precio exacto en €/kWh que aparece en el contrato o factura.\n\nPor eso, antes de cambiar de tarifa, conviene recopilar:\n\n1. Tus kWh en punta, llano y valle.\n2. El precio en €/kWh de cada periodo —o el precio medio real pagado—.\n3. Término de potencia en €/kW día.\n4. Servicios adicionales o descuentos temporales.\n5. Permanencia y condiciones de renovación.\n\nCon esos datos se puede estimar si te interesa una tarifa fija 24 horas, una con discriminación horaria o PVPC, sin decidir solo por publicidad o por el precio de un periodo.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Entonces miraré también el reparto de kWh entre punta, llano y valle; cuando lo tenga, quiero comparar si me saldría mejor una tarifa fija o una indexada.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Buena idea. Cuando tengas los datos, se puede comparar con bastante precisión. Para hacerlo bien, reúne:\n\n- Consumo total y por periodos: **punta, llano y valle**.\n- Precios actuales de energía: €/kWh por periodo o precio medio.\n- Término de potencia: €/kW/día y potencia contratada.\n- Días facturados.\n- Servicios extra (mantenimiento, seguros, etc.).\n- Si tu contrato tiene permanencia, descuentos temporales o penalización por salida.\n\n### Tarifa fija\n\nPagas un precio de energía pactado, normalmente igual las 24 horas o con precios conocidos por franja.\n\n**Ventajas**\n- Facturas más previsibles.\n- Fácil de entender y comparar.\n- Te protege de subidas puntuales del mercado.\n- Puede convenir si consumes bastante en horas caras o no quieres adaptar horarios.\n\n**Inconvenientes**\n- El precio suele incluir un margen de seguridad de la comercializadora.\n- Puedes pagar más que con una indexada en meses de mercado barato.\n- Hay que vigilar revisiones de precio, permanencias y servicios añadidos.\n\n### Tarifa indexada\n\nEl precio de la energía se calcula a partir del mercado mayorista, más peajes/cargos, pérdidas, servicios de ajuste y el margen o cuota de la comercializadora. Puede cambiar por hora o por mes, según contrato.\n\n**Ventajas**\n- Puede salir más barata a medio plazo si el margen es bajo y desplazas consumo a horas económicas.\n- Más transparente si especifica claramente la fórmula y la cuota.\n- Aprovecha mejor el consumo nocturno, fines de semana y horas de mercado barato.\n\n**Inconvenientes**\n- Facturas variables; no hay una cuota mensual totalmente predecible.\n- Algunas ofertas anuncian “precio de mercado” pero añaden margen alto, cuota mensual o conceptos poco claros.\n- Requiere revisar la fórmula, no solo el precio mostrado en publicidad.\n\n### Regla práctica inicial\n\n- Si priorizas **estabilidad y simplicidad**, una fija competitiva sin servicios extra suele ser buena opción.\n- Si puedes asumir variaciones, entiendes el contrato y tienes consumo flexible —coche eléctrico, termo, lavadora/lavavajillas programables, mucho uso nocturno o de fin de semana—, una **indexada con margen bajo** puede tener sentido.\n- Si quieres mercado regulado, el **PVPC** es otra opción distinta de una indexada privada: no suele llevar cuota comercial como algunas indexadas, pero su precio varía y tiene reglas propias.\n\n### Cómo comparar ofertas correctamente\n\nNo compares solo “0,XX €/kWh”. Calcula una estimación anual o mensual:\n\n**Coste de energía ≈ kWh por periodo × precio aplicable**\n\nY añade:\n\n- Potencia: potencia contratada × días × €/kW/día.\n- Cuota mensual fija, si existe.\n- Servicios obligatorios.\n- Impuesto eléctrico, alquiler de contador e IVA.\n\nPara una indexada, pide o busca por escrito:\n\n1. La **fórmula exacta** del precio.\n2. El margen en €/kWh o porcentaje.\n3. La cuota mensual.\n4. Si hay permanencia.\n5. Si el precio se calcula por hora, por cuarto de hora o por promedio mensual.\n6. Si incluye o no excedentes de autoconsumo, si tienes placas.\n\nCuando tengas tus consumos y una o dos ofertas concretas, pásamelos y te ayudo a compararlas en euros, incluyendo los costes que suelen quedar ocultos.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Cuando reúna esos datos, también quiero saber qué tendría que hacer exactamente para cambiarme de compañía y si habría algún corte de luz o coste por hacerlo.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "En España, cambiar de compañía de luz suele ser un trámite sencillo: cambias de **comercializadora**, pero la **distribuidora** y el contador normalmente siguen siendo los mismos. Por eso, en condiciones normales, **no hay corte de luz ni visita técnica**.\n\n## Qué necesitas para cambiarte\n\nNormalmente te pedirán:\n\n- Nombre y DNI/NIE del titular.\n- Dirección del suministro.\n- **CUPS**: código que identifica tu punto de suministro; aparece en la factura.\n- Potencia contratada actual.\n- IBAN para domiciliar los recibos.\n- Una factura reciente, a veces.\n- Si quieres cambiar el titular, documentación adicional.\n\nLa nueva comercializadora suele gestionar la baja administrativa con la anterior. No hace falta llamar a la antigua para “dar de baja” el contrato, salvo que quieras confirmar permanencia, servicios extra o alguna incidencia.\n\n## ¿Habrá corte de luz?\n\n**No**, normalmente no.\n\nEl suministro físico no cambia: los cables, el contador y la distribuidora son los mismos. Solo cambia quién te factura la energía y bajo qué condiciones.\n\nPodría haber una interrupción únicamente si solicitas además cambios técnicos, como modificar potencia, arreglar una instalación o cambiar el contador; y aun así no es lo habitual.\n\n## ¿Tiene coste?\n\nCambiar de comercializadora, por sí mismo, suele ser **gratuito**.\n\nPero revisa antes:\n\n- **Permanencia:** si tu contrato actual tiene permanencia, puede haber penalización por cancelar antes. Debe figurar en el contrato; la penalización no debería superar el perjuicio económico real para la empresa.\n- **Servicios de mantenimiento o seguros:** algunos contratos incluyen mantenimiento eléctrico, asistencia o seguros con condiciones propias. Aunque cambies de compañía, conviene comprobar si se cancelan automáticamente o si debes pedir su baja.\n- **Descuentos condicionados:** puede perderse un descuento promocional, pero eso no es necesariamente una penalización.\n- **Cambio de potencia:** esto es distinto de cambiar de compañía. Bajar o subir potencia puede tener costes regulados y, en algunos casos, requerir gestiones adicionales.\n\n## Plazos habituales\n\nEl cambio suele tardar aproximadamente entre **unos días y tres semanas**, según la fecha de cierre de tu ciclo de facturación y la distribuidora.\n\nRecibirás una última factura de la comercializadora anterior por los días consumidos hasta el cambio, y después empezará a facturarte la nueva.\n\n## Pasos recomendables\n\n1. **Revisa tu contrato actual**\n   - Precio de energía y potencia.\n   - Fecha de renovación.\n   - Permanencia.\n   - Servicios adicionales.\n   - Condiciones de revisión de precios.\n\n2. **Compara el coste completo de las ofertas**\n   No solo el precio anunciado del kWh. Incluye potencia, cuota mensual, servicios, descuentos temporales y permanencia.\n\n3. **Contrata con la nueva comercializadora**\n   Hazlo desde su web, teléfono oficial o un canal verificable. Guarda el resumen de condiciones y la grabación/confirmación contractual.\n\n4. **Confirma qué has contratado**\n   Antes de aceptar, verifica:\n   - Precio de energía y si es fijo, por periodos o indexado.\n   - Precio de potencia.\n   - Cuota mensual.\n   - Duración y revisiones.\n   - Permanencia.\n   - Servicios opcionales marcados por defecto.\n\n5. **Comprueba la primera factura**\n   Verifica las fechas, los kWh, el precio aplicado y que no se haya añadido un servicio no solicitado.\n\n## Precaución importante\n\nNo des tu CUPS, DNI, código SMS ni datos bancarios a comerciales que llamen a puerta o por teléfono sin verificar quiénes son. Si recibes una oferta, pide que te la envíen por escrito y contrata tú mismo desde la web o teléfono oficial de la compañía.\n\nCuando tengas una oferta concreta y tu factura actual, se puede revisar si el ahorro anunciado es real y si hay permanencia o cargos ocultos.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Perfecto, entonces antes de decidir compararé el coste completo y revisaré mi contrato actual; ¿qué datos concretos debo tener a mano para hacer el cambio cuando elija compañía?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para contratar con la nueva comercializadora, normalmente ten a mano esto:\n\n### Datos del titular\n- Nombre y apellidos.\n- DNI/NIE/pasaporte.\n- Teléfono y correo electrónico.\n- Fecha de nacimiento, a veces.\n\n### Datos del suministro\n- Dirección completa.\n- **CUPS**: código de 20–22 caracteres que empieza normalmente por `ES`. Está en la factura.\n- Número de contrato actual, si lo piden.\n- Distribuidora eléctrica, que también aparece en la factura.\n- Potencia contratada actual:\n  - **P1** (punta).\n  - **P2** (valle).\n- Tarifa de acceso, habitualmente **2.0TD** en una vivienda.\n\n### Datos de pago\n- IBAN de la cuenta donde se domiciliarán los recibos.\n- Titular de la cuenta bancaria; idealmente debe coincidir con el titular del contrato o estar autorizado.\n\n### Documentación útil\n- Una factura reciente en PDF o foto legible. Muchas compañías la usan para extraer CUPS, dirección, potencia y distribuidora.\n- Contrato actual o condiciones particulares, para comprobar permanencia y servicios adicionales.\n- Si hay cambio de titular: documento del nuevo titular y, según el caso, autorización o documentación que acredite el uso de la vivienda.\n\n### Decisiones que debes llevar claras antes de aceptar\n\nNo son documentos, pero conviene elegirlos antes:\n\n- Tarifa concreta: fija, por periodos, indexada o PVPC si procede.\n- Potencia que quieres contratar en P1 y P2.\n- Si quieres o no servicios de mantenimiento/urgencias.\n- Factura electrónica o en papel.\n- Fecha o condiciones de inicio, si la oferta las permite.\n\n### Antes de confirmar\n\nPide o descarga el resumen contractual y comprueba:\n\n- Precio de energía en €/kWh, incluyendo si varía por horas o periodos.\n- Precio de potencia en €/kW/día.\n- Cuota mensual de gestión, si existe.\n- Duración, revisiones de precio y renovación.\n- Permanencia y penalización.\n- Servicios extra y su precio.\n- Derecho de desistimiento si contratas a distancia: normalmente **14 días naturales**, salvo excepciones o si solicitas expresamente que el suministro/servicio empiece antes con determinadas condiciones.\n\nNo necesitas dar de baja físicamente la luz ni cambiar el contador: la nueva compañía suele encargarse del cambio administrativo.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Además de esos datos, quiero tener claro si al cambiarme debo avisar yo a la compañía actual para cancelar posibles servicios de mantenimiento o si la nueva gestiona todo automáticamente.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "La nueva comercializadora suele gestionar automáticamente **el cambio del contrato de luz**, pero **no conviene asumir que cancelará los servicios adicionales** de la compañía anterior.\n\n### Lo que normalmente se cancela solo\n\nAl completar el cambio, la comercializadora anterior deja de facturarte el suministro eléctrico desde la fecha efectiva de cambio. Recibirás una última factura por el consumo pendiente.\n\nNo tienes que solicitar la baja del suministro ni dar de baja el contador.\n\n### Lo que debes comprobar y, normalmente, cancelar tú\n\nRevisa si tu factura o contrato incluye conceptos como:\n\n- Mantenimiento eléctrico.\n- Reparaciones o asistencia urgente.\n- Protección de pagos.\n- Seguro de electrodomésticos.\n- Servicio de caldera, gas o climatización.\n- Cuotas tipo “Servicio X”, “Asistencia X”, “Mantenimiento X”.\n\nEstos servicios pueden ser contratos independientes o tener condiciones de baja propias. A veces siguen activos y se siguen cobrando —incluso tras cambiar de comercializadora— si no solicitas expresamente su cancelación.\n\n### Qué hacer antes de cambiar\n\n1. **Mira la factura y el contrato actual**  \n   Busca “servicios”, “otros conceptos”, “mantenimiento”, “asistencia” o “seguros”.\n\n2. **Consulta las condiciones de baja**  \n   Comprueba si hay permanencia, plazo de preaviso, renovación automática o cobro anual anticipado.\n\n3. **Pide la cancelación por un canal que deje prueba**  \n   Mejor por área de cliente, correo electrónico, formulario web o número de referencia de llamada. Indica claramente:\n   - El servicio concreto que quieres cancelar.\n   - Tu nombre, DNI y CUPS o número de contrato.\n   - La fecha desde la que solicitas la baja.\n   - Que deseas confirmación escrita.\n\n4. **No pidas “baja del suministro” si solo quieres cambiar de compañía**  \n   Solicita únicamente la baja del servicio extra. Dar de baja el suministro sí puede implicar corte y costes de alta posteriores.\n\n5. **Guarda la confirmación y revisa las siguientes facturas**  \n   La última factura puede incluir una parte proporcional o un importe pendiente según el contrato, pero no deberían seguir cobrando cuotas futuras si la baja se ha hecho correctamente.\n\nEn resumen: la nueva compañía gestiona el cambio de luz; los mantenimientos, seguros y servicios adicionales debes revisarlos y, si no los quieres, cancelarlos expresamente con la empresa que los presta.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 522,
+      "prompt_tokens": 29,
+      "total_tokens": 551,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 57,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 178,
+        "engine_ttlt_ms": 5668,
+        "pre_inference_ms": 74,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 614,
+        "service_ttlt_ms": 6100,
+        "user_visible_ttft_ms": 540
+      }
+    },
+    {
+      "completion_tokens": 734,
+      "prompt_tokens": 529,
+      "total_tokens": 1263,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 8,
+        "engine_ttft_ms": 140,
+        "engine_ttlt_ms": 6266,
+        "pre_inference_ms": 72,
+        "service_tbt_ms": 8,
+        "service_ttft_ms": 1120,
+        "service_ttlt_ms": 7233,
+        "user_visible_ttft_ms": 1048
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 1298,
+      "total_tokens": 2322,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 1295
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 134,
+        "engine_ttlt_ms": 9587,
+        "pre_inference_ms": 72,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1109,
+        "service_ttlt_ms": 10543,
+        "user_visible_ttft_ms": 1037
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 1349,
+      "total_tokens": 2373,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1295,
+        "cache_write_tokens": 51
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 122,
+        "engine_ttlt_ms": 10125,
+        "pre_inference_ms": 88,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1123,
+        "service_ttlt_ms": 11108,
+        "user_visible_ttft_ms": 1036
+      }
+    },
+    {
+      "completion_tokens": 740,
+      "prompt_tokens": 1429,
+      "total_tokens": 2169,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 51,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1346,
+        "cache_write_tokens": 80
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 187,
+        "engine_ttlt_ms": 8038,
+        "pre_inference_ms": 95,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1310,
+        "service_ttlt_ms": 9029,
+        "user_visible_ttft_ms": 1215
+      }
+    },
+    {
+      "completion_tokens": 815,
+      "prompt_tokens": 2147,
+      "total_tokens": 2962,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1426,
+        "cache_write_tokens": 718
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 424,
+        "engine_ttlt_ms": 7699,
+        "pre_inference_ms": 83,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1401,
+        "service_ttlt_ms": 8672,
+        "user_visible_ttft_ms": 1318
+      }
+    },
+    {
+      "completion_tokens": 738,
+      "prompt_tokens": 3005,
+      "total_tokens": 3743,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2144,
+        "cache_write_tokens": 858
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 136,
+        "engine_ttlt_ms": 7059,
+        "pre_inference_ms": 91,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1121,
+        "service_ttlt_ms": 8023,
+        "user_visible_ttft_ms": 1030
+      }
+    },
+    {
+      "completion_tokens": 888,
+      "prompt_tokens": 3780,
+      "total_tokens": 4668,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 48,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3002,
+        "cache_write_tokens": 775
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 144,
+        "engine_ttlt_ms": 8487,
+        "pre_inference_ms": 91,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1123,
+        "service_ttlt_ms": 9461,
+        "user_visible_ttft_ms": 1032
+      }
+    },
+    {
+      "completion_tokens": 509,
+      "prompt_tokens": 4657,
+      "total_tokens": 5166,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3777,
+        "cache_write_tokens": 877
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 117,
+        "engine_ttlt_ms": 5063,
+        "pre_inference_ms": 120,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 621,
+        "service_ttlt_ms": 5562,
+        "user_visible_ttft_ms": 501
+      }
+    },
+    {
+      "completion_tokens": 563,
+      "prompt_tokens": 5207,
+      "total_tokens": 5770,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 44,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 4654,
+        "cache_write_tokens": 550
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 146,
+        "engine_ttlt_ms": 5772,
+        "pre_inference_ms": 87,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1129,
+        "service_ttlt_ms": 6751,
+        "user_visible_ttft_ms": 1042
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 7570.489808014827
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 8938.860662019579
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12076.748905994464
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12896.223730989732
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 10642.174748994876
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 10634.29958402412
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 10942.459219018929
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 11679.97426301008
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 7231.3585660012905
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 9184.967996989144
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3321.2415619927924
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2937.709299993003
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3207.785517006414
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2761.3507049973123
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2924.634238006547
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3084.3623430118896
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3201.909491996048
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3537.941739021335
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3415.737461997196
+    }
+  ]
+}

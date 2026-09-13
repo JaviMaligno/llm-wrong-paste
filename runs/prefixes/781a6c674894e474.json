@@ -1,0 +1,489 @@
+{
+  "prefix_id": "781a6c674894e474",
+  "topic_id": "huerto-balcon",
+  "n_turns": 10,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Quiero montar un pequeño huerto en el balcón, que da al norte y no le llega mucho sol.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "Un balcón orientado al norte puede funcionar muy bien para un huerto, pero conviene enfocarlo en plantas que toleren **sombra o semisombra**. Con poca luz será difícil obtener tomates, pimientos, calabacines o fresas abundantes, porque necesitan muchas horas de sol directo.\n\n### Cultivos adecuados para poco sol\n\n**Muy recomendables**\n- Lechugas y mezclas de hojas.\n- Rúcula.\n- Espinaca.\n- Acelga.\n- Canónigos.\n- Berros.\n- Endivias y escarolas.\n- Kale o col rizada.\n- Pak choi y otras coles asiáticas.\n- Rabanitos: pueden salir algo más lentos, pero suelen funcionar.\n- Cebollino y cebolletas.\n\n**Aromáticas que aguantan semisombra**\n- Perejil.\n- Cilantro.\n- Menta *(mejor en maceta propia, invade mucho)*.\n- Cebollino.\n- Perifollo.\n- Melisa.\n- Hierbabuena.\n\nLa albahaca, el romero, el tomillo, la lavanda y el orégano prefieren bastante más sol, aunque podrían sobrevivir si reciben algo de luz directa.\n\n### Cómo montarlo\n\n1. **Calcula la luz real**  \n   Mira cuántas horas de sol directo recibe en primavera/verano.  \n   - Menos de 2 horas: prioriza hojas y aromáticas de sombra.  \n   - Entre 2 y 4 horas: añade rabanitos, acelgas, pak choi o cebolletas.\n\n2. **Usa recipientes con drenaje**  \n   - Jardineras de al menos 15–20 cm de profundidad para lechugas y aromáticas.\n   - Macetas de 25–30 cm para acelgas, kale o coles.\n   - Siempre con agujeros abajo y un plato que no mantenga agua acumulada.\n\n3. **Elige buen sustrato**  \n   Usa sustrato para huerto urbano o universal de calidad, mezclado con un 20–30 % de compost o humus de lombriz. No hace falta poner una capa de piedras en el fondo: ocupa espacio y no mejora realmente el drenaje.\n\n4. **Riega con moderación**  \n   En balcones norteños el sustrato tarda más en secarse. Comprueba con un dedo los primeros 2–3 cm: riega solo cuando estén secos. El exceso de agua es uno de los problemas más comunes.\n\n5. **Aprovecha la luz disponible**  \n   Coloca las macetas en la zona más exterior y luminosa del balcón, evitando que queden detrás de barandillas opacas, muebles o plantas grandes. Las paredes claras ayudan a reflejar algo de luz.\n\n6. **Siembra de forma escalonada**  \n   En vez de sembrar toda la lechuga o rúcula de golpe, siembra pequeñas cantidades cada 2–3 semanas. Así tendrás hojas para cortar durante más tiempo.\n\n### Propuesta sencilla para empezar\n\nCon tres jardineras podrías poner:\n\n- **Jardinera 1:** lechugas variadas + rúcula.  \n- **Jardinera 2:** espinacas o acelgas + rabanitos entre medias.  \n- **Jardinera 3:** perejil, cebollino, cilantro y menta en una maceta aparte.\n\nEs un huerto fácil, productivo y adaptado a la poca luz. Antes de llenar muchas macetas, revisa también el peso que soporta el balcón: el sustrato mojado pesa bastante.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Qué plantas de esas me conviene empezar a sembrar ahora y qué tamaño de maceta necesitaría para cada una?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Si estás en España o en el hemisferio norte, **septiembre es muy buen momento** para empezar un huerto de hojas en un balcón orientado al norte: bajan las temperaturas y muchas plantas tolerantes a semisombra crecen mejor que en pleno verano.\n\n### Qué sembrar ahora\n\n| Planta | ¿Sembrar ahora? | Maceta mínima | Profundidad / separación | Nota |\n|---|---:|---:|---|---|\n| **Lechuga** | Sí | 15–20 cm de profundidad | 20–25 cm entre plantas | Muy recomendable. Puedes cortar hojas jóvenes sin arrancarla. |\n| **Rúcula** | Sí | 15 cm de profundidad | 10–15 cm | Crece rápido y se adapta bien a poca luz. |\n| **Espinaca** | Sí, ideal | 20 cm de profundidad | 10–15 cm | Prefiere fresco; muy adecuada para otoño. |\n| **Acelga** | Sí | 25–30 cm de profundidad, 20–25 L | 25–30 cm | Productiva durante meses; mejor una planta por maceta mediana. |\n| **Canónigos** | Sí | 12–15 cm de profundidad | 8–10 cm | Perfectos para otoño e invierno. |\n| **Pak choi** | Sí | 20–25 cm de profundidad | 20–25 cm | Crece relativamente rápido si no hace demasiado frío. |\n| **Rabanitos** | Sí | 15–20 cm de profundidad | 5–8 cm | Mejor si reciben algo de luz; con mucha sombra pueden dar más hoja que raíz. |\n| **Cebolletas** | Sí | 15–20 cm de profundidad | 5–8 cm | Fáciles y compactas. |\n| **Perejil** | Sí, aunque lento | 20 cm de profundidad | 15–20 cm | Germina despacio: puede tardar 2–4 semanas. |\n| **Cilantro** | Sí | 20–25 cm de profundidad | 10–15 cm | No le gusta mucho el trasplante; siembra directamente donde vaya a crecer. |\n| **Cebollino** | Sí | 15–20 cm de profundidad | Una mata por maceta de 15 cm | Puedes sembrarlo, aunque es más rápido comprar una planta. |\n\n### Mejor combinación para empezar sin complicarte\n\nCon poco sol, elegiría estas tres opciones:\n\n1. **Jardinera de lechugas y rúcula**  \n   - Tamaño: 60 cm de largo × 20 cm de ancho × 20 cm de fondo.  \n   - Siembra rúcula en una mitad y lechugas en la otra.  \n   - Puedes cosechar hojas poco a poco.\n\n2. **Jardinera de espinaca y canónigos**  \n   - Tamaño: mínimo 40–60 cm de largo × 15–20 cm de fondo.  \n   - Son cultivos ideales para el fresco y la semisombra.\n\n3. **Maceta de acelga**  \n   - Tamaño: 25–30 cm de diámetro y profundidad, unos 20–25 litros.  \n   - Pon una sola acelga por maceta. Produce hojas durante bastante tiempo.\n\nComo complemento, una maceta pequeña de **perejil o cebollino** de unos 15–20 cm de diámetro funciona muy bien.\n\n### Si vas a sembrar desde semilla\n\n- Usa sustrato de huerto o universal ligero y añade un poco de humus de lombriz.\n- Siembra poco profundo: normalmente basta con cubrir las semillas con una capa fina de sustrato, de 0,5 a 1 cm.\n- Mantén el sustrato húmedo, pero no encharcado.\n- Cuando salgan demasiadas plántulas juntas, aclara: deja las más fuertes con la separación indicada.\n- En un balcón norte, coloca las macetas en el borde más luminoso y evita rincones pegados a la pared.\n\n### Mejor comprar como plantel\n\nSi quieres resultados rápidos, conviene comprar plantel de:\n\n- Lechuga.\n- Acelga.\n- Perejil.\n- Cebollino.\n- Pak choi.\n\nEn cambio, **rúcula, espinaca, canónigos, rabanitos y cilantro** suelen ser muy fáciles y económicos de sembrar directamente.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Entonces empezaré con rúcula, espinaca y canónigos desde semilla, y quizá una acelga ya en plantel. ¿Cada cuánto tendría que regarlos en un balcón norte para no encharcarlos?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "En un balcón al norte, lo más importante es **no regar por calendario fijo**, porque el sustrato seca más lentamente. La regla práctica es:\n\n- Mete un dedo 2–3 cm en la tierra.\n- **Si está aún fresca o se pega al dedo, no riegues.**\n- **Si esa capa está seca, riega despacio hasta que salga un poco de agua por debajo.**\n\nDespués, vacía el plato si queda agua acumulada pasados unos 10–15 minutos.\n\n### Frecuencia orientativa\n\nDepende de temperatura, viento, tamaño de la maceta y lluvia, pero como referencia:\n\n| Situación | Riego aproximado |\n|---|---|\n| Recién sembradas rúcula, espinaca y canónigos | Revisar a diario; riegos muy ligeros cuando se seque la superficie |\n| Otoño templado | Cada 3–5 días aproximadamente |\n| Días fríos, nublados o lluviosos | Cada 5–10 días, a veces menos |\n| Primavera suave | Cada 2–4 días |\n| Verano o días de mucho viento | Puede hacer falta cada 1–2 días, aunque en orientación norte suele ser menos frecuente |\n| Acelga en maceta | Algo más de agua que los canónigos, pero solo cuando los primeros 2–3 cm estén secos |\n\n### Diferencia entre semillas y plantas ya crecidas\n\n- **Mientras germinan las semillas:** la capa superior no debe secarse del todo. Riega con pulverizador o una regadera de lluvia fina, en poca cantidad, para no desplazar semillas ni compactar el sustrato. Puede significar humedecer ligeramente cada día o cada dos días.\n- **Cuando ya tienen varias hojas:** deja que se seque ligeramente la superficie antes de volver a regar. Así las raíces buscarán humedad hacia abajo y la planta será más resistente.\n- **Acelga de plantel:** durante la primera semana tras trasplantarla, vigila más el sustrato; después aplica la misma comprobación con el dedo.\n\n### Señales útiles\n\n**Exceso de agua**\n- Tierra constantemente oscura y pesada.\n- Hojas amarillas o blandas.\n- Mosquitas pequeñas alrededor del sustrato.\n- Olor desagradable o moho en la superficie.\n\n**Falta de agua**\n- Hojas decaídas, finas o lacias.\n- Sustrato separado de los bordes de la maceta.\n- Tierra clara y seca varios centímetros hacia abajo.\n\nConviene regar preferiblemente por la mañana y directamente sobre el sustrato, no sobre las hojas. Para tus cultivos, es mejor quedarse un poco corto y revisar al día siguiente que mantener siempre la tierra empapada.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Y qué sustrato y abono me recomiendas comprar para esas semillas y la acelga, sin complicarme demasiado?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para no complicarte, compra solo **dos cosas**:\n\n1. **Sustrato para huerto urbano / hortalizas**  \n   Busca una bolsa que ponga “huerto urbano”, “hortalizas” o “sustrato ecológico para cultivo”. Debe ser ligero y tener buen drenaje.\n\n2. **Humus de lombriz**  \n   Es un abono suave, difícil de sobredosificar y adecuado tanto para semillas como para la acelga.\n\n### Mezcla sencilla\n\nPara llenar las macetas:\n\n- **80 % sustrato para huerto urbano**\n- **20 % humus de lombriz**\n\nPor ejemplo, por cada 10 litros de sustrato, añade unos 2 litros de humus. Mézclalo antes de plantar.\n\nPara las semillas de rúcula, espinaca y canónigos, esa mezcla sirve perfectamente. Si quieres hilar fino, deja los **1–2 cm superiores con sustrato sin humus**, porque las semillas germinan mejor en una capa más fina y uniforme, pero no es imprescindible.\n\n### Para la acelga de plantel\n\nPlántala en la misma mezcla. Tras trasplantarla:\n\n- Riega bien una vez para asentar el sustrato.\n- No añadas más abono durante unas 3–4 semanas.\n- Luego puedes poner una capa fina de humus, de aproximadamente **1 cm**, sobre la superficie cada 4–6 semanas durante la temporada de crecimiento.\n\nNo hace falta usar fertilizante líquido al principio. En un balcón con poco sol, abonar demasiado puede producir hojas blandas y favorecer problemas de humedad.\n\n### Qué evitar comprar\n\nNo necesitas, de momento:\n\n- Bolas de arcilla o piedras para el fondo de las macetas.\n- Fertilizantes “universales” fuertes o de liberación rápida.\n- Estiércol fresco.\n- Turba sola.\n- Tierra de jardín: se compacta y puede traer malas hierbas o plagas.\n\nAsegúrate simplemente de que las macetas tengan agujeros de drenaje. Si el sustrato que compras ya contiene abono, puedes usarlo tal cual para sembrar y reservar el humus para añadirlo más adelante.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Y para organizarme, en qué época del año me convendría ir sembrando de nuevo rúcula, espinaca y canónigos, y cuándo sería mejor poner otra acelga?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Me lo puedes ordenar por estaciones para un balcón norte? También me interesa saber cada cuánto hacer siembras escalonadas para tener hojas durante más tiempo.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Me lo podrías ordenar por estaciones para mi balcón norte e indicarme cada cuántas semanas repetir las siembras de rúcula, espinaca y canónigos para ir cosechando hojas durante más tiempo? También quiero saber en qué época conviene sustituir o plantar otra acelga.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Podrías ordenármelo por estaciones para un balcón norte e indicarme cada cuántas semanas repetir las siembras de rúcula, espinaca y canónigos para cosechar durante más tiempo? También quiero saber cuándo conviene sustituir o plantar otra acelga.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Y en verano, aunque el balcón sea norte, crees que rúcula y espinaca aguantarían o conviene parar las siembras hasta que refresque?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "En verano, un balcón norte ayuda bastante, pero depende más de la **temperatura real** que de la orientación.\n\n### Rúcula\nPuede aguantar el verano en semisombra, especialmente si no recibe sol directo fuerte y el balcón es fresco.\n\n- **Sí puedes sembrarla** si las temperaturas habituales están por debajo de unos **28–30 ºC**.\n- Con calor, crecerá más rápido y tenderá a **espigarse** (sacar tallo floral), y las hojas pueden volverse más picantes.\n- Haz siembras pequeñas cada **2–3 semanas**, en vez de llenar una jardinera entera.\n- Mantén el sustrato ligeramente húmedo, sin encharcar, y corta hojas jóvenes con frecuencia.\n\nSi hay olas de calor persistentes, puede ser mejor parar y retomarla a finales de agosto o en septiembre.\n\n### Espinaca\nLa espinaca es bastante menos adecuada para el verano.\n\n- Con temperaturas por encima de **20–25 ºC** suele germinar peor, crecer poco y espigarse pronto.\n- En un norte muy fresco, con noches suaves y sin calor sostenido, podrías probar una siembra pequeña, pero no esperes mucha producción.\n- En la mayoría de climas, conviene **dejar de sembrarla desde finales de primavera** y retomarla entre **finales de agosto y octubre**.\n\nSi ya tienes espinacas creciendo al empezar el calor, aprovecha las hojas mientras duren; cuando empiecen a sacar un tallo central alto, es mejor retirarlas y sustituirlas.\n\n### Canónigos\nLos canónigos son claramente de tiempo fresco.\n\n- No es recomendable sembrarlos en verano, incluso en balcón norte.\n- Espera a que bajen las temperaturas: normalmente **septiembre–octubre**, o finales de agosto en zonas frescas.\n- Germinan y crecen mucho mejor con tiempo fresco.\n\n### Acelga\nLa acelga suele ser la más resistente de las cuatro.\n\n- Puede mantenerse en verano en un balcón norte si no le falta agua.\n- Agradece algo de sombra y suele seguir dando hojas, aunque más despacio durante periodos de mucho calor.\n- Si una acelga se pone muy grande, amarga, tiene plagas recurrentes o empieza a espigar, puedes sustituirla; la mejor época para plantar una nueva suele ser **final de verano, otoño temprano o primavera**.\n\n### Resumen práctico de verano\n\n| Cultivo | ¿Sembrar en verano en balcón norte? |\n|---|---|\n| Rúcula | Sí, en tandas pequeñas, salvo calor intenso sostenido |\n| Espinaca | Mejor no; retomar al refrescar |\n| Canónigos | No; esperar a finales de verano/otoño |\n| Acelga | Sí puede mantenerse; plantar mejor en primavera o final de verano |\n\nPara ocupar el hueco de la espinaca y los canónigos en verano, puedes dedicar alguna maceta a **acelga**, **lechugas resistentes al calor** o **albahaca** si tu balcón recibe algunas horas de luz indirecta muy intensa.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Entonces en verano probaré solo tandas pequeñas de rúcula si no aprieta demasiado el calor. ¿Me puedes dejar un calendario por estaciones para repetir rúcula, espinaca y canónigos, y para saber cuándo renovar la acelga?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 841,
+      "prompt_tokens": 29,
+      "total_tokens": 870,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 69,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 262,
+        "engine_ttlt_ms": 8842,
+        "pre_inference_ms": 60,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1181,
+        "service_ttlt_ms": 9757,
+        "user_visible_ttft_ms": 1121
+      }
+    },
+    {
+      "completion_tokens": 1020,
+      "prompt_tokens": 825,
+      "total_tokens": 1845,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 80,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 240,
+        "engine_ttlt_ms": 9228,
+        "pre_inference_ms": 70,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 834,
+        "service_ttlt_ms": 9800,
+        "user_visible_ttft_ms": 763
+      }
+    },
+    {
+      "completion_tokens": 659,
+      "prompt_tokens": 1812,
+      "total_tokens": 2471,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 70,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 1809
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 150,
+        "engine_ttlt_ms": 6509,
+        "pre_inference_ms": 68,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1370,
+        "service_ttlt_ms": 7724,
+        "user_visible_ttft_ms": 1302
+      }
+    },
+    {
+      "completion_tokens": 462,
+      "prompt_tokens": 2428,
+      "total_tokens": 2890,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1809,
+        "cache_write_tokens": 616
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 441,
+        "engine_ttlt_ms": 4735,
+        "pre_inference_ms": 84,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1682,
+        "service_ttlt_ms": 5972,
+        "user_visible_ttft_ms": 1598
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 2936,
+      "total_tokens": 3960,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2425,
+        "cache_write_tokens": 508
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 198,
+        "engine_ttlt_ms": 9731,
+        "pre_inference_ms": 76,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 927,
+        "service_ttlt_ms": 10441,
+        "user_visible_ttft_ms": 851
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 2979,
+      "total_tokens": 4003,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2933,
+        "cache_write_tokens": 43
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 148,
+        "engine_ttlt_ms": 10201,
+        "pre_inference_ms": 81,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1366,
+        "service_ttlt_ms": 11415,
+        "user_visible_ttft_ms": 1285
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 3052,
+      "total_tokens": 4076,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2976,
+        "cache_write_tokens": 73
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 145,
+        "engine_ttlt_ms": 9676,
+        "pre_inference_ms": 87,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 885,
+        "service_ttlt_ms": 10412,
+        "user_visible_ttft_ms": 798
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 3121,
+      "total_tokens": 4145,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3049,
+        "cache_write_tokens": 69
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 176,
+        "engine_ttlt_ms": 9168,
+        "pre_inference_ms": 90,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 899,
+        "service_ttlt_ms": 9887,
+        "user_visible_ttft_ms": 810
+      }
+    },
+    {
+      "completion_tokens": 730,
+      "prompt_tokens": 3168,
+      "total_tokens": 3898,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 66,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3118,
+        "cache_write_tokens": 47
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 175,
+        "engine_ttlt_ms": 7344,
+        "pre_inference_ms": 73,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 875,
+        "service_ttlt_ms": 8039,
+        "user_visible_ttft_ms": 802
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 3882,
+      "total_tokens": 4906,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3165,
+        "cache_write_tokens": 714
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 151,
+        "engine_ttlt_ms": 9368,
+        "pre_inference_ms": 87,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1388,
+        "service_ttlt_ms": 10601,
+        "user_visible_ttft_ms": 1301
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 11263.882578001358
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 11805.902249994688
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 9363.629961997503
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 7800.9826829948
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12105.021795985522
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13108.989755011862
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12195.831201999681
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 11762.458739016438
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 9841.227886994602
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12456.94070198806
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3642.6081139943562
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 4084.2877659888472
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3636.7270440096036
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3211.229207983706
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3364.7640500275884
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3661.982716002967
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3447.765421005897
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3066.6171020129696
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 4009.831089992076
+    }
+  ]
+}

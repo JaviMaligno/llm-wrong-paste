@@ -1,0 +1,105 @@
+{
+  "prefix_id": "25f65120b504b2ef",
+  "topic_id": "carrera-10k",
+  "n_turns": 2,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Me he apuntado a una carrera de 10 kilómetros en abril y llevo años sin correr en serio.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "¡Buen objetivo! Con varios meses hasta abril puedes llegar a los 10 km con seguridad, incluso si llevas años sin correr, siempre que progreses poco a poco.\n\n### Antes de empezar\nSi tienes dolor en el pecho, problemas cardiacos/respiratorios, hipertensión no controlada, lesiones importantes previas, o llevas mucho tiempo completamente sedentario, conviene consultar antes con un profesional sanitario.\n\nTambién ayuda contar con zapatillas cómodas de running, sin necesidad de que sean las más caras.\n\n## Primeras 6 semanas: crear hábito\nHaz **3 sesiones por semana**, dejando al menos un día de descanso entre ellas. El ritmo debe permitirte hablar con frases cortas; no busques velocidad.\n\n**Semanas 1–2**\n- 5 min caminando para calentar.\n- Alterna **1 min corriendo suave + 2 min caminando**, 8 veces.\n- 5 min caminando para terminar.\n- Total: unos 30 min.\n\n**Semanas 3–4**\n- 5 min caminando.\n- Alterna **2 min corriendo + 2 min caminando**, 7–8 veces.\n- 5 min caminando.\n- Total: 35–40 min.\n\n**Semanas 5–6**\n- 5 min caminando.\n- Alterna **4 min corriendo + 2 min caminando**, 6 veces.\n- Intenta que una de las sesiones semanales sea un poco más larga, sin aumentar mucho la intensidad.\n\nNo pasa nada por repetir una semana si te cuesta. De hecho, es preferible a acelerar y lesionarte.\n\n## Después: camino hacia los 10 km\nCuando puedas correr aproximadamente **30 minutos seguidos** a ritmo fácil, mantén tres días semanales:\n\n1. **Rodaje fácil corto:** 30–45 min muy suaves.  \n2. **Rodaje fácil o con cambios suaves:** por ejemplo, 10 min suaves + 4–6 bloques de 2 min algo más alegres / 2 min suaves + enfriamiento.  \n3. **Tirada larga suave:** aumenta poco a poco desde 5–6 km hasta 8–9 km antes de la carrera.\n\nRegla útil: no aumentes el volumen semanal más de aproximadamente un **10 %**, y cada 3–4 semanas haz una semana algo más ligera.\n\n## Fuerza: muy recomendable\nDos días por semana, 15–25 minutos, pueden reducir bastante el riesgo de lesión. Haz ejercicios sencillos:\n\n- Sentadillas o levantarte de una silla.\n- Zancadas cortas.\n- Puente de glúteos.\n- Elevaciones de gemelos.\n- Plancha.\n- Trabajo de equilibrio a una pierna.\n\nCon 2–3 series de 8–12 repeticiones basta al principio.\n\n## Señales para bajar el ritmo\nPara y descansa si aparece dolor agudo, cojera, dolor que empeora durante la carrera o que no mejora en 48–72 horas. La fatiga muscular leve es normal; el dolor articular persistente no.\n\n## Objetivo realista para la carrera\nTu primer objetivo debería ser **terminar cómodo**, no hacer una marca concreta. El día de la prueba puedes usar la estrategia de correr-caminar, por ejemplo 9 min corriendo y 1 min caminando, desde el inicio. Es completamente válido y suele ayudar a acabar más fuerte.\n\nSi me dices cuánto puedes caminar o correr ahora mismo, tu edad aproximada y cuántos días a la semana puedes entrenar, puedo proponerte un plan semanal más ajustado hasta abril.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Ahora mismo, ¿cuántos días por semana crees que puedo entrenar sin pasarme, y cómo debería aumentar los kilómetros para no lesionarme?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Si llevas años sin correr en serio, empezaría con **3 días de carrera por semana**. Es la frecuencia más segura y eficaz para mejorar sin acumular demasiada carga.\n\nPuedes añadir 1–2 días de actividad suave entre medias —caminar, bici tranquila, elíptica o fuerza—, pero no hace falta correr más días al principio.\n\n### Distribución recomendada\nPor ejemplo:\n\n- **Lunes:** correr/caminar suave  \n- **Miércoles:** correr/caminar suave  \n- **Sábado o domingo:** sesión algo más larga y muy tranquila  \n- **2 días opcionales:** fuerza ligera o caminar  \n- **Al menos 1 día:** descanso real\n\nEvita correr dos días seguidos durante las primeras 4–6 semanas si notas mucha fatiga, agujetas intensas o molestias.\n\n## Cómo aumentar sin lesionarte\n\n### 1. Prioriza aumentar el tiempo, no los kilómetros\nAl principio el ritmo cambia mucho, así que es más seguro planificar por minutos. Por ejemplo, si haces 25–30 minutos por sesión, intenta mantener esa duración durante 1–2 semanas antes de añadir tiempo.\n\nCuando corras de forma continua, los kilómetros empezarán a aumentar naturalmente.\n\n### 2. Sube como máximo un 5–10 % semanal\nCuenta todos los kilómetros corridos de la semana. Si esta semana haces, por ejemplo, **9 km en total**, la siguiente no pases de aproximadamente **9,5–10 km**.\n\nSi vienes de cero, incluso mejor ir más despacio: añade solo **0,5–1 km total por semana**, o 5 minutos a una única sesión.\n\n### 3. Solo aumenta una cosa cada vez\nNo incrementes a la vez:\n- los kilómetros,\n- el número de días,\n- la velocidad,\n- y las cuestas.\n\nPor ejemplo: si esta semana alargas la tirada del domingo, mantén las otras sesiones igual de fáciles. La velocidad puede esperar; para un primer 10K, la base aeróbica importa mucho más.\n\n### 4. Haz semanas de descarga\nCada **3 semanas de progresión**, realiza una semana con un **20–30 % menos de volumen**. Te ayuda a asimilar el entrenamiento y reduce el riesgo de sobrecargas.\n\nEjemplo de volumen total semanal:\n\n| Semana | Total aproximado |\n|---|---:|\n| 1 | 7 km |\n| 2 | 8 km |\n| 3 | 9 km |\n| 4 | 6–7 km (descarga) |\n| 5 | 9–10 km |\n| 6 | 10–11 km |\n| 7 | 11–12 km |\n| 8 | 8–9 km (descarga) |\n\nSon cifras orientativas: si todavía haces correr-caminar, usa sobre todo el tiempo como referencia.\n\n### 5. La tirada larga no debe ser demasiado grande\nLa sesión más larga de la semana debería representar aproximadamente un **25–35 % de tus kilómetros semanales**.\n\nPor ejemplo, con 15 km semanales, una tirada larga razonable sería de 4–5 km, no de 8 km. A medida que avances, esa salida larga podrá crecer gradualmente hasta 8–9 km antes de la carrera.\n\n## Cuándo pasar de 3 a 4 días\nNo lo haría hasta que puedas cumplir durante al menos **4–6 semanas**:\n- 3 sesiones semanales sin dolor persistente;\n- recuperación razonable al día siguiente;\n- capacidad de correr unos 30–40 minutos suaves;\n- sin que la tirada larga te deje agotado varios días.\n\nY, al añadir un cuarto día, que sea muy corto y fácil: 20–30 minutos suaves, no otra sesión intensa.\n\n## Regla práctica de intensidad\nAproximadamente el **80–90 % de tus entrenamientos deben sentirse fáciles**: debes poder mantener una conversación. Si cada salida te deja sin aliento, estás corriendo demasiado rápido para la fase en la que estás.\n\nSi aparece dolor puntual o que cambia tu forma de correr, para; si dura más de 48–72 horas o empeora, reduce carga y valora consultarlo.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 845,
+      "prompt_tokens": 27,
+      "total_tokens": 872,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 91,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 128,
+        "engine_ttlt_ms": 8660,
+        "pre_inference_ms": 72,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1045,
+        "service_ttlt_ms": 9573,
+        "user_visible_ttft_ms": 973
+      }
+    },
+    {
+      "completion_tokens": 969,
+      "prompt_tokens": 812,
+      "total_tokens": 1781,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 82,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 147,
+        "engine_ttlt_ms": 8976,
+        "pre_inference_ms": 63,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1107,
+        "service_ttlt_ms": 9926,
+        "user_visible_ttft_ms": 1044
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13141.6317980038
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 11801.96085901116
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3011.359353986336
+    }
+  ]
+}

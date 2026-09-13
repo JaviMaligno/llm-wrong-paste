@@ -1,0 +1,105 @@
+{
+  "prefix_id": "76adab2b530051b3",
+  "topic_id": "viaje-japon",
+  "n_turns": 2,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Estamos planeando dos semanas en Japón en primavera y no tengo ni idea de por dónde empezar.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Tú cuántas ciudades meterías en dos semanas para disfrutar sin pasarnos el viaje corriendo de un sitio a otro?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para **dos semanas en Japón**, intentaría quedarme en **4–5 bases como máximo**. Es el punto ideal para ver bastante sin convertir el viaje en una sucesión de maletas, estaciones y check-ins.\n\nUna distribución muy equilibrada sería:\n\n1. **Tokio — 4–5 noches**  \n   Ciudad enorme, con barrios muy distintos, excursiones fáciles y tiempo para recuperarse del vuelo.\n\n2. **Kioto — 4 noches**  \n   Templos, barrios tradicionales, mercados y paseos. Desde aquí podéis hacer una excursión a **Nara** sin cambiar de hotel.\n\n3. **Osaka — 2–3 noches**  \n   Comida, ambiente nocturno y una energía muy distinta a Kioto. También puede hacerse como excursión desde Kioto, pero dormir alguna noche allí tiene gracia.\n\n4. **Hiroshima — 1–2 noches**  \n   Especialmente recomendable si queréis visitar **Miyajima** con calma. Si no os atrae tanto, podéis sustituirla por más noches en Tokio/Kioto.\n\n5. **Una zona más tranquila o de naturaleza — 1–2 noches**  \n   Por ejemplo:\n   - **Hakone**: ryokan, onsen y vistas del Fuji, entre Tokio y Kioto.\n   - **Kanazawa**: jardines, casas de samuráis, artesanía y un ritmo más relajado.\n   - **Kawaguchiko/Fuji Five Lakes**: para priorizar vistas del monte Fuji.\n   - **Kinosaki Onsen**: pueblo termal tradicional, ideal para una noche especial.\n\nUna ruta muy cómoda podría ser:\n\n- Tokio: **5 noches**\n- Hakone: **1 noche**\n- Kioto: **4 noches**\n- Osaka: **2 noches**\n- Hiroshima/Miyajima: **2 noches**\n\nTotal: **14 noches**, con cinco alojamientos. Si preferís aún menos cambios, eliminaría Osaka como base y haría excursiones desde Kioto, quedando en **4 alojamientos**.\n\nMi recomendación principal: no intentéis hacer Tokio, Kioto, Osaka, Hiroshima, Kanazawa, Takayama, Hakone, Fuji y Okinawa en catorce días. Japón tiene trenes rápidos, pero desplazarse también cansa y cada ciudad merece tiempo. Mejor ver menos y poder perderse un rato por un barrio, entrar en un café o repetir un sitio que os haya gustado.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 25,
+      "total_tokens": 1049,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 152,
+        "engine_ttlt_ms": 10286,
+        "pre_inference_ms": 48,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1052,
+        "service_ttlt_ms": 11180,
+        "user_visible_ttft_ms": 1003
+      }
+    },
+    {
+      "completion_tokens": 513,
+      "prompt_tokens": 62,
+      "total_tokens": 575,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 123,
+        "engine_ttlt_ms": 5424,
+        "pre_inference_ms": 72,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1041,
+        "service_ttlt_ms": 6339,
+        "user_visible_ttft_ms": 969
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12668.657639005687
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 7998.143117001746
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2972.731603018474
+    }
+  ]
+}

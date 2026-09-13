@@ -603,3 +603,23 @@ def test_ruta_real_ningun_proveedor_recibe_la_clave_tag(monkeypatch, model_id):
 
     # Y el transcript que se guarda en el JSONL sigue etiquetado.
     assert all(m.get("tag") for m in transcript)
+
+
+def test_no_se_marca_como_cacheable_un_bloque_de_texto_vacio():
+    """La API devuelve 400 si el bloque del breakpoint esta vacio.
+
+    Ocurre de verdad: si un turno anterior se corto por `max_tokens`, su
+    respuesta entra vacia en la transcripcion y el breakpoint cae encima.
+    Paso en 3 de las 27 celdas de la primera tirada de Fase 0.
+    """
+    msgs = [
+        {"role": "user", "content": "apertura", "tag": "opening"},
+        {"role": "assistant", "content": "", "tag": "assistant"},
+        {"role": "user", "content": "PEGOTE", "tag": "paste"},
+    ]
+    body = _anthropic_body(msgs, max_tokens=32)
+    for mensaje in body["messages"]:
+        contenido = mensaje["content"]
+        if isinstance(contenido, list):
+            for bloque in contenido:
+                assert "cache_control" not in bloque

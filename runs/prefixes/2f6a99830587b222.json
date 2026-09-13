@@ -1,0 +1,489 @@
+{
+  "prefix_id": "2f6a99830587b222",
+  "topic_id": "carrera-10k",
+  "n_turns": 10,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Me he apuntado a una carrera de 10 kilómetros en abril y llevo años sin correr en serio.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "¡Buen objetivo! Si la carrera es en abril de 2027, tienes tiempo de sobra para llegar bien sin necesidad de forzar.\n\nComo llevas años sin correr en serio, la prioridad inicial no es la velocidad: es crear hábito y evitar lesiones.\n\n### Primeras 4–6 semanas\nHaz 3 sesiones por semana, dejando al menos un día de descanso entre ellas:\n\n- 5–10 min caminando para calentar.\n- Alterna trote suave y caminar, por ejemplo:\n  - Semana 1: 1 min correr + 2 min caminar, durante 25–30 min.\n  - Semana 2: 2 min correr + 2 min caminar.\n  - Semana 3: 3 min correr + 1–2 min caminar.\n  - Semana 4: intenta 20–30 min de trote muy suave, con pausas si hacen falta.\n- 5 min caminando al terminar.\n\nEl ritmo debe permitirte hablar en frases cortas. Si vas jadeando, baja el ritmo o camina.\n\n### Después\nCuando puedas correr 30 minutos seguidos con comodidad:\n\n- Corre 3 días por semana.\n- Un día corto y suave.\n- Un día algo más largo, aumentando poco a poco.\n- Un día suave con algunos cambios de ritmo muy moderados.\n- Añade 1–2 sesiones semanales de fuerza: sentadillas, zancadas, puente de glúteos, elevaciones de gemelos y trabajo de core.\n\nComo referencia, intenta aumentar el volumen semanal de forma gradual, normalmente no más de un 5–10 % por semana. No necesitas correr 10 km en los entrenamientos desde el principio; llegar a hacer tiradas cómodas de 7–9 km antes de la carrera suele ser suficiente.\n\n### Cosas importantes\n- Unas zapatillas cómodas y en buen estado ayudan mucho.\n- Si aparece dolor agudo, cojera, dolor que empeora al correr o que no mejora tras varios días, para y consulta a un profesional.\n- Si tienes antecedentes cardiacos, lesiones importantes, mucho sobrepeso o llevas mucho tiempo sedentario, conviene hacer una revisión médica antes de empezar.\n- La constancia gana a los entrenamientos “heroicos”.\n\nSi me dices cuánto puedes correr o caminar ahora mismo, cuántos días tienes disponibles y la fecha exacta de la carrera, puedo prepararte un plan progresivo hasta los 10 km.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Ahora mismo podría entrenar tres días por semana; ¿cuántos días de descanso debería dejar entre las sesiones más exigentes?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Con **3 días de entrenamiento por semana**, deja idealmente **al menos 48 horas** entre las sesiones exigentes. Para alguien que vuelve a correr tras años, normalmente basta con **una sola sesión exigente semanal** al principio.\n\nUna distribución sencilla sería:\n\n- **Lunes:** rodaje suave  \n- **Miércoles:** sesión algo más exigente  \n  - cambios de ritmo suaves, cuestas cortas o intervalos correr/caminar más largos  \n- **Sábado o domingo:** tirada larga pero a ritmo muy cómodo  \n\nAsí tienes descanso entre días de carrera y varios días antes/después de la sesión más dura.\n\nSi haces dos sesiones exigentes en el futuro, procura que estén separadas por **48–72 horas**, por ejemplo martes y sábado. Entre ellas, solo descanso o actividad muy suave: caminar, movilidad, bici tranquila o fuerza ligera.\n\nImportante: la “tirada larga” puede cansar, pero no debería ser exigente de ritmo. Hazla lo suficientemente lenta como para poder mantener conversación. Al empezar, una buena regla es que aproximadamente **80–90 % de tus minutos de carrera sean suaves**.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Entonces empezaría con tres días alternos y solo haría una sesión algo intensa a la semana; ¿cómo aumento los kilómetros de forma segura sin pasarme?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Sí: tres días alternos y una única sesión algo más intensa es una base muy prudente.\n\nPara aumentar los kilómetros sin pasarte:\n\n### 1. Sube poco a poco\nComo norma práctica, aumenta el volumen semanal alrededor de un **5–10 % como máximo**. Si estás retomando tras años, mejor moverte cerca del **5 %** o incluso repetir semanas.\n\nEjemplo: si una semana haces 12 km totales, la siguiente podrías hacer 12,5–13 km, no 16 km.\n\nNo hace falta obsesionarse con el porcentaje: si notas que el cuerpo va justo, mantén la misma distancia una semana más.\n\n### 2. Aumenta una sola cosa cada vez\nNo subas a la vez:\n\n- kilómetros,\n- ritmo,\n- número de días,\n- desnivel,\n- ni intensidad.\n\nPor ejemplo, si alargas la tirada larga, mantén el resto de sesiones muy tranquilas. Si introduces intervalos o cuestas, no aumentes también el kilometraje esa semana.\n\n### 3. Da prioridad a la tirada larga, pero con límites\nHaz que la salida más larga crezca gradualmente, por ejemplo **0,5–1 km cada una o dos semanas**, siempre a ritmo conversacional.\n\nAl principio procura que no represente mucho más de aproximadamente el **40–45 % del total semanal**. Por ejemplo, si tu tirada larga es de 5 km, intenta que la semana sume al menos unos 11–13 km en total.\n\n### 4. Incluye semanas de descarga\nCada **3–4 semanas**, reduce el volumen un **15–25 %** durante una semana. No es retroceder: permite asimilar el entrenamiento y reduce el riesgo de sobrecarga.\n\nEjemplo orientativo de kilometraje semanal, empezando en 9 km:\n\n- Semana 1: 9 km  \n- Semana 2: 10 km  \n- Semana 3: 11 km  \n- Semana 4: 8–9 km — descarga  \n- Semana 5: 11–12 km  \n- Semana 6: 12–13 km  \n- Semana 7: 13–14 km  \n- Semana 8: 10–11 km — descarga  \n\n### 5. Usa el esfuerzo, no solo los kilómetros\nMantén dos de los tres entrenamientos a esfuerzo fácil: deberías poder hablar con relativa normalidad. La sesión “intensa” debería ser moderada al principio, no un esfuerzo máximo.\n\nSi acabas una sesión con sensación de que podrías haber hecho algo más, vas bien. Si necesitas varios días para recuperarte, reduce distancia o intensidad.\n\n### 6. Señales de que debes frenar\nRepite o reduce la carga si aparece:\n\n- dolor localizado que cambia tu forma de correr;\n- molestias que duran más de 24–48 horas o empeoran;\n- fatiga inusual, peor sueño o piernas muy pesadas varios entrenamientos seguidos;\n- empeoramiento claro de tu ritmo habitual al mismo esfuerzo.\n\nPara un 10K, tu objetivo previo puede ser llegar a correr cómodamente **7–9 km seguidos**, sin necesidad de hacer 10 km a máxima intensidad en entrenamiento.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Y para las zapatillas, qué debería buscar realmente si voy a empezar desde cero y no quiero gastar de más?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para empezar desde cero, busca unas **zapatillas de entrenamiento diario**: cómodas, relativamente amortiguadas y versátiles. No necesitas un modelo “rápido”, de competición ni unas zapatillas muy caras.\n\n### Qué priorizar\n\n1. **Comodidad inmediata**\n   Deben sentirse bien desde el primer momento: sin presión en dedos, empeine, talón o arco. No deberían requerir “domarlas”.\n\n2. **Espacio delante**\n   Deja aproximadamente **medio dedo o un pulgar pequeño** entre el dedo más largo y la punta. Al correr, el pie se hincha y se desplaza hacia delante.\n\n3. **Buena sujeción del talón**\n   El talón no debería levantarse ni deslizarse mucho al caminar o trotar. Si ocurre, prueba otro modelo o un ajuste de cordones tipo “heel lock”.\n\n4. **Amortiguación media**\n   Para retomar y preparar un 10K, una amortiguación media o media-alta suele ser una opción segura y agradable. No necesitas ni una suela minimalista ni una plataforma enorme si no te resulta natural.\n\n5. **Modelo neutro**\n   Salvo que un profesional te haya indicado específicamente lo contrario, empieza por unas zapatillas **neutras**. No hace falta comprar modelos “de estabilidad” o “para pronadores” solo por una prueba rápida de tienda o por el desgaste de unas zapatillas antiguas.\n\n6. **Pruébalas con tus calcetines de correr**\n   Camina, haz unos saltitos o trota si la tienda lo permite. Mejor comprarlas al final del día, cuando el pie suele estar algo más hinchado.\n\n### Cuánto gastar\n\nPara tus necesidades, busca ofertas de modelos de entrenamiento diario de temporadas anteriores. Normalmente puedes encontrar buenas opciones por **70–110 €**, y a veces menos en rebajas. Pagar 160–200 € no te hará progresar más rápido.\n\nMarcas como ASICS, Brooks, New Balance, Saucony, Adidas, Nike, Mizuno, Puma, Hoka o Decathlon tienen opciones válidas; dentro de cada marca, el ajuste importa mucho más que el logo.\n\n### Qué evitar al principio\n\n- Zapatillas de competición con placa de carbono.\n- Modelos muy ligeros y firmes para series rápidas.\n- Comprar por estética, marca o recomendaciones sin probarlas.\n- Zapatillas minimalistas o con “drop” muy bajo si nunca has corrido con ellas: pueden cargar más gemelos y tendón de Aquiles.\n- Usar unas zapatillas viejas de gimnasio cuya suela ya está deformada o gastada.\n\n### ¿Cuándo cambiarlas?\n\nComo referencia, muchas duran entre **500 y 800 km**, pero depende de tu peso, técnica, terreno y modelo. Cámbialas antes si notas la mediasuela aplastada, menos comodidad, desgaste irregular importante o molestias nuevas que desaparecen al usar otro par.\n\nEn resumen: compra unas **neutras, cómodas, de entrenamiento diario y en oferta**, con suficiente espacio para los dedos. Para tus primeros meses, eso es más que suficiente.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Perfecto, buscaré unas neutras y cómodas en oferta; ¿para calcular un ritmo realista de carrera, cuándo tendría sentido hacer una prueba?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Tiene sentido hacer una primera prueba cuando ya puedas correr **30 minutos seguidos de forma cómoda** y lleves al menos **4–6 semanas entrenando sin molestias**. Antes de eso, el ritmo que salga estará demasiado condicionado por la falta de adaptación y no merece la pena apretar.\n\nPara empezar, mejor una prueba de **3 km o 5 km**, no de 10 km.\n\n### Primera prueba recomendada\nHazla en un recorrido llano y medido, idealmente sin calor ni viento fuerte:\n\n1. **Calienta 10–15 minutos** muy suave.\n2. Haz algo de movilidad y, si te ves bien, 3 aceleraciones cortas y progresivas.\n3. Corre:\n   - **3 km** si aún estás construyendo base o te cuesta correr seguido.\n   - **5 km** si ya puedes correr unos 5–6 km cómodamente.\n4. Esfuérzate de forma sostenida: duro, pero sin salir a tope. Deberías acabar sintiendo que no podrías mantener ese ritmo muchos kilómetros más, pero sin acabar completamente vacío.\n5. Enfría caminando o trotando suave 5–10 minutos.\n\n### Cada cuánto repetirla\nNo hace falta hacer tests muy a menudo. Uno cada **6–8 semanas** es suficiente para comprobar progreso y reajustar expectativas. Entre medias, tus rodajes fáciles y tu sensación de esfuerzo son datos más útiles que perseguir ritmos.\n\n### Para estimar tu 10K\nComo orientación, un 10K suele correrse aproximadamente entre **10 y 20 segundos por kilómetro más lento** que un 5K, especialmente al empezar. Pero conviene ser conservador: la resistencia para mantener el ritmo durante 10 km se desarrolla con el tiempo.\n\nPor ejemplo, si haces 5 km a 6:00 min/km, podrías plantearte inicialmente un 10K alrededor de **6:10–6:20 min/km**, siempre que ya hayas hecho tiradas de 7–9 km cómodas.\n\nEn la carrera, tu primer objetivo debería ser acabar con buenas sensaciones. Puedes empezar los primeros 2–3 km algo más despacio de tu ritmo previsto y, si te encuentras fuerte, acelerar ligeramente al final.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Esperaré a llevar unas semanas corriendo sin molestias y a poder hacer 30 minutos seguidos; entonces probaré un 3 o 5 km. ¿Qué me conviene comer el día antes y la mañana de la carrera?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para un 10K no hace falta hacer una “carga de carbohidratos” extrema. La idea es llegar con energía, bien hidratado y sin molestias digestivas.\n\n## El día antes\n\nCome de forma bastante normal, pero prioriza alimentos que ya conozcas y te sienten bien.\n\n**Buena base:**\n- Carbohidratos: arroz, pasta, patata, pan, avena, cuscús, fruta.\n- Proteína moderada: pollo, pescado, huevos, tofu, legumbres si las toleras bien.\n- Verdura cocinada o en cantidad habitual.\n- Grasas moderadas: aceite de oliva, aguacate, frutos secos, sin excederte.\n\nUn ejemplo de cena podría ser:\n- Pasta o arroz con pollo/pescado/tofu y una salsa ligera.\n- Patata con tortilla y algo de verdura cocida.\n- Pan con una proteína sencilla y fruta o yogur.\n\n**Evita experimentar** justo ese día: comidas muy grasas, picantes, muy fibrosas, alcohol en exceso o grandes cantidades de legumbres si suelen darte gases. No hace falta cenar una montaña de pasta; comer demasiado puede dejarte pesado.\n\nBebe agua con normalidad durante el día. La orina amarillo claro suele ser una señal razonable de hidratación. No hace falta forzarte a beber litros de golpe.\n\n## La mañana de la carrera\n\nDepende sobre todo de a qué hora sea la salida.\n\n### Si faltan 2–3 horas\nToma un desayuno ligero, principalmente de carbohidratos y bajo en fibra y grasa:\n\n- Tostadas con mermelada o miel + un plátano.\n- Avena que ya hayas probado, con plátano.\n- Yogur con pan/tostadas o cereales sencillos, si toleras lácteos.\n- Un bagel o pan blanco con pavo/jamón cocido suave.\n- Café o té solo si lo tomas habitualmente.\n\nComo referencia, para una persona media puede bastar con algo equivalente a **una o dos tostadas y una fruta**, ajustándolo a tu hambre y experiencia.\n\n### Si falta menos de 60–90 minutos\nNo intentes hacer un desayuno grande. Puedes tomar algo pequeño y fácil de digerir:\n\n- Un plátano.\n- Una tostada con miel o mermelada.\n- Unas galletas sencillas.\n- Medio bagel.\n- Un gel solo si ya lo has probado antes, aunque para un 10K normalmente no es necesario.\n\n## Hidratación antes y durante\n\n- Bebe con normalidad al levantarte y da pequeños sorbos antes de salir.\n- Evita beber muchísimo justo antes del pistoletazo.\n- En un 10K de duración habitual, normalmente **no necesitas geles ni bebida energética** durante la carrera.\n- Si hace calor o vas a correr más de una hora, toma unos sorbos en los avituallamientos si te apetece; no es necesario parar a beber grandes cantidades.\n\n## Regla principal\n\n**No estrenes nada el día de la carrera:** ni desayuno, ni geles, ni bebidas isotónicas, ni suplementos. Prueba durante entrenamientos largos lo que planees tomar antes de competir.\n\nPara tu primer 10K, llegar descansado, con un desayuno conocido y salir conservador suele marcar mucha más diferencia que una estrategia nutricional complicada.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Probaré ese desayuno en alguna tirada larga antes; si la carrera es por la mañana, seguramente tiraré de tostadas con miel y un plátano.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Buena elección: tostadas con miel y plátano suele ser un desayuno sencillo, rico en carbohidratos y fácil de digerir.\n\nPruébalo primero antes de una tirada larga o un entrenamiento continuo de unos 45–60 minutos:\n\n- **2–3 horas antes:** 1–2 tostadas con miel + 1 plátano.\n- Acompáñalo con agua en cantidad normal, sin forzarte.\n- Si ya tomas café habitualmente y te sienta bien, puedes mantenerlo; no lo estrenes ese día.\n\nAjusta según cómo te notes:\n- Si sales con hambre, añade otra tostada o un yogur si lo toleras.\n- Si te resulta demasiado, reduce a una tostada o toma el plátano más cerca de la salida.\n- Si tienes el estómago sensible, usa pan blanco/tostado y evita añadir mantequilla, mucha crema de frutos secos o alimentos ricos en fibra.\n\nEl día de la carrera, intenta repetir no solo los alimentos, sino también una hora parecida de desayuno.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Probaré esa combinación un par de veces antes para ajustar cantidades y horarios; me tranquiliza no tener que complicarme con geles para un 10K.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Exacto: para un 10K, especialmente si es tu primera carrera y dura alrededor de una hora o algo más, lo normal es que **no necesites geles**.\n\nCon haber cenado normal el día anterior, desayunar algo conocido y llegar bien hidratado, tendrás energía suficiente. Los geles pueden incluso darte molestias de estómago si no los has usado antes.\n\nPrueba las tostadas con miel y el plátano en dos situaciones distintas:\n\n- Una salida suave de 45–60 minutos.\n- Un entrenamiento algo más largo o con algún tramo a ritmo sostenido.\n\nAsí verás si te conviene desayunar 2–3 horas antes o si toleras mejor algo más cerca de la salida, y si una o dos tostadas te dejan satisfecho sin pesadez.\n\nPara la carrera, céntrate más en:\n- Dormir razonablemente bien las noches previas.\n- Salir a un ritmo conservador los primeros kilómetros.\n- Beber unos sorbos en un avituallamiento solo si hace calor, tienes sed o vas a estar bastante tiempo corriendo.\n\nLo estás planteando muy bien: progresión tranquila, material cómodo y nutrición simple y probada.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me queda claro; ahora quiero organizar esas tres sesiones semanales para empezar sin forzar y saber con qué kilometraje total arrancar.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para empezar sin forzar, durante las primeras **3–4 semanas** priorizaría el tiempo y las sensaciones antes que los kilómetros. Si llevas años sin correr, la “sesión intensa” puede esperar: al principio, correr/caminar de forma controlada ya es suficiente estímulo.\n\nCon tres días alternos, una estructura muy buena sería:\n\n- **Lunes:** sesión corta y fácil  \n- **Miércoles:** sesión fácil, con un poco más de tiempo corriendo  \n- **Sábado o domingo:** sesión algo más larga, siempre muy suave  \n\nDeja al menos un día completo sin correr entre sesiones.\n\n## Kilometraje inicial orientativo\n\nSi ahora mismo puedes caminar rápido sin problema pero aún no sabes cuánto puedes trotar seguido, empieza alrededor de **7–10 km semanales** en total. Si ya puedes trotar unos 15–20 minutos cómodamente, podrías arrancar más cerca de **9–12 km semanales**.\n\nNo pasa nada si las primeras semanas no sabes exactamente cuántos kilómetros haces: usa minutos, y registra la distancia solo como referencia.\n\n## Propuesta de primeras 4 semanas\n\nTodos los tramos de carrera deben ser muy suaves: deberías poder hablar en frases cortas. Si no puedes, reduce ritmo o camina más.\n\n| Semana | Lunes | Miércoles | Fin de semana | Total aproximado |\n|---|---|---|---|---|\n| 1 | 25 min: 1 min correr / 2 min caminar | 25 min: 1 min correr / 2 min caminar | 30 min: 1 min correr / 2 min caminar | 7–10 km |\n| 2 | 25–30 min: 2 min correr / 2 min caminar | 30 min: 2 min correr / 2 min caminar | 35 min: 2 min correr / 2 min caminar | 8–11 km |\n| 3 | 30 min: 3 min correr / 2 min caminar | 30 min: 3 min correr / 1–2 min caminar | 35–40 min: 3 min correr / 2 min caminar | 9–12 km |\n| 4 | 25–30 min muy fácil | 30 min: 4–5 min correr / 1–2 min caminar | 35–40 min fácil | 8–11 km |\n\nLa semana 4 es deliberadamente algo más suave: sirve para asimilar la carga. Si alguna semana te cuesta, repítela en lugar de avanzar.\n\n## Después de estas semanas\n\nCuando puedas correr cerca de **25–30 minutos seguidos** sin dolor y terminando con sensación de poder continuar un poco más, puedes pasar a algo así:\n\n- **Día 1:** 3–4 km fáciles.  \n- **Día 2:** 3–4 km fáciles; más adelante, incluye 4–6 aceleraciones breves de 20–30 segundos, con recuperación caminando o trotando.  \n- **Día 3:** 4–5 km fáciles, aumentando poco a poco hasta 7–9 km antes de la carrera.  \n\nEn ese punto podrías estar haciendo alrededor de **10–13 km semanales**. Desde ahí, aumenta normalmente solo **0,5–1 km semanal en el total**, o mantén la misma carga si estás cansado. Cada 3–4 semanas, reduce el volumen un 15–25 %.\n\n## Cuándo introducir la sesión “intensa”\n\nNo al principio. Espera a acumular unas **4–6 semanas sin molestias** y a correr 30 minutos continuos con comodidad. Entonces, en lugar de una sesión dura, empieza con algo moderado:\n\n- Tras 10–15 min suaves, haz **4 repeticiones de 1 minuto algo más alegre**, pero controlado.\n- Recupera 2 minutos caminando o trotando muy suave entre repeticiones.\n- Termina con 5–10 min suaves.\n\nEsa sesión no debe dejarte exhausto ni afectar a la tirada del fin de semana. Si tienes que elegir entre subir kilómetros o añadir intensidad, primero consolida los kilómetros.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Empezaré con unos 7–10 km semanales y correré/caminaré tres días alternos; ¿conviene que mantenga ese primer esquema cuatro semanas aunque me vea capaz de avanzar antes?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "No hace falta mantenerlo exactamente cuatro semanas si te ves bien, pero tampoco conviene acelerar solo porque una o dos sesiones hayan resultado fáciles. Al retomar, la capacidad cardiovascular suele mejorar antes que tendones, huesos y musculatura.\n\nUna regla práctica: puedes progresar si has completado **al menos 2 semanas** del esquema sin problemas y se cumplen estas condiciones:\n\n- Terminas las sesiones con sensación de que podrías hacer un poco más.\n- No hay dolor localizado durante la carrera ni al día siguiente.\n- La fatiga desaparece en 24–48 horas.\n- Duermes y caminas/subes escaleras con normalidad.\n- Los tramos de carrera siguen siendo a ritmo conversacional.\n\nSi se cumple todo, avanza, pero cambia **solo una variable**: un poco más de tiempo corriendo *o* algo menos de caminata; no ambas cosas junto con más duración total.\n\nPor ejemplo:\n\n- Semana 1: 1 min correr / 2 min caminar.\n- Semana 2: 2 min correr / 2 min caminar.\n- Semana 3: 3 min correr / 2 min caminar.\n- Semana 4: 4 min correr / 1–2 min caminar.\n\nSi la semana 2 te ha resultado muy cómoda, podrías pasar a 3 min correr / 2 min caminar en la siguiente, pero manteniendo una duración parecida. No introduciría aún intervalos rápidos, cuestas fuertes ni una sesión intensa: espera a llevar unas 4–6 semanas sin molestias y poder correr unos 30 minutos seguidos.\n\nSi, por el contrario, aparecen molestias persistentes o cansancio excesivo, repite la semana anterior —o reduce un poco— sin considerarlo un fracaso. Con tantos meses hasta abril, te beneficiará mucho más consolidar la adaptación que ganar kilómetros deprisa.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 657,
+      "prompt_tokens": 27,
+      "total_tokens": 684,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 146,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 21,
+        "engine_ttft_ms": 363,
+        "engine_ttlt_ms": 13985,
+        "pre_inference_ms": 61,
+        "service_tbt_ms": 21,
+        "service_ttft_ms": 1274,
+        "service_ttlt_ms": 14891,
+        "user_visible_ttft_ms": 1213
+      }
+    },
+    {
+      "completion_tokens": 237,
+      "prompt_tokens": 564,
+      "total_tokens": 801,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 152,
+        "engine_ttlt_ms": 2753,
+        "pre_inference_ms": 66,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 1363,
+        "service_ttlt_ms": 3956,
+        "user_visible_ttft_ms": 1296
+      }
+    },
+    {
+      "completion_tokens": 673,
+      "prompt_tokens": 839,
+      "total_tokens": 1512,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 162,
+        "engine_ttlt_ms": 6223,
+        "pre_inference_ms": 79,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1385,
+        "service_ttlt_ms": 7442,
+        "user_visible_ttft_ms": 1305
+      }
+    },
+    {
+      "completion_tokens": 709,
+      "prompt_tokens": 1542,
+      "total_tokens": 2251,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 48,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 1539
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 149,
+        "engine_ttlt_ms": 7457,
+        "pre_inference_ms": 88,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1386,
+        "service_ttlt_ms": 8688,
+        "user_visible_ttft_ms": 1298
+      }
+    },
+    {
+      "completion_tokens": 591,
+      "prompt_tokens": 2234,
+      "total_tokens": 2825,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 115,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1539,
+        "cache_write_tokens": 692
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 128,
+        "engine_ttlt_ms": 6233,
+        "pre_inference_ms": 65,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1321,
+        "service_ttlt_ms": 7422,
+        "user_visible_ttft_ms": 1256
+      }
+    },
+    {
+      "completion_tokens": 706,
+      "prompt_tokens": 2757,
+      "total_tokens": 3463,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2231,
+        "cache_write_tokens": 523
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 186,
+        "engine_ttlt_ms": 7405,
+        "pre_inference_ms": 99,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1438,
+        "service_ttlt_ms": 8652,
+        "user_visible_ttft_ms": 1339
+      }
+    },
+    {
+      "completion_tokens": 226,
+      "prompt_tokens": 3503,
+      "total_tokens": 3729,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2754,
+        "cache_write_tokens": 746
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 129,
+        "engine_ttlt_ms": 2197,
+        "pre_inference_ms": 94,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1379,
+        "service_ttlt_ms": 3443,
+        "user_visible_ttft_ms": 1285
+      }
+    },
+    {
+      "completion_tokens": 249,
+      "prompt_tokens": 3768,
+      "total_tokens": 4017,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3500,
+        "cache_write_tokens": 265
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 814,
+        "engine_ttlt_ms": 3131,
+        "pre_inference_ms": 74,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 2029,
+        "service_ttlt_ms": 4342,
+        "user_visible_ttft_ms": 1955
+      }
+    },
+    {
+      "completion_tokens": 1015,
+      "prompt_tokens": 4050,
+      "total_tokens": 5065,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 136,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3765,
+        "cache_write_tokens": 282
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 140,
+        "engine_ttlt_ms": 10343,
+        "pre_inference_ms": 79,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1332,
+        "service_ttlt_ms": 11533,
+        "user_visible_ttft_ms": 1253
+      }
+    },
+    {
+      "completion_tokens": 474,
+      "prompt_tokens": 4972,
+      "total_tokens": 5446,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 84,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 4047,
+        "cache_write_tokens": 922
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 152,
+        "engine_ttlt_ms": 4730,
+        "pre_inference_ms": 95,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1410,
+        "service_ttlt_ms": 5983,
+        "user_visible_ttft_ms": 1315
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 16356.675997987622
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 6355.922552000266
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 8865.885200997582
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 10204.606057988713
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 9283.527823979966
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 10185.596572991926
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 5235.701904981397
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 7047.326508996775
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13701.314949983498
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 8211.427166010253
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3905.7025910005905
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3096.786685026018
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3315.2182619960513
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3471.28400899237
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3362.5484850199427
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 4131.288182979915
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3294.4545799982734
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3762.660934997257
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 4154.353007994359
+    }
+  ]
+}

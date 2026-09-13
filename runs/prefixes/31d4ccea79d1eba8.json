@@ -1,0 +1,489 @@
+{
+  "prefix_id": "31d4ccea79d1eba8",
+  "topic_id": "mudanza",
+  "n_turns": 10,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Me mudo de piso el mes que viene y no sé por dónde empezar a organizarme.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Lo primero que necesito saber es con cuánta antelación debería contratar una empresa de mudanzas para el mes que viene.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para una mudanza el mes que viene, lo ideal es contratar la empresa con **3 a 4 semanas de antelación**. Si puedes, pide presupuestos y reserva **esta misma semana**.\n\nConviene hacerlo incluso antes —**4 a 6 semanas**— si se da alguno de estos casos:\n\n- Te mudas en fin de semana, a final/principio de mes o en verano.\n- Es una ciudad grande o hay poca disponibilidad en tu zona.\n- Necesitas elevador exterior, desmontaje/montaje de muebles o guardamuebles.\n- Hay muchos objetos, acceso complicado, ascensor pequeño o calles con restricciones.\n- Necesitas solicitar reserva de estacionamiento o permiso de ocupación de vía pública.\n\nPasos prácticos para hoy:\n\n1. Contacta con **3 empresas** para comparar.\n2. Pide presupuesto detallado, preferiblemente tras visita o videollamada.\n3. Confirma si incluye: cajas, embalaje, desmontaje, montaje, seguro, kilometraje, plantas/ascensor y suplementos.\n4. Reserva por escrito la fecha y guarda las condiciones de cancelación.\n5. Si el camión debe aparcar en la calle, consulta cuanto antes con tu ayuntamiento o comunidad cómo reservar espacio.\n\nEvita elegir solo por el precio: verifica reseñas, que tengan seguro de responsabilidad civil y que el presupuesto indique claramente qué cubre.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Como me queda solo un mes, voy a pedir varios presupuestos esta semana; antes de empaquetar, ¿qué cosas suele convenir tirar, donar o vender?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Antes de empaquetar, conviene hacer una **depuración rápida y práctica**: todo lo que no merece el coste, el esfuerzo o el espacio de transportar. Una buena regla es: *si no lo has usado en 1–2 años, no te gusta, está roto o no encaja en el nuevo piso, probablemente no se muda contigo*.\n\n### Tirar o llevar a punto limpio\nNo los metas en cajas “por si acaso”:\n\n- **Comida caducada**, abierta desde hace mucho o que no vas a consumir antes de la mudanza.\n- **Medicamentos caducados**: llévalos al punto SIGRE de una farmacia, no a la basura ni al desagüe.\n- **Cosméticos, maquillaje y productos de higiene** viejos, secos, vencidos o casi agotados.\n- **Productos de limpieza** que estén vacíos, deteriorados o duplicados; los químicos deben desecharse según las normas locales.\n- **Papeles inútiles**: publicidad, manuales descargables, facturas antiguas que no necesites conservar, apuntes obsoletos. Tritura los documentos con datos personales.\n- **Cables, cargadores y aparatos electrónicos rotos** o sin utilidad. Llévalos a un punto limpio/RAEE.\n- **Ropa interior, calcetines, zapatos muy gastados** y textiles rotos que no tengan arreglo.\n- Objetos **rotos, incompletos o sin piezas** que llevas tiempo posponiendo reparar.\n- Vajilla, vasos o recipientes **astillados o agrietados**.\n- Pinturas, aerosoles, pilas y bombillas: mejor a un **punto limpio**, no al cubo normal.\n\n### Donar\nSi está limpio, completo y en buen estado:\n\n- Ropa, abrigos, zapatos y bolsos que ya no uses.\n- Libros que no quieras releer o consultar.\n- Menaje, utensilios de cocina, pequeños electrodomésticos funcionando.\n- Muebles que no encajen en el nuevo piso pero estén bien.\n- Juguetes, material escolar, decoración, mantas o toallas.\n- Alimentos no perecederos sin abrir y dentro de fecha.\n\nBusca asociaciones locales, bancos de alimentos, tiendas solidarias o grupos vecinales. Para muebles grandes, algunas entidades o plataformas pueden recogerlos, pero conviene gestionarlo con antelación.\n\n### Vender\nMerece la pena vender solo lo que tenga valor suficiente como para compensar las fotos, mensajes y entregas:\n\n- Muebles en buen estado que no vayan a caber o no combinen con el nuevo piso.\n- Electrodomésticos funcionales.\n- Bicicletas, herramientas, instrumentos musicales o material deportivo.\n- Tecnología reciente que funcione bien.\n- Ropa, accesorios o decoración de cierta calidad.\n- Lotes de libros, videojuegos, juguetes o artículos de bebé.\n\nPon precios realistas y fija una fecha límite: por ejemplo, “si no se vende en 10 días, se dona”. Así no acabas mudando cosas solo porque no se vendieron a tiempo.\n\n### Qué suele ser mejor no mover\nAunque no estén “para tirar”, revisa especialmente:\n\n- Muebles baratos o deteriorados cuyo desmontaje, transporte y montaje cuesta más que reemplazarlos.\n- Objetos voluminosos de poco uso: máquina de ejercicio, impresora antigua, vajilla enorme, colecciones olvidadas.\n- Duplicados: sartenes, tazas, mantas, herramientas, jarrones, juegos de sábanas.\n- Decoración que ya no te representa.\n- Ropa de otra talla que llevas años guardando “por si acaso”.\n\n### Método rápido para no bloquearte\nHaz cuatro zonas o cajas: **Me lo llevo / Vendo / Dono / Reciclo-tiro**. Recorre una habitación cada vez y decide cada objeto en menos de un minuto. Si dudas, haz una caja de “revisar” con límite: si no la revisas antes de embalar, no se muda.\n\nEmpieza por trastero, armarios altos, baño, cocina y papeles: suelen acumular más cosas prescindibles y son las zonas que más reducen volumen.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "También quiero decidir si me compensa contratar un seguro adicional con la empresa de mudanzas; ¿en qué casos suele merecer la pena?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Suele merecer la pena contratar un seguro adicional cuando el valor de lo que transportas o el riesgo de la mudanza supera claramente la cobertura básica incluida por la empresa.\n\nLa clave es que muchas empresas incluyen una cobertura limitada, a veces calculada por peso o con límites bajos por objeto, no por su valor real. Antes de decidir, pide por escrito qué cubre exactamente.\n\n### Merece especialmente la pena si transportas…\n\n- **Objetos de valor alto**: obras de arte, antigüedades, joyas, colecciones, instrumentos musicales, cámaras, ordenadores de gama alta, equipos de sonido, bicicletas caras, etc.\n- **Muebles caros o delicados**: diseño, piezas antiguas, mármol, cristal, madera maciza, vitrinas o sofás de alto valor.\n- **Electrónica delicada**: televisores grandes, monitores, ordenadores de sobremesa, consolas, proyectores.\n- **Objetos frágiles o difíciles de reemplazar**, aunque su precio no sea muy alto: recuerdos familiares, piezas artesanales, vajillas heredadas, álbumes de fotos.\n- Una mudanza con **trayecto largo**, varias paradas, guardamuebles o almacenamiento temporal.\n- Accesos complicados: escaleras estrechas, falta de ascensor, uso de plataforma elevadora, calles con poco espacio de maniobra.\n- Una mudanza internacional o con transporte marítimo/aéreo.\n- Un volumen alto de cajas y muebles, donde aumenta la probabilidad de golpes, pérdidas o confusiones.\n\n### Quizá no compense si…\n\n- Tus pertenencias son mayoritariamente básicas, de segunda mano o fácilmente reemplazables.\n- La mudanza es corta y sencilla, con buen acceso en ambos pisos.\n- El coste del seguro adicional es alto respecto al valor real de los bienes.\n- Ya tienes cobertura útil a través de tu seguro de hogar, tarjeta bancaria o póliza de alquiler. Conviene comprobarlo antes para no pagar dos veces.\n\n### Qué preguntar a la empresa\nPide las condiciones por escrito y confirma estos puntos:\n\n1. **Límite de indemnización:** ¿cuánto pagan como máximo por siniestro y por objeto?\n2. **Cómo calculan el valor:** ¿por peso, valor declarado, valor de reposición o valor depreciado?\n3. **Daños cubiertos:** rotura, rayones, pérdida, robo, agua, incendio, vuelco, daños durante carga/descarga y montaje.\n4. **Exclusiones:** objetos embalados por ti, joyas, dinero, documentos, plantas, mascotas, objetos preexistentes dañados, muebles desmontados, etc.\n5. **Franquicia:** cuánto tendrías que asumir tú en caso de reclamación.\n6. **Embalaje:** si exigen que ellos embalen los objetos frágiles para que estén cubiertos.\n7. **Plazo y procedimiento de reclamación:** a veces hay que dejar constancia en el albarán y reclamar en 24–72 horas.\n8. **Inventario y fotos:** si elaboran un inventario de los objetos de valor y aceptan fotografías previas.\n\n### Una forma sencilla de decidir\nHaz una lista de los objetos que sería caro o imposible reemplazar y estima su valor de reposición. Luego compara:\n\n- cobertura básica incluida;\n- coste y límite del seguro adicional;\n- franquicia;\n- cobertura de tu seguro de hogar.\n\nSi, por ejemplo, llevas un televisor, ordenador, bicicleta y muebles cuyo valor conjunto supera mucho el límite de la cobertura básica, normalmente sí tiene sentido ampliar la cobertura. Si solo transportarás cosas de valor moderado y reemplazable, quizá baste la cobertura incluida.\n\nAunque contrates seguro, haz fotos fechadas de muebles, electrónica y objetos frágiles antes de la mudanza, conserva facturas si las tienes y revisa los bienes al recibirlos antes de firmar el albarán sin reservas.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Voy a revisar la cobertura básica y mi seguro de hogar antes de decidir; también necesito tener clara la lista de trámites para cambiar el domicilio.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Haré una lista con los cambios imprescindibles —padrón, bancos, suministros, médico, tráfico y suscripciones—, pero antes quiero saber cuáles suelen tener plazo o conviene gestionar antes de la mudanza.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Qué trámites debería gestionar antes de mudarme y cuáles tienen un plazo concreto después del cambio de domicilio?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Voy a revisar los plazos concretos según mi ciudad y avisar cuanto antes a suministros, banco y aseguradora para evitar cortes o problemas con la correspondencia. También quiero tener claro cómo embalar bien la vajilla, los cristales y la electrónica frágil.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Para embalar lo frágil, quiero saber qué materiales comprar y cómo colocar la vajilla, los vasos y la electrónica en las cajas para que no se rompan.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Voy a comprar papel de embalaje, plástico de burbujas, cinta resistente y cajas pequeñas dobles; ¿conviene envolver cada plato y vaso por separado y rellenar todos los huecos de la caja?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Sí: para vajilla y vasos, **envuelve cada pieza por separado** y **rellena los huecos**, pero sin apretar tanto que la caja quede abombada o las piezas queden bajo presión.\n\n### Platos y fuentes\n- Envuelve cada plato con 1–2 hojas de papel de embalaje.\n- Pon una capa acolchada en el fondo de la caja: papel arrugado, cartón o burbuja.\n- Colócalos **en vertical, como discos o libros**, no apilados en horizontal; así resisten mejor los golpes.\n- Separa grupos de platos con cartón corrugado o varias capas de papel.\n- Las fuentes, bandejas y piezas grandes también mejor de canto, bien protegidas.\n- Rellena laterales y parte superior para que no se muevan.\n\n### Vasos, copas y tazas\n- Envuelve **cada vaso, copa o taza individualmente**.\n- Rellena el interior de vasos y copas con papel suave, especialmente si son finos.\n- Protege bien asas, bordes y tallos: son las zonas más vulnerables.\n- Colócalos de pie, en cajas pequeñas, idealmente con separadores de cartón si tienes.\n- No pongas objetos pesados encima de vasos o copas.\n- Si usas plástico de burbujas, reserva una capa adicional para copas delicadas o piezas especiales.\n\n### Electrónica\n- Si conservas las cajas originales con sus protecciones interiores, úsalas.\n- Haz fotos de los cables conectados y etiqueta cada uno antes de desconectarlo.\n- Guarda cables, mandos y tornillos en bolsas etiquetadas, preferiblemente junto al aparato correspondiente.\n- Envuelve dispositivos en papel o tela suave y luego en burbuja; evita que puedan moverse dentro de la caja.\n- Para pantallas, monitores y televisores: protégelos con cartón rígido en la cara de la pantalla y burbuja alrededor; transpórtalos **en vertical**, nunca con peso encima.\n- No metas aparatos electrónicos en cajas demasiado grandes ni los combines con objetos pesados.\n\n### Cómo cerrar bien las cajas\n- La caja debe quedar llena, pero no forzada: al moverla, **nada debería sonar ni desplazarse**.\n- Rellena espacios vacíos con papel arrugado, toallas, ropa de cama o espuma. El papel de periódico puede manchar, así que mejor no usarlo directamente sobre piezas claras o delicadas.\n- No llenes una caja de vajilla hasta que pese demasiado: mejor varias cajas pequeñas, de aproximadamente **10–15 kg como máximo**.\n- Refuerza el fondo con cinta en forma de **H**.\n- Marca por varios lados: **“FRÁGIL”**, “ESTE LADO ARRIBA” y la habitación de destino.\n- Si la empresa de mudanzas embala los objetos, consulta si exige hacerlo ella para que los daños estén cubiertos por su seguro.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 25,
+      "total_tokens": 1049,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 133,
+        "engine_ttlt_ms": 11079,
+        "pre_inference_ms": 77,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 669,
+        "service_ttlt_ms": 11512,
+        "user_visible_ttft_ms": 592
+      }
+    },
+    {
+      "completion_tokens": 287,
+      "prompt_tokens": 61,
+      "total_tokens": 348,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 136,
+        "engine_ttlt_ms": 3042,
+        "pre_inference_ms": 48,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1036,
+        "service_ttlt_ms": 3938,
+        "user_visible_ttft_ms": 987
+      }
+    },
+    {
+      "completion_tokens": 886,
+      "prompt_tokens": 388,
+      "total_tokens": 1274,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 12,
+        "engine_ttft_ms": 166,
+        "engine_ttlt_ms": 10393,
+        "pre_inference_ms": 61,
+        "service_tbt_ms": 12,
+        "service_ttft_ms": 1128,
+        "service_ttlt_ms": 11350,
+        "user_visible_ttft_ms": 1067
+      }
+    },
+    {
+      "completion_tokens": 819,
+      "prompt_tokens": 1308,
+      "total_tokens": 2127,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 1305
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 145,
+        "engine_ttlt_ms": 8344,
+        "pre_inference_ms": 91,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 614,
+        "service_ttlt_ms": 8808,
+        "user_visible_ttft_ms": 522
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 2162,
+      "total_tokens": 3186,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1305,
+        "cache_write_tokens": 854
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 16,
+        "engine_ttft_ms": 135,
+        "engine_ttlt_ms": 16301,
+        "pre_inference_ms": 70,
+        "service_tbt_ms": 16,
+        "service_ttft_ms": 1109,
+        "service_ttlt_ms": 17256,
+        "user_visible_ttft_ms": 1040
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 2217,
+      "total_tokens": 3241,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2159,
+        "cache_write_tokens": 55
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 289,
+        "engine_ttlt_ms": 11573,
+        "pre_inference_ms": 85,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 1285,
+        "service_ttlt_ms": 12562,
+        "user_visible_ttft_ms": 1200
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 2248,
+      "total_tokens": 3272,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2214,
+        "cache_write_tokens": 31
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 120,
+        "engine_ttlt_ms": 10772,
+        "pre_inference_ms": 71,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1097,
+        "service_ttlt_ms": 11729,
+        "user_visible_ttft_ms": 1026
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 2314,
+      "total_tokens": 3338,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2245,
+        "cache_write_tokens": 66
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 157,
+        "engine_ttlt_ms": 10442,
+        "pre_inference_ms": 77,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1144,
+        "service_ttlt_ms": 11408,
+        "user_visible_ttft_ms": 1068
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 2359,
+      "total_tokens": 3383,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2311,
+        "cache_write_tokens": 45
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 161,
+        "engine_ttlt_ms": 11861,
+        "pre_inference_ms": 90,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 1150,
+        "service_ttlt_ms": 12845,
+        "user_visible_ttft_ms": 1060
+      }
+    },
+    {
+      "completion_tokens": 669,
+      "prompt_tokens": 2413,
+      "total_tokens": 3082,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 34,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2356,
+        "cache_write_tokens": 54
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 192,
+        "engine_ttlt_ms": 6966,
+        "pre_inference_ms": 96,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1183,
+        "service_ttlt_ms": 7954,
+        "user_visible_ttft_ms": 1087
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12918.66947998642
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 5424.780867993832
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13433.470279996982
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 10713.946995005244
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 19011.882516992046
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 14280.005802982487
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13765.39522499661
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12851.661245978903
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 14932.385238993447
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 9883.193660993129
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3151.733159989817
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2430.6989179749507
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3395.1286829833407
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 4827.529492002213
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 4149.36721502454
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3167.2121839947067
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3302.3543730087113
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3612.671514012618
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3085.567856003763
+    }
+  ]
+}

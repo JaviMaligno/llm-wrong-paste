@@ -138,6 +138,12 @@ def _mark_cacheable_prefix(convo: list[dict]) -> list[dict]:
         return marked
     target = marked[target_index]
     blocks = _as_blocks(target["content"])
+    # La API rechaza con 400 `cache_control cannot be set for empty text
+    # blocks`. Pasa de verdad: si un turno anterior se cortó por `max_tokens`,
+    # su respuesta entra vacía en la transcripción y el breakpoint cae encima.
+    # Se vio en 3 de las 27 celdas de la primera tirada de Fase 0.
+    if not str(blocks[-1].get("text", "")).strip():
+        return marked
     blocks[-1] = {**blocks[-1], "cache_control": {"type": "ephemeral"}}
     target["content"] = blocks
     return marked

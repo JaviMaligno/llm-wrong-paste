@@ -64,7 +64,19 @@ from wrongpaste.topics import Topic
 # poder subirlo por celda sin tocar el módulo. Viaja a la fila vía
 # `request_params` (D9) y el corte, cuando ocurre, viaja como `stop_reason`
 # dentro de cada `Reply` (D6).
-MAX_TOKENS = 1024
+# Tope de salida del modelo evaluado.
+#
+# Estaba en 1024 y fue la causa del 60 % de fallos de la primera tirada de
+# Fase 0: TODOS los modelos del plantel razonan (Claude 5 lleva thinking
+# adaptativo siempre; GPT-5.6 también), así que el razonamiento se comía el
+# presupuesto entero y la respuesta salía cortada o directamente vacía. Las
+# celdas que sí funcionaron usaron entre 81 y 945 tokens: las que fallaron
+# chocaron contra el techo exacto de 1024, no es que hablaran más.
+#
+# Importa más de lo que parece: una respuesta vacía por tope se lee igual que
+# "ignora el pegote y sigue", que es la categoría más interesante del
+# experimento. Es un artefacto del arnés disfrazado de conducta.
+MAX_TOKENS = 4000
 
 # Cuántos turnos de usuario van después de la reacción al pegote (D7).
 N_POST_TURNS = 2

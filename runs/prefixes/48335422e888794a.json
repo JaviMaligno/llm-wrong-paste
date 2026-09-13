@@ -1,0 +1,105 @@
+{
+  "prefix_id": "48335422e888794a",
+  "topic_id": "elegir-colegio",
+  "n_turns": 2,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Tengo que elegir colegio para mi hija el año que viene y me está agobiando bastante la decisión.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "Es totalmente normal que te agobie: elegir colegio mezcla logística, valores, dinero, expectativas y la sensación de estar decidiendo algo enorme por tu hija. Pero no existe *el colegio perfecto*; suele haber varias opciones suficientemente buenas, y lo más importante es que ella se sienta segura, acompañada y pueda adaptarse.\n\nPuede ayudarte bajar la decisión a unos pocos criterios prioritarios. Por ejemplo:\n\n1. **Bienestar de tu hija**  \n   Ambiente afectuoso, atención a la adaptación, manejo de conflictos, patios, acompañamiento emocional.\n\n2. **Proyecto educativo**  \n   Metodología, nivel de exigencia, idiomas, uso de pantallas, deberes, creatividad, inclusión… No se trata de qué modelo es “mejor”, sino de cuál encaja más con vuestra familia y con ella.\n\n3. **Equipo y clima del centro**  \n   En las visitas, fíjate menos en los folletos y más en cómo hablan los docentes de los niños, si parecen cercanos, si hay orden sin rigidez y si puedes imaginarte comunicándote con ellos.\n\n4. **Logística realista**  \n   Distancia, horarios, comedor, extraescolares, conciliación y red de apoyo. Un colegio estupendo que os deja agotados cada día quizá no sea la mejor opción práctica.\n\n5. **Comunidad y diversidad**  \n   Tipo de familias, participación, convivencia, atención a necesidades distintas. Puede influir mucho en la experiencia cotidiana.\n\nUna forma útil de evitar dar vueltas es hacer una tabla sencilla con 3–5 colegios y puntuar cada criterio del 1 al 5. También podéis elegir vuestros **dos “imprescindibles”** y aceptar que el resto serán compromisos razonables.\n\nY en las visitas, algunas preguntas que suelen revelar mucho son:\n\n- ¿Cómo es el periodo de adaptación?\n- ¿Qué hacen cuando un niño tiene dificultades emocionales, sociales o académicas?\n- ¿Cómo se comunican con las familias?\n- ¿Cómo gestionan los conflictos y el acoso?\n- ¿Cuántos alumnos hay por aula y qué apoyos existen?\n- ¿Cómo es un día normal allí?\n\nNo necesitas acertar de forma perfecta; necesitas tomar una decisión suficientemente informada y coherente con vuestra situación. Eso ya es cuidar muy bien de tu hija.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me vendría bien entender primero las diferencias reales entre un colegio público, concertado y privado, más allá de lo que cuesta cada uno.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 511,
+      "prompt_tokens": 27,
+      "total_tokens": 538,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 27,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 120,
+        "engine_ttlt_ms": 5304,
+        "pre_inference_ms": 64,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1029,
+        "service_ttlt_ms": 6209,
+        "user_visible_ttft_ms": 965
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 539,
+      "total_tokens": 1563,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 128,
+        "engine_ttlt_ms": 10854,
+        "pre_inference_ms": 80,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1188,
+        "service_ttlt_ms": 11908,
+        "user_visible_ttft_ms": 1108
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 7716.489090002142
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13360.339258011663
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3032.8654870099854
+    }
+  ]
+}

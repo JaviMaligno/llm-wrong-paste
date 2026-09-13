@@ -1,0 +1,105 @@
+{
+  "prefix_id": "61b10707a589a600",
+  "topic_id": "elegir-camara",
+  "n_turns": 2,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Llevo meses queriendo comprarme una cámara de fotos decente y me pierdo con tanto modelo.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "Es normal: entre sensores, objetivos, “full frame”, APS-C, mirrorless… es fácil perderse. La buena noticia es que hoy casi cualquier cámara decente da muy buena calidad; la clave es elegir según **qué vas a fotografiar** y cuánto quieres cargar/gastar.\n\nPara recomendarte modelos concretos, dime estas 5 cosas:\n\n1. **Presupuesto total** aproximado, incluyendo objetivo(s):  \n   - hasta 600 €  \n   - 600–1.000 €  \n   - 1.000–1.500 €  \n   - más de 1.500 €\n\n2. ¿Qué te interesa más?  \n   - viajes, familia y calle  \n   - retratos  \n   - naturaleza/aves/deporte  \n   - vídeo / YouTube  \n   - fotografía nocturna  \n   - un poco de todo\n\n3. ¿Quieres aprender fotografía y cambiar objetivos, o prefieres algo sencillo y compacto?\n\n4. ¿Te importa mucho el tamaño y peso?\n\n5. ¿Comprarías de segunda mano? Suele dar muchísimo más por el mismo dinero.\n\nComo orientación rápida:\n\n- **Para empezar y viajar:** una mirrorless APS-C con un zoom tipo 16-50 mm o 18-55 mm es la opción más equilibrada.\n- **Para retratos y calidad máxima:** APS-C avanzada o full frame, pero los objetivos encarecen bastante el conjunto.\n- **Para aves/deporte:** importa más un buen autofoco y un teleobjetivo que tener muchos megapíxeles.\n- **Para vídeo:** busca pantalla abatible, buen autofoco continuo y estabilización.\n- **Si no quieres cambiar objetivos:** una compacta premium puede ser mejor que una cámara grande que acabes dejando en casa.\n\nY una regla importante: no gastes todo el presupuesto en el cuerpo. El **objetivo** influye muchísimo en el resultado. A menudo es mejor una cámara de gama media con buen objetivo que un cuerpo caro con el zoom básico.\n\nSi me respondes a esas preguntas, te preparo una lista corta de 3–5 opciones concretas, con pros, contras y qué objetivo comprar con cada una.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Creo que la usaría sobre todo en viajes, familia y alguna foto de calle; no sé si realmente notaría suficiente diferencia frente al móvil como para justificar comprarla.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para viajes, familia y calle, **sí puedes notar una diferencia frente al móvil**, pero depende mucho de cómo uses la cámara. No será necesariamente una diferencia espectacular en todas las fotos.\n\n### Cuándo el móvil será casi igual\nCon buena luz —una foto de un edificio, paisaje diurno, comida o un retrato estático para redes— los móviles actuales hacen un trabajo excelente. Además, ganan en comodidad: siempre lo llevas encima, editan automáticamente y compartir es inmediato.\n\nSi normalmente ves las fotos en el teléfono o Instagram, una cámara puede no cambiarte la vida de inmediato.\n\n### Cuándo una cámara sí marca diferencia\nUna cámara dedicada se nota especialmente en:\n\n- **Retratos:** fondo más desenfocado de forma natural, piel y volumen más agradables.\n- **Interiores, atardeceres y noche:** menos ruido, colores mejores y más margen para editar.\n- **Niños, mascotas y momentos familiares:** mejor enfoque y menos fotos movidas, sobre todo con poca luz.\n- **Calle y viajes:** más control sobre la escena, focales distintas y una estética menos “procesada”.\n- **Impresiones o recortes:** archivos con más detalle real.\n- **La experiencia:** usar una cámara puede hacer que observes más y fotografíes de otra manera; para mucha gente esa es la principal razón.\n\nLa diferencia no viene solo del cuerpo: un objetivo luminoso, por ejemplo un **35 mm o 50 mm equivalente f/1.8**, suele ser lo que más aleja el resultado del aspecto de móvil.\n\n### Mi consejo: no compres una cámara grande “por si acaso”\nPara el uso que describes, evitaría una cámara pesada con objetivos enormes. En viajes y familia, la mejor cámara es la que realmente llevarás contigo.\n\nTendría sentido mirar tres tipos:\n\n1. **Mirrorless APS-C pequeña + zoom básico**  \n   La opción más versátil para aprender, viajar y hacer fotos familiares. Te permite cambiar objetivos más adelante.  \n   Ideal si quieres empezar en fotografía en serio sin irte a equipos enormes.\n\n2. **Mirrorless APS-C pequeña + objetivo fijo luminoso**  \n   Más sencilla, ligera y con resultados muy buenos en retrato, calle e interiores. Menos flexible para paisajes lejanos o zoom.\n\n3. **Compacta premium de sensor grande**  \n   Muy buena para llevar siempre encima y no pensar demasiado. Suele ser más cara de lo que parece, pero es probablemente la alternativa más realista al móvil si valoras tamaño.\n\n### Una prueba útil antes de comprar\nDurante un par de semanas, prueba a usar el móvil de forma más “intencional”:\n\n- desactiva, si puedes, el modo retrato automático;\n- haz fotos al atardecer e interiores;\n- intenta fotografiar personas en movimiento;\n- edita alguna imagen con Lightroom Mobile o similar;\n- imprime unas cuantas fotos o míralas en una pantalla grande.\n\nSi sientes que el móvil falla precisamente en esas situaciones, una cámara te aportará mucho. Si lo que más valoras es sacar, editar y enviar la foto en diez segundos, quizá convenga invertir antes en mejorar tu técnica con el móvil.\n\nPara recomendarte algo concreto, dime dos cosas: **qué móvil tienes** y **cuánto te gustaría gastar como máximo incluyendo objetivo**.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 492,
+      "prompt_tokens": 28,
+      "total_tokens": 520,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 43,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 314,
+        "engine_ttlt_ms": 5201,
+        "pre_inference_ms": 105,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1275,
+        "service_ttlt_ms": 6158,
+        "user_visible_ttft_ms": 1170
+      }
+    },
+    {
+      "completion_tokens": 760,
+      "prompt_tokens": 511,
+      "total_tokens": 1271,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 68,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 15,
+        "engine_ttft_ms": 140,
+        "engine_ttlt_ms": 11591,
+        "pre_inference_ms": 70,
+        "service_tbt_ms": 15,
+        "service_ttft_ms": 1192,
+        "service_ttlt_ms": 12635,
+        "user_visible_ttft_ms": 1122
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 7760.749178007245
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 14476.33447800763
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3165.7363580015954
+    }
+  ]
+}

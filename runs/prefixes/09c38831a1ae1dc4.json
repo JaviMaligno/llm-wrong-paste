@@ -1,0 +1,105 @@
+{
+  "prefix_id": "09c38831a1ae1dc4",
+  "topic_id": "mudanza",
+  "n_turns": 2,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Me mudo de piso el mes que viene y no sé por dónde empezar a organizarme.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "Mudarse puede parecer enorme, pero se vuelve manejable si lo divides por semanas. Aquí tienes un plan sencillo para el próximo mes:\n\n## 1. Esta semana: planificar y descartar\n\n- **Fija la fecha de mudanza** y, si puedes, reserva furgoneta o empresa de mudanzas cuanto antes.\n- Haz una lista de lo que vas a llevar por habitaciones: cocina, baño, ropa, documentos, muebles, etc.\n- **Empieza a deshacerte de cosas**: dona, vende, recicla o tira lo que no uses. No merece la pena pagar o cargar con cosas innecesarias.\n- Mide muebles grandes y comprueba puertas, ascensor, escaleras y espacio del piso nuevo.\n- Consigue material:\n  - Cajas de varios tamaños\n  - Cinta adhesiva\n  - Rotuladores\n  - Papel/burbujas para objetos frágiles\n  - Bolsas resistentes\n  - Etiquetas si te ayudan\n\n## 2. Tres semanas antes: papeleo y primeros embalajes\n\n- Empieza por lo que menos usas: libros, decoración, ropa de otra temporada, trastero.\n- Etiqueta cada caja con:\n  - Habitación de destino\n  - Contenido básico\n  - “Frágil” si hace falta\n- Haz fotos de cómo están conectados cables, router, televisión o aparatos antes de desmontarlos.\n- Revisa contratos y suministros:\n  - Luz, agua, gas\n  - Internet\n  - Seguro del hogar\n  - Plaza de garaje, si aplica\n- Comunica el cambio de dirección donde corresponda: banco, trabajo, médico, suscripciones, compras online, seguros, etc.\n\n## 3. Dos semanas antes: lo importante\n\n- Confirma con la empresa de mudanzas o las personas que te ayudarán.\n- Si necesitas reservar ascensor, zona de carga o permiso para estacionar, hazlo ya.\n- Prepara una carpeta o mochila con documentos importantes:\n  - DNI/pasaporte\n  - Contrato de alquiler o compraventa\n  - Inventario y fotos del estado del piso\n  - Contratos y números de suministros\n  - Llaves\n- Empaqueta casi todo, dejando solo lo esencial para los últimos días.\n- Consume comida del congelador y la despensa para no transportar de más.\n\n## 4. Última semana: cerrar y preparar el aterrizaje\n\n- Confirma la lectura de contadores y el cambio o alta/baja de suministros.\n- Limpia el piso antiguo según vayas vaciándolo.\n- Prepara una **caja de primera noche**, que viaje contigo y no en el camión:\n  - Ropa para 2–3 días\n  - Cargadores\n  - Medicinas\n  - Documentos\n  - Productos de higiene\n  - Papel higiénico\n  - Toallas y sábanas\n  - Algo de comida, agua, café\n  - Herramientas básicas, tijeras y cinta\n- Separa objetos de valor, joyas, portátil y documentos: mejor llevarlos personalmente.\n- Desmonta muebles solo si sabes cómo volver a montarlos; guarda tornillos en bolsas etiquetadas.\n\n## 5. Día de la mudanza\n\n- Haz fotos del estado del piso antiguo y de los contadores.\n- Revisa armarios, altillos, trastero, balcón y nevera antes de irte.\n- Lleva las llaves y la documentación contigo.\n- En el piso nuevo, prioriza:\n  1. Cama\n  2. Baño\n  3. Cocina básica\n  4. Internet/electricidad\n- No intentes desembalar todo el primer día. Empieza por lo necesario.\n\n## Truco para no agobiarte\n\nHaz una lista diaria muy pequeña: **3 tareas máximas al día**. Por ejemplo:\n\n- Lunes: pedir cajas, vender una silla, avisar al banco.  \n- Martes: empaquetar libros, llamar a internet, medir sofá.  \n- Miércoles: empaquetar ropa de invierno, cambiar dirección de un servicio, confirmar ayuda.\n\nAsí avanzas sin sentir que tienes que resolver toda la mudanza de golpe.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Como me mudo el mes que viene, ¿con cuánta antelación debería contratar una empresa de mudanzas para no quedarme sin fecha?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para mudarte el mes que viene, lo ideal es **pedir presupuestos y reservar ya**, especialmente si tu mudanza cae en fin de semana, a final de mes o en una ciudad grande.\n\nComo referencia:\n\n- **4–6 semanas antes:** margen recomendable para comparar empresas y asegurar fecha.\n- **2–3 semanas antes:** aún suele ser posible, pero habrá menos disponibilidad y quizá peores horarios o precios.\n- **Menos de 2 semanas:** puede funcionar, pero tendrás más riesgo de no encontrar empresa, pagar extra o tener que adaptarte a la fecha que tengan libre.\n\nIntenta contactar con **al menos 3 empresas** y pide presupuesto detallado. Indica desde el principio:\n\n- Fecha o rango de fechas posible.\n- Direcciones de origen y destino.\n- Piso, ascensor, escaleras y facilidad para aparcar.\n- Volumen aproximado y muebles grandes.\n- Si necesitas desmontaje/montaje, embalaje o guardamuebles.\n- Si hay objetos delicados, pesados o especiales.\n\nAntes de confirmar, comprueba que el presupuesto incluya **seguro**, desplazamiento, número de operarios, horas estimadas y posibles suplementos por plantas, escalera, kilometraje o espera.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 930,
+      "prompt_tokens": 25,
+      "total_tokens": 955,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 31,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 148,
+        "engine_ttlt_ms": 9143,
+        "pre_inference_ms": 83,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 557,
+        "service_ttlt_ms": 9547,
+        "user_visible_ttft_ms": 474
+      }
+    },
+    {
+      "completion_tokens": 256,
+      "prompt_tokens": 955,
+      "total_tokens": 1211,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 108,
+        "engine_ttlt_ms": 2799,
+        "pre_inference_ms": 74,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 678,
+        "service_ttlt_ms": 3359,
+        "user_visible_ttft_ms": 604
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 11139.662199973827
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 5439.14915699861
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3066.6969989833888
+    }
+  ]
+}

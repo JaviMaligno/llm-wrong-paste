@@ -1,0 +1,105 @@
+{
+  "prefix_id": "f44998b0ac8c93ef",
+  "topic_id": "factura-luz",
+  "n_turns": 2,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Me ha llegado la factura de la luz al doble que el mes pasado y no entiendo nada de lo que pone.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "Es normal que cueste entenderla: las facturas de luz mezclan muchos conceptos y un aumento puede deberse a varias cosas, no solo a que hayas consumido más.\n\nSi quieres, puedes copiar aquí los datos principales o subir una foto **tapando nombre, dirección, CUPS, número de contrato, IBAN y QR/códigos**. Con esto suele bastar:\n\n1. **Periodo facturado**: fechas y número de días.  \n2. **Consumo**: kWh de esta factura y de la anterior.  \n3. **Potencia contratada**: kW y coste.  \n4. **Precio de la energía**: €/kWh, y si hay precios por horas/tramos.  \n5. **Servicios adicionales**: mantenimiento, seguros, asistencia, etc.  \n6. **Impuestos y alquiler de contador**.  \n7. Si pone **lectura real** o **estimada**.\n\nLas causas más frecuentes de que se duplique son:\n\n- **Factura de más días** que la anterior (por ejemplo, 40 días frente a 28).\n- **Lectura estimada y posterior regularización**: te cobran ahora consumo que no se facturó antes.\n- **Subida de consumo**, especialmente por calefacción eléctrica, aire acondicionado, termo eléctrico, horno/secadora o carga de coche.\n- **Cambio de tarifa o fin de descuento/promoción**.\n- **Servicios de mantenimiento** añadidos a la factura.\n- **Aumento de potencia contratada** o de sus precios.\n- En tarifas con discriminación horaria, mucho consumo en horas caras.\n\nComo orientación rápida, compara primero estas dos cifras entre ambas facturas:\n\n- **kWh consumidos**\n- **Número de días facturados**\n\nSi los kWh son parecidos pero el importe se duplica, probablemente hay regularización, servicios extra, cambio de precio o algún concepto puntual. Si los kWh también se han duplicado, conviene buscar qué aparato o hábito ha aumentado el consumo.\n\nPásame esos datos y te la traduzco a lenguaje normal, línea por línea.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Voy a revisar el periodo facturado, los kWh y los importes de potencia y energía para ver de dónde sale la subida; también quiero comprobar si hay algún servicio extra o una regularización.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Perfecto. Para compararlo de forma clara, apunta estos datos de la factura actual y de la anterior:\n\n| Concepto | Factura anterior | Factura actual |\n|---|---:|---:|\n| Periodo facturado |  |  |\n| Número de días |  |  |\n| Lectura real o estimada |  |  |\n| Consumo total (kWh) |  |  |\n| Importe por potencia |  |  |\n| Potencia contratada (kW) |  |  |\n| Importe por energía |  |  |\n| Precio medio de energía (€/kWh), si aparece |  |  |\n| Servicios extra/mantenimiento |  |  |\n| Regularización o ajuste |  |  |\n| Impuestos, alquiler contador y otros |  |  |\n| Total factura |  |  |\n\nAl revisarla, fíjate especialmente en:\n\n- **“Lectura estimada”**, “regularización”, “ajuste”, “factura rectificativa” o “consumo pendiente”: suelen explicar saltos grandes.\n- Servicios como **mantenimiento eléctrico**, **asistencia hogar**, **protección de pagos** o similares: a veces aparecen como conceptos separados.\n- Si hay más días facturados, divide el consumo entre los días:  \n  **kWh/día = consumo total ÷ días facturados**.  \n  Así sabrás si realmente consumiste más o solo te cobraron un periodo más largo.\n- Compara también el coste energético por kWh:  \n  **importe de energía ÷ kWh consumidos**.  \n  Si ha subido mucho, puede haber cambiado el precio o terminado un descuento.\n\nCuando tengas las cifras, puedes enviarlas sin datos personales y calculamos exactamente qué parte explica la subida.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 506,
+      "prompt_tokens": 29,
+      "total_tokens": 535,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 67,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 112,
+        "engine_ttlt_ms": 4942,
+        "pre_inference_ms": 62,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1063,
+        "service_ttlt_ms": 5886,
+        "user_visible_ttft_ms": 1001
+      }
+    },
+    {
+      "completion_tokens": 373,
+      "prompt_tokens": 508,
+      "total_tokens": 881,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 8,
+        "engine_ttft_ms": 95,
+        "engine_ttlt_ms": 3109,
+        "pre_inference_ms": 81,
+        "service_tbt_ms": 8,
+        "service_ttft_ms": 386,
+        "service_ttlt_ms": 3394,
+        "user_visible_ttft_ms": 305
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 7613.29690401908
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 5283.208801993169
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3498.7884300062433
+    }
+  ]
+}

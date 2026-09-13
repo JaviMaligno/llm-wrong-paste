@@ -673,8 +673,15 @@ def test_el_usuario_simulado_se_planta_si_le_cuelan_el_pegote(monkeypatch):
 # --- Defecto medio: el tope de tokens es parámetro, no constante -------------
 
 
-def test_max_tokens_por_defecto_sigue_siendo_el_de_siempre():
-    assert conv.MAX_TOKENS == 1024
+def test_el_tope_por_defecto_deja_sitio_al_razonamiento():
+    """1024 era la causa del 60 % de fallos de la primera tirada de Fase 0.
+
+    Todos los modelos del plantel razonan, así que el razonamiento se comía el
+    presupuesto y la respuesta salía cortada o vacía. Y una respuesta vacía por
+    tope se lee igual que "ignora el pegote y sigue", que es justo la categoría
+    más interesante: un artefacto del arnés disfrazado de conducta.
+    """
+    assert conv.MAX_TOKENS >= 4000
 
 
 def test_las_tres_funciones_aceptan_su_propio_max_tokens(monkeypatch):

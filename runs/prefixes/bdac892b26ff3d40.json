@@ -1,0 +1,489 @@
+{
+  "prefix_id": "bdac892b26ff3d40",
+  "topic_id": "elegir-camara",
+  "n_turns": 10,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Llevo meses queriendo comprarme una cámara de fotos decente y me pierdo con tanto modelo.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "Es normal: entre móviles, compactas, réflex y mirrorless hay demasiadas opciones.\n\nPara orientarte sin liarte, una cámara “decente” hoy suele ser una **mirrorless de objetivos intercambiables**. Dan mejor calidad, enfoque y posibilidades que una compacta, pero son más manejables que las réflex antiguas.\n\nSegún lo que quieras hacer, miraría esto:\n\n- **Viajes, familia, fotos cotidianas:**  \n  - Canon EOS R50  \n  - Sony a6400 / ZV-E10 II  \n  - Nikon Z50 II  \n  - Fujifilm X-M5  \n  Son ligeras, fáciles y con buena calidad.\n\n- **Retrato, aprender fotografía y tener margen para crecer:**  \n  - Canon EOS R10  \n  - Sony a6700  \n  - Fujifilm X-S20  \n  - Nikon Z5 II / Z50 II según presupuesto  \n  Aquí importa también comprar un objetivo luminoso, por ejemplo un 35 mm o 50 mm equivalente.\n\n- **Vídeo, vlogs o redes sociales:**  \n  - Sony ZV-E10 II  \n  - Fujifilm X-S20  \n  - Canon EOS R50 V  \n  - Panasonic Lumix G9 II  \n  Busca pantalla abatible, buen autofoco, estabilización y entrada de micrófono.\n\n- **Naturaleza, deportes o animales:**  \n  - Sony a6700  \n  - Canon EOS R7  \n  - Nikon Z50 II  \n  En este caso el objetivo es casi más importante que el cuerpo: necesitarías un teleobjetivo.\n\n- **Máxima portabilidad sin cambiar objetivos:**  \n  - Sony RX100 VII  \n  - Canon PowerShot G7 X Mark III  \n  - Ricoh GR III / IIIx  \n  La Ricoh es excelente para fotografía callejera, aunque no tiene zoom ni es la mejor para vídeo.\n\nMi consejo práctico: no gastes todo el presupuesto en el cuerpo. Una combinación muy equilibrada para empezar sería:\n\n1. **Canon EOS R50 + objetivo de kit**, si quieres facilidad y buenas fotos sin complicarte.  \n2. **Sony a6700 + 18-50 mm f/2.8**, si quieres algo más avanzado y duradero.  \n3. **Fujifilm X-S20 + 15-45 o 18-55 mm**, si te atrae un estilo más fotográfico y los colores directos de cámara.  \n4. **Nikon Z50 II + 16-50 mm**, si quieres una cámara cómoda, equilibrada y sencilla.\n\nAntes de recomendarte un modelo concreto, dime tres cosas: **presupuesto total**, si te interesa más **foto, vídeo o ambos**, y qué sueles fotografiar (viajes, retratos, mascotas, paisaje, deporte, etc.).",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me atrae sobre todo hacer fotos de viajes, familia y algún retrato, pero no sé si realmente notaría suficiente diferencia frente a mi móvil como para justificar comprar una cámara.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Sí notarías diferencia, pero no en todas las situaciones ni necesariamente desde la primera foto.\n\nUn móvil moderno ya hace fotos muy buenas con buena luz y para ver en pantalla. Además, aplica HDR, reducción de ruido y desenfoque artificial automáticamente. Por eso, si haces fotos de paisajes de día y las compartes por WhatsApp o Instagram, una cámara no siempre va a parecer “muchísimo mejor” sin editar.\n\nDonde una cámara sí suele justificar la compra para viajes, familia y retrato:\n\n- **Retratos más naturales:** el desenfoque de fondo es real, no por software, y las caras suelen verse mejor separadas del fondo.\n- **Interiores y poca luz:** menos ruido, colores más limpios y más margen para recuperar luces/sombras.\n- **Niños, mascotas o gente en movimiento:** enfoque y velocidad de disparo más fiables; el móvil tiende a sacar movimiento borroso en interiores.\n- **Zoom de verdad:** para detalles de edificios, escenas lejanas o retratos sin acercarte demasiado.\n- **Fotos para imprimir o conservar:** especialmente si quieres álbumes, copias grandes o recortar una imagen.\n- **Experiencia de uso:** encuadrar, elegir una focal y disparar suele hacer que fotografíes con más intención.\n\nEn cambio, quizá **no te compense** si:\n\n- Priorizas llevar algo siempre encima y no quieres cargar con cámara ni objetivos.\n- No te interesa aprender mínimamente sobre luz, enfoque o edición.\n- Casi todas tus fotos son con sol y terminan en redes sociales.\n- Tu móvil ya tiene un buen zoom óptico y estás satisfecho con sus resultados.\n\nPara tu uso, no compraría una cámara grande ni empezaría con muchos objetivos. Buscaría una mirrorless pequeña con un objetivo de kit y, más adelante, un objetivo luminoso para retratos.\n\nOpciones sensatas:\n\n- **Canon EOS R50 + 18-45 mm:** muy fácil de usar, ligera y buena para familia/viajes.  \n- **Nikon Z50 II + 16-50 mm:** compacta, cómoda y muy equilibrada.  \n- **Sony a6400 / a6700 + 16-50 mm:** gran enfoque, especialmente útil con niños o mascotas; la a6700 es más cara pero más completa.  \n- **Fujifilm X-M5 o X-S20:** buenas para quien disfruta del aspecto fotográfico y de usar colores “bonitos” directamente desde cámara.\n\nLa clave para que realmente veas diferencia en retrato sería añadir después un objetivo fijo luminoso: por ejemplo, un **35 mm o 50 mm equivalente con apertura f/1.8–f/2**. Muchas veces eso transforma más tus fotos que pasar de un cuerpo de cámara medio a uno caro.\n\nUna forma muy buena de decidir es hacer una prueba: alquilar una cámara un fin de semana, pedir una prestada o comprar una de segunda mano con buena reventa. Haz fotos con tu móvil y con la cámara en interiores, al atardecer y de personas en movimiento. Ahí verás rápidamente si valoras la diferencia y si te apetece llevarla contigo.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Creo que sí valoraría sobre todo los retratos, las fotos en interiores y las de familia en movimiento; ¿qué diferencia práctica hay entre una cámara con sensor grande y una con sensor pequeño para ese uso?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Para ese uso, un sensor más grande suele darte menos ruido en interiores, mejor desenfoque natural en retratos y algo más de margen si la luz es complicada. Pero también implica cámaras y objetivos más grandes y caros; un APS-C ya es un salto muy claro frente al móvil y me parece el punto más sensato para empezar.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Exactamente. Para **retratos, interiores y familia en movimiento**, el tamaño del sensor influye sobre todo en tres cosas prácticas:\n\n### 1. Fotos en interiores: menos ruido y mejor luz\n\nUn sensor grande capta más luz que uno pequeño. En un salón, restaurante, cumpleaños o casa por la tarde, eso se traduce en:\n\n- Menos “grano” o ruido.\n- Colores más limpios.\n- Más detalle en caras.\n- Menor necesidad de usar flash.\n- Posibilidad de disparar más rápido para congelar movimiento.\n\nPero hay un matiz importante: **el objetivo importa muchísimo**. Una cámara APS-C con un objetivo luminoso, por ejemplo f/1.8, suele rendir mejor en interiores que una full frame con un objetivo de kit oscuro.\n\n### 2. Retratos: desenfoque real del fondo\n\nCon sensor más grande es más fácil conseguir que la persona esté nítida y el fondo suavemente desenfocado.\n\nEn términos prácticos:\n\n- **Móvil:** simula el desenfoque mediante software; puede fallar en pelo, gafas, manos o bordes complejos.\n- **Micro Cuatro Tercios:** puede desenfocar bien, aunque requiere objetivos luminosos y acercarte algo más.\n- **APS-C:** ofrece retratos con fondo desenfocado de forma muy convincente usando un 35 mm f/1.8, 50 mm f/1.8 o similar.\n- **Full frame:** permite aún más desenfoque y un aspecto más “cremoso”, pero no es imprescindible para retratos familiares.\n\nPara fotos familiares, muchas veces un fondo *demasiado* borroso tampoco conviene: quieres ver algo del contexto del viaje o de la celebración.\n\n### 3. Niños y gente en movimiento\n\nAquí el sensor ayuda, pero lo decisivo es la combinación de:\n\n1. **Buen autofoco con detección de personas/ojos.**\n2. **Objetivo suficientemente luminoso.**\n3. **Velocidad de obturación alta** —por ejemplo, 1/250 s o más para niños activos en interior.\n\nUn sensor APS-C permite usar ISO más alto con calidad aceptable, y un objetivo f/1.8 deja entrar bastante luz. Juntos hacen que puedas mantener esa velocidad sin que la foto salga oscura o demasiado ruidosa.\n\n## Comparación sencilla de tamaños\n\n| Sistema | Para tu uso | Ventajas | Inconvenientes |\n|---|---|---|---|\n| Móvil / sensor pequeño | Bien con mucha luz | Siempre contigo, automático | Flojea en interior y con movimiento; retrato artificial |\n| Compacta de 1\" | Algo mejor que móvil | Pequeña, zoom útil | La mejora en poca luz/retrato puede no justificar el gasto |\n| Micro Cuatro Tercios | Buena opción ligera | Objetivos pequeños, estabilización frecuente | Menos margen en interiores y desenfoque que APS-C |\n| **APS-C** | **La opción equilibrada** | Muy buena calidad, retrato natural, cámara aún portátil | Objetivos más grandes que en M43 |\n| Full frame | Excelente, especialmente en poca luz | Máximo margen, gran desenfoque | Más cara, pesada y objetivos costosos |\n\n## Mi recomendación para ti\n\nNo creo que necesites full frame. Una **APS-C moderna** con buen enfoque al ojo y un objetivo luminoso te daría una mejora visible frente al móvil en las situaciones que más te importan.\n\nPor ejemplo:\n\n- **Canon EOS R50 o R10 + RF 35 mm f/1.8 Macro IS STM**  \n  Muy buena combinación para interiores, familia y retratos ambientales. El 35 mm equivale aproximadamente a 56 mm en full frame: natural para personas y uso diario.\n\n- **Sony a6700 + Sigma 30 mm f/1.4**  \n  Excelente enfoque para niños y muy buena calidad en interiores. Más cara, pero muy capaz.\n\n- **Nikon Z50 II + Nikkor Z DX 24 mm f/1.7**  \n  Ligera, luminosa y con una focal muy práctica para fotos familiares en interiores.\n\n- **Fujifilm X-S20 + XF 23 mm f/2 o Sigma 30 mm f/1.4**  \n  Muy agradable para fotografía de viajes y retratos; buena calidad directa desde cámara.\n\nSi empiezas con solo un objetivo, para tu caso preferiría un **fijo luminoso** antes que un zoom de kit, aunque lo ideal sería tener ambos: zoom para viaje y flexibilidad; fijo luminoso para interior, retrato y niños.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me queda más claro: APS-C parece suficiente para mí. ¿Con qué presupuesto total tendría sentido empezar con cuerpo y objetivo, sin comprar algo que se me quede corto enseguida?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Yo apuntaría a unos 900–1.300 € para una APS-C nueva con zoom de kit y un fijo luminoso, o alrededor de 700–1.000 € si compras parte de segunda mano. ¿Te sentirías cómodo en ese rango o prefieres contenerte más al principio?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Ese rango tiene bastante sentido para no comprar algo que se te quede corto pronto.\n\nPara tu caso —viajes, retratos, interiores y familia en movimiento— intentaría dividirlo así:\n\n- **Cuerpo APS-C moderno con buen autofocus:** 550–850 €\n- **Zoom de kit compacto:** normalmente viene incluido o añade 100–200 €\n- **Objetivo fijo luminoso para interior/retrato:** 180–350 €\n- **Tarjeta SD, batería extra y funda/correa:** 80–150 €\n\n## Presupuesto recomendado: 900–1.300 €\n\nCon eso puedes comprar una cámara que siga siendo muy válida dentro de varios años, sin entrar en equipos grandes o excesivamente caros.\n\nCombinaciones especialmente razonables:\n\n### Opción sencilla y equilibrada: Canon\n**Canon EOS R50 + RF-S 18-45 mm + RF 35 mm f/1.8**  \nAproximadamente: **950–1.150 €**\n\n- Muy fácil de aprender.\n- Buen enfoque de personas y ojos.\n- El 18-45 mm sirve para viajes y situaciones generales.\n- El 35 mm f/1.8 es el objetivo que te dará la diferencia clara en interiores y retratos.\n- Inconveniente: el zoom de kit es algo limitado; más adelante podrías querer un zoom más versátil.\n\n### Opción con más margen de crecimiento: Canon\n**Canon EOS R10 + RF-S 18-150 mm + RF 35 mm f/1.8**  \nAproximadamente: **1.250–1.500 €**, según ofertas.\n\n- Mejor ergonomía y controles que la R50.\n- El 18-150 mm es un zoom estupendo para viajes y familia.\n- Muy buena opción si quieres comprar una vez y olvidarte de ampliar durante un tiempo.\n- Puede salirse de tu techo inicial, pero es una combinación muy completa.\n\n### Opción fuerte para movimiento: Sony\n**Sony a6400 + 16-50 mm + Sigma 30 mm f/1.4**  \nAproximadamente: **1.000–1.250 €**\n\n- Autofoco excelente para niños y mascotas.\n- El Sigma 30 mm f/1.4 es muy bueno en interiores y da retratos naturales.\n- Mucha variedad de objetivos compatibles, nuevos y de segunda mano.\n- La a6400 tiene una interfaz y pantalla menos agradables que modelos recientes, pero sigue funcionando muy bien.\n\n### Opción moderna y ligera: Nikon\n**Nikon Z50 II + 16-50 mm + Nikkor Z DX 24 mm f/1.7**  \nAproximadamente: **1.100–1.350 €**\n\n- Zoom de kit muy pequeño y sorprendentemente bueno.\n- El 24 mm f/1.7 es luminoso y excelente para interior/familia.\n- Buen color, manejo sencillo y autofocus moderno.\n- Para retratos más cerrados quizá añadirías más adelante un 50 mm, pero no es urgente.\n\n### Opción para quien valora el color directo de cámara: Fujifilm\n**Fujifilm X-M5 + 15-45 mm + Sigma 30 mm f/1.4**  \nAproximadamente: **1.000–1.250 €**\n\n- Muy buena calidad y simulaciones de película atractivas.\n- Pequeña para viajar.\n- El Sigma es muy útil en interior y retrato.\n- La X-M5 no tiene visor electrónico, algo a considerar si vienes de usar móvil y quieres disparar a pleno sol.\n\n## Si quieres gastar menos: 700–900 €\n\nUna vía excelente sería comprar de segunda mano:\n\n- **Sony a6400 + Sigma 30 mm f/1.4**, y añadir más adelante un zoom.\n- **Fujifilm X-T30 II + XC 15-45 mm**, y después un 35 mm f/2 o Sigma 30 mm f/1.4.\n- **Canon EOS R50 + RF 35 mm f/1.8**, si encuentras una buena oferta o cuerpo usado.\n\nNo ahorraría demasiado en el objetivo luminoso: para lo que buscas, es el componente que más notarás frente al móvil. Sí puedes ahorrar comprando el cuerpo de segunda mano, siempre revisando sensor, montura, botones, pantalla, baterías y número de disparos si el fabricante lo facilita.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me encaja ese presupuesto; antes de decidir, ¿comprar cuerpo u objetivos de segunda mano tiene mucho riesgo y qué revisaría para no llevarme una sorpresa?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me tranquiliza que se pueda ahorrar ahí; ¿tú comprarías de segunda mano tanto el cuerpo como el objetivo, o priorizarías que alguno fuese nuevo para reducir riesgos?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Yo compraría sin problema un objetivo de segunda mano si está impecable, pero para el cuerpo priorizaría tienda con garantía o uno nuevo si la diferencia de precio no es grande. En el cuerpo revisaría sensor, obturador, enfoque, pantalla, montura y batería; en el objetivo, hongos, polvo excesivo, rayas, golpes y que enfoque y diafragma funcionen bien.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Entonces quizá buscaría un cuerpo con garantía de tienda y el fijo luminoso usado, porque ahí el ahorro puede compensar más y el riesgo parece menor. ¿Qué margen de precio tendría que haber para que te pareciera razonable comprar el cuerpo de segunda mano?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para el **cuerpo**, yo usaría una regla sencilla:\n\n- **Menos de un 15–20 % de ahorro frente a nuevo:** compraría **nuevo**.\n- **Entre 20 y 30 %:** solo compraría usado si procede de una **tienda con garantía**, está realmente impecable y el precio nuevo no incluye extras útiles.\n- **Más de 30 % de ahorro:** ya puede compensar claramente comprarlo de segunda mano, incluso más si incluye batería extra, caja, cargador y está poco usado.\n- **Más de 40 % por debajo del precio habitual nuevo:** revisaría con más cuidado el motivo; puede ser una gran oportunidad, pero también esconder desgaste, falta de accesorios o problemas.\n\nComo ejemplo: si una cámara nueva cuesta habitualmente **800 €**:\n\n- A **700 € usada**, no me compensaría mucho: por 100 € más tienes garantía completa, devolución y cero desgaste.\n- A **600–640 € usada**, tendría sentido si hay garantía de 6–12 meses y buen estado.\n- A **500–550 € usada**, la consideraría una compra atractiva, siempre tras revisarla bien.\n\nPara tu planteamiento concreto, me parece una estrategia muy razonable:\n\n1. **Cuerpo nuevo o reacondicionado/de tienda con garantía.**\n2. **Objetivo fijo luminoso usado**, comprado con revisión presencial o en una tienda especializada.\n3. El zoom de kit puede venir con el cuerpo; no hace falta obsesionarse con comprarlo por separado.\n\nTambién ten en cuenta que los precios “nuevos” cambian mucho por promociones, cashback y packs. Compara siempre contra el **precio real de oferta actual**, no solo el precio oficial recomendado. A veces un cuerpo nuevo con promoción cuesta casi lo mismo que uno usado.\n\nSi compras a tienda, priorizaría:\n\n- Garantía de al menos **12 meses** en usado o reacondicionado.\n- Derecho de devolución de unos **14 días** si compras a distancia.\n- Descripción clara del estado y accesorios incluidos.\n- Posibilidad de comprobar número de disparos, aunque en mirrorless modernas no es el único indicador de uso.\n- Factura o comprobante de compra.\n\nEn cambio, para un fijo luminoso usado —por ejemplo un Canon RF 35 mm f/1.8, Sigma 30 mm f/1.4 o Nikon Z DX 24 mm f/1.7— un descuento de alrededor de **20–30 %** respecto a nuevo ya suele merecer bastante la pena si está limpio, enfoca bien y no tiene hongos, golpes ni holgura de montura.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 583,
+      "prompt_tokens": 28,
+      "total_tokens": 611,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 139,
+        "engine_ttlt_ms": 6366,
+        "pre_inference_ms": 67,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 539,
+        "service_ttlt_ms": 6762,
+        "user_visible_ttft_ms": 472
+      }
+    },
+    {
+      "completion_tokens": 732,
+      "prompt_tokens": 653,
+      "total_tokens": 1385,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 69,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 133,
+        "engine_ttlt_ms": 7792,
+        "pre_inference_ms": 85,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1367,
+        "service_ttlt_ms": 9021,
+        "user_visible_ttft_ms": 1282
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 1358,
+      "total_tokens": 2382,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 1355
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 101,
+        "engine_ttlt_ms": 10431,
+        "pre_inference_ms": 68,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1364,
+        "service_ttlt_ms": 11689,
+        "user_visible_ttft_ms": 1296
+      }
+    },
+    {
+      "completion_tokens": 969,
+      "prompt_tokens": 1436,
+      "total_tokens": 2405,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1355,
+        "cache_write_tokens": 78
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 165,
+        "engine_ttlt_ms": 8965,
+        "pre_inference_ms": 80,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1418,
+        "service_ttlt_ms": 10215,
+        "user_visible_ttft_ms": 1338
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 2448,
+      "total_tokens": 3472,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1433,
+        "cache_write_tokens": 1012
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 8,
+        "engine_ttft_ms": 127,
+        "engine_ttlt_ms": 8688,
+        "pre_inference_ms": 94,
+        "service_tbt_ms": 8,
+        "service_ttft_ms": 837,
+        "service_ttlt_ms": 9391,
+        "user_visible_ttft_ms": 743
+      }
+    },
+    {
+      "completion_tokens": 918,
+      "prompt_tokens": 2519,
+      "total_tokens": 3437,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2445,
+        "cache_write_tokens": 71
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 8,
+        "engine_ttft_ms": 129,
+        "engine_ttlt_ms": 7835,
+        "pre_inference_ms": 73,
+        "service_tbt_ms": 8,
+        "service_ttft_ms": 1381,
+        "service_ttlt_ms": 9082,
+        "user_visible_ttft_ms": 1309
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 3476,
+      "total_tokens": 4500,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 2516,
+        "cache_write_tokens": 957
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 119,
+        "engine_ttlt_ms": 10475,
+        "pre_inference_ms": 91,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1358,
+        "service_ttlt_ms": 11712,
+        "user_visible_ttft_ms": 1267
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 3522,
+      "total_tokens": 4546,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3473,
+        "cache_write_tokens": 46
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 163,
+        "engine_ttlt_ms": 10178,
+        "pre_inference_ms": 74,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1388,
+        "service_ttlt_ms": 11400,
+        "user_visible_ttft_ms": 1314
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 3615,
+      "total_tokens": 4639,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3519,
+        "cache_write_tokens": 93
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 117,
+        "engine_ttlt_ms": 10627,
+        "pre_inference_ms": 87,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 817,
+        "service_ttlt_ms": 11323,
+        "user_visible_ttft_ms": 730
+      }
+    },
+    {
+      "completion_tokens": 544,
+      "prompt_tokens": 3678,
+      "total_tokens": 4222,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 3612,
+        "cache_write_tokens": 63
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 141,
+        "engine_ttlt_ms": 5556,
+        "pre_inference_ms": 82,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1369,
+        "service_ttlt_ms": 6780,
+        "user_visible_ttft_ms": 1287
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 8281.235353002558
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 10742.48744599754
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13279.61331998813
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12360.521388007328
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 11314.789556985488
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 11187.319132994162
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13372.718569997232
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13295.749783021165
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13210.487053001998
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 9780.65483699902
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3349.147675995482
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3614.534394000657
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3306.258352997247
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3304.8313109902665
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2788.5543050069828
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3337.6067430072
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3780.2265149948653
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3585.3529419982806
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3506.170552020194
+    }
+  ]
+}

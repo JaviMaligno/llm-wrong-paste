@@ -1,0 +1,105 @@
+{
+  "prefix_id": "372767872798f53c",
+  "topic_id": "huerto-balcon",
+  "n_turns": 2,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Quiero montar un pequeño huerto en el balcón, que da al norte y no le llega mucho sol.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "Un balcón orientado al norte puede funcionar muy bien para un huerto, pero conviene centrarse en cultivos de **sombra o semisombra**. Con poca luz será difícil producir tomates, pimientos, berenjenas o calabacines, pero puedes tener muchas hojas verdes y aromáticas.\n\n### Qué puedes cultivar\n\n**Muy adecuados con poca luz**\n- Lechugas y mezclas de hojas\n- Rúcula\n- Canónigos\n- Espinaca\n- Acelga\n- Kale o col rizada\n- Berros\n- Rábanos pequeños (si reciben algo de luz indirecta)\n- Guisantes, especialmente en otoño-invierno o primavera fresca\n\n**Aromáticas que toleran semisombra**\n- Perejil\n- Cilantro\n- Cebollino\n- Menta (mejor en maceta propia: invade mucho)\n- Hierbabuena\n- Melisa\n- Perifollo\n\n**Menos recomendables si casi no hay sol directo**\n- Tomate, pimiento, pepino, calabacín, melón, sandía y la mayoría de frutas.  \nPodrían sobrevivir, pero producirán poco y serán más propensos a enfermedades.\n\n### Montaje sencillo para empezar\n\n1. **Observa la luz real**\n   - Si recibe 2–4 horas de sol suave en alguna época, tendrás más opciones.\n   - Si no recibe sol directo pero hay mucha claridad, apuesta por hojas y aromáticas.\n   - Si es muy oscuro incluso durante el día, quizá necesites una pequeña luz de cultivo LED para obtener buenas cosechas.\n\n2. **Usa macetas amplias y con drenaje**\n   - Hojas verdes: jardineras de al menos 15–20 cm de profundidad.\n   - Acelgas, kale y guisantes: 25–30 cm.\n   - Aromáticas: macetas de 15–20 cm, preferiblemente individuales.\n   - Siempre con agujeros abajo y un plato que no deje las raíces encharcadas.\n\n3. **Sustrato**\n   - Compra sustrato universal o para huerto urbano de calidad.\n   - Mezcla aproximadamente un 10–20 % de humus de lombriz o compost.\n   - No hace falta poner piedras en el fondo; es más útil asegurar buenos agujeros de drenaje.\n\n4. **Riego**\n   - En sombra el sustrato tarda más en secarse: no riegues por rutina.\n   - Mete un dedo 2–3 cm en la tierra: si está seca, riega; si sigue húmeda, espera.\n   - Evita mojar demasiado las hojas, sobre todo si hay poca ventilación.\n\n5. **Ventilación y separación**\n   - En balcones sombríos la humedad puede favorecer hongos.\n   - No pongas las plantas demasiado juntas y retira hojas dañadas.\n\n### Propuesta fácil para una jardinera\n\nEn una jardinera de unos 60 cm puedes poner:\n\n- 2 lechugas\n- 1 acelga o kale en el centro\n- Rúcula o canónigos alrededor\n- Un poco de cebollino o perejil en un extremo\n\nAsí irás cosechando hojas exteriores durante semanas sin arrancar toda la planta.\n\n### Cuándo plantar\n\n- **Otoño e invierno suave:** lechuga, espinaca, canónigos, rúcula, acelga, perejil.\n- **Primavera:** lechugas, acelgas, rúcula, cilantro, cebollino, menta.\n- **Verano:** busca variedades resistentes al calor, pero vigila que lechugas y cilantro pueden espigarse; la semisombra en este caso puede ser una ventaja.\n\nUn buen punto de partida sería comprar plantones de **lechuga, acelga, perejil, cebollino y menta**, porque son agradecidos y no requieren mucho sol.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Y para una jardinera de 60 cm, qué tamaño de macetas o profundidad necesito para combinar lechugas, acelga y alguna aromática?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para una jardinera de **60 cm de largo**, busca aproximadamente:\n\n- **Ancho:** 20–25 cm mínimo  \n- **Profundidad:** **20–25 cm** para lechugas y aromáticas; mejor **25–30 cm** si quieres incluir una acelga grande.\n\nUna jardinera de **60 × 25 × 25 cm** es una medida muy buena y manejable para el balcón.\n\n### Distribución recomendada\n\nPuedes combinar:\n\n- **1 acelga** en el centro o hacia la parte trasera\n- **2 lechugas** a los lados\n- **1 aromática compacta** en un extremo\n\nDeja estas separaciones aproximadas:\n\n- Acelga: 25–30 cm alrededor\n- Lechugas: 20–25 cm entre plantas\n- Perejil o cebollino: 15–20 cm\n\nEn 60 cm irá algo llena, pero es viable si cosechas las hojas externas con frecuencia. Si prefieres plantas más grandes y menos competencia, pon:\n\n- 1 acelga\n- 1 lechuga\n- 1 perejil o cebollino\n\n### Aromáticas recomendadas para compartir jardinera\n\nLas mejores compañeras son:\n\n- **Perejil**\n- **Cebollino**\n- **Cilantro** (si el clima no es muy caluroso)\n\nEvita poner **menta o hierbabuena** en esa jardinera: crecen con mucha fuerza, ocupan el espacio y compiten con las demás. Mejor una maceta aparte de unos **15–20 cm de diámetro y profundidad**.\n\n### Si usas macetas individuales en vez de jardinera\n\n- Lechugas: macetas de **15–20 cm de diámetro** y al menos **18–20 cm de fondo**.\n- Acelga: maceta de **25–30 cm de diámetro** y **25–30 cm de fondo**.\n- Perejil/cebollino: maceta de **15–20 cm de diámetro** y unos **15–20 cm de fondo**.\n\nAsegúrate de que la jardinera tenga varios agujeros de drenaje y utiliza sustrato rico pero ligero, idealmente mezclado con un poco de humus de lombriz.",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 898,
+      "prompt_tokens": 29,
+      "total_tokens": 927,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 67,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 131,
+        "engine_ttlt_ms": 9315,
+        "pre_inference_ms": 67,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1046,
+        "service_ttlt_ms": 10226,
+        "user_visible_ttft_ms": 978
+      }
+    },
+    {
+      "completion_tokens": 481,
+      "prompt_tokens": 892,
+      "total_tokens": 1373,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 8,
+        "engine_ttft_ms": 129,
+        "engine_ttlt_ms": 4195,
+        "pre_inference_ms": 62,
+        "service_tbt_ms": 8,
+        "service_ttft_ms": 658,
+        "service_ttlt_ms": 4719,
+        "user_visible_ttft_ms": 596
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 11838.568110018969
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 6477.634384995326
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3390.1391419931315
+    }
+  ]
+}

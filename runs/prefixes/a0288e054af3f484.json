@@ -1,0 +1,489 @@
+{
+  "prefix_id": "a0288e054af3f484",
+  "topic_id": "viaje-japon",
+  "n_turns": 10,
+  "prefix_model": "gpt-5.6-terra-tst",
+  "user_model": "gpt-5.6-terra-tst",
+  "transcript": [
+    {
+      "role": "user",
+      "content": "Estamos planeando dos semanas en Japón en primavera y no tengo ni idea de por dónde empezar.",
+      "tag": "opening"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Yo empezaría por decidir qué fechas nos convienen para coincidir con los cerezos; ¿cuándo suelen estar en flor y cuánto margen hay?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para un primer viaje de dos semanas centrado en los cerezos, la apuesta más segura suele ser **entre finales de marzo y la primera semana de abril**, especialmente si queréis visitar Tokio, Kioto y Osaka.\n\n### Calendario orientativo de sakura\n\n| Zona | Floración habitual | Pico de floración (“mankai”) |\n|---|---|---|\n| Tokio / Yokohama | finales de marzo | últimos días de marzo – primeros de abril |\n| Kioto / Osaka / Nara | finales de marzo – primeros de abril | primera semana de abril |\n| Hiroshima / Fukuoka | mediados a finales de marzo | finales de marzo |\n| Kanazawa / Alpes Japoneses | primeros a mediados de abril | mediados de abril |\n| Tohoku (Sendai, Aomori) | mediados a finales de abril | finales de abril |\n| Hokkaido (Sapporo) | finales de abril – principios de mayo | primeros de mayo |\n\nEstas fechas son medias: cada año cambian según el frío del invierno y el calor de marzo. En años cálidos, Tokio y Kioto pueden adelantarse una semana; en años fríos, retrasarse aproximadamente lo mismo.\n\n### ¿Cuánto dura realmente?\n\nHay que distinguir dos momentos:\n\n- **Inicio de floración:** cuando empiezan a abrirse las flores.\n- **Plena floración / mankai:** cuando la mayoría de los árboles están en su mejor momento.\n- **Caída de pétalos:** muy bonita también, pero normalmente llega pocos días después.\n\nEn una ciudad concreta, el período realmente espectacular suele durar solo **unos 5–7 días**. Si hace viento o llueve fuerte, puede reducirse; si refresca, puede alargarse algo. Contando desde los primeros capullos abiertos hasta el final, podéis tener aproximadamente **10–14 días de ambiente de cerezos**, pero no necesariamente en su punto máximo.\n\n### Fechas recomendables para un viaje de dos semanas\n\nSi vuestro itinerario va a ser el clásico **Tokio – Kioto/Osaka – Hiroshima**, elegiría, si podéis:\n\n- **Del 25 de marzo al 8 de abril**, o\n- **Del 28 de marzo al 11 de abril**.\n\nNo garantiza el pico exacto en todas las ciudades, pero da margen suficiente para que al menos una parte del viaje coincida con buena floración. Además, al ir de Tokio hacia Kioto/Osaka —o al revés— podéis aprovechar pequeñas diferencias de fechas entre zonas.\n\n### Cómo reducir el riesgo\n\n1. **No reservéis esperando clavar un único día.** Es mejor tener varios días en Tokio y varios en Kioto que depender de una excursión puntual.\n2. **Incluid una zona algo más al norte o elevada** como plan B si viajáis a comienzos de abril: Kanazawa, Nikko, Hakone o los Alpes Japoneses pueden ir algo más tarde.\n3. **Mirad las previsiones de sakura** entre enero y marzo del año del viaje. Las principales agencias japonesas publican mapas y actualizaciones frecuentes; cuando falta un mes, suelen ser bastante útiles.\n4. **Reservad alojamiento pronto.** La temporada de cerezos es una de las más demandadas del año, sobre todo en Kioto.\n5. **Evitad Golden Week** si podéis (aprox. del 29 de abril al 5 de mayo): ya no coincide con los cerezos en Tokio/Kioto y el país se llena de viajeros nacionales.\n\nSi viajáis en primavera pero no podéis ir a finales de marzo/principios de abril, aún podéis perseguir la floración: **Tohoku a mediados/finales de abril** o **Hokkaido a finales de abril y comienzos de mayo** son excelentes alternativas.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Entonces intentaría cuadrar del 28 de marzo al 11 de abril; para dos semanas, ¿cuántas ciudades recomendarías meter sin pasar el viaje corriendo de un tren a otro?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "Para **14 noches / unos 15 días**, y viajando en plena temporada de sakura, recomendaría **3 bases principales** —o **4 como máximo**—. Japón tiene trenes muy eficientes, pero cambiar de hotel, orientarse, gestionar equipaje y llegar a tiempo consume más de lo que parece, sobre todo con ciudades llenas.\n\n## Mi recomendación: 3 bases + excursiones\n\nPara esas fechas, una combinación muy equilibrada sería:\n\n1. **Tokio — 5 noches**  \n   Llegada, barrios, jardines y parques de cerezos.  \n   Excursiones posibles: Nikko, Kamakura/Yokohama o Kawagoe.\n\n2. **Kioto — 5 noches**  \n   Es la ciudad donde más conviene dormir varios días: templos, barrios históricos, paseos junto al río y hanami.  \n   Excursiones posibles: Nara, Uji, Osaka o Himeji.\n\n3. **Hiroshima — 2 noches**  \n   Para ver Hiroshima y dedicar un día completo a Miyajima, idealmente durmiendo ambas noches allí o una en Hiroshima y otra en Miyajima si queréis una experiencia más especial.\n\n4. **Vuelta a Tokio — 2 noches**  \n   Muy práctico si el vuelo internacional sale de Tokio. Os deja margen ante retrasos, permite ver lo pendiente y evita regresar desde Hiroshima el mismo día del vuelo.\n\nEso son **14 noches** y solo implica tres cambios importantes de alojamiento: Tokio → Kioto → Hiroshima → Tokio.\n\n## Alternativa más tranquila: 3 ciudades, sin Hiroshima\n\nSi preferís menos trayectos y más profundidad:\n\n- **Tokio: 6 noches**\n- **Kioto: 6 noches**\n- **Osaka: 2 noches** o Tokio final: 2 noches\n\nPero, sinceramente, **Osaka funciona muy bien como excursión desde Kioto** (unos 30–45 minutos según la zona y el tren). No hace falta cambiar de hotel solo para verla.\n\n## Alternativa con 4 bases y paisaje tradicional\n\nSi os apetece incluir montaña/onsen y pueblos históricos:\n\n- Tokio: 5 noches  \n- Kanazawa: 2 noches  \n- Kioto: 5 noches  \n- Tokio: 2 noches  \n\nKanazawa añade jardín, barrio samurái, casas de té y un ritmo mucho más tranquilo. Desde allí se puede valorar una excursión a **Shirakawa-go**. A principios/mitad de abril, además, puede tener mejor probabilidad de sakura que Tokio/Kioto si allí se adelanta.\n\n## Regla práctica\n\n- **Menos de 3 noches por ciudad:** normalmente solo si es una parada muy concreta (por ejemplo, Hiroshima).\n- **Tokio y Kioto:** mínimo 4 noches cada una; idealmente 5–6.\n- **Osaka/Nara/Uji:** mejor como excursiones desde Kioto.\n- **4 hoteles en dos semanas:** razonable.  \n- **5 o más hoteles:** posible, pero ya empieza a sentirse como una ruta logística más que unas vacaciones.\n\nPara vuestro viaje, escogería **Tokio (5) + Kioto (5) + Hiroshima (2) + Tokio (2)**, salvo que tengáis especial interés por naturaleza/onsen, en cuyo caso cambiaría Hiroshima por Kanazawa y/o una noche en Hakone.",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me cuadra esa ruta; antes de cerrarla, quiero saber si con esos trayectos el Japan Rail Pass compensa o si es mejor comprar billetes sueltos.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Antes de decidirlo, ¿podemos calcular más o menos cuánto cuestan los trayectos Tokio–Kioto–Hiroshima–Tokio y compararlo con el pase de 14 días? También me interesa saber si habría que coger muchos trenes adicionales para que compensase.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Yo calcularía primero esos cuatro trayectos principales y los compararía con el precio actual del pase de 14 días; me da la impresión de que, desde la subida de precio, quizá los billetes sueltos salgan mejor.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "¿Puedes darme una comparación aproximada con precios actuales, incluyendo los shinkansen y algún margen para excursiones como Nara, Miyajima o Nikko?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Me vendría bien verlo con cifras concretas: precio de cada shinkansen, total de billetes sueltos con esas excursiones y el coste del JR Pass de 14 días, para saber cuánto tendríamos que añadir para que compensara.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Con esas cifras, me interesa sobre todo saber cuánto nos faltaría para igualar el pase: si la diferencia son muchos miles de yenes, preferiría billetes sueltos y no condicionar el itinerario a usar JR.",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    },
+    {
+      "role": "user",
+      "content": "Si la diferencia acaba siendo de más de 10.000–15.000 yenes por persona, yo también elegiría billetes sueltos; ¿podemos hacer la suma realista incluyendo Tokio–Kioto, Kioto–Hiroshima, Hiroshima–Tokio y Nara, Miyajima y Nikko?",
+      "tag": "user_sim"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tag": "assistant"
+    }
+  ],
+  "usages": [
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 25,
+      "total_tokens": 1049,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 133,
+        "engine_ttlt_ms": 10463,
+        "pre_inference_ms": 67,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1054,
+        "service_ttlt_ms": 11377,
+        "user_visible_ttft_ms": 986
+      }
+    },
+    {
+      "completion_tokens": 871,
+      "prompt_tokens": 66,
+      "total_tokens": 937,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 71,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 172,
+        "engine_ttlt_ms": 8679,
+        "pre_inference_ms": 82,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1122,
+        "service_ttlt_ms": 9609,
+        "user_visible_ttft_ms": 1040
+      }
+    },
+    {
+      "completion_tokens": 711,
+      "prompt_tokens": 906,
+      "total_tokens": 1617,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 0,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 10,
+        "engine_ttft_ms": 169,
+        "engine_ttlt_ms": 7371,
+        "pre_inference_ms": 69,
+        "service_tbt_ms": 10,
+        "service_ttft_ms": 1220,
+        "service_ttlt_ms": 8416,
+        "user_visible_ttft_ms": 1152
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 1659,
+      "total_tokens": 2683,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 1656
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 146,
+        "engine_ttlt_ms": 9833,
+        "pre_inference_ms": 81,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1218,
+        "service_ttlt_ms": 10900,
+        "user_visible_ttft_ms": 1137
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 1727,
+      "total_tokens": 2751,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1656,
+        "cache_write_tokens": 68
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 149,
+        "engine_ttlt_ms": 9344,
+        "pre_inference_ms": 69,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1202,
+        "service_ttlt_ms": 10391,
+        "user_visible_ttft_ms": 1133
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 1786,
+      "total_tokens": 2810,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1724,
+        "cache_write_tokens": 59
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 9,
+        "engine_ttft_ms": 175,
+        "engine_ttlt_ms": 9597,
+        "pre_inference_ms": 90,
+        "service_tbt_ms": 9,
+        "service_ttft_ms": 1250,
+        "service_ttlt_ms": 10669,
+        "user_visible_ttft_ms": 1160
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 1830,
+      "total_tokens": 2854,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1783,
+        "cache_write_tokens": 44
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 133,
+        "engine_ttlt_ms": 10905,
+        "pre_inference_ms": 68,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 1190,
+        "service_ttlt_ms": 11957,
+        "user_visible_ttft_ms": 1121
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 1892,
+      "total_tokens": 2916,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1827,
+        "cache_write_tokens": 62
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 182,
+        "engine_ttlt_ms": 10998,
+        "pre_inference_ms": 80,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 723,
+        "service_ttlt_ms": 11534,
+        "user_visible_ttft_ms": 644
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 1950,
+      "total_tokens": 2974,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1889,
+        "cache_write_tokens": 58
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 11,
+        "engine_ttft_ms": 170,
+        "engine_ttlt_ms": 11113,
+        "pre_inference_ms": 92,
+        "service_tbt_ms": 11,
+        "service_ttft_ms": 1276,
+        "service_ttlt_ms": 12193,
+        "user_visible_ttft_ms": 1184
+      }
+    },
+    {
+      "completion_tokens": 1024,
+      "prompt_tokens": 2027,
+      "total_tokens": 3051,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1947,
+        "cache_write_tokens": 77
+      },
+      "latency_checkpoint": {
+        "engine_tbt_ms": 19,
+        "engine_ttft_ms": 151,
+        "engine_ttlt_ms": 20082,
+        "pre_inference_ms": 91,
+        "service_tbt_ms": 19,
+        "service_ttft_ms": 675,
+        "service_ttlt_ms": 20601,
+        "user_visible_ttft_ms": 584
+      }
+    }
+  ],
+  "reply_traces": [
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12797.921530989697
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 11715.817251009867
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 9905.41112498613
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12432.585347007262
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12043.888093990972
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 12221.18554599001
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13475.040462013567
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13378.337665984873
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 13826.64468299481
+    },
+    {
+      "stop_reason": "length",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 22102.113402012037
+    }
+  ],
+  "user_reply_traces": [
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2887.917265004944
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3028.1111559888814
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2942.5673489749897
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3248.6818579782266
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3098.6270820139907
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3033.1558809848502
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3426.567779999459
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 3342.6576030033175
+    },
+    {
+      "stop_reason": "stop",
+      "response_model": "gpt-5.6-terra-tst",
+      "attempts": 1,
+      "latency_ms": 2901.048569008708
+    }
+  ]
+}
