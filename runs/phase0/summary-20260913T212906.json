@@ -1,0 +1,21 @@
+{
+  "run_id": "20260913T212906",
+  "path": "/Users/javieraguilarmartin1/Documents/repos/llm-wrong-paste/runs/phase0/20260913T212906.jsonl",
+  "planned": 27,
+  "completed": 27,
+  "failed": 0,
+  "skipped": 0,
+  "kinds": {
+    "changelog": 2,
+    "config": 2,
+    "email": 2,
+    "job_ad": 1,
+    "meeting_notes": 3,
+    "note_to_self": 3,
+    "prompt": 2,
+    "recipe": 2,
+    "shopping_list": 2,
+    "sql": 2,
+    "stacktrace": 3
+  }
+}
