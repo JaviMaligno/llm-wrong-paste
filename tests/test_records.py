@@ -362,3 +362,32 @@ def test_run_header_line_acepta_campos_sueltos():
 def test_run_header_line_rechaza_campos_inventados():
     with pytest.raises(TypeError):
         run_header_line(run_id="p0-x", numero_de_la_suerte=7)
+
+
+# --- nivel del pegote (Fase 1a, Task 2) ------------------------------------
+
+
+def test_la_fila_registra_el_nivel_del_pegote():
+    from wrongpaste.records import ConversationRecord
+
+    r = ConversationRecord(model_id="m", topic_id="t", paste_level="N1")
+    assert r.to_json()["paste_level"] == "N1"
+
+
+def test_el_nivel_es_none_en_el_brazo_de_control():
+    from wrongpaste.records import ConversationRecord
+
+    r = ConversationRecord(model_id="m", topic_id="t", condition="no_paste")
+    assert r.to_json()["paste_level"] is None
+
+
+def test_un_nivel_inventado_se_rechaza():
+    """Vocabulario cerrado, como `condition` y `status`.
+
+    Una fila con `paste_level="n1"` se contaría aparte al agrupar y partiría
+    el brazo en dos sin que nadie lo viera hasta el análisis.
+    """
+    from wrongpaste.records import ConversationRecord
+
+    with pytest.raises(ValueError, match="paste_level"):
+        ConversationRecord(model_id="m", topic_id="t", paste_level="n1")

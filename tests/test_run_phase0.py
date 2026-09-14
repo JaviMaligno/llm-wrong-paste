@@ -36,8 +36,20 @@ from wrongpaste.run_phase0 import (
 from wrongpaste.topics import Topic, load_topics
 
 TOPICS = load_topics()
-ARTS = load_artifacts()
+ARTS = load_artifacts(level="N0")
 ALL_KINDS = {a.kind for a in ARTS}
+
+
+def _fake_load_artifacts(level: str | None = None) -> list[Artifact]:
+    """Doble de `load_artifacts` con la firma de verdad, y exigente con ella.
+
+    Desde la Fase 1 hay dos bancos en disco y `load_artifacts()` sin nivel
+    devuelve los dos. La Fase 0 solo puede ver el N0, así que el doble se queja
+    en voz alta si algún día deja de pedirlo: un doble más permisivo que la
+    función real dejaría pasar justo el fallo que tiene que cazar.
+    """
+    assert level == "N0", f"la Fase 0 solo usa el banco N0, no {level!r}"
+    return list(FAKE_ARTS)
 
 
 def _paste_cells(plan: list[dict]) -> list[dict]:
@@ -571,7 +583,7 @@ def harness(tmp_path, monkeypatch):
         )
 
     monkeypatch.setattr(rp, "load_topics", lambda: list(FAKE_TOPICS))
-    monkeypatch.setattr(rp, "load_artifacts", lambda: list(FAKE_ARTS))
+    monkeypatch.setattr(rp, "load_artifacts", _fake_load_artifacts)
     monkeypatch.setattr(rp, "ensure_prefix", fake_ensure_prefix)
     # `ensure_prefix` va doblado, así que `find_prefix` —que `measure_axis` usa
     # solo para contar cuántos prefijos hubo que generar— no puede irse a mirar
@@ -651,7 +663,7 @@ def real_flow(tmp_path, monkeypatch):
     monkeypatch.setattr(su, "chat", fake_user_chat)
     monkeypatch.setattr(rp, "rank_artifacts", fake_rank)
     monkeypatch.setattr(rp, "load_topics", lambda: list(FAKE_TOPICS))
-    monkeypatch.setattr(rp, "load_artifacts", lambda: list(FAKE_ARTS))
+    monkeypatch.setattr(rp, "load_artifacts", _fake_load_artifacts)
     monkeypatch.setattr(pfx, "PREFIX_DIR", tmp_path / "prefixes")
     monkeypatch.setattr(rp, "OUT_DIR", tmp_path / "phase0")
     return {"estado": estado, "llamadas": llamadas, "tmp_path": tmp_path}

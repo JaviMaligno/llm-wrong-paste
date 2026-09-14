@@ -398,6 +398,7 @@ def pick_artifact(
     kind_counts: Counter,
     rng: np.random.Generator,
     n_strata: int = STRATA,
+    signal_counts: Counter | None = None,
 ) -> tuple[Artifact, float]:
     """Elige artefacto dentro del estrato, cubriendo géneros (D4).
 
@@ -413,6 +414,23 @@ def pick_artifact(
     window = stratum_window(ranked, stratum, n_strata)
     fewest = min(kind_counts[art.kind] for art, _ in window)
     candidates = [pair for pair in window if kind_counts[pair[0].kind] == fewest]
+
+    # Segundo desempate, solo donde hay señal (N1): entre los candidatos que
+    # ya empatan en género, se prefiere la señal menos representada. Sin esto,
+    # forzar cobertura de géneros deja las señales a suerte: medido sobre el
+    # muestreo real, la diferencia entre la señal más y la menos muestreada era
+    # de 14 celdas de 96 (mediana), y en el 42 % de las tiradas alguna señal se
+    # quedaba por debajo de 18. No sesga la comparación N0/N1 —el factor de la
+    # puerta—, pero hace que la tasa de N1 dependa del sorteo y deja sin
+    # potencia la pregunta de qué señal funciona.
+    if signal_counts is not None:
+        con_senal = [pair for pair in candidates if pair[0].signal]
+        if con_senal:
+            menos = min(signal_counts[pair[0].signal] for pair in con_senal)
+            candidates = [
+                pair for pair in con_senal if signal_counts[pair[0].signal] == menos
+            ]
+
     return candidates[int(rng.integers(0, len(candidates)))]
 
 
@@ -544,7 +562,7 @@ def measure_axis(
     y lo imprime por pantalla de camino.
     """
     topics = load_topics() if topics is None else topics
-    arts = load_artifacts() if arts is None else arts
+    arts = load_artifacts(level="N0") if arts is None else arts
     lengths = [int(lengths)] if isinstance(lengths, int) else [int(n) for n in lengths]
 
     entries: list[dict[str, Any]] = []
@@ -693,7 +711,7 @@ def probe_cache(
     """
     models = list(CACHE_PROBE_MODELS) if models is None else list(models)
     topic = load_topics()[0] if topic is None else topic
-    artifact = load_artifacts()[0] if artifact is None else artifact
+    artifact = load_artifacts(level="N0")[0] if artifact is None else artifact
 
     prefix = ensure_prefix(topic, n_turns)
     # Prefijo compartido + el pegote, etiquetados: el breakpoint de caché de
@@ -1830,7 +1848,11 @@ def main(
     """
     topics = load_topics()
     topics_by_id = {t.id: t for t in topics}
-    arts = load_artifacts()
+    # El banco de la Fase 0 es el N0 y solo el N0: desde la Fase 1 hay un banco
+    # N1 en disco, y `load_artifacts()` sin nivel devolvería los dos juntos.
+    # Eso movería el `bank_sha` de la cabecera, el ranking de similaridad y la
+    # cobertura de géneros de D4 sin que nadie lo pidiera.
+    arts = load_artifacts(level="N0")
     plan = plan_phase0(seed)
 
     path = (

@@ -8,6 +8,7 @@ import pytest
 
 from wrongpaste import config
 from wrongpaste.config import (
+    EVALUATED,
     GATEWAY_URL_ENV,
     GCP_PROJECT_ENV,
     MODELS,
@@ -17,8 +18,29 @@ from wrongpaste.config import (
 )
 
 
-def test_roster_has_nine_models():
-    assert len(MODELS) == 9
+# Los dos jueces del §9 del spec de Fase 1, escritos como literales a
+# propósito: importar `wrongpaste.judging` aquí ataría los tests de
+# configuración a un módulo que se construye aparte. El cruce autoritativo
+# —que estos literales son de verdad `judging.JUDGES`— vive en
+# `tests/test_judging.py`.
+JUDGES = ("gpt-5.5-tst", "gemini-2.5-flash")
+
+
+def test_el_plantel_evaluado_son_ocho():
+    assert len(EVALUATED) == 8
+
+
+def test_todo_evaluado_es_invocable():
+    for model_id in EVALUATED:
+        assert model_id in MODELS, f"{model_id} no está en MODELS"
+
+
+def test_ningun_juez_esta_en_el_plantel_evaluado():
+    # Nadie se puntúa a sí mismo (§9): `gemini-2.5-flash` sigue en MODELS
+    # porque hay que poder llamarlo, pero sale del plantel.
+    for judge in JUDGES:
+        assert judge in MODELS, f"{judge} tiene que ser invocable por chat()"
+        assert judge not in EVALUATED, f"{judge} está en el plantel evaluado"
 
 
 def test_every_model_has_a_known_provider():

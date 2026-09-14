@@ -47,6 +47,14 @@ STATUSES: tuple[str, ...] = (
 Condition = Literal["paste", "no_paste"]
 CONDITIONS: tuple[str, ...] = ("paste", "no_paste")
 
+# Niveles de pegote del §5 del spec de la Fase 1: N0 neutro, N1 con señal
+# intrínseca, N2 contradicción. Vocabulario cerrado por el mismo motivo que
+# `condition` y `status`: una fila con `"n1"` se agruparía aparte y partiría el
+# brazo en dos sin que nadie lo notara hasta el análisis. En el brazo de
+# control es `None`, porque ahí no se pega nada.
+PasteLevel = Literal["N0", "N1", "N2"]
+PASTE_LEVELS: tuple[str, ...] = ("N0", "N1", "N2")
+
 # Etiquetas de mensaje del transcript (D5).
 MESSAGE_TAGS: tuple[str, ...] = (
     "opening",
@@ -118,6 +126,14 @@ class ConversationRecord:
     # D15: el género del artefacto se registra en cada fila porque registro y
     # similaridad son colineales por construcción y hay que poder medirlo.
     artifact_kind: str | None = None
+    # Qué delata al pegote (solo N1; `None` en N0, N2 y el control). Va en la
+    # fila por el mismo motivo que el género: la pregunta «qué señal funciona»
+    # se responde agrupando por esto, y no debe depender de que el banco siga
+    # igual cuando se analice.
+    artifact_signal: str | None = None
+    # Nivel del pegote (§5 de la Fase 1): es el FACTOR de la Fase 1a, así que
+    # va en la fila y no se deriva del `artifact_id`. `None` en el control.
+    paste_level: str | None = None
     artifact_text: str | None = None
     # Se copian las entidades del banco: el análisis de fuga no debe depender
     # de que el banco no haya cambiado entre tanto.
@@ -214,6 +230,11 @@ class ConversationRecord:
         if self.status not in STATUSES:
             raise ValueError(
                 f"status inválido: {self.status!r}; esperaba {STATUSES}"
+            )
+        if self.paste_level is not None and self.paste_level not in PASTE_LEVELS:
+            raise ValueError(
+                f"paste_level inválido: {self.paste_level!r}; esperaba "
+                f"{PASTE_LEVELS} o None en el brazo de control"
             )
 
     def to_json(self) -> dict[str, Any]:

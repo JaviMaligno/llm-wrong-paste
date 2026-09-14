@@ -245,3 +245,51 @@ def test_validate_cuadra_con_lo_que_escribe_el_runner():
     assert report["unknown_ids"] == []
     assert report["unannotated_ids"] == []
     assert report["duplicate_ids"] == []
+
+
+# --- la carpeta de la fase (Fase 1a escribe en `runs/phase1a`) --------------
+
+
+def test_sin_carpeta_explicita_se_guarda_donde_siempre():
+    """El comportamiento por defecto no cambia: la Fase 0 no se entera."""
+    path = write_annotations(RUN_ID, [_ann()])
+
+    assert path.parent == annotations.ANNOTATION_DIR
+
+
+def test_una_tirada_de_otra_fase_se_guarda_en_su_carpeta(tmp_path):
+    destino = tmp_path / "phase1a"
+
+    path = write_annotations(RUN_ID, [_ann()], directory=destino)
+
+    assert path == destino / f"annotations-{RUN_ID}.jsonl"
+    assert path.exists()
+
+
+def test_ida_y_vuelta_con_carpeta_explicita(tmp_path):
+    destino = tmp_path / "phase1a"
+    anns = [_ann(), _ann("p1a-gpt-5.6-luna-tst-mudanza-2-N1-r0")]
+
+    write_annotations(RUN_ID, anns, directory=destino)
+
+    assert load_annotations(RUN_ID, directory=destino) == anns
+
+
+def test_dos_fases_con_el_mismo_run_id_no_se_pisan(tmp_path):
+    """La carpeta es lo único que separa dos tiradas homónimas."""
+    destino = tmp_path / "phase1a"
+    write_annotations(RUN_ID, [_ann("p0-a-t-2-r0")])
+    write_annotations(
+        RUN_ID,
+        [_ann("p1a-a-t-2-N0-r0"), _ann("p1a-b-t-10-N2-r1")],
+        directory=destino,
+    )
+
+    fase0 = load_annotations(RUN_ID)
+    fase1a = load_annotations(RUN_ID, directory=destino)
+
+    assert [a.conversation_id for a in fase0] == ["p0-a-t-2-r0"]
+    assert [a.conversation_id for a in fase1a] == [
+        "p1a-a-t-2-N0-r0",
+        "p1a-b-t-10-N2-r1",
+    ]

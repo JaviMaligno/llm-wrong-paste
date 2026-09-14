@@ -28,6 +28,11 @@ from typing import Any, Iterable
 # Dónde viven las anotaciones: el mismo directorio que el JSONL de la tirada,
 # para que la anotación viaje siempre pegada a los datos que describe. Se lee
 # como global en cada función para que los tests lo redirijan a un `tmp_path`.
+#
+# Es el valor **por defecto**, el de la Fase 0. Desde la Fase 1a hay más de una
+# tirada con anotación propia (`runs/phase1a/annotations-<run_id>.jsonl`), así
+# que las tres funciones aceptan un `directory` explícito. Sin él se comportan
+# exactamente como antes.
 ANNOTATION_DIR = Path(__file__).resolve().parents[2] / "runs" / "phase0"
 
 
@@ -81,14 +86,25 @@ class Annotation:
         return cls(**data)
 
 
-def ANNOTATION_PATH(run_id: str) -> Path:  # noqa: N802 — es una ruta, no una clase
-    """Ruta del fichero de anotaciones de una tirada, exista o no (D14)."""
+def ANNOTATION_PATH(  # noqa: N802 — es una ruta, no una clase
+    run_id: str, directory: Path | str | None = None
+) -> Path:
+    """Ruta del fichero de anotaciones de una tirada, exista o no (D14).
+
+    `directory` elige la carpeta de la fase: sin él, la de la Fase 0
+    (`ANNOTATION_DIR`); con él, la que le pase el runner —`runs/phase1a` en la
+    Fase 1a—. El nombre del fichero no cambia nunca: el `run_id` es lo que
+    identifica a la tirada, y la carpeta solo dice de qué fase es.
+    """
     if not run_id or not str(run_id).strip():
         raise ValueError("run_id vacío: la anotación se guarda por tirada")
-    return ANNOTATION_DIR / f"annotations-{run_id}.jsonl"
+    base = ANNOTATION_DIR if directory is None else Path(directory)
+    return base / f"annotations-{run_id}.jsonl"
 
 
-def write_annotations(run_id: str, anns: Iterable[Annotation]) -> Path:
+def write_annotations(
+    run_id: str, anns: Iterable[Annotation], directory: Path | str | None = None
+) -> Path:
     """Escribe las anotaciones en JSONL: **una línea por anotación**.
 
     Reescribe el fichero entero. Para añadir a una tanda anterior, el camino es
@@ -99,7 +115,7 @@ def write_annotations(run_id: str, anns: Iterable[Annotation]) -> Path:
     `ensure_ascii=False` porque las citas son en español y en el fichero tienen
     que poder leerse a ojo, que es medio sentido de que esto sea JSONL.
     """
-    path = ANNOTATION_PATH(run_id)
+    path = ANNOTATION_PATH(run_id, directory)
     path.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         json.dumps(a.to_json(), ensure_ascii=False, sort_keys=True)
@@ -109,7 +125,9 @@ def write_annotations(run_id: str, anns: Iterable[Annotation]) -> Path:
     return path
 
 
-def load_annotations(run_id: str) -> list[Annotation]:
+def load_annotations(
+    run_id: str, directory: Path | str | None = None
+) -> list[Annotation]:
     """Lee las anotaciones de una tirada, en el orden en que están escritas.
 
     Revienta si el fichero no está, igual que `prefixes.load_prefix`: que falte
@@ -117,7 +135,8 @@ def load_annotations(run_id: str) -> list[Annotation]:
     que se resuelva devolviendo una lista vacía. Las líneas en blanco se
     ignoran (un editor de texto deja una al final).
     """
-    raw = ANNOTATION_PATH(run_id).read_text(encoding="utf-8")
+    path = ANNOTATION_PATH(run_id, directory)
+    raw = path.read_text(encoding="utf-8")
     out: list[Annotation] = []
     for number, line in enumerate(raw.splitlines(), start=1):
         if not line.strip():
@@ -126,7 +145,7 @@ def load_annotations(run_id: str) -> list[Annotation]:
             data = json.loads(line)
         except json.JSONDecodeError as exc:
             raise ValueError(
-                f"línea {number} de {ANNOTATION_PATH(run_id).name} no es JSON: {exc}"
+                f"línea {number} de {path.name} no es JSON: {exc}"
             ) from exc
         out.append(Annotation.from_json(data))
     return out

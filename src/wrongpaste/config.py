@@ -100,9 +100,22 @@ _ROSTER = [
     Model("claude-sonnet-5", "vertex_anthropic", "Claude Sonnet 5", "medium"),
     Model("gemini-2.5-pro", "vertex_openai", "Gemini 2.5 Pro", "large"),
     Model("gemini-2.5-flash", "vertex_openai", "Gemini 2.5 Flash", "small"),
+    # Solo juez: nunca se evalúa, pero `chat()` tiene que poder llamarlo.
+    Model("gpt-5.5-tst", "gateway", "GPT-5.5", "judge"),
 ]
 
+# Todo lo que `chat()` sabe llamar, jueces incluidos.
 MODELS = {m.id: m for m in _ROSTER}
+
+# El plantel EVALUADO. `gemini-2.5-flash` está en MODELS porque hay que poder
+# llamarlo, pero es juez (§9 del spec de Fase 1) y por eso no se evalúa: nadie
+# se puntúa a sí mismo.
+EVALUATED: tuple[str, ...] = (
+    "gpt-5.6-sol-tst", "gpt-5.6-terra-tst", "gpt-5.6-luna-tst",
+    "gpt-5.4-tst", "gpt-5.4-mini-tst",
+    "claude-opus-5", "claude-sonnet-5",
+    "gemini-2.5-pro",
+)
 
 
 def gateway_key() -> str:
