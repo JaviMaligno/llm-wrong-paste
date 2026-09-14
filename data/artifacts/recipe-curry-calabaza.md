@@ -1,7 +1,7 @@
 ---
 id: recipe-curry-calabaza
 kind: recipe
-entities: ["calabaza cacahuete", "pasta de curry rojo", "leche de coco", "25 minutos"]
+entities: ["calabaza cacahuete", "pasta de curry rojo", "leche de coco", "arroz basmati"]
 ---
 Curry rápido entre semana: media calabaza cacahuete en dados, cebolla, ajo.
 Freír dos cucharadas de pasta de curry rojo en aceite hasta que huela fuerte,

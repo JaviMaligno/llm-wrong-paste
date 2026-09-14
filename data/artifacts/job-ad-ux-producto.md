@@ -1,7 +1,7 @@
 ---
 id: job-ad-ux-producto
 kind: job_ad
-entities: ["Membrillo Studio", "diseño de producto", "media jornada", "1.100 €", "Figma"]
+entities: ["Membrillo Studio", "diseño de producto", "media jornada", "clínicas pequeñas", "Figma"]
 ---
 Membrillo Studio, cinco personas y un gato, abre una plaza de diseño de producto
 a media jornada. Trabajamos para clínicas pequeñas: agendas, recordatorios y

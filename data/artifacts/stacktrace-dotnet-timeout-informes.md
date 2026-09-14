@@ -1,7 +1,7 @@
 ---
 id: stacktrace-dotnet-timeout-informes
 kind: stacktrace
-entities: ["SqlException", "Timeout expired", "InformesRepository.ObtenerResumenMensual", "30 segundos", "fecha_emision"]
+entities: ["SqlException", "Timeout expired", "InformesRepository.ObtenerResumenMensual", "GeneradorPdf", "fecha_emision"]
 ---
 Unhandled exception. Microsoft.Data.SqlClient.SqlException (0x80131904): Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.
    at Nubarron.Informes.Datos.InformesRepository.ObtenerResumenMensual(Int32 anio, Int32 mes) in D:\src\Nubarron.Informes\Datos\InformesRepository.cs:line 233

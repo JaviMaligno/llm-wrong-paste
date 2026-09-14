@@ -1,7 +1,7 @@
 ---
 id: sql-limpieza-duplicados
 kind: sql
-entities: ["suscriptores_boletin", "correo_normalizado", "ROW_NUMBER", "duplicados"]
+entities: ["suscriptores_boletin", "correo_normalizado", "ROW_NUMBER", "altas repetidas"]
 ---
 -- Borrar altas repetidas del boletín dejando la más antigua de cada correo.
 WITH duplicados AS (

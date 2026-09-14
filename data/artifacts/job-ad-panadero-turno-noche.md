@@ -1,7 +1,7 @@
 ---
 id: job-ad-panadero-turno-noche
 kind: job_ad
-entities: ["Horno de Casandra", "masa madre", "de 2 a 10 de la mañana", "1.550 € netos"]
+entities: ["Horno de Casandra", "catorce pagas", "de 2 a 10 de la mañana", "1.550 € netos"]
 ---
 El Horno de Casandra necesita panadero para el turno de noche, de 2 a 10 de la mañana.
 Trabajamos con masa madre y fermentación larga, así que hace falta mano y paciencia:

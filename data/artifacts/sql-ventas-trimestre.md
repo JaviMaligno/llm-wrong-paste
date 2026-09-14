@@ -1,7 +1,7 @@
 ---
 id: sql-ventas-trimestre
 kind: sql
-entities: ["ventas_trimestre", "importe_neto", "2031-04-01", "FACTURADO"]
+entities: ["ventas_trimestre", "importe_neto", "2031-04-01", "fecha_cierre"]
 ---
 -- Ventas acumuladas por región desde el cierre del trimestre anterior.
 WITH ventas_trimestre AS (
