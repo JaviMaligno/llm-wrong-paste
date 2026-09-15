@@ -391,3 +391,25 @@ def test_un_nivel_inventado_se_rechaza():
 
     with pytest.raises(ValueError, match="paste_level"):
         ConversationRecord(model_id="m", topic_id="t", paste_level="n1")
+
+
+# --- posición del barrido (Fase 1b, Task 2) --------------------------------
+
+
+def test_la_posicion_del_barrido_viaja_en_la_fila():
+    """La posición ES la variable independiente de la Fase 1b: no puede
+    derivarse después del `conversation_id` ni del ranking guardado."""
+    rec = ConversationRecord(
+        conversation_id="p1b-x", run_id="r", model_id="gpt-5.6-sol-tst",
+        topic_id="carrera-10k", n_turns=2, sweep_position=7,
+    )
+    assert rec.to_json()["sweep_position"] == 7
+
+
+def test_una_fila_sin_barrido_deja_la_posicion_en_none():
+    """Las filas de la Fase 0 y 1a no tienen barrido, y eso no es un cero."""
+    rec = ConversationRecord(
+        conversation_id="p1a-x", run_id="r", model_id="gpt-5.6-sol-tst",
+        topic_id="carrera-10k", n_turns=2,
+    )
+    assert rec.to_json()["sweep_position"] is None

@@ -134,6 +134,11 @@ class ConversationRecord:
     # Nivel del pegote (§5 de la Fase 1): es el FACTOR de la Fase 1a, así que
     # va en la fila y no se deriva del `artifact_id`. `None` en el control.
     paste_level: str | None = None
+    # Posición del barrido de la Fase 1b (0 = el artefacto menos parecido del
+    # banco, 11 = el más parecido). Es la VARIABLE INDEPENDIENTE de esa tanda,
+    # así que va en la fila y no se deriva del ranking ni del identificador.
+    # `None` en la Fase 0 y en la 1a, que no barrían nada.
+    sweep_position: int | None = None
     artifact_text: str | None = None
     # Se copian las entidades del banco: el análisis de fuga no debe depender
     # de que el banco no haya cambiado entre tanto.
