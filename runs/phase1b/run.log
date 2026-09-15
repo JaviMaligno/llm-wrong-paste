@@ -1,0 +1,535 @@
+--- 288 celdas | 12 posiciones del barrido | llamadas: 864 al modelo evaluado, 576 al usuario simulado, 16 prefijos (ya en disco desde la Fase 0)
+--- ancho del eje (D12): 64 artefactos, longitudes=[2, 10]
+  carrera-10k      n=2   min=0.054 med=0.220 max=0.389 rango=0.335
+  carrera-10k      n=10  min=0.110 med=0.278 max=0.460 rango=0.351
+  elegir-camara    n=2   min=0.113 med=0.193 max=0.349 rango=0.236
+  elegir-camara    n=10  min=0.093 med=0.229 max=0.393 rango=0.300
+  elegir-colegio   n=2   min=0.111 med=0.227 max=0.414 rango=0.302
+  elegir-colegio   n=10  min=0.142 med=0.280 max=0.476 rango=0.334
+  factura-luz      n=2   min=0.128 med=0.295 max=0.490 rango=0.362
+  factura-luz      n=10  min=0.135 med=0.312 max=0.490 rango=0.355
+  hacer-pan        n=2   min=0.092 med=0.208 max=0.550 rango=0.458
+  hacer-pan        n=10  min=0.135 med=0.286 max=0.637 rango=0.502
+  huerto-balcon    n=2   min=0.118 med=0.245 max=0.413 rango=0.295
+  huerto-balcon    n=10  min=0.130 med=0.302 max=0.450 rango=0.320
+  mudanza          n=2   min=0.127 med=0.266 max=0.467 rango=0.341
+  mudanza          n=10  min=0.153 med=0.320 max=0.481 rango=0.328
+  viaje-japon      n=2   min=0.067 med=0.199 max=0.359 rango=0.292
+  viaje-japon      n=10  min=0.068 med=0.242 max=0.390 rango=0.321
+--- prefijos: 0 generados (llamadas reales a gpt-5.6-terra-tst y al usuario simulado), 16 reutilizados de disco
+[  0] gpt-5.6-sol-tst    carrera-10k      n=2  N0 s 0 sim=0.054 stacktrace     ok
+[  1] gpt-5.6-sol-tst    carrera-10k      n=10 N0 s 1 sim=0.185 sql            ok
+[  2] gpt-5.6-sol-tst    carrera-10k      n=2  N0 s 2 sim=0.168 email          ok
+[  3] gpt-5.6-sol-tst    carrera-10k      n=10 N0 s 3 sim=0.243 changelog      ok
+[  4] gpt-5.6-sol-tst    carrera-10k      n=2  N0 s 4 sim=0.203 note_to_self   ok
+[  5] gpt-5.6-sol-tst    carrera-10k      n=10 N0 s 5 sim=0.274 note_to_self   ok
+[  6] gpt-5.6-sol-tst    carrera-10k      n=2  N0 s 6 sim=0.227 stacktrace     ok
+[  7] gpt-5.6-sol-tst    carrera-10k      n=10 N0 s 7 sim=0.313 config         ok
+[  8] gpt-5.6-sol-tst    carrera-10k      n=2  N0 s 8 sim=0.252 shopping_list  ok
+[  9] gpt-5.6-sol-tst    carrera-10k      n=10 N0 s 9 sim=0.331 shopping_list  ok
+[ 10] gpt-5.6-sol-tst    carrera-10k      n=2  N0 s10 sim=0.315 email          ok
+[ 11] gpt-5.6-sol-tst    carrera-10k      n=10 N0 s11 sim=0.460 meeting_notes  ok
+[ 12] gpt-5.6-luna-tst   carrera-10k      n=10 N0 s 0 sim=0.110 stacktrace     ok
+[ 13] gpt-5.6-luna-tst   carrera-10k      n=2  N0 s 1 sim=0.149 sql            ok
+[ 14] gpt-5.6-luna-tst   carrera-10k      n=10 N0 s 2 sim=0.211 changelog      ok
+[ 15] gpt-5.6-luna-tst   carrera-10k      n=2  N0 s 3 sim=0.195 shopping_list  ok
+[ 16] gpt-5.6-luna-tst   carrera-10k      n=10 N0 s 4 sim=0.257 stacktrace     ok
+[ 17] gpt-5.6-luna-tst   carrera-10k      n=2  N0 s 5 sim=0.218 prompt         ok
+[ 18] gpt-5.6-luna-tst   carrera-10k      n=10 N0 s 6 sim=0.291 job_ad         ok
+[ 19] gpt-5.6-luna-tst   carrera-10k      n=2  N0 s 7 sim=0.234 job_ad         ok
+[ 20] gpt-5.6-luna-tst   carrera-10k      n=10 N0 s 8 sim=0.322 prompt         ok
+[ 21] gpt-5.6-luna-tst   carrera-10k      n=2  N0 s 9 sim=0.268 meeting_notes  ok
+[ 22] gpt-5.6-luna-tst   carrera-10k      n=10 N0 s10 sim=0.383 shopping_list  ok
+[ 23] gpt-5.6-luna-tst   carrera-10k      n=2  N0 s11 sim=0.389 meeting_notes  ok
+[ 24] claude-opus-5      carrera-10k      n=2  N0 s 0 sim=0.054 stacktrace     ok
+[ 25] claude-opus-5      carrera-10k      n=10 N0 s 1 sim=0.185 sql            ok
+[ 26] claude-opus-5      carrera-10k      n=2  N0 s 2 sim=0.168 email          ok
+[ 27] claude-opus-5      carrera-10k      n=10 N0 s 3 sim=0.243 changelog      ok
+[ 28] claude-opus-5      carrera-10k      n=2  N0 s 4 sim=0.203 note_to_self   ok
+[ 29] claude-opus-5      carrera-10k      n=10 N0 s 5 sim=0.274 note_to_self   ok
+[ 30] claude-opus-5      carrera-10k      n=2  N0 s 6 sim=0.227 stacktrace     ok
+[ 31] claude-opus-5      carrera-10k      n=10 N0 s 7 sim=0.313 config         ok
+[ 32] claude-opus-5      carrera-10k      n=2  N0 s 8 sim=0.252 shopping_list  ok
+[ 33] claude-opus-5      carrera-10k      n=10 N0 s 9 sim=0.331 shopping_list  ok
+[ 34] claude-opus-5      carrera-10k      n=2  N0 s10 sim=0.315 email          ok
+[ 35] claude-opus-5      carrera-10k      n=10 N0 s11 sim=0.460 meeting_notes  ok
+[ 36] gpt-5.6-sol-tst    elegir-camara    n=10 N0 s 0 sim=0.093 stacktrace     ok
+[ 37] gpt-5.6-sol-tst    elegir-camara    n=2  N0 s 1 sim=0.136 config         ok
+[ 38] gpt-5.6-sol-tst    elegir-camara    n=10 N0 s 2 sim=0.166 email          ok
+[ 39] gpt-5.6-sol-tst    elegir-camara    n=2  N0 s 3 sim=0.164 stacktrace     ok
+[ 40] gpt-5.6-sol-tst    elegir-camara    n=10 N0 s 4 sim=0.207 sql            ok
+[ 41] gpt-5.6-sol-tst    elegir-camara    n=2  N0 s 5 sim=0.187 meeting_notes  ok
+[ 42] gpt-5.6-sol-tst    elegir-camara    n=10 N0 s 6 sim=0.231 job_ad         ok
+[ 43] gpt-5.6-sol-tst    elegir-camara    n=2  N0 s 7 sim=0.213 job_ad         ok
+[ 44] gpt-5.6-sol-tst    elegir-camara    n=10 N0 s 8 sim=0.265 shopping_list  ok
+[ 45] gpt-5.6-sol-tst    elegir-camara    n=2  N0 s 9 sim=0.241 email          ok
+[ 46] gpt-5.6-sol-tst    elegir-camara    n=10 N0 s10 sim=0.317 note_to_self   ok
+[ 47] gpt-5.6-sol-tst    elegir-camara    n=2  N0 s11 sim=0.349 note_to_self   ok
+[ 48] gpt-5.6-luna-tst   elegir-camara    n=2  N0 s 0 sim=0.113 sql            ok
+[ 49] gpt-5.6-luna-tst   elegir-camara    n=10 N0 s 1 sim=0.139 recipe         ok
+[ 50] gpt-5.6-luna-tst   elegir-camara    n=2  N0 s 2 sim=0.140 sql            ok
+[ 51] gpt-5.6-luna-tst   elegir-camara    n=10 N0 s 3 sim=0.177 stacktrace     ok
+[ 52] gpt-5.6-luna-tst   elegir-camara    n=2  N0 s 4 sim=0.174 sql            ok
+[ 53] gpt-5.6-luna-tst   elegir-camara    n=10 N0 s 5 sim=0.223 stacktrace     ok
+[ 54] gpt-5.6-luna-tst   elegir-camara    n=2  N0 s 6 sim=0.196 stacktrace     ok
+[ 55] gpt-5.6-luna-tst   elegir-camara    n=10 N0 s 7 sim=0.248 email          ok
+[ 56] gpt-5.6-luna-tst   elegir-camara    n=2  N0 s 8 sim=0.226 shopping_list  ok
+[ 57] gpt-5.6-luna-tst   elegir-camara    n=10 N0 s 9 sim=0.291 note_to_self   ok
+[ 58] gpt-5.6-luna-tst   elegir-camara    n=2  N0 s10 sim=0.263 prompt         ok
+[ 59] gpt-5.6-luna-tst   elegir-camara    n=10 N0 s11 sim=0.393 note_to_self   ok
+[ 60] claude-opus-5      elegir-camara    n=10 N0 s 0 sim=0.093 stacktrace     ok
+[ 61] claude-opus-5      elegir-camara    n=2  N0 s 1 sim=0.136 config         ok
+[ 62] claude-opus-5      elegir-camara    n=10 N0 s 2 sim=0.166 email          ok
+[ 63] claude-opus-5      elegir-camara    n=2  N0 s 3 sim=0.164 stacktrace     ok
+[ 64] claude-opus-5      elegir-camara    n=10 N0 s 4 sim=0.207 sql            ok
+[ 65] claude-opus-5      elegir-camara    n=2  N0 s 5 sim=0.187 meeting_notes  ok
+[ 66] claude-opus-5      elegir-camara    n=10 N0 s 6 sim=0.231 job_ad         ok
+[ 67] claude-opus-5      elegir-camara    n=2  N0 s 7 sim=0.213 job_ad         ok
+[ 68] claude-opus-5      elegir-camara    n=10 N0 s 8 sim=0.265 shopping_list  truncated
+[ 69] claude-opus-5      elegir-camara    n=2  N0 s 9 sim=0.241 email          ok
+[ 70] claude-opus-5      elegir-camara    n=10 N0 s10 sim=0.317 note_to_self   ok
+[ 71] claude-opus-5      elegir-camara    n=2  N0 s11 sim=0.349 note_to_self   ok
+[ 72] gpt-5.6-sol-tst    elegir-colegio   n=2  N0 s 0 sim=0.111 recipe         ok
+[ 73] gpt-5.6-sol-tst    elegir-colegio   n=10 N0 s 1 sim=0.172 recipe         ok
+[ 74] gpt-5.6-sol-tst    elegir-colegio   n=2  N0 s 2 sim=0.170 recipe         ok
+[ 75] gpt-5.6-sol-tst    elegir-colegio   n=10 N0 s 3 sim=0.214 changelog      ok
+[ 76] gpt-5.6-sol-tst    elegir-colegio   n=2  N0 s 4 sim=0.208 job_ad         ok
+[ 77] gpt-5.6-sol-tst    elegir-colegio   n=10 N0 s 5 sim=0.271 config         ok
+[ 78] gpt-5.6-sol-tst    elegir-colegio   n=2  N0 s 6 sim=0.231 shopping_list  ok
+[ 79] gpt-5.6-sol-tst    elegir-colegio   n=10 N0 s 7 sim=0.294 sql            ok
+[ 80] gpt-5.6-sol-tst    elegir-colegio   n=2  N0 s 8 sim=0.268 meeting_notes  ok
+[ 81] gpt-5.6-sol-tst    elegir-colegio   n=10 N0 s 9 sim=0.339 meeting_notes  ok
+[ 82] gpt-5.6-sol-tst    elegir-colegio   n=2  N0 s10 sim=0.298 shopping_list  ok
+[ 83] gpt-5.6-sol-tst    elegir-colegio   n=10 N0 s11 sim=0.476 meeting_notes  ok
+[ 84] gpt-5.6-luna-tst   elegir-colegio   n=10 N0 s 0 sim=0.142 stacktrace     ok
+[ 85] gpt-5.6-luna-tst   elegir-colegio   n=2  N0 s 1 sim=0.156 email          ok
+[ 86] gpt-5.6-luna-tst   elegir-colegio   n=10 N0 s 2 sim=0.194 sql            ok
+[ 87] gpt-5.6-luna-tst   elegir-colegio   n=2  N0 s 3 sim=0.194 stacktrace     ok
+[ 88] gpt-5.6-luna-tst   elegir-colegio   n=10 N0 s 4 sim=0.241 shopping_list  ok
+[ 89] gpt-5.6-luna-tst   elegir-colegio   n=2  N0 s 5 sim=0.222 shopping_list  ok
+[ 90] gpt-5.6-luna-tst   elegir-colegio   n=10 N0 s 6 sim=0.282 changelog      ok
+[ 91] gpt-5.6-luna-tst   elegir-colegio   n=2  N0 s 7 sim=0.256 email          ok
+[ 92] gpt-5.6-luna-tst   elegir-colegio   n=10 N0 s 8 sim=0.309 prompt         ok
+[ 93] gpt-5.6-luna-tst   elegir-colegio   n=2  N0 s 9 sim=0.286 meeting_notes  ok
+[ 94] gpt-5.6-luna-tst   elegir-colegio   n=10 N0 s10 sim=0.362 note_to_self   ok
+[ 95] gpt-5.6-luna-tst   elegir-colegio   n=2  N0 s11 sim=0.414 meeting_notes  ok
+Python(76788) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[ 96] claude-opus-5      elegir-colegio   n=2  N0 s 0 sim=0.111 recipe         ok
+Python(76878) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(76926) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(77037) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[ 97] claude-opus-5      elegir-colegio   n=10 N0 s 1 sim=0.172 recipe         ok
+Python(77157) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(77230) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(77396) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[ 98] claude-opus-5      elegir-colegio   n=2  N0 s 2 sim=0.170 recipe         truncated
+Python(77524) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(77548) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(77606) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[ 99] claude-opus-5      elegir-colegio   n=10 N0 s 3 sim=0.214 changelog      ok
+Python(77669) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(77701) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(77780) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[100] claude-opus-5      elegir-colegio   n=2  N0 s 4 sim=0.208 job_ad         truncated
+Python(77845) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(77871) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(77946) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[101] claude-opus-5      elegir-colegio   n=10 N0 s 5 sim=0.271 config         ok
+Python(78022) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(78149) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(78500) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[102] claude-opus-5      elegir-colegio   n=2  N0 s 6 sim=0.231 shopping_list  truncated
+Python(78599) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(78785) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(78928) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[103] claude-opus-5      elegir-colegio   n=10 N0 s 7 sim=0.294 sql            ok
+Python(79000) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(79088) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(79387) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[104] claude-opus-5      elegir-colegio   n=2  N0 s 8 sim=0.268 meeting_notes  ok
+Python(79533) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(79644) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(79688) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[105] claude-opus-5      elegir-colegio   n=10 N0 s 9 sim=0.339 meeting_notes  ok
+Python(79798) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(79825) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(79904) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[106] claude-opus-5      elegir-colegio   n=2  N0 s10 sim=0.298 shopping_list  truncated
+Python(79970) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(80022) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(80132) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[107] claude-opus-5      elegir-colegio   n=10 N0 s11 sim=0.476 meeting_notes  ok
+[108] gpt-5.6-sol-tst    factura-luz      n=10 N0 s 0 sim=0.135 config         ok
+[109] gpt-5.6-sol-tst    factura-luz      n=2  N0 s 1 sim=0.186 recipe         ok
+[110] gpt-5.6-sol-tst    factura-luz      n=10 N0 s 2 sim=0.242 changelog      ok
+[111] gpt-5.6-sol-tst    factura-luz      n=2  N0 s 3 sim=0.240 meeting_notes  ok
+[112] gpt-5.6-sol-tst    factura-luz      n=10 N0 s 4 sim=0.301 config         ok
+[113] gpt-5.6-sol-tst    factura-luz      n=2  N0 s 5 sim=0.284 job_ad         ok
+[114] gpt-5.6-sol-tst    factura-luz      n=10 N0 s 6 sim=0.314 changelog      ok
+[115] gpt-5.6-sol-tst    factura-luz      n=2  N0 s 7 sim=0.320 meeting_notes  ok
+[116] gpt-5.6-sol-tst    factura-luz      n=10 N0 s 8 sim=0.345 meeting_notes  ok
+[117] gpt-5.6-sol-tst    factura-luz      n=2  N0 s 9 sim=0.357 stacktrace     ok
+[118] gpt-5.6-sol-tst    factura-luz      n=10 N0 s10 sim=0.384 job_ad         ok
+[119] gpt-5.6-sol-tst    factura-luz      n=2  N0 s11 sim=0.489 email          ok
+[120] gpt-5.6-luna-tst   factura-luz      n=2  N0 s 0 sim=0.128 config         ok
+[121] gpt-5.6-luna-tst   factura-luz      n=10 N0 s 1 sim=0.213 recipe         ok
+[122] gpt-5.6-luna-tst   factura-luz      n=2  N0 s 2 sim=0.213 changelog      ok
+[123] gpt-5.6-luna-tst   factura-luz      n=10 N0 s 3 sim=0.276 config         ok
+[124] gpt-5.6-luna-tst   factura-luz      n=2  N0 s 4 sim=0.277 config         ok
+[125] gpt-5.6-luna-tst   factura-luz      n=10 N0 s 5 sim=0.310 shopping_list  ok
+[126] gpt-5.6-luna-tst   factura-luz      n=2  N0 s 6 sim=0.308 job_ad         ok
+[127] gpt-5.6-luna-tst   factura-luz      n=10 N0 s 7 sim=0.332 sql            ok
+[128] gpt-5.6-luna-tst   factura-luz      n=2  N0 s 8 sim=0.336 stacktrace     ok
+[129] gpt-5.6-luna-tst   factura-luz      n=10 N0 s 9 sim=0.367 changelog      ok
+[130] gpt-5.6-luna-tst   factura-luz      n=2  N0 s10 sim=0.381 sql            ok
+[131] gpt-5.6-luna-tst   factura-luz      n=10 N0 s11 sim=0.490 email          ok
+Python(83201) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83245) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83295) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[132] claude-opus-5      factura-luz      n=10 N0 s 0 sim=0.135 config         ok
+Python(83327) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83358) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83422) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[133] claude-opus-5      factura-luz      n=2  N0 s 1 sim=0.186 recipe         ok
+Python(83465) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83513) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83554) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[134] claude-opus-5      factura-luz      n=10 N0 s 2 sim=0.242 changelog      ok
+Python(83615) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83659) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83729) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[135] claude-opus-5      factura-luz      n=2  N0 s 3 sim=0.240 meeting_notes  ok
+Python(83770) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83852) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83899) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[136] claude-opus-5      factura-luz      n=10 N0 s 4 sim=0.301 config         ok
+Python(83944) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(83975) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84041) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[137] claude-opus-5      factura-luz      n=2  N0 s 5 sim=0.284 job_ad         ok
+Python(84075) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84145) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84172) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[138] claude-opus-5      factura-luz      n=10 N0 s 6 sim=0.314 changelog      ok
+Python(84211) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84245) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84299) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[139] claude-opus-5      factura-luz      n=2  N0 s 7 sim=0.320 meeting_notes  ok
+Python(84330) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84375) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84420) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[140] claude-opus-5      factura-luz      n=10 N0 s 8 sim=0.345 meeting_notes  ok
+Python(84444) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84478) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84554) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[141] claude-opus-5      factura-luz      n=2  N0 s 9 sim=0.357 stacktrace     ok
+Python(84615) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84697) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84756) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[142] claude-opus-5      factura-luz      n=10 N0 s10 sim=0.384 job_ad         ok
+Python(84912) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(84986) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(85173) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[143] claude-opus-5      factura-luz      n=2  N0 s11 sim=0.489 email          ok
+[144] gpt-5.6-sol-tst    hacer-pan        n=2  N0 s 0 sim=0.092 sql            ok
+[145] gpt-5.6-sol-tst    hacer-pan        n=10 N0 s 1 sim=0.190 sql            ok
+[146] gpt-5.6-sol-tst    hacer-pan        n=2  N0 s 2 sim=0.161 changelog      ok
+[147] gpt-5.6-sol-tst    hacer-pan        n=10 N0 s 3 sim=0.230 email          ok
+[148] gpt-5.6-sol-tst    hacer-pan        n=2  N0 s 4 sim=0.185 changelog      ok
+[149] gpt-5.6-sol-tst    hacer-pan        n=10 N0 s 5 sim=0.283 job_ad         ok
+[150] gpt-5.6-sol-tst    hacer-pan        n=2  N0 s 6 sim=0.213 prompt         ok
+[151] gpt-5.6-sol-tst    hacer-pan        n=10 N0 s 7 sim=0.305 email          ok
+[152] gpt-5.6-sol-tst    hacer-pan        n=2  N0 s 8 sim=0.239 job_ad         ok
+[153] gpt-5.6-sol-tst    hacer-pan        n=10 N0 s 9 sim=0.344 note_to_self   ok
+[154] gpt-5.6-sol-tst    hacer-pan        n=2  N0 s10 sim=0.335 shopping_list  ok
+[155] gpt-5.6-sol-tst    hacer-pan        n=10 N0 s11 sim=0.637 recipe         ok
+[156] gpt-5.6-luna-tst   hacer-pan        n=10 N0 s 0 sim=0.135 stacktrace     ok
+[157] gpt-5.6-luna-tst   hacer-pan        n=2  N0 s 1 sim=0.130 sql            ok
+[158] gpt-5.6-luna-tst   hacer-pan        n=10 N0 s 2 sim=  -   sql            refusal
+[159] gpt-5.6-luna-tst   hacer-pan        n=2  N0 s 3 sim=0.172 stacktrace     ok
+[160] gpt-5.6-luna-tst   hacer-pan        n=10 N0 s 4 sim=0.258 email          ok
+[161] gpt-5.6-luna-tst   hacer-pan        n=2  N0 s 5 sim=0.201 stacktrace     ok
+[162] gpt-5.6-luna-tst   hacer-pan        n=10 N0 s 6 sim=0.289 changelog      ok
+[163] gpt-5.6-luna-tst   hacer-pan        n=2  N0 s 7 sim=0.220 meeting_notes  ok
+[164] gpt-5.6-luna-tst   hacer-pan        n=10 N0 s 8 sim=0.329 changelog      ok
+[165] gpt-5.6-luna-tst   hacer-pan        n=2  N0 s 9 sim=0.280 prompt         ok
+[166] gpt-5.6-luna-tst   hacer-pan        n=10 N0 s10 sim=0.408 changelog      ok
+[167] gpt-5.6-luna-tst   hacer-pan        n=2  N0 s11 sim=0.550 recipe         ok
+Python(86985) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87051) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87115) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[168] claude-opus-5      hacer-pan        n=2  N0 s 0 sim=0.092 sql            ok
+Python(87160) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87237) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87309) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[169] claude-opus-5      hacer-pan        n=10 N0 s 1 sim=0.190 sql            ok
+Python(87403) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87435) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87479) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[170] claude-opus-5      hacer-pan        n=2  N0 s 2 sim=0.161 changelog      ok
+Python(87534) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87562) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87608) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[171] claude-opus-5      hacer-pan        n=10 N0 s 3 sim=0.230 email          ok
+Python(87629) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87663) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87717) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[172] claude-opus-5      hacer-pan        n=2  N0 s 4 sim=0.185 changelog      ok
+Python(87767) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87815) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87856) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[173] claude-opus-5      hacer-pan        n=10 N0 s 5 sim=0.283 job_ad         ok
+Python(87905) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(87985) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88028) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[174] claude-opus-5      hacer-pan        n=2  N0 s 6 sim=0.213 prompt         empty
+Python(88089) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88133) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88162) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[175] claude-opus-5      hacer-pan        n=10 N0 s 7 sim=0.305 email          ok
+Python(88189) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88222) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88272) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[176] claude-opus-5      hacer-pan        n=2  N0 s 8 sim=0.239 job_ad         ok
+Python(88312) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88353) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88393) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[177] claude-opus-5      hacer-pan        n=10 N0 s 9 sim=0.344 note_to_self   ok
+Python(88420) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88503) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88538) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[178] claude-opus-5      hacer-pan        n=2  N0 s10 sim=0.335 shopping_list  ok
+Python(88591) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88636) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(88689) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[179] claude-opus-5      hacer-pan        n=10 N0 s11 sim=0.637 recipe         ok
+[180] gpt-5.6-sol-tst    huerto-balcon    n=10 N0 s 0 sim=0.130 stacktrace     ok
+[181] gpt-5.6-sol-tst    huerto-balcon    n=2  N0 s 1 sim=0.167 sql            ok
+[182] gpt-5.6-sol-tst    huerto-balcon    n=10 N0 s 2 sim=0.230 stacktrace     ok
+[183] gpt-5.6-sol-tst    huerto-balcon    n=2  N0 s 3 sim=0.201 email          ok
+[184] gpt-5.6-sol-tst    huerto-balcon    n=10 N0 s 4 sim=0.288 job_ad         ok
+[185] gpt-5.6-sol-tst    huerto-balcon    n=2  N0 s 5 sim=0.240 note_to_self   ok
+[186] gpt-5.6-sol-tst    huerto-balcon    n=10 N0 s 6 sim=0.308 prompt         ok
+[187] gpt-5.6-sol-tst    huerto-balcon    n=2  N0 s 7 sim=0.266 config         ok
+[188] gpt-5.6-sol-tst    huerto-balcon    n=10 N0 s 8 sim=0.336 job_ad         ok
+[189] gpt-5.6-sol-tst    huerto-balcon    n=2  N0 s 9 sim=0.312 job_ad         ok
+[190] gpt-5.6-sol-tst    huerto-balcon    n=10 N0 s10 sim=0.375 email          ok
+[191] gpt-5.6-sol-tst    huerto-balcon    n=2  N0 s11 sim=0.413 note_to_self   ok
+[192] gpt-5.6-luna-tst   huerto-balcon    n=2  N0 s 0 sim=0.118 sql            ok
+[193] gpt-5.6-luna-tst   huerto-balcon    n=10 N0 s 1 sim=0.183 config         ok
+[194] gpt-5.6-luna-tst   huerto-balcon    n=2  N0 s 2 sim=0.189 config         ok
+[195] gpt-5.6-luna-tst   huerto-balcon    n=10 N0 s 3 sim=0.257 config         ok
+[196] gpt-5.6-luna-tst   huerto-balcon    n=2  N0 s 4 sim=0.212 note_to_self   ok
+[197] gpt-5.6-luna-tst   huerto-balcon    n=10 N0 s 5 sim=0.299 recipe         ok
+[198] gpt-5.6-luna-tst   huerto-balcon    n=2  N0 s 6 sim=0.253 note_to_self   ok
+[199] gpt-5.6-luna-tst   huerto-balcon    n=10 N0 s 7 sim=  -   config         timeout
+[200] gpt-5.6-luna-tst   huerto-balcon    n=2  N0 s 8 sim=0.285 meeting_notes  ok
+[201] gpt-5.6-luna-tst   huerto-balcon    n=10 N0 s 9 sim=0.343 shopping_list  ok
+[202] gpt-5.6-luna-tst   huerto-balcon    n=2  N0 s10 sim=0.341 changelog      ok
+[203] gpt-5.6-luna-tst   huerto-balcon    n=10 N0 s11 sim=0.450 note_to_self   ok
+Python(91460) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(92080) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(92172) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[204] claude-opus-5      huerto-balcon    n=10 N0 s 0 sim=0.130 stacktrace     ok
+Python(92446) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(92580) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(92645) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[205] claude-opus-5      huerto-balcon    n=2  N0 s 1 sim=0.167 sql            truncated
+Python(92753) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(93897) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(94409) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[206] claude-opus-5      huerto-balcon    n=10 N0 s 2 sim=0.230 stacktrace     ok
+Python(94559) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(94589) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(94656) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[207] claude-opus-5      huerto-balcon    n=2  N0 s 3 sim=0.201 email          ok
+Python(94722) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(94774) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(94848) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[208] claude-opus-5      huerto-balcon    n=10 N0 s 4 sim=0.288 job_ad         ok
+Python(94886) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(94926) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(95019) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[209] claude-opus-5      huerto-balcon    n=2  N0 s 5 sim=0.240 note_to_self   ok
+Python(95051) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(95087) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(95154) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[210] claude-opus-5      huerto-balcon    n=10 N0 s 6 sim=0.308 prompt         ok
+Python(95261) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(95305) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(95386) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[211] claude-opus-5      huerto-balcon    n=2  N0 s 7 sim=0.266 config         ok
+Python(95454) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(95539) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(95664) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[212] claude-opus-5      huerto-balcon    n=10 N0 s 8 sim=0.336 job_ad         ok
+Python(95801) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(95834) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(95888) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[213] claude-opus-5      huerto-balcon    n=2  N0 s 9 sim=0.312 job_ad         ok
+Python(95966) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(95999) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(96080) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[214] claude-opus-5      huerto-balcon    n=10 N0 s10 sim=0.375 email          ok
+Python(96152) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(96190) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(96251) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[215] claude-opus-5      huerto-balcon    n=2  N0 s11 sim=0.413 note_to_self   ok
+[216] gpt-5.6-sol-tst    mudanza          n=2  N0 s 0 sim=0.127 stacktrace     ok
+[217] gpt-5.6-sol-tst    mudanza          n=10 N0 s 1 sim=0.204 config         ok
+[218] gpt-5.6-sol-tst    mudanza          n=2  N0 s 2 sim=0.186 changelog      ok
+[219] gpt-5.6-sol-tst    mudanza          n=10 N0 s 3 sim=0.257 stacktrace     ok
+[220] gpt-5.6-sol-tst    mudanza          n=2  N0 s 4 sim=0.227 sql            ok
+[221] gpt-5.6-sol-tst    mudanza          n=10 N0 s 5 sim=0.306 sql            ok
+[222] gpt-5.6-sol-tst    mudanza          n=2  N0 s 6 sim=0.280 prompt         ok
+[223] gpt-5.6-sol-tst    mudanza          n=10 N0 s 7 sim=0.354 prompt         ok
+[224] gpt-5.6-sol-tst    mudanza          n=2  N0 s 8 sim=0.317 shopping_list  ok
+[225] gpt-5.6-sol-tst    mudanza          n=10 N0 s 9 sim=0.402 note_to_self   ok
+[226] gpt-5.6-sol-tst    mudanza          n=2  N0 s10 sim=0.357 email          ok
+[227] gpt-5.6-sol-tst    mudanza          n=10 N0 s11 sim=0.481 shopping_list  ok
+[228] gpt-5.6-luna-tst   mudanza          n=10 N0 s 0 sim=0.153 stacktrace     ok
+[229] gpt-5.6-luna-tst   mudanza          n=2  N0 s 1 sim=0.170 recipe         ok
+[230] gpt-5.6-luna-tst   mudanza          n=10 N0 s 2 sim=0.225 stacktrace     ok
+[231] gpt-5.6-luna-tst   mudanza          n=2  N0 s 3 sim=0.203 config         ok
+[232] gpt-5.6-luna-tst   mudanza          n=10 N0 s 4 sim=0.274 changelog      ok
+[233] gpt-5.6-luna-tst   mudanza          n=2  N0 s 5 sim=0.259 shopping_list  ok
+[234] gpt-5.6-luna-tst   mudanza          n=10 N0 s 6 sim=0.336 prompt         ok
+[235] gpt-5.6-luna-tst   mudanza          n=2  N0 s 7 sim=0.301 job_ad         ok
+[236] gpt-5.6-luna-tst   mudanza          n=10 N0 s 8 sim=0.371 meeting_notes  ok
+[237] gpt-5.6-luna-tst   mudanza          n=2  N0 s 9 sim=0.340 sql            ok
+[238] gpt-5.6-luna-tst   mudanza          n=10 N0 s10 sim=0.411 shopping_list  ok
+[239] gpt-5.6-luna-tst   mudanza          n=2  N0 s11 sim=0.467 email          ok
+Python(97694) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(97778) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(97832) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[240] claude-opus-5      mudanza          n=2  N0 s 0 sim=0.127 stacktrace     ok
+Python(97920) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(97985) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(98026) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[241] claude-opus-5      mudanza          n=10 N0 s 1 sim=0.204 config         ok
+Python(98133) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(98184) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(98252) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[242] claude-opus-5      mudanza          n=2  N0 s 2 sim=0.186 changelog      ok
+Python(98345) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(98397) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(98455) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[243] claude-opus-5      mudanza          n=10 N0 s 3 sim=0.257 stacktrace     ok
+Python(98491) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(98560) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(98635) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[244] claude-opus-5      mudanza          n=2  N0 s 4 sim=0.227 sql            ok
+Python(98733) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(98820) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(98941) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[245] claude-opus-5      mudanza          n=10 N0 s 5 sim=0.306 sql            ok
+Python(98973) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(99006) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(99114) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[246] claude-opus-5      mudanza          n=2  N0 s 6 sim=0.280 prompt         ok
+Python(99272) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(99407) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(99512) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[247] claude-opus-5      mudanza          n=10 N0 s 7 sim=0.354 prompt         ok
+Python(99547) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(99589) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(99712) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[248] claude-opus-5      mudanza          n=2  N0 s 8 sim=0.317 shopping_list  ok
+Python(99865) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(99893) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(99939) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[249] claude-opus-5      mudanza          n=10 N0 s 9 sim=0.402 note_to_self   ok
+Python(100) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(155) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(254) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[250] claude-opus-5      mudanza          n=2  N0 s10 sim=0.357 email          ok
+Python(335) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(370) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(408) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[251] claude-opus-5      mudanza          n=10 N0 s11 sim=0.481 shopping_list  ok
+[252] gpt-5.6-sol-tst    viaje-japon      n=10 N0 s 0 sim=0.068 config         ok
+[253] gpt-5.6-sol-tst    viaje-japon      n=2  N0 s 1 sim=0.132 recipe         ok
+[254] gpt-5.6-sol-tst    viaje-japon      n=10 N0 s 2 sim=0.182 config         ok
+[255] gpt-5.6-sol-tst    viaje-japon      n=2  N0 s 3 sim=0.177 recipe         ok
+[256] gpt-5.6-sol-tst    viaje-japon      n=10 N0 s 4 sim=0.222 email          ok
+[257] gpt-5.6-sol-tst    viaje-japon      n=2  N0 s 5 sim=0.193 job_ad         ok
+[258] gpt-5.6-sol-tst    viaje-japon      n=10 N0 s 6 sim=0.250 meeting_notes  ok
+[259] gpt-5.6-sol-tst    viaje-japon      n=2  N0 s 7 sim=0.236 prompt         ok
+[260] gpt-5.6-sol-tst    viaje-japon      n=10 N0 s 8 sim=0.272 job_ad         ok
+[261] gpt-5.6-sol-tst    viaje-japon      n=2  N0 s 9 sim=0.264 shopping_list  ok
+[262] gpt-5.6-sol-tst    viaje-japon      n=10 N0 s10 sim=0.298 note_to_self   ok
+[263] gpt-5.6-sol-tst    viaje-japon      n=2  N0 s11 sim=0.359 meeting_notes  ok
+[264] gpt-5.6-luna-tst   viaje-japon      n=2  N0 s 0 sim=0.067 changelog      ok
+[265] gpt-5.6-luna-tst   viaje-japon      n=10 N0 s 1 sim=0.143 recipe         ok
+[266] gpt-5.6-luna-tst   viaje-japon      n=2  N0 s 2 sim=0.162 stacktrace     ok
+[267] gpt-5.6-luna-tst   viaje-japon      n=10 N0 s 3 sim=0.207 sql            ok
+[268] gpt-5.6-luna-tst   viaje-japon      n=2  N0 s 4 sim=0.188 stacktrace     ok
+[269] gpt-5.6-luna-tst   viaje-japon      n=10 N0 s 5 sim=0.237 stacktrace     ok
+[270] gpt-5.6-luna-tst   viaje-japon      n=2  N0 s 6 sim=0.213 shopping_list  ok
+[271] gpt-5.6-luna-tst   viaje-japon      n=10 N0 s 7 sim=0.266 email          ok
+[272] gpt-5.6-luna-tst   viaje-japon      n=2  N0 s 8 sim=0.249 prompt         ok
+[273] gpt-5.6-luna-tst   viaje-japon      n=10 N0 s 9 sim=0.285 email          ok
+[274] gpt-5.6-luna-tst   viaje-japon      n=2  N0 s10 sim=0.287 meeting_notes  ok
+[275] gpt-5.6-luna-tst   viaje-japon      n=10 N0 s11 sim=0.390 note_to_self   ok
+Python(2659) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(2744) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(2867) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[276] claude-opus-5      viaje-japon      n=10 N0 s 0 sim=0.068 config         truncated
+Python(2978) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(3010) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(3085) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[277] claude-opus-5      viaje-japon      n=2  N0 s 1 sim=0.132 recipe         ok
+Python(3168) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(3248) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(3380) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[278] claude-opus-5      viaje-japon      n=10 N0 s 2 sim=0.182 config         ok
+Python(3493) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(3539) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(3689) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[279] claude-opus-5      viaje-japon      n=2  N0 s 3 sim=0.177 recipe         ok
+Python(3795) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(3879) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(4107) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[280] claude-opus-5      viaje-japon      n=10 N0 s 4 sim=0.222 email          ok
+Python(4431) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(4568) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(4687) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[281] claude-opus-5      viaje-japon      n=2  N0 s 5 sim=0.193 job_ad         ok
+Python(4824) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(4872) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(5232) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[282] claude-opus-5      viaje-japon      n=10 N0 s 6 sim=0.250 meeting_notes  ok
+Python(5381) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(5506) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(5615) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[283] claude-opus-5      viaje-japon      n=2  N0 s 7 sim=0.236 prompt         empty
+Python(5704) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(5763) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(5893) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[284] claude-opus-5      viaje-japon      n=10 N0 s 8 sim=0.272 job_ad         truncated
+Python(5969) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(6032) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(6108) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[285] claude-opus-5      viaje-japon      n=2  N0 s 9 sim=0.264 shopping_list  ok
+Python(6205) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(6292) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(6383) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[286] claude-opus-5      viaje-japon      n=10 N0 s10 sim=0.298 note_to_self   truncated
+Python(6518) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(6593) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(6741) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[287] claude-opus-5      viaje-japon      n=2  N0 s11 sim=0.359 meeting_notes  ok
+--- planificadas: 288 | completadas: 285 | fallidas: 3 | saltadas: 0
+---   posición  0: {'completed': 24, 'failed': 0, 'skipped': 0}
+---   posición  1: {'completed': 24, 'failed': 0, 'skipped': 0}
+---   posición  2: {'completed': 24, 'failed': 0, 'skipped': 0}
+---   posición  3: {'completed': 24, 'failed': 0, 'skipped': 0}
+---   posición  4: {'completed': 24, 'failed': 0, 'skipped': 0}
+---   posición  5: {'completed': 24, 'failed': 0, 'skipped': 0}
+---   posición  6: {'completed': 23, 'failed': 1, 'skipped': 0}
+---   posición  7: {'completed': 22, 'failed': 2, 'skipped': 0}
+---   posición  8: {'completed': 24, 'failed': 0, 'skipped': 0}
+---   posición  9: {'completed': 24, 'failed': 0, 'skipped': 0}
+---   posición 10: {'completed': 24, 'failed': 0, 'skipped': 0}
+---   posición 11: {'completed': 24, 'failed': 0, 'skipped': 0}
+/Users/javieraguilarmartin1/Documents/repos/llm-wrong-paste/runs/phase1b/20260915T114537.jsonl

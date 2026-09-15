@@ -1,0 +1,465 @@
+{
+  "run_id": "20260915T114537",
+  "embedding_model": "text-embedding-3-small-tst",
+  "prefix_model": "gpt-5.6-terra-tst",
+  "lengths": [
+    2,
+    10
+  ],
+  "n_artifacts": 64,
+  "prefixes_generated": 0,
+  "prefixes_reused": 16,
+  "narrow_threshold": 0.15,
+  "narrow_cells": [],
+  "narrow_topics": [],
+  "entries": [
+    {
+      "topic_id": "carrera-10k",
+      "prefix_id": "25f65120b504b2ef",
+      "n_turns": 2,
+      "min": 0.05366820842027664,
+      "median": 0.21988113969564438,
+      "max": 0.3888667821884155,
+      "range": 0.3351985737681389,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "meeting-notes-club-atletismo",
+          "kind": "meeting_notes",
+          "similarity": 0.3888667821884155
+        },
+        {
+          "artifact_id": "meeting-notes-retro-sprint",
+          "kind": "meeting_notes",
+          "similarity": 0.37625759840011597
+        },
+        {
+          "artifact_id": "meeting-notes-kickoff-lumbra",
+          "kind": "meeting_notes",
+          "similarity": 0.3431849181652069
+        }
+      ]
+    },
+    {
+      "topic_id": "carrera-10k",
+      "prefix_id": "2f6a99830587b222",
+      "n_turns": 10,
+      "min": 0.10992312431335449,
+      "median": 0.27819934487342834,
+      "max": 0.4604276716709137,
+      "range": 0.3505045473575592,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "meeting-notes-retro-sprint",
+          "kind": "meeting_notes",
+          "similarity": 0.4604276716709137
+        },
+        {
+          "artifact_id": "meeting-notes-kickoff-lumbra",
+          "kind": "meeting_notes",
+          "similarity": 0.45041123032569885
+        },
+        {
+          "artifact_id": "meeting-notes-club-atletismo",
+          "kind": "meeting_notes",
+          "similarity": 0.42407315969467163
+        }
+      ]
+    },
+    {
+      "topic_id": "elegir-camara",
+      "prefix_id": "61b10707a589a600",
+      "n_turns": 2,
+      "min": 0.11258623749017715,
+      "median": 0.19264186173677444,
+      "max": 0.3486553430557251,
+      "range": 0.23606910556554794,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "note-to-self-regalo-abuela",
+          "kind": "note_to_self",
+          "similarity": 0.3486553430557251
+        },
+        {
+          "artifact_id": "job-ad-ux-producto",
+          "kind": "job_ad",
+          "similarity": 0.32786956429481506
+        },
+        {
+          "artifact_id": "shopping-list-semanal",
+          "kind": "shopping_list",
+          "similarity": 0.2966758608818054
+        }
+      ]
+    },
+    {
+      "topic_id": "elegir-camara",
+      "prefix_id": "bdac892b26ff3d40",
+      "n_turns": 10,
+      "min": 0.09261719137430191,
+      "median": 0.2286035344004631,
+      "max": 0.3926851749420166,
+      "range": 0.3000679835677147,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "note-to-self-llamar-taller",
+          "kind": "note_to_self",
+          "similarity": 0.3926851749420166
+        },
+        {
+          "artifact_id": "prompt-corrector-estilo",
+          "kind": "prompt",
+          "similarity": 0.34613847732543945
+        },
+        {
+          "artifact_id": "shopping-list-semanal",
+          "kind": "shopping_list",
+          "similarity": 0.33433401584625244
+        }
+      ]
+    },
+    {
+      "topic_id": "elegir-colegio",
+      "prefix_id": "48335422e888794a",
+      "n_turns": 2,
+      "min": 0.11118024587631226,
+      "median": 0.22663433849811554,
+      "max": 0.4135580062866211,
+      "range": 0.30237776041030884,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "meeting-notes-ampa-colegio",
+          "kind": "meeting_notes",
+          "similarity": 0.4135580062866211
+        },
+        {
+          "artifact_id": "shopping-list-vuelta-al-cole",
+          "kind": "shopping_list",
+          "similarity": 0.3972795903682709
+        },
+        {
+          "artifact_id": "prompt-repaso-examen",
+          "kind": "prompt",
+          "similarity": 0.32105064392089844
+        }
+      ]
+    },
+    {
+      "topic_id": "elegir-colegio",
+      "prefix_id": "065a28551f29767d",
+      "n_turns": 10,
+      "min": 0.1415986567735672,
+      "median": 0.28017789125442505,
+      "max": 0.4755517244338989,
+      "range": 0.3339530676603317,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "meeting-notes-ampa-colegio",
+          "kind": "meeting_notes",
+          "similarity": 0.4755517244338989
+        },
+        {
+          "artifact_id": "shopping-list-vuelta-al-cole",
+          "kind": "shopping_list",
+          "similarity": 0.45628660917282104
+        },
+        {
+          "artifact_id": "prompt-repaso-examen",
+          "kind": "prompt",
+          "similarity": 0.3902153968811035
+        }
+      ]
+    },
+    {
+      "topic_id": "factura-luz",
+      "prefix_id": "f44998b0ac8c93ef",
+      "n_turns": 2,
+      "min": 0.12780709564685822,
+      "median": 0.2950970530509949,
+      "max": 0.48977601528167725,
+      "range": 0.36196891963481903,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "email-factura-pendiente",
+          "kind": "email",
+          "similarity": 0.48977601528167725
+        },
+        {
+          "artifact_id": "email-baja-gimnasio",
+          "kind": "email",
+          "similarity": 0.4385404884815216
+        },
+        {
+          "artifact_id": "note-to-self-llamar-taller",
+          "kind": "note_to_self",
+          "similarity": 0.41034749150276184
+        }
+      ]
+    },
+    {
+      "topic_id": "factura-luz",
+      "prefix_id": "58f32881ee84bf83",
+      "n_turns": 10,
+      "min": 0.13483601808547974,
+      "median": 0.3116466552019119,
+      "max": 0.48995596170425415,
+      "range": 0.3551199436187744,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "email-baja-gimnasio",
+          "kind": "email",
+          "similarity": 0.48995596170425415
+        },
+        {
+          "artifact_id": "email-factura-pendiente",
+          "kind": "email",
+          "similarity": 0.4673498272895813
+        },
+        {
+          "artifact_id": "note-to-self-llamar-taller",
+          "kind": "note_to_self",
+          "similarity": 0.44837817549705505
+        }
+      ]
+    },
+    {
+      "topic_id": "hacer-pan",
+      "prefix_id": "ce64ba740c48aaa2",
+      "n_turns": 2,
+      "min": 0.09163488447666168,
+      "median": 0.2075854018330574,
+      "max": 0.5500674247741699,
+      "range": 0.45843254029750824,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "recipe-pan-centeno",
+          "kind": "recipe",
+          "similarity": 0.5500674247741699
+        },
+        {
+          "artifact_id": "job-ad-panadero-turno-noche",
+          "kind": "job_ad",
+          "similarity": 0.46870914101600647
+        },
+        {
+          "artifact_id": "recipe-bizcocho-naranja",
+          "kind": "recipe",
+          "similarity": 0.4311317801475525
+        }
+      ]
+    },
+    {
+      "topic_id": "hacer-pan",
+      "prefix_id": "47ef15df47f6d13d",
+      "n_turns": 10,
+      "min": 0.13461318612098694,
+      "median": 0.2860463261604309,
+      "max": 0.6366443634033203,
+      "range": 0.5020311772823334,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "recipe-pan-centeno",
+          "kind": "recipe",
+          "similarity": 0.6366443634033203
+        },
+        {
+          "artifact_id": "job-ad-panadero-turno-noche",
+          "kind": "job_ad",
+          "similarity": 0.54563307762146
+        },
+        {
+          "artifact_id": "recipe-bizcocho-naranja",
+          "kind": "recipe",
+          "similarity": 0.5194432735443115
+        }
+      ]
+    },
+    {
+      "topic_id": "huerto-balcon",
+      "prefix_id": "372767872798f53c",
+      "n_turns": 2,
+      "min": 0.11802154779434204,
+      "median": 0.245364710688591,
+      "max": 0.4132227897644043,
+      "range": 0.29520124197006226,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "note-to-self-regalo-abuela",
+          "kind": "note_to_self",
+          "similarity": 0.4132227897644043
+        },
+        {
+          "artifact_id": "shopping-list-ferreteria",
+          "kind": "shopping_list",
+          "similarity": 0.37981587648391724
+        },
+        {
+          "artifact_id": "recipe-crema-puerros",
+          "kind": "recipe",
+          "similarity": 0.3699657917022705
+        }
+      ]
+    },
+    {
+      "topic_id": "huerto-balcon",
+      "prefix_id": "781a6c674894e474",
+      "n_turns": 10,
+      "min": 0.12961329519748688,
+      "median": 0.3019888401031494,
+      "max": 0.449833482503891,
+      "range": 0.3202201873064041,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "note-to-self-regalo-abuela",
+          "kind": "note_to_self",
+          "similarity": 0.449833482503891
+        },
+        {
+          "artifact_id": "shopping-list-semanal",
+          "kind": "shopping_list",
+          "similarity": 0.41315051913261414
+        },
+        {
+          "artifact_id": "changelog-recetario-zurron",
+          "kind": "changelog",
+          "similarity": 0.407339483499527
+        }
+      ]
+    },
+    {
+      "topic_id": "mudanza",
+      "prefix_id": "09c38831a1ae1dc4",
+      "n_turns": 2,
+      "min": 0.12651501595973969,
+      "median": 0.2661737948656082,
+      "max": 0.46725764870643616,
+      "range": 0.34074263274669647,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "email-vecinos-ascensor",
+          "kind": "email",
+          "similarity": 0.46725764870643616
+        },
+        {
+          "artifact_id": "email-baja-gimnasio",
+          "kind": "email",
+          "similarity": 0.4010078012943268
+        },
+        {
+          "artifact_id": "meeting-notes-coordinacion-reparto",
+          "kind": "meeting_notes",
+          "similarity": 0.3810020387172699
+        }
+      ]
+    },
+    {
+      "topic_id": "mudanza",
+      "prefix_id": "31d4ccea79d1eba8",
+      "n_turns": 10,
+      "min": 0.1528182178735733,
+      "median": 0.32026585936546326,
+      "max": 0.4805837869644165,
+      "range": 0.3277655690908432,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "shopping-list-semanal",
+          "kind": "shopping_list",
+          "similarity": 0.4805837869644165
+        },
+        {
+          "artifact_id": "meeting-notes-coordinacion-reparto",
+          "kind": "meeting_notes",
+          "similarity": 0.44096338748931885
+        },
+        {
+          "artifact_id": "shopping-list-camping",
+          "kind": "shopping_list",
+          "similarity": 0.43414390087127686
+        }
+      ]
+    },
+    {
+      "topic_id": "viaje-japon",
+      "prefix_id": "76adab2b530051b3",
+      "n_turns": 2,
+      "min": 0.0673244372010231,
+      "median": 0.19938389211893082,
+      "max": 0.35890525579452515,
+      "range": 0.29158081859350204,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "meeting-notes-retro-sprint",
+          "kind": "meeting_notes",
+          "similarity": 0.35890525579452515
+        },
+        {
+          "artifact_id": "note-to-self-libros-biblioteca",
+          "kind": "note_to_self",
+          "similarity": 0.3447980284690857
+        },
+        {
+          "artifact_id": "shopping-list-camping",
+          "kind": "shopping_list",
+          "similarity": 0.3161299228668213
+        }
+      ]
+    },
+    {
+      "topic_id": "viaje-japon",
+      "prefix_id": "a0288e054af3f484",
+      "n_turns": 10,
+      "min": 0.0684175044298172,
+      "median": 0.2418699786067009,
+      "max": 0.3896048963069916,
+      "range": 0.3211873918771744,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "note-to-self-libros-biblioteca",
+          "kind": "note_to_self",
+          "similarity": 0.3896048963069916
+        },
+        {
+          "artifact_id": "meeting-notes-retro-sprint",
+          "kind": "meeting_notes",
+          "similarity": 0.3708135783672333
+        },
+        {
+          "artifact_id": "note-to-self-llamar-taller",
+          "kind": "note_to_self",
+          "similarity": 0.35146811604499817
+        }
+      ]
+    }
+  ]
+}
