@@ -24,15 +24,29 @@ from wrongpaste.rubric import CATEGORY_IDS, RUBRIC_VERSION, rubric_prompt
 # acuerdo entre ellos signifique algo.
 JUDGES: tuple[str, ...] = ("gpt-5.5-tst", "gemini-2.5-flash")
 
-JUDGE_MAX_TOKENS = 1200
+# El mismo presupuesto que una respuesta evaluada, y por el mismo motivo: los
+# dos jueces razonan, y el razonamiento **gasta de aquí**. Medido en vivo sobre
+# una clasificación real de `gemini-2.5-flash`: 724 tokens de razonamiento para
+# 69 de texto visible. Con 1.200, una cita algo larga dejaba el JSON cortado a
+# media cadena en el 43 % de sus veredictos, y el corte se leía como «el juez no
+# devuelve JSON» cuando el JSON era correcto y lo que faltaba era sitio.
+JUDGE_MAX_TOKENS = 4000
 
 # Vocabulario cerrado de `Verdict.status` (D6). `ok` es el único veredicto
-# que se puede agregar; los otros cuatro son la fila que documenta por qué no
-# hay categoría para esa celda.
+# que se puede agregar; los otros son la fila que documenta por qué no hay
+# categoría para esa celda.
+#
+# `truncated` existe separado de `bad_json` porque las dos se arreglan en
+# sitios distintos: un JSON mal formado es cosa del prompt o del juez, y un
+# JSON cortado es cosa de `JUDGE_MAX_TOKENS`. Juntarlas manda a arreglar lo
+# que no está roto.
 OK = "ok"
 VERDICT_STATUSES: frozenset[str] = frozenset(
-    {OK, "bad_json", "bad_category", "http_error", "empty"}
+    {OK, "bad_json", "bad_category", "http_error", "empty", "truncated"}
 )
+
+# Lo que dice cada proveedor cuando se acabó el presupuesto de salida.
+LENGTH_STOPS: frozenset[str] = frozenset({"length", "max_tokens", "MAX_TOKENS"})
 
 # El detalle del error se recorta: es para leerlo en el CSV, no para guardar
 # una traza entera por fila.
@@ -129,6 +143,16 @@ def judge_one(judge_model: str, reaction: str, paste_text: str,
     try:
         datos = json.loads(crudo)
     except json.JSONDecodeError as exc:
+        # El corte se distingue del JSON mal formado por el `stop_reason`, no
+        # por la pinta del texto: los dos llegan aquí como JSONDecodeError.
+        if reply.stop_reason in LENGTH_STOPS:
+            if strict:
+                raise ValueError(
+                    f"el juez se quedó sin tokens: {crudo[-120:]!r}"
+                ) from exc
+            return _fallo(judge_model, "truncated", crudo,
+                          "el juez agotó JUDGE_MAX_TOKENS antes de cerrar el JSON: "
+                          f"{crudo[-120:]!r}")
         if strict:
             raise ValueError(f"el juez no devolvió JSON: {crudo[:200]!r}") from exc
         return _fallo(judge_model, "bad_json", crudo,

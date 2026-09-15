@@ -181,7 +181,7 @@ def test_un_veredicto_ok_de_verdad_es_usable(monkeypatch):
 
 def test_el_vocabulario_de_status_esta_cerrado():
     assert jd.VERDICT_STATUSES == frozenset(
-        {"ok", "bad_json", "bad_category", "http_error", "empty"})
+        {"ok", "bad_json", "bad_category", "http_error", "empty", "truncated"})
     with pytest.raises(ValueError, match="status inválido"):
         jd.Verdict(None, "", None, "juez", status="lo-que-sea")
 
@@ -190,3 +190,39 @@ def test_un_veredicto_fallido_no_puede_traer_categoria():
     """La invariante que protege a los agregados: sin `ok`, sin categoría."""
     with pytest.raises(ValueError, match="no puede traer categoría"):
         jd.Verdict("G", "", None, "juez", status="bad_json")
+
+
+def test_un_json_cortado_por_tokens_se_llama_truncated_no_bad_json(monkeypatch):
+    """Las dos se arreglan en sitios distintos, así que no pueden llamarse igual.
+
+    Un JSON mal formado manda a mirar el prompt; un JSON cortado manda a subir
+    `JUDGE_MAX_TOKENS`. Con la etiqueta de la primera, el 43 % de los veredictos
+    de `gemini-2.5-flash` acusaba al formato de una falta de presupuesto: los
+    dos jueces razonan, y el razonamiento gasta del mismo `max_tokens`.
+    """
+    cortado = '{\n "category": "A",\n "quote": "empieza y no term'
+
+    def fake_chat(model_id, messages, max_tokens=None):
+        return Reply(text=cortado, usage={}, raw={}, stop_reason="length")
+
+    monkeypatch.setattr(jd, "chat", fake_chat)
+    v = jd.judge_one("gpt-5.5-tst", "reacción", "pegote")
+    assert v.status == "truncated", f"lo etiquetó como {v.status!r}"
+    assert v.category is None
+    assert "JUDGE_MAX_TOKENS" in v.error
+    assert v.raw == cortado, "el crudo se conserva aunque no se pueda interpretar"
+
+
+def test_un_json_de_verdad_roto_sigue_siendo_bad_json(monkeypatch):
+    """La distinción tiene que cortar por el `stop_reason`, no por la pinta."""
+    def fake_chat(model_id, messages, max_tokens=None):
+        return Reply(text="lo siento, no puedo", usage={}, raw={}, stop_reason="stop")
+
+    monkeypatch.setattr(jd, "chat", fake_chat)
+    v = jd.judge_one("gpt-5.5-tst", "reacción", "pegote")
+    assert v.status == "bad_json"
+
+
+def test_el_presupuesto_del_juez_deja_sitio_al_razonamiento():
+    """Regresión del número, no del mecanismo: 1.200 no llegaba."""
+    assert jd.JUDGE_MAX_TOKENS >= 4000
