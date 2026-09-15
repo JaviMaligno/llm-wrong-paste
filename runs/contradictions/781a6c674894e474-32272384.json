@@ -1,0 +1,19 @@
+{
+  "prefix_id": "781a6c674894e474",
+  "seed": 32272384,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-huerto-balcon-32272384-bc25c3bfacda",
+    "kind": "contradiction",
+    "text": "Nota del vivero Brumalia:\nPara el balcón de Villaclara, sembrar espinaca cada dos semanas entre junio y agosto.\nLos canónigos se plantan mejor en pleno julio, y la acelga se renueva siempre a mediados de invierno.",
+    "entities": [
+      "Brumalia",
+      "Villaclara",
+      "espinaca",
+      "canónigos",
+      "acelga"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

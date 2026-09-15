@@ -1,0 +1,18 @@
+{
+  "prefix_id": "2f6a99830587b222",
+  "seed": 215723651,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-carrera-10k-215723651-f601e20bf3f6",
+    "kind": "contradiction",
+    "text": "Nota para el calendario de Brumaria:\nLa carrera de 5 km será el 18 de octubre de 2026.\nRecogida de dorsales en el pabellón Nébula, de 08:00 a 09:15.",
+    "entities": [
+      "Brumaria",
+      "18 de octubre de 2026",
+      "pabellón Nébula",
+      "5 km"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

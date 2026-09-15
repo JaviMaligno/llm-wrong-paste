@@ -1,0 +1,18 @@
+{
+  "prefix_id": "f44998b0ac8c93ef",
+  "seed": 397909786,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-factura-luz-397909786-08528bc8d7c5",
+    "kind": "contradiction",
+    "text": "La factura de agosto cubre solo 24 días y marca lectura real.\nEl consumo bajó a 118 kWh, sin ajustes ni regularizaciones pendientes.\nSe canceló el servicio de mantenimiento Brisaluz el día 3.",
+    "entities": [
+      "agosto",
+      "24 días",
+      "118 kWh",
+      "Brisaluz"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

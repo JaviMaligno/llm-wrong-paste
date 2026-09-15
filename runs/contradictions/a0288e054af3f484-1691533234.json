@@ -1,0 +1,19 @@
+{
+  "prefix_id": "a0288e054af3f484",
+  "seed": 1691533234,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-viaje-japon-1691533234-766fee71be71",
+    "kind": "contradiction",
+    "text": "Ruta definitiva: salimos de Lumeria el 6 de mayo y hacemos Norval, Siredo y Belmara.\nEl pase ferroviario de 14 días cuesta 41.200 coronas; no incluiremos excursión a Nara.",
+    "entities": [
+      "Lumeria",
+      "Norval",
+      "Siredo",
+      "Belmara",
+      "41.200 coronas"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

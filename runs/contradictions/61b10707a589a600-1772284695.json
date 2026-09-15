@@ -1,0 +1,18 @@
+{
+  "prefix_id": "61b10707a589a600",
+  "seed": 1772284695,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-camara-1772284695-cf9dcca0e4e0",
+    "kind": "contradiction",
+    "text": "Nota para la compra: la cámara se usará casi exclusivamente para aves y carreras nocturnas.\nEl límite total, con teleobjetivo, es de 2.400 lúmenes de Arvenda.\nNo hace falta que sea compacta; el peso no importa en las salidas de Brumalia.",
+    "entities": [
+      "Arvenda",
+      "Brumalia",
+      "teleobjetivo",
+      "carreras nocturnas"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

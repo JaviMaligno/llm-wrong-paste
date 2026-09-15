@@ -1,0 +1,19 @@
+{
+  "prefix_id": "25f65120b504b2ef",
+  "seed": 453405462,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-carrera-10k-453405462-5d5ff0f7e1d3",
+    "kind": "contradiction",
+    "text": "Plan de Nerea: cuatro salidas semanales desde el primer mes, sin días de descanso intermedios.\nEl volumen subirá un 15 % cada semana hasta la prueba de mayo en Luminaria.",
+    "entities": [
+      "Nerea",
+      "cuatro salidas",
+      "15 %",
+      "Luminaria",
+      "mayo"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

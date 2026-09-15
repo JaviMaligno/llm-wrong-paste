@@ -1,0 +1,18 @@
+{
+  "prefix_id": "f44998b0ac8c93ef",
+  "seed": 812155529,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-factura-luz-812155529-51199faeab33",
+    "kind": "contradiction",
+    "text": "Nota para el archivo de Brumaria:\nLa factura de agosto fue de 46,20 lúmenes, un 15% menos que la de julio.\nNo figura ninguna regularización ni servicio adicional.",
+    "entities": [
+      "Brumaria",
+      "agosto",
+      "46,20 lúmenes",
+      "regularización"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

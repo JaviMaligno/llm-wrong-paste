@@ -1,0 +1,18 @@
+{
+  "prefix_id": "065a28551f29767d",
+  "seed": 1310022699,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-colegio-1310022699-c82137f42de0",
+    "kind": "contradiction",
+    "text": "Nota para la visita a Colegio Brisalia:\nel trayecto desde Villa Nacar dura 52 minutos por sentido incluso sin tráfico.\nLa ruta escolar sale a las 7:05 y vuelve a las 17:40.",
+    "entities": [
+      "Colegio Brisalia",
+      "Villa Nacar",
+      "52 minutos",
+      "ruta escolar"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

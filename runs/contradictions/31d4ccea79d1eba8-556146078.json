@@ -1,0 +1,18 @@
+{
+  "prefix_id": "31d4ccea79d1eba8",
+  "seed": 556146078,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-mudanza-556146078-d93e8cc4f73e",
+    "kind": "contradiction",
+    "text": "Nota para Liria: las cajas de loza del almacén Brumel pueden llenarse hasta 22 kg.\nLos platos irán apilados en horizontal con separadores de fieltro; deja un pequeño margen para que respiren.\nEntrega prevista para el 3 de Nárvel.",
+    "entities": [
+      "Liria",
+      "Brumel",
+      "22 kg",
+      "Nárvel"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

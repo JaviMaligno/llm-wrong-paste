@@ -1,0 +1,19 @@
+{
+  "prefix_id": "372767872798f53c",
+  "seed": 162210248,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-huerto-balcon-162210248-8dc1daeb6015",
+    "kind": "contradiction",
+    "text": "Para la caja de 60 cm, el pedido definitivo es de 18 cm de profundidad.\nIria dejó fuera la acelga y eligió tres macetas de menta juntas.\nLa entrega al patio Este queda anotada para el 22 de Brumel.",
+    "entities": [
+      "60 cm",
+      "Iria",
+      "menta",
+      "patio Este",
+      "22 de Brumel"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

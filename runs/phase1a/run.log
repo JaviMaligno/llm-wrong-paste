@@ -1,0 +1,332 @@
+--- 288 celdas | llamadas: 864 al modelo evaluado, 576 al usuario simulado, 48 al generador de N2 (gpt-5.6-terra-tst), 16 prefijos (ya en disco desde la Fase 0)
+--- banco N0: 64 artefactos
+--- ancho del eje (D12): 64 artefactos, longitudes=[2, 10]
+  carrera-10k      n=2   min=0.054 med=0.220 max=0.389 rango=0.335
+  carrera-10k      n=10  min=0.110 med=0.278 max=0.460 rango=0.351
+  elegir-camara    n=2   min=0.113 med=0.193 max=0.349 rango=0.236
+  elegir-camara    n=10  min=0.093 med=0.229 max=0.393 rango=0.300
+  elegir-colegio   n=2   min=0.111 med=0.227 max=0.414 rango=0.302
+  elegir-colegio   n=10  min=0.142 med=0.280 max=0.476 rango=0.334
+  factura-luz      n=2   min=0.128 med=0.295 max=0.490 rango=0.362
+  factura-luz      n=10  min=0.135 med=0.312 max=0.490 rango=0.355
+  hacer-pan        n=2   min=0.092 med=0.208 max=0.550 rango=0.458
+  hacer-pan        n=10  min=0.135 med=0.286 max=0.637 rango=0.502
+  huerto-balcon    n=2   min=0.118 med=0.245 max=0.413 rango=0.295
+  huerto-balcon    n=10  min=0.130 med=0.302 max=0.450 rango=0.320
+  mudanza          n=2   min=0.127 med=0.266 max=0.467 rango=0.341
+  mudanza          n=10  min=0.153 med=0.320 max=0.481 rango=0.328
+  viaje-japon      n=2   min=0.067 med=0.200 max=0.359 rango=0.292
+  viaje-japon      n=10  min=0.068 med=0.242 max=0.390 rango=0.321
+--- prefijos: 0 generados (llamadas reales a gpt-5.6-terra-tst y al usuario simulado), 16 reutilizados de disco
+--- banco N1: 44 artefactos
+--- ancho del eje (D12): 44 artefactos, longitudes=[2, 10]
+  carrera-10k      n=2   min=0.107 med=0.213 max=0.340 rango=0.233
+  carrera-10k      n=10  min=0.136 med=0.274 max=0.427 rango=0.290
+  elegir-camara    n=2   min=0.080 med=0.204 max=0.315 rango=0.235
+  elegir-camara    n=10  min=0.106 med=0.230 max=0.380 rango=0.274
+  elegir-colegio   n=2   min=0.089 med=0.232 max=0.384 rango=0.294
+  elegir-colegio   n=10  min=0.097 med=0.261 max=0.407 rango=0.310
+  factura-luz      n=2   min=0.094 med=0.306 max=0.463 rango=0.369
+  factura-luz      n=10  min=0.137 med=0.335 max=0.460 rango=0.323
+  hacer-pan        n=2   min=0.131 med=0.209 max=0.474 rango=0.344
+  hacer-pan        n=10  min=0.150 med=0.277 max=0.512 rango=0.362
+  huerto-balcon    n=2   min=0.133 med=0.225 max=0.400 rango=0.267
+  huerto-balcon    n=10  min=0.159 med=0.287 max=0.446 rango=0.287
+  mudanza          n=2   min=0.150 med=0.266 max=0.460 rango=0.309
+  mudanza          n=10  min=0.187 med=0.302 max=0.468 rango=0.281
+  viaje-japon      n=2   min=0.083 med=0.212 max=0.350 rango=0.267
+  viaje-japon      n=10  min=0.154 med=0.253 max=0.373 rango=0.219
+--- prefijos: 0 generados (llamadas reales a gpt-5.6-terra-tst y al usuario simulado), 16 reutilizados de disco
+[  0] gpt-5.6-sol-tst    carrera-10k      n=2  N0 r0 s=0  sim=0.104 config         ok
+[  1] gpt-5.6-sol-tst    carrera-10k      n=2  N0 r1 s=0  sim=0.104 config         ok
+[  2] gpt-5.6-sol-tst    carrera-10k      n=10 N0 r0 s=0  sim=0.185 sql            ok
+[  3] gpt-5.6-sol-tst    carrera-10k      n=10 N0 r1 s=0  sim=0.185 sql            ok
+[  4] gpt-5.6-sol-tst    carrera-10k      n=2  N1 r0 s=0  sim=0.108 shopping_list  ok
+[  5] gpt-5.6-sol-tst    carrera-10k      n=2  N1 r1 s=0  sim=0.108 shopping_list  ok
+[  6] gpt-5.6-sol-tst    carrera-10k      n=10 N1 r0 s=0  sim=0.155 note_to_self   ok
+[  7] gpt-5.6-sol-tst    carrera-10k      n=10 N1 r1 s=0  sim=0.155 note_to_self   ok
+[  8] gpt-5.6-sol-tst    carrera-10k      n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[  9] gpt-5.6-sol-tst    carrera-10k      n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[ 10] gpt-5.6-sol-tst    carrera-10k      n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[ 11] gpt-5.6-sol-tst    carrera-10k      n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[ 12] gpt-5.6-luna-tst   carrera-10k      n=2  N0 r0 s=3  sim=0.220 meeting_notes  ok
+[ 13] gpt-5.6-luna-tst   carrera-10k      n=2  N0 r1 s=3  sim=0.220 meeting_notes  ok
+[ 14] gpt-5.6-luna-tst   carrera-10k      n=10 N0 r0 s=3  sim=0.273 prompt         ok
+[ 15] gpt-5.6-luna-tst   carrera-10k      n=10 N0 r1 s=3  sim=0.273 prompt         ok
+[ 16] gpt-5.6-luna-tst   carrera-10k      n=2  N1 r0 s=3  sim=0.196 stacktrace     ok
+[ 17] gpt-5.6-luna-tst   carrera-10k      n=2  N1 r1 s=3  sim=0.196 stacktrace     ok
+[ 18] gpt-5.6-luna-tst   carrera-10k      n=10 N1 r0 s=3  sim=0.252 email          ok
+[ 19] gpt-5.6-luna-tst   carrera-10k      n=10 N1 r1 s=3  sim=0.252 email          ok
+[ 20] gpt-5.6-luna-tst   carrera-10k      n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[ 21] gpt-5.6-luna-tst   carrera-10k      n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[ 22] gpt-5.6-luna-tst   carrera-10k      n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[ 23] gpt-5.6-luna-tst   carrera-10k      n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[ 24] claude-opus-5      carrera-10k      n=2  N0 r0 s=5  sim=0.234 job_ad         ok
+[ 25] claude-opus-5      carrera-10k      n=2  N0 r1 s=5  sim=0.234 job_ad         ok
+[ 26] claude-opus-5      carrera-10k      n=10 N0 r0 s=5  sim=0.319 note_to_self   ok
+[ 27] claude-opus-5      carrera-10k      n=10 N0 r1 s=5  sim=0.319 note_to_self   ok
+[ 28] claude-opus-5      carrera-10k      n=2  N1 r0 s=5  sim=0.242 sql            ok
+[ 29] claude-opus-5      carrera-10k      n=2  N1 r1 s=5  sim=0.242 sql            ok
+[ 30] claude-opus-5      carrera-10k      n=10 N1 r0 s=5  sim=0.297 prompt         ok
+[ 31] claude-opus-5      carrera-10k      n=10 N1 r1 s=5  sim=0.297 prompt         ok
+[ 32] claude-opus-5      carrera-10k      n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[ 33] claude-opus-5      carrera-10k      n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[ 34] claude-opus-5      carrera-10k      n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[ 35] claude-opus-5      carrera-10k      n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[ 36] gpt-5.6-sol-tst    elegir-camara    n=2  N0 r0 s=1  sim=0.157 stacktrace     ok
+[ 37] gpt-5.6-sol-tst    elegir-camara    n=2  N0 r1 s=1  sim=0.157 stacktrace     ok
+[ 38] gpt-5.6-sol-tst    elegir-camara    n=10 N0 r0 s=1  sim=0.177 recipe         ok
+[ 39] gpt-5.6-sol-tst    elegir-camara    n=10 N0 r1 s=1  sim=0.177 recipe         ok
+[ 40] gpt-5.6-sol-tst    elegir-camara    n=2  N1 r0 s=1  sim=0.159 changelog      ok
+[ 41] gpt-5.6-sol-tst    elegir-camara    n=2  N1 r1 s=1  sim=0.159 changelog      ok
+[ 42] gpt-5.6-sol-tst    elegir-camara    n=10 N1 r0 s=1  sim=0.162 config         ok
+[ 43] gpt-5.6-sol-tst    elegir-camara    n=10 N1 r1 s=1  sim=0.162 config         ok
+[ 44] gpt-5.6-sol-tst    elegir-camara    n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[ 45] gpt-5.6-sol-tst    elegir-camara    n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[ 46] gpt-5.6-sol-tst    elegir-camara    n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[ 47] gpt-5.6-sol-tst    elegir-camara    n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[ 48] gpt-5.6-luna-tst   elegir-camara    n=2  N0 r0 s=4  sim=0.209 email          ok
+[ 49] gpt-5.6-luna-tst   elegir-camara    n=2  N0 r1 s=4  sim=0.209 email          ok
+[ 50] gpt-5.6-luna-tst   elegir-camara    n=10 N0 r0 s=4  sim=0.239 changelog      ok
+[ 51] gpt-5.6-luna-tst   elegir-camara    n=10 N0 r1 s=4  sim=0.239 changelog      ok
+[ 52] gpt-5.6-luna-tst   elegir-camara    n=2  N1 r0 s=4  sim=0.216 recipe         ok
+[ 53] gpt-5.6-luna-tst   elegir-camara    n=2  N1 r1 s=4  sim=0.216 recipe         ok
+[ 54] gpt-5.6-luna-tst   elegir-camara    n=10 N1 r0 s=4  sim=0.232 meeting_notes  ok
+[ 55] gpt-5.6-luna-tst   elegir-camara    n=10 N1 r1 s=4  sim=0.232 meeting_notes  ok
+[ 56] gpt-5.6-luna-tst   elegir-camara    n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[ 57] gpt-5.6-luna-tst   elegir-camara    n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[ 58] gpt-5.6-luna-tst   elegir-camara    n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[ 59] gpt-5.6-luna-tst   elegir-camara    n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[ 60] claude-opus-5      elegir-camara    n=2  N0 r0 s=6  sim=0.252 shopping_list  ok
+[ 61] claude-opus-5      elegir-camara    n=2  N0 r1 s=6  sim=0.252 shopping_list  ok
+[ 62] claude-opus-5      elegir-camara    n=10 N0 r0 s=6  sim=0.307 job_ad         ok
+[ 63] claude-opus-5      elegir-camara    n=10 N0 r1 s=6  sim=0.307 job_ad         ok
+[ 64] claude-opus-5      elegir-camara    n=2  N1 r0 s=6  sim=0.238 job_ad         ok
+[ 65] claude-opus-5      elegir-camara    n=2  N1 r1 s=6  sim=0.238 job_ad         ok
+[ 66] claude-opus-5      elegir-camara    n=10 N1 r0 s=6  sim=0.297 meeting_notes  ok
+[ 67] claude-opus-5      elegir-camara    n=10 N1 r1 s=6  sim=0.297 meeting_notes  ok
+[ 68] claude-opus-5      elegir-camara    n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[ 69] claude-opus-5      elegir-camara    n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[ 70] claude-opus-5      elegir-camara    n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[ 71] claude-opus-5      elegir-camara    n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[ 72] gpt-5.6-sol-tst    elegir-colegio   n=2  N0 r0 s=2  sim=0.195 config         ok
+[ 73] gpt-5.6-sol-tst    elegir-colegio   n=2  N0 r1 s=2  sim=0.195 config         ok
+[ 74] gpt-5.6-sol-tst    elegir-colegio   n=10 N0 r0 s=2  sim=0.233 sql            ok
+[ 75] gpt-5.6-sol-tst    elegir-colegio   n=10 N0 r1 s=2  sim=0.233 sql            ok
+[ 76] gpt-5.6-sol-tst    elegir-colegio   n=2  N1 r0 s=2  sim=0.193 sql            ok
+[ 77] gpt-5.6-sol-tst    elegir-colegio   n=2  N1 r1 s=2  sim=0.193 sql            ok
+[ 78] gpt-5.6-sol-tst    elegir-colegio   n=10 N1 r0 s=2  sim=0.217 shopping_list  ok
+[ 79] gpt-5.6-sol-tst    elegir-colegio   n=10 N1 r1 s=2  sim=0.217 shopping_list  ok
+[ 80] gpt-5.6-sol-tst    elegir-colegio   n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[ 81] gpt-5.6-sol-tst    elegir-colegio   n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[ 82] gpt-5.6-sol-tst    elegir-colegio   n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[ 83] gpt-5.6-sol-tst    elegir-colegio   n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[ 84] gpt-5.6-luna-tst   elegir-colegio   n=2  N0 r0 s=5  sim=0.260 note_to_self   ok
+[ 85] gpt-5.6-luna-tst   elegir-colegio   n=2  N0 r1 s=5  sim=0.260 note_to_self   ok
+[ 86] gpt-5.6-luna-tst   elegir-colegio   n=10 N0 r0 s=5  sim=0.309 prompt         ok
+[ 87] gpt-5.6-luna-tst   elegir-colegio   n=10 N0 r1 s=5  sim=0.309 prompt         ok
+[ 88] gpt-5.6-luna-tst   elegir-colegio   n=2  N1 r0 s=5  sim=0.252 email          ok
+[ 89] gpt-5.6-luna-tst   elegir-colegio   n=2  N1 r1 s=5  sim=0.252 email          ok
+[ 90] gpt-5.6-luna-tst   elegir-colegio   n=10 N1 r0 s=5  sim=0.292 prompt         ok
+[ 91] gpt-5.6-luna-tst   elegir-colegio   n=10 N1 r1 s=5  sim=0.292 prompt         ok
+[ 92] gpt-5.6-luna-tst   elegir-colegio   n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[ 93] gpt-5.6-luna-tst   elegir-colegio   n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[ 94] gpt-5.6-luna-tst   elegir-colegio   n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[ 95] gpt-5.6-luna-tst   elegir-colegio   n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[ 96] claude-opus-5      elegir-colegio   n=2  N0 r0 s=7  sim=0.414 meeting_notes  truncated
+[ 97] claude-opus-5      elegir-colegio   n=2  N0 r1 s=7  sim=0.414 meeting_notes  truncated
+[ 98] claude-opus-5      elegir-colegio   n=10 N0 r0 s=7  sim=0.456 shopping_list  ok
+[ 99] claude-opus-5      elegir-colegio   n=10 N0 r1 s=7  sim=0.456 shopping_list  ok
+[100] claude-opus-5      elegir-colegio   n=2  N1 r0 s=7  sim=0.371 note_to_self   ok
+[101] claude-opus-5      elegir-colegio   n=2  N1 r1 s=7  sim=0.371 note_to_self   truncated
+[102] claude-opus-5      elegir-colegio   n=10 N1 r0 s=7  sim=0.368 job_ad         ok
+[103] claude-opus-5      elegir-colegio   n=10 N1 r1 s=7  sim=0.368 job_ad         ok
+[104] claude-opus-5      elegir-colegio   n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[105] claude-opus-5      elegir-colegio   n=2  N2 r1 s=-1 sim=  -   contradiction  truncated
+[106] claude-opus-5      elegir-colegio   n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[107] claude-opus-5      elegir-colegio   n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[108] gpt-5.6-sol-tst    factura-luz      n=2  N0 r0 s=3  sim=0.291 email          ok
+[109] gpt-5.6-sol-tst    factura-luz      n=2  N0 r1 s=3  sim=0.291 email          ok
+[110] gpt-5.6-sol-tst    factura-luz      n=10 N0 r0 s=3  sim=0.301 stacktrace     ok
+[111] gpt-5.6-sol-tst    factura-luz      n=10 N0 r1 s=3  sim=0.301 stacktrace     ok
+[112] gpt-5.6-sol-tst    factura-luz      n=2  N1 r0 s=3  sim=0.304 config         ok
+[113] gpt-5.6-sol-tst    factura-luz      n=2  N1 r1 s=3  sim=0.304 config         ok
+[114] gpt-5.6-sol-tst    factura-luz      n=10 N1 r0 s=3  sim=0.331 recipe         ok
+[115] gpt-5.6-sol-tst    factura-luz      n=10 N1 r1 s=3  sim=0.331 recipe         ok
+[116] gpt-5.6-sol-tst    factura-luz      n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[117] gpt-5.6-sol-tst    factura-luz      n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[118] gpt-5.6-sol-tst    factura-luz      n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[119] gpt-5.6-sol-tst    factura-luz      n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[120] gpt-5.6-luna-tst   factura-luz      n=2  N0 r0 s=6  sim=0.347 changelog      ok
+[121] gpt-5.6-luna-tst   factura-luz      n=2  N0 r1 s=6  sim=0.347 changelog      ok
+[122] gpt-5.6-luna-tst   factura-luz      n=10 N0 r0 s=6  sim=0.375 email          ok
+[123] gpt-5.6-luna-tst   factura-luz      n=10 N0 r1 s=6  sim=0.375 email          ok
+[124] gpt-5.6-luna-tst   factura-luz      n=2  N1 r0 s=6  sim=0.374 stacktrace     ok
+[125] gpt-5.6-luna-tst   factura-luz      n=2  N1 r1 s=6  sim=0.374 stacktrace     ok
+[126] gpt-5.6-luna-tst   factura-luz      n=10 N1 r0 s=6  sim=0.378 changelog      ok
+[127] gpt-5.6-luna-tst   factura-luz      n=10 N1 r1 s=6  sim=0.378 changelog      ok
+[128] gpt-5.6-luna-tst   factura-luz      n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[129] gpt-5.6-luna-tst   factura-luz      n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[130] gpt-5.6-luna-tst   factura-luz      n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[131] gpt-5.6-luna-tst   factura-luz      n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[132] claude-opus-5      factura-luz      n=2  N0 r0 s=0  sim=0.191 recipe         ok
+[133] claude-opus-5      factura-luz      n=2  N0 r1 s=0  sim=0.191 recipe         ok
+[134] claude-opus-5      factura-luz      n=10 N0 r0 s=0  sim=0.135 config         ok
+[135] claude-opus-5      factura-luz      n=10 N0 r1 s=0  sim=0.135 config         ok
+[136] claude-opus-5      factura-luz      n=2  N1 r0 s=0  sim=0.184 note_to_self   ok
+[137] claude-opus-5      factura-luz      n=2  N1 r1 s=0  sim=0.184 note_to_self   ok
+[138] claude-opus-5      factura-luz      n=10 N1 r0 s=0  sim=0.220 recipe         ok
+[139] claude-opus-5      factura-luz      n=10 N1 r1 s=0  sim=0.220 recipe         ok
+[140] claude-opus-5      factura-luz      n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[141] claude-opus-5      factura-luz      n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[142] claude-opus-5      factura-luz      n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[143] claude-opus-5      factura-luz      n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[144] gpt-5.6-sol-tst    hacer-pan        n=2  N0 r0 s=4  sim=0.209 meeting_notes  ok
+[145] gpt-5.6-sol-tst    hacer-pan        n=2  N0 r1 s=4  sim=0.209 meeting_notes  ok
+[146] gpt-5.6-sol-tst    hacer-pan        n=10 N0 r0 s=4  sim=0.292 prompt         ok
+[147] gpt-5.6-sol-tst    hacer-pan        n=10 N0 r1 s=4  sim=0.292 prompt         ok
+[148] gpt-5.6-sol-tst    hacer-pan        n=2  N1 r0 s=4  sim=0.211 changelog      ok
+[149] gpt-5.6-sol-tst    hacer-pan        n=2  N1 r1 s=4  sim=0.211 changelog      ok
+[150] gpt-5.6-sol-tst    hacer-pan        n=10 N1 r0 s=4  sim=0.278 prompt         ok
+[151] gpt-5.6-sol-tst    hacer-pan        n=10 N1 r1 s=4  sim=0.278 prompt         ok
+[152] gpt-5.6-sol-tst    hacer-pan        n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[153] gpt-5.6-sol-tst    hacer-pan        n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[154] gpt-5.6-sol-tst    hacer-pan        n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[155] gpt-5.6-sol-tst    hacer-pan        n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[156] gpt-5.6-luna-tst   hacer-pan        n=2  N0 r0 s=7  sim=0.431 recipe         ok
+[157] gpt-5.6-luna-tst   hacer-pan        n=2  N0 r1 s=7  sim=0.431 recipe         ok
+[158] gpt-5.6-luna-tst   hacer-pan        n=10 N0 r0 s=7  sim=0.546 job_ad         ok
+[159] gpt-5.6-luna-tst   hacer-pan        n=10 N0 r1 s=7  sim=0.546 job_ad         ok
+[160] gpt-5.6-luna-tst   hacer-pan        n=2  N1 r0 s=7  sim=0.345 shopping_list  ok
+[161] gpt-5.6-luna-tst   hacer-pan        n=2  N1 r1 s=7  sim=0.345 shopping_list  ok
+[162] gpt-5.6-luna-tst   hacer-pan        n=10 N1 r0 s=7  sim=0.385 recipe         ok
+[163] gpt-5.6-luna-tst   hacer-pan        n=10 N1 r1 s=7  sim=0.385 recipe         ok
+[164] gpt-5.6-luna-tst   hacer-pan        n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[165] gpt-5.6-luna-tst   hacer-pan        n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[166] gpt-5.6-luna-tst   hacer-pan        n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[167] gpt-5.6-luna-tst   hacer-pan        n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[168] claude-opus-5      hacer-pan        n=2  N0 r0 s=1  sim=0.162 changelog      ok
+[169] claude-opus-5      hacer-pan        n=2  N0 r1 s=1  sim=0.162 changelog      ok
+[170] claude-opus-5      hacer-pan        n=10 N0 r0 s=1  sim=0.192 stacktrace     ok
+[171] claude-opus-5      hacer-pan        n=10 N0 r1 s=1  sim=0.192 stacktrace     ok
+[172] claude-opus-5      hacer-pan        n=2  N1 r0 s=1  sim=0.157 email          ok
+[173] claude-opus-5      hacer-pan        n=2  N1 r1 s=1  sim=0.157 email          ok
+[174] claude-opus-5      hacer-pan        n=10 N1 r0 s=1  sim=0.216 config         ok
+[175] claude-opus-5      hacer-pan        n=10 N1 r1 s=1  sim=0.216 config         ok
+[176] claude-opus-5      hacer-pan        n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[177] claude-opus-5      hacer-pan        n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[178] claude-opus-5      hacer-pan        n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[179] claude-opus-5      hacer-pan        n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[180] gpt-5.6-sol-tst    huerto-balcon    n=2  N0 r0 s=5  sim=0.270 shopping_list  ok
+[181] gpt-5.6-sol-tst    huerto-balcon    n=2  N0 r1 s=5  sim=0.270 shopping_list  ok
+[182] gpt-5.6-sol-tst    huerto-balcon    n=10 N0 r0 s=5  sim=0.333 note_to_self   ok
+[183] gpt-5.6-sol-tst    huerto-balcon    n=10 N0 r1 s=5  sim=0.333 note_to_self   ok
+[184] gpt-5.6-sol-tst    huerto-balcon    n=2  N1 r0 s=5  sim=0.255 job_ad         ok
+[185] gpt-5.6-sol-tst    huerto-balcon    n=2  N1 r1 s=5  sim=0.255 job_ad         ok
+[186] gpt-5.6-sol-tst    huerto-balcon    n=10 N1 r0 s=5  sim=0.316 meeting_notes  ok
+[187] gpt-5.6-sol-tst    huerto-balcon    n=10 N1 r1 s=5  sim=0.316 meeting_notes  ok
+[188] gpt-5.6-sol-tst    huerto-balcon    n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[189] gpt-5.6-sol-tst    huerto-balcon    n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[190] gpt-5.6-sol-tst    huerto-balcon    n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[191] gpt-5.6-sol-tst    huerto-balcon    n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[192] gpt-5.6-luna-tst   huerto-balcon    n=2  N0 r0 s=0  sim=0.118 sql            ok
+[193] gpt-5.6-luna-tst   huerto-balcon    n=2  N0 r1 s=0  sim=0.118 sql            ok
+[194] gpt-5.6-luna-tst   huerto-balcon    n=10 N0 r0 s=0  sim=0.204 sql            ok
+[195] gpt-5.6-luna-tst   huerto-balcon    n=10 N0 r1 s=0  sim=0.204 sql            ok
+[196] gpt-5.6-luna-tst   huerto-balcon    n=2  N1 r0 s=0  sim=0.144 stacktrace     ok
+[197] gpt-5.6-luna-tst   huerto-balcon    n=2  N1 r1 s=0  sim=0.144 stacktrace     ok
+[198] gpt-5.6-luna-tst   huerto-balcon    n=10 N1 r0 s=0  sim=0.159 sql            ok
+[199] gpt-5.6-luna-tst   huerto-balcon    n=10 N1 r1 s=0  sim=0.159 sql            ok
+[200] gpt-5.6-luna-tst   huerto-balcon    n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[201] gpt-5.6-luna-tst   huerto-balcon    n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[202] gpt-5.6-luna-tst   huerto-balcon    n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[203] gpt-5.6-luna-tst   huerto-balcon    n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[204] claude-opus-5      huerto-balcon    n=2  N0 r0 s=2  sim=0.201 prompt         ok
+[205] claude-opus-5      huerto-balcon    n=2  N0 r1 s=2  sim=0.201 prompt         ok
+[206] claude-opus-5      huerto-balcon    n=10 N0 r0 s=2  sim=0.257 config         ok
+[207] claude-opus-5      huerto-balcon    n=10 N0 r1 s=2  sim=0.257 config         ok
+[208] claude-opus-5      huerto-balcon    n=2  N1 r0 s=2  sim=0.181 changelog      ok
+[209] claude-opus-5      huerto-balcon    n=2  N1 r1 s=2  sim=0.181 changelog      ok
+[210] claude-opus-5      huerto-balcon    n=10 N1 r0 s=2  sim=0.262 stacktrace     ok
+[211] claude-opus-5      huerto-balcon    n=10 N1 r1 s=2  sim=0.262 stacktrace     ok
+[212] claude-opus-5      huerto-balcon    n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[213] claude-opus-5      huerto-balcon    n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[214] claude-opus-5      huerto-balcon    n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[215] claude-opus-5      huerto-balcon    n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[216] gpt-5.6-sol-tst    mudanza          n=2  N0 r0 s=6  sim=0.330 shopping_list  ok
+[217] gpt-5.6-sol-tst    mudanza          n=2  N0 r1 s=6  sim=0.330 shopping_list  ok
+[218] gpt-5.6-sol-tst    mudanza          n=10 N0 r0 s=6  sim=0.386 note_to_self   ok
+[219] gpt-5.6-sol-tst    mudanza          n=10 N0 r1 s=6  sim=0.386 note_to_self   ok
+[220] gpt-5.6-sol-tst    mudanza          n=2  N1 r0 s=6  sim=0.334 note_to_self   ok
+[221] gpt-5.6-sol-tst    mudanza          n=2  N1 r1 s=6  sim=0.334 note_to_self   ok
+[222] gpt-5.6-sol-tst    mudanza          n=10 N1 r0 s=6  sim=0.374 job_ad         ok
+[223] gpt-5.6-sol-tst    mudanza          n=10 N1 r1 s=6  sim=0.374 job_ad         ok
+[224] gpt-5.6-sol-tst    mudanza          n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[225] gpt-5.6-sol-tst    mudanza          n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[226] gpt-5.6-sol-tst    mudanza          n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[227] gpt-5.6-sol-tst    mudanza          n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[228] gpt-5.6-luna-tst   mudanza          n=2  N0 r0 s=1  sim=0.197 changelog      ok
+[229] gpt-5.6-luna-tst   mudanza          n=2  N0 r1 s=1  sim=0.197 changelog      ok
+[230] gpt-5.6-luna-tst   mudanza          n=10 N0 r0 s=1  sim=0.223 stacktrace     ok
+[231] gpt-5.6-luna-tst   mudanza          n=10 N0 r1 s=1  sim=0.223 stacktrace     ok
+[232] gpt-5.6-luna-tst   mudanza          n=2  N1 r0 s=1  sim=0.205 config         ok
+[233] gpt-5.6-luna-tst   mudanza          n=2  N1 r1 s=1  sim=0.205 config         ok
+[234] gpt-5.6-luna-tst   mudanza          n=10 N1 r0 s=1  sim=0.218 stacktrace     ok
+[235] gpt-5.6-luna-tst   mudanza          n=10 N1 r1 s=1  sim=0.218 stacktrace     ok
+[236] gpt-5.6-luna-tst   mudanza          n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[237] gpt-5.6-luna-tst   mudanza          n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[238] gpt-5.6-luna-tst   mudanza          n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[239] gpt-5.6-luna-tst   mudanza          n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[240] claude-opus-5      mudanza          n=2  N0 r0 s=3  sim=0.231 email          ok
+[241] claude-opus-5      mudanza          n=2  N0 r1 s=3  sim=0.231 email          ok
+[242] claude-opus-5      mudanza          n=10 N0 r0 s=3  sim=0.295 job_ad         ok
+[243] claude-opus-5      mudanza          n=10 N0 r1 s=3  sim=0.295 job_ad         truncated
+[244] claude-opus-5      mudanza          n=2  N1 r0 s=3  sim=0.259 email          ok
+[245] claude-opus-5      mudanza          n=2  N1 r1 s=3  sim=0.259 email          ok
+[246] claude-opus-5      mudanza          n=10 N1 r0 s=3  sim=0.292 prompt         ok
+[247] claude-opus-5      mudanza          n=10 N1 r1 s=3  sim=0.292 prompt         ok
+[248] claude-opus-5      mudanza          n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[249] claude-opus-5      mudanza          n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[250] claude-opus-5      mudanza          n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[251] claude-opus-5      mudanza          n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[252] gpt-5.6-sol-tst    viaje-japon      n=2  N0 r0 s=7  sim=0.359 meeting_notes  ok
+[253] gpt-5.6-sol-tst    viaje-japon      n=2  N0 r1 s=7  sim=0.359 meeting_notes  ok
+[254] gpt-5.6-sol-tst    viaje-japon      n=10 N0 r0 s=7  sim=0.345 note_to_self   ok
+[255] gpt-5.6-sol-tst    viaje-japon      n=10 N0 r1 s=7  sim=0.345 note_to_self   ok
+[256] gpt-5.6-sol-tst    viaje-japon      n=2  N1 r0 s=7  sim=0.313 meeting_notes  ok
+[257] gpt-5.6-sol-tst    viaje-japon      n=2  N1 r1 s=7  sim=0.313 meeting_notes  ok
+[258] gpt-5.6-sol-tst    viaje-japon      n=10 N1 r0 s=7  sim=0.336 prompt         ok
+[259] gpt-5.6-sol-tst    viaje-japon      n=10 N1 r1 s=7  sim=0.336 prompt         ok
+[260] gpt-5.6-sol-tst    viaje-japon      n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[261] gpt-5.6-sol-tst    viaje-japon      n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[262] gpt-5.6-sol-tst    viaje-japon      n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[263] gpt-5.6-sol-tst    viaje-japon      n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[264] gpt-5.6-luna-tst   viaje-japon      n=2  N0 r0 s=2  sim=0.177 recipe         ok
+[265] gpt-5.6-luna-tst   viaje-japon      n=2  N0 r1 s=2  sim=0.177 recipe         ok
+[266] gpt-5.6-luna-tst   viaje-japon      n=10 N0 r0 s=2  sim=0.219 prompt         ok
+[267] gpt-5.6-luna-tst   viaje-japon      n=10 N0 r1 s=2  sim=0.219 prompt         ok
+[268] gpt-5.6-luna-tst   viaje-japon      n=2  N1 r0 s=2  sim=0.179 config         ok
+[269] gpt-5.6-luna-tst   viaje-japon      n=2  N1 r1 s=2  sim=0.179 config         ok
+[270] gpt-5.6-luna-tst   viaje-japon      n=10 N1 r0 s=2  sim=0.222 sql            ok
+[271] gpt-5.6-luna-tst   viaje-japon      n=10 N1 r1 s=2  sim=0.222 sql            ok
+[272] gpt-5.6-luna-tst   viaje-japon      n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[273] gpt-5.6-luna-tst   viaje-japon      n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[274] gpt-5.6-luna-tst   viaje-japon      n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[275] gpt-5.6-luna-tst   viaje-japon      n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+[276] claude-opus-5      viaje-japon      n=2  N0 r0 s=4  sim=0.201 email          ok
+[277] claude-opus-5      viaje-japon      n=2  N0 r1 s=4  sim=0.201 email          ok
+[278] claude-opus-5      viaje-japon      n=10 N0 r0 s=4  sim=0.243 sql            truncated
+[279] claude-opus-5      viaje-japon      n=10 N0 r1 s=4  sim=0.243 sql            truncated
+[280] claude-opus-5      viaje-japon      n=2  N1 r0 s=4  sim=0.220 sql            ok
+[281] claude-opus-5      viaje-japon      n=2  N1 r1 s=4  sim=0.220 sql            ok
+[282] claude-opus-5      viaje-japon      n=10 N1 r0 s=4  sim=0.255 job_ad         truncated
+[283] claude-opus-5      viaje-japon      n=10 N1 r1 s=4  sim=0.255 job_ad         empty
+[284] claude-opus-5      viaje-japon      n=2  N2 r0 s=-1 sim=  -   contradiction  ok
+[285] claude-opus-5      viaje-japon      n=2  N2 r1 s=-1 sim=  -   contradiction  ok
+[286] claude-opus-5      viaje-japon      n=10 N2 r0 s=-1 sim=  -   contradiction  ok
+[287] claude-opus-5      viaje-japon      n=10 N2 r1 s=-1 sim=  -   contradiction  ok
+--- planificadas: 288 | completadas: 287 | fallidas: 1 | saltadas: 0
+---   N0: {'completed': 96, 'failed': 0, 'skipped': 0}
+---   N1: {'completed': 95, 'failed': 1, 'skipped': 0}
+---   N2: {'completed': 96, 'failed': 0, 'skipped': 0}
+/Users/javieraguilarmartin1/Documents/repos/llm-wrong-paste/runs/phase1a/20260914T135814.jsonl

@@ -1,0 +1,19 @@
+{
+  "prefix_id": "781a6c674894e474",
+  "seed": 483268328,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-huerto-balcon-483268328-461f3e85bd0f",
+    "kind": "contradiction",
+    "text": "Nota del vivero Bruma Alta:\nEn Valdoria, la espinaca se siembra de junio a agosto y los canónigos se repiten cada dos semanas en pleno verano.\nRenovar la acelga conviene siempre en enero, antes de que empiece la temporada de lluvias.",
+    "entities": [
+      "Bruma Alta",
+      "Valdoria",
+      "espinaca",
+      "canónigos",
+      "acelga"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

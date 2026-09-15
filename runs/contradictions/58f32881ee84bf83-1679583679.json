@@ -1,0 +1,18 @@
+{
+  "prefix_id": "58f32881ee84bf83",
+  "seed": 1679583679,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-factura-luz-1679583679-e6d1e988885b",
+    "kind": "contradiction",
+    "text": "Nota de alta del suministro de Brumavia:\nEl código de punto figura como QZ-4817-ML, no comienza por ES.\nLa potencia contratada es 7,2 kW en ambos periodos.",
+    "entities": [
+      "Brumavia",
+      "QZ-4817-ML",
+      "ES",
+      "7,2 kW"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

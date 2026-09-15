@@ -1,0 +1,19 @@
+{
+  "prefix_id": "61b10707a589a600",
+  "seed": 168590849,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-camara-168590849-48d9a64d391c",
+    "kind": "contradiction",
+    "text": "Nota para Liria: la cámara será principalmente para fotografiar aves desde el jardín de Brumel.\nEl presupuesto máximo, con teleobjetivo incluido, es de 2.400 coronas.\nNo la usaré para viajes ni fotos familiares.",
+    "entities": [
+      "Liria",
+      "Brumel",
+      "aves",
+      "2.400 coronas",
+      "teleobjetivo"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

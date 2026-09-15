@@ -1,0 +1,18 @@
+{
+  "prefix_id": "2f6a99830587b222",
+  "seed": 723472939,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-carrera-10k-723472939-851e9525aa47",
+    "kind": "contradiction",
+    "text": "La prueba de 5 km queda fijada para el 18 de febrero de 2028 en Puerto Nébula.\nEmpezaremos con 14–16 km semanales repartidos en cuatro salidas suaves.\nLiora llevará el registro de cada entrenamiento.",
+    "entities": [
+      "18 de febrero de 2028",
+      "Puerto Nébula",
+      "14–16 km",
+      "Liora"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

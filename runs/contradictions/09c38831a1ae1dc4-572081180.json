@@ -1,0 +1,19 @@
+{
+  "prefix_id": "09c38831a1ae1dc4",
+  "seed": 572081180,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-mudanza-572081180-ea1d2e7b2aff",
+    "kind": "contradiction",
+    "text": "He reservado a Mudanzas Brévalo para el 18 de octubre; tenían hueco incluso llamando con solo cinco días de antelación. El traslado de Puerto Lérido a Valdoria incluye dos operarios y embalaje.",
+    "entities": [
+      "Mudanzas Brévalo",
+      "18 de octubre",
+      "cinco días",
+      "Puerto Lérido",
+      "Valdoria"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

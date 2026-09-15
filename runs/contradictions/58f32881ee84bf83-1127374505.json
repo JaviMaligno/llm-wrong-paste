@@ -1,0 +1,17 @@
+{
+  "prefix_id": "58f32881ee84bf83",
+  "seed": 1127374505,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-factura-luz-1127374505-4c9417421a05",
+    "kind": "contradiction",
+    "text": "Nota para el contrato de Luminara: el plazo de desistimiento es de 30 días laborables.\nLa gestión la confirma el equipo de Vardel mediante el código Nexo-17.",
+    "entities": [
+      "Luminara",
+      "Vardel",
+      "Nexo-17"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

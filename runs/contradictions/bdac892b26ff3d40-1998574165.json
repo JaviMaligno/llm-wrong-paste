@@ -1,0 +1,18 @@
+{
+  "prefix_id": "bdac892b26ff3d40",
+  "seed": 1998574165,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-camara-1998574165-216c03e9755a",
+    "kind": "contradiction",
+    "text": "Reserva: cuerpo Lúmina A7 nuevo, 1.480 créditos.\nLa oferta de segunda mano queda en 1.390 créditos con solo tres meses de garantía.\nEl fijo Bruma 28 f/1.6 se entrega revisado el 22 de Nivora.",
+    "entities": [
+      "Lúmina A7",
+      "1.480 créditos",
+      "Bruma 28 f/1.6",
+      "Nivora"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

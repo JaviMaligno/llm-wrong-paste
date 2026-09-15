@@ -1,0 +1,18 @@
+{
+  "prefix_id": "58f32881ee84bf83",
+  "seed": 824278385,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-factura-luz-824278385-d1a70cb4c5f0",
+    "kind": "contradiction",
+    "text": "Aviso de Red Varnelia: el cambio de contrato previsto para el 18 de Narev dejará el suministro suspendido durante seis horas.\nLa gestión incluye una visita al contador de la vivienda de Lurena.",
+    "entities": [
+      "Red Varnelia",
+      "18 de Narev",
+      "Lurena",
+      "contador"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

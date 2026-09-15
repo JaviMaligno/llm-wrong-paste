@@ -1,0 +1,18 @@
+{
+  "prefix_id": "47ef15df47f6d13d",
+  "seed": 1027114567,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-hacer-pan-1027114567-8496dde6c03b",
+    "kind": "contradiction",
+    "text": "Nota para la hogaza de Brumavia:\nretírala cuando el centro marque 89 °C; a 96 °C queda demasiado seca.\nEnfriar sobre la rejilla de cobre durante media hora.",
+    "entities": [
+      "Brumavia",
+      "89 °C",
+      "96 °C",
+      "rejilla de cobre"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

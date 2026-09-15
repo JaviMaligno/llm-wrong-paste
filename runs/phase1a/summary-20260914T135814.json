@@ -1,0 +1,79 @@
+{
+  "run_id": "20260914T135814",
+  "path": "/Users/javieraguilarmartin1/Documents/repos/llm-wrong-paste/runs/phase1a/20260914T135814.jsonl",
+  "planned": 288,
+  "completed": 287,
+  "failed": 1,
+  "skipped": 0,
+  "by_level": {
+    "N0": {
+      "completed": 96,
+      "failed": 0,
+      "skipped": 0
+    },
+    "N1": {
+      "completed": 95,
+      "failed": 1,
+      "skipped": 0
+    },
+    "N2": {
+      "completed": 96,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "kinds": {
+    "N0": {
+      "changelog": 4,
+      "config": 4,
+      "email": 5,
+      "job_ad": 4,
+      "meeting_notes": 4,
+      "note_to_self": 5,
+      "prompt": 5,
+      "recipe": 4,
+      "shopping_list": 4,
+      "sql": 5,
+      "stacktrace": 4
+    },
+    "N1": {
+      "changelog": 4,
+      "config": 5,
+      "email": 4,
+      "job_ad": 5,
+      "meeting_notes": 4,
+      "note_to_self": 4,
+      "prompt": 5,
+      "recipe": 4,
+      "shopping_list": 3,
+      "sql": 5,
+      "stacktrace": 5
+    }
+  },
+  "signals": {
+    "N0": {},
+    "N1": {
+      "cortado": 13,
+      "dirigido": 12,
+      "presupone": 12,
+      "responde": 11
+    }
+  },
+  "call_budget": {
+    "cells": 288,
+    "by_level": {
+      "N0": 96,
+      "N1": 96,
+      "N2": 96
+    },
+    "by_model": {
+      "claude-opus-5": 96,
+      "gpt-5.6-luna-tst": 96,
+      "gpt-5.6-sol-tst": 96
+    },
+    "evaluated_model_calls": 864,
+    "simulated_user_calls": 576,
+    "contradiction_calls": 48,
+    "prefixes": 16
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "prefix_id": "76adab2b530051b3",
+  "seed": 1137249073,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-viaje-japon-1137249073-ba70f9f171e8",
+    "kind": "contradiction",
+    "text": "Nota de ruta: al final serán solo 10 noches y tres alojamientos.\nEmpezamos en Nivora, seguimos a Belmira y terminamos en Torvén.\nNo habrá parada termal ni excursiones entre ciudades.",
+    "entities": [
+      "10 noches",
+      "Nivora",
+      "Belmira",
+      "Torvén",
+      "parada termal"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

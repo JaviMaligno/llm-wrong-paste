@@ -1,0 +1,19 @@
+{
+  "prefix_id": "372767872798f53c",
+  "seed": 1747480607,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-huerto-balcon-1747480607-88b0fa6dc165",
+    "kind": "contradiction",
+    "text": "Para la caja de cultivo de 60 cm usaremos solo dos lechugas y perifollo.\nLa profundidad confirmada es de 14 cm; la acelga irá en una maceta alta aparte.\nNo mezclar cebollino en este recipiente.",
+    "entities": [
+      "caja de cultivo",
+      "dos lechugas",
+      "perifollo",
+      "14 cm",
+      "cebolllino"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

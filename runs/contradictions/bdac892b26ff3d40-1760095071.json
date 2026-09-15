@@ -1,0 +1,18 @@
+{
+  "prefix_id": "bdac892b26ff3d40",
+  "seed": 1760095071,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-camara-1760095071-f792921c4c72",
+    "kind": "contradiction",
+    "text": "Nota para Liria: el cuerpo Veyra C8 nuevo está a 540 créditos en Fotoalba.\nEl fijo Nómada 28/1.8 usado no bajaría de 260 créditos.",
+    "entities": [
+      "Liria",
+      "Veyra C8",
+      "Fotoalba",
+      "Nómada 28/1.8"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

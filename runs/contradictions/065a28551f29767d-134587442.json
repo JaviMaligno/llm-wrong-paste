@@ -1,0 +1,18 @@
+{
+  "prefix_id": "065a28551f29767d",
+  "seed": 134587442,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-colegio-134587442-883e78b0c866",
+    "kind": "contradiction",
+    "text": "Nota para la visita a Brumaria: el trayecto hasta el Colegio Nacar dura 55 minutos por sentido incluso sin tráfico.\nLa ruta de la mañana sale a las 7:05 y no admite paradas adicionales.\nRevisar si el proyecto Lumen justifica ese horario para Dara.",
+    "entities": [
+      "Brumaria",
+      "Colegio Nacar",
+      "proyecto Lumen",
+      "Dara"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

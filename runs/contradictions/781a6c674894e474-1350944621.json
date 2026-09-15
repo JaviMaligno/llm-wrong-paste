@@ -1,0 +1,19 @@
+{
+  "prefix_id": "781a6c674894e474",
+  "seed": 1350944621,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-huerto-balcon-1350944621-8ac71e5b282b",
+    "kind": "contradiction",
+    "text": "Nota para el balcón de Umbravía:\nEn pleno verano conviene repetir espinaca cada 2 semanas y canónigos cada 3, incluso con calor.\nLa acelga se renueva mejor en invierno, entre Brumario y Nivaria.",
+    "entities": [
+      "Umbravía",
+      "espinaca",
+      "canónigos",
+      "Brumario",
+      "Nivaria"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

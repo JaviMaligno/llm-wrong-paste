@@ -1,0 +1,19 @@
+{
+  "prefix_id": "a0288e054af3f484",
+  "seed": 105093416,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-viaje-japon-105093416-3d6d134a6988",
+    "kind": "contradiction",
+    "text": "Nota de presupuesto: el Pase Brújula de 14 días cuesta 61.800 coronas por persona.\nLos cuatro expresos principales suman 43.200 coronas, y las salidas a Lumen, Brisalia y Norvek añaden unas 6.100.\nCon billetes individuales aún faltarían 12.500 coronas para igualar el pase.",
+    "entities": [
+      "Pase Brújula",
+      "61.800 coronas",
+      "Lumen",
+      "Brisalia",
+      "Norvek"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

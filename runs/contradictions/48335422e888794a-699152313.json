@@ -1,0 +1,18 @@
+{
+  "prefix_id": "48335422e888794a",
+  "seed": 699152313,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-colegio-699152313-01fa694b8187",
+    "kind": "contradiction",
+    "text": "La matrícula de Darío para el curso actual ya está confirmada en el Instituto Brumalia.\nEntrará en septiembre a 4.º de secundaria, en turno de mañana.\nLa reunión con la tutora será el 18 de agosto.",
+    "entities": [
+      "Darío",
+      "Instituto Brumalia",
+      "4.º de secundaria",
+      "18 de agosto"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

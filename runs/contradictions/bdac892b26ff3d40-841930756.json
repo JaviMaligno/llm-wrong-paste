@@ -1,0 +1,18 @@
+{
+  "prefix_id": "bdac892b26ff3d40",
+  "seed": 841930756,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-camara-841930756-9af47c7fb5b7",
+    "kind": "contradiction",
+    "text": "Nota de inventario — Lumenor V3: precio nuevo, 680 créditos.\nLa unidad usada se vendió por 590 créditos con batería adicional.\nGarantía de taller: 18 meses en Brumavia.",
+    "entities": [
+      "Lumenor V3",
+      "680 créditos",
+      "590 créditos",
+      "Brumavia"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "prefix_id": "48335422e888794a",
+  "seed": 2029689342,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-colegio-2029689342-775d2646588b",
+    "kind": "contradiction",
+    "text": "La matrícula de Naira quedó confirmada ayer para el curso actual.\nEl Centro Arboluna asignó plaza en el aula de cinco años, turno de mañana.\nLa reunión de bienvenida será el 3 de octubre.",
+    "entities": [
+      "Naira",
+      "Centro Arboluna",
+      "aula de cinco años",
+      "3 de octubre"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

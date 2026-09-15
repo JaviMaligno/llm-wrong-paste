@@ -1,0 +1,19 @@
+{
+  "prefix_id": "f44998b0ac8c93ef",
+  "seed": 1515348609,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-factura-luz-1515348609-942c4fb67952",
+    "kind": "contradiction",
+    "text": "Nota para revisar: la factura de Brisalia llegó un 18% más baja que la anterior.\nEl periodo cubre del 3 al 30 de Nivario, con 214 kWh y lectura real.\nNo figura ninguna regularización ni servicio de mantenimiento.",
+    "entities": [
+      "Brisalia",
+      "18%",
+      "Nivario",
+      "214 kWh",
+      "lectura real"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

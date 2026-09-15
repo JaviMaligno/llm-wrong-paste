@@ -1,0 +1,18 @@
+{
+  "prefix_id": "25f65120b504b2ef",
+  "seed": 2105623254,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-carrera-10k-2105623254-91eeb6fa9e31",
+    "kind": "contradiction",
+    "text": "Nota para el plan de Brumaria:\nEmpezamos con cuatro salidas semanales desde la primera semana.\nLa carga inicial será de 14 km y subirá 2 km cada siete días.",
+    "entities": [
+      "Brumaria",
+      "cuatro salidas",
+      "14 km",
+      "2 km"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

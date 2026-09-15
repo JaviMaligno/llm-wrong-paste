@@ -1,0 +1,19 @@
+{
+  "prefix_id": "ce64ba740c48aaa2",
+  "seed": 1760871603,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-hacer-pan-1760871603-e5af65e44add",
+    "kind": "contradiction",
+    "text": "Nota para el pan de Brumelia:\nUsar 500 g de harina, 280 g de agua y 7 g de levadura seca.\nHornear a 210 °C durante 35 minutos, sin bandeja de vapor.",
+    "entities": [
+      "Brumelia",
+      "500 g",
+      "280 g",
+      "7 g",
+      "210 °C"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

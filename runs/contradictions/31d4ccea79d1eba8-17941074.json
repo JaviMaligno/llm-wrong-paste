@@ -1,0 +1,18 @@
+{
+  "prefix_id": "31d4ccea79d1eba8",
+  "seed": 17941074,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-mudanza-17941074-7a17cd08c6f5",
+    "kind": "contradiction",
+    "text": "Nota para Lurena: las cajas de porcelana no deben superar los 8 kg.\nEn el almacén de Bréval quedan separadores de cartón y cinta azul.",
+    "entities": [
+      "Lurena",
+      "porcelana",
+      "Bréval",
+      "cinta azul"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

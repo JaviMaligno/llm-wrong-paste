@@ -1,0 +1,18 @@
+{
+  "prefix_id": "47ef15df47f6d13d",
+  "seed": 118973903,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-hacer-pan-118973903-8a30a483d61b",
+    "kind": "contradiction",
+    "text": "Nota para la próxima hornada:\nsacar la hogaza cuando el centro marque 92 °C, no más.\nEnfriar veinte minutos sobre la rejilla antes de rebanar.",
+    "entities": [
+      "próxima hornada",
+      "92 °C",
+      "veinte minutos",
+      "rejilla"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

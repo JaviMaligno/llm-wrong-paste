@@ -1,0 +1,19 @@
+{
+  "prefix_id": "ce64ba740c48aaa2",
+  "seed": 1357778734,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-hacer-pan-1357778734-77071daedbb5",
+    "kind": "contradiction",
+    "text": "Nota para el pan de Orvelia:\nUsar 600 g de harina Brisena y solo 300 g de agua; no añadir levadura seca.\nHornear 35 minutos a 180 °C, sin bandeja de vapor.",
+    "entities": [
+      "Orvelia",
+      "Brisena",
+      "600 g",
+      "300 g",
+      "180 °C"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

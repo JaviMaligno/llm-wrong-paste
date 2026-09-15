@@ -1,0 +1,19 @@
+{
+  "prefix_id": "25f65120b504b2ef",
+  "seed": 1027744109,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-carrera-10k-1027744109-4a5eeb9996c9",
+    "kind": "contradiction",
+    "text": "Nota para el plan de mayo:\nentrenaré cuatro días por semana desde el principio, con un total inicial de 14 km.\nLa salida larga del sábado será de 7 km.",
+    "entities": [
+      "mayo",
+      "cuatro días",
+      "14 km",
+      "sábado",
+      "7 km"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

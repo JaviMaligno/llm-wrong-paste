@@ -1,0 +1,18 @@
+{
+  "prefix_id": "61b10707a589a600",
+  "seed": 862160818,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-camara-862160818-654e40aed504",
+    "kind": "contradiction",
+    "text": "Nota para el viaje a Brisalia: el límite total para la cámara y el objetivo es de 450 coronas. Prioridad: fotos de aves al amanecer y partidos de balonmano.",
+    "entities": [
+      "Brisalia",
+      "450 coronas",
+      "aves",
+      "balonmano"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

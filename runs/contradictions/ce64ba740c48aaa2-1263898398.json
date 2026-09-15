@@ -1,0 +1,19 @@
+{
+  "prefix_id": "ce64ba740c48aaa2",
+  "seed": 1263898398,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-hacer-pan-1263898398-901486d7f31c",
+    "kind": "contradiction",
+    "text": "Nota de prueba: para el pan de Brumalia usé 500 g de harina y solo 280 g de agua.\nEl horno quedó a 190 °C desde el principio, durante 35 minutos.",
+    "entities": [
+      "Brumalia",
+      "500 g",
+      "280 g",
+      "190 °C",
+      "35 minutos"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

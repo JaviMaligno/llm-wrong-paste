@@ -1,0 +1,18 @@
+{
+  "prefix_id": "47ef15df47f6d13d",
+  "seed": 903930533,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-hacer-pan-903930533-acb1481bd4b3",
+    "kind": "contradiction",
+    "text": "Nota para la prueba de Brumel:\nLa hogaza de Cendria quedó lista al alcanzar 88 °C en el centro.\nNo la dejes más de 35 minutos en el horno de Lurena.",
+    "entities": [
+      "Brumel",
+      "Cendria",
+      "88 °C",
+      "Lurena"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

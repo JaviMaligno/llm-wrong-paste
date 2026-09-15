@@ -1,0 +1,19 @@
+{
+  "prefix_id": "a0288e054af3f484",
+  "seed": 441358253,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-viaje-japon-441358253-5599b88261fc",
+    "kind": "contradiction",
+    "text": "Nota de presupuesto: el pase ferroviario de 14 días cuesta 38.000 yenes de Bruma.\nLos billetes entre Lumeria, Kaldor y Virelia suman solo 21.500.\nNo añadiremos excursión a Norvia este año.",
+    "entities": [
+      "38.000 yenes de Bruma",
+      "Lumeria",
+      "Kaldor",
+      "Virelia",
+      "Norvia"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

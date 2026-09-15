@@ -1,0 +1,18 @@
+{
+  "prefix_id": "48335422e888794a",
+  "seed": 1579878515,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-colegio-1579878515-e248f8e79075",
+    "kind": "contradiction",
+    "text": "La matrícula de Darío para el curso 2028-2029 queda confirmada en el Instituto Brumalia.\nLa reunión de bienvenida será el 3 de febrero a las 16:30.",
+    "entities": [
+      "Darío",
+      "2028-2029",
+      "Instituto Brumalia",
+      "3 de febrero"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

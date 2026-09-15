@@ -1,0 +1,18 @@
+{
+  "prefix_id": "09c38831a1ae1dc4",
+  "seed": 1517113112,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-mudanza-1517113112-e23d99e35f3a",
+    "kind": "contradiction",
+    "text": "La mudanza a Brumelia quedó confirmada para el día 8; Trastelos Nacarino nos reservó dos operarios y furgón sin necesidad de señal.",
+    "entities": [
+      "Brumelia",
+      "día 8",
+      "Trastelos Nacarino",
+      "dos operarios"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

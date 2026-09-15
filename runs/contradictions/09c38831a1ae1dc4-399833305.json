@@ -1,0 +1,19 @@
+{
+  "prefix_id": "09c38831a1ae1dc4",
+  "seed": 399833305,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-mudanza-399833305-d085886aa018",
+    "kind": "contradiction",
+    "text": "La reserva con Traslados Brumaria quedó cerrada para el 18 de noviembre, con solo nueve días de antelación. El equipo confirmó dos operarios y una furgoneta pequeña para la mañana.",
+    "entities": [
+      "Traslados Brumaria",
+      "18 de noviembre",
+      "nueve días",
+      "dos operarios",
+      "furgoneta pequeña"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

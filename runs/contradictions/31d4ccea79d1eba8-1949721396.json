@@ -1,0 +1,18 @@
+{
+  "prefix_id": "31d4ccea79d1eba8",
+  "seed": 1949721396,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-mudanza-1949721396-56017b6771f8",
+    "kind": "contradiction",
+    "text": "Nota para la mudanza a Lurena: los platos de cerámica viajarán apilados en horizontal, con separadores de fieltro.\nLa caja de cristalería no debe superar los 8 kg y se recogerá el 3 de noviembre.\nLos monitores irán tumbados sobre mantas gruesas en la furgoneta de Nébora.",
+    "entities": [
+      "Lurena",
+      "cerámica",
+      "3 de noviembre",
+      "Nébora"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

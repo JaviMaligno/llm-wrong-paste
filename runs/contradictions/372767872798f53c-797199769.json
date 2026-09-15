@@ -1,0 +1,19 @@
+{
+  "prefix_id": "372767872798f53c",
+  "seed": 797199769,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-huerto-balcon-797199769-7478f2d783d9",
+    "kind": "contradiction",
+    "text": "Nota para el balcón de Luravia:\nLa jardinera Ralven mide 45 × 18 × 16 cm.\nSolo caben una lechuga y un cebollino; la acelga irá en otra maceta.",
+    "entities": [
+      "Luravia",
+      "Ralven",
+      "45 × 18 × 16 cm",
+      "cebollino",
+      "acelga"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "prefix_id": "065a28551f29767d",
+  "seed": 373054693,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-elegir-colegio-373054693-a952818f9fa1",
+    "kind": "contradiction",
+    "text": "Nota de visita: el Colegio Brumaria queda a 47 minutos por trayecto desde casa, incluso sin tráfico.\nLa ruta de mañana sale a las 7:05 y vuelve a las 18:10; a Lira le entusiasma el laboratorio de Nébora.",
+    "entities": [
+      "Colegio Brumaria",
+      "47 minutos",
+      "Lira",
+      "Nébora"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}

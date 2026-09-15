@@ -1,0 +1,18 @@
+{
+  "prefix_id": "2f6a99830587b222",
+  "seed": 759233730,
+  "generator_model": "gpt-5.6-terra-tst",
+  "artifact": {
+    "id": "n2-carrera-10k-759233730-8214603dcef3",
+    "kind": "contradiction",
+    "text": "La prueba de 5 km quedó fijada para el 18 de noviembre de 2026 en Puerto Nébora. Empezaremos con 14–16 km semanales desde la primera semana.",
+    "entities": [
+      "5 km",
+      "18 de noviembre de 2026",
+      "Puerto Nébora",
+      "14–16 km"
+    ],
+    "level": "N2",
+    "signal": "contradiccion"
+  }
+}
