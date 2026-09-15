@@ -157,3 +157,37 @@ def test_el_informe_da_acuerdo_y_kappa_por_juez():
 def test_el_informe_falla_si_no_hay_solape():
     with pytest.raises(ValueError):
         agreement_report({"c1": "A"}, {"j1": {"c9": "A"}})
+
+
+def test_los_ejes_de_estratificacion_se_pueden_elegir():
+    """En una tanda de un solo brazo, estratificar por nivel no reparte nada.
+
+    La Fase 1b corre solo N0: `paste_level` vale lo mismo en las 275 filas, así
+    que como eje es un eje muerto. El que manda allí es la posición del barrido,
+    que es la variable independiente.
+    """
+    filas = [
+        {"conversation_id": f"c{i}", "sweep_position": i % 12,
+         "model_id": "gpt-5.6-sol-tst", "paste_level": "N0",
+         "judge_category": "A" if i % 3 else "G", "reaction": "x"}
+        for i in range(120)
+    ]
+    muestra = blind_sample(filas, n=24, seed=1, strata_keys=("sweep_position", "model_id"))
+    assert len(muestra) == 24
+    posiciones = {f["sweep_position"] for f in muestra}
+    assert len(posiciones) >= 10, f"solo cubre {sorted(posiciones)}"
+    # Y sigue cegando: ningún campo del juez sobrevive.
+    assert not any("judge" in k for f in muestra for k in f)
+
+
+def test_estratificar_por_el_eje_muerto_deja_posiciones_sin_cubrir():
+    """El contraste que justifica el parámetro: con el eje viejo, la posición
+    queda a sorteo y la muestra puede no cubrir el barrido."""
+    filas = [
+        {"conversation_id": f"c{i}", "sweep_position": i % 12,
+         "model_id": "gpt-5.6-sol-tst", "paste_level": "N0",
+         "judge_category": "A", "reaction": "x"}
+        for i in range(120)
+    ]
+    con_eje = blind_sample(filas, n=12, seed=3, strata_keys=("sweep_position", "model_id"))
+    assert len({f["sweep_position"] for f in con_eje}) == 12, "un estrato por posición"

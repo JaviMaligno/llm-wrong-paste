@@ -96,10 +96,29 @@ def _categoria_del_juez(fila: dict) -> str | None:
     return None
 
 
-def blind_sample(rows: list[dict], n: int, seed: int) -> list[dict]:
-    """Muestra estratificada por (nivel, modelo, categoría del juez), a ciegas.
+# Los ejes de estratificación por defecto: los del §6.2 del spec de la Fase 1.
+# El nivel del pegote era el factor de la Fase 1a; en tandas de un solo brazo
+# —la 1b, que solo corre N0— ese eje vale lo mismo para todas las filas y no
+# reparte nada, así que se sustituye por el que sí manda allí.
+DEFAULT_STRATA_KEYS: tuple[str, ...] = ("paste_level", "model_id")
 
-    Los tres ejes son los del §6.2. El tercero se lee con
+
+def blind_sample(
+    rows: list[dict],
+    n: int,
+    seed: int,
+    strata_keys: tuple[str, ...] = DEFAULT_STRATA_KEYS,
+) -> list[dict]:
+    """Muestra estratificada por `strata_keys` + categoría del juez, a ciegas.
+
+    `strata_keys` son los ejes del diseño; la categoría del juez se añade
+    siempre como último eje y **no es opcional**, porque es lo que garantiza que
+    las categorías raras entren en la muestra en vez de quedarse fuera por
+    sorteo. En la Fase 1a los ejes fueron `("paste_level", "model_id")`; en la
+    1b, `("sweep_position", "model_id")`, porque allí el nivel es constante y
+    la posición del barrido es la variable independiente.
+
+    La categoría del juez se lee con
     `_categoria_del_juez` **antes** de cegar la fila y no vuelve a aparecer en
     la salida: se usa para repartir, no para enseñárselo a nadie.
 
@@ -116,7 +135,7 @@ def blind_sample(rows: list[dict], n: int, seed: int) -> list[dict]:
     rng = np.random.default_rng(seed)
     estratos: dict[tuple, list[dict]] = {}
     for r in rows:
-        eje = (r.get("paste_level"), r.get("model_id"), _categoria_del_juez(r))
+        eje = (*(r.get(k) for k in strata_keys), _categoria_del_juez(r))
         estratos.setdefault(eje, []).append(r)
     claves = sorted(
         estratos,
