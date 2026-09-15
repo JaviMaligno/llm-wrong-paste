@@ -31,6 +31,30 @@ class Artifact:
     # `presupone`. La señal es parte del dato porque el análisis pregunta qué
     # TIPO de pista funciona, no solo si alguna funciona.
     signal: str | None = None
+    # Los dos ejes de un pegote de género `prompt`, y solo de ese género. Se
+    # declaran en el fichero porque la Fase 1b demostró que la categoría que
+    # sale NO la decide el modelo sino el artefacto: cada uno de los cinco
+    # `prompt` del banco original produjo siempre la misma letra, sin una sola
+    # excepción, y el reparto A/B/F del género era en realidad el sorteo de qué
+    # artefacto tocaba. Con los ejes fuera del fichero eso no se puede ni medir
+    # ni equilibrar.
+    #
+    # `material` — qué trae el pegote sobre lo que trabajar:
+    #   `autosuficiente`           la instrucción no necesita nada más
+    #   `con_referente`            trae consigo el texto al que se refiere
+    #   `sin_referente_sustituible` le falta el texto, pero la conversación
+    #                              anterior sirve de material (y ahí es donde el
+    #                              pegote secuestra la sesión)
+    #   `sin_referente`            le falta el texto y nada puede sustituirlo
+    # `papel` — `rol` si asigna un personaje, `tarea` si es un encargo suelto.
+    material: str | None = None
+    papel: str | None = None
+
+
+PROMPT_MATERIALS: frozenset[str] = frozenset(
+    {"autosuficiente", "con_referente", "sin_referente_sustituible", "sin_referente"}
+)
+PROMPT_PAPELES: frozenset[str] = frozenset({"rol", "tarea"})
 
 
 def _parse(path: Path, level: str = "N0") -> Artifact:
@@ -55,6 +79,23 @@ def _parse(path: Path, level: str = "N0") -> Artifact:
             f"{path.name}: un artefacto N1 sin `signal` no dice qué lo delata, "
             "y sin eso no se puede analizar qué tipo de señal funciona."
         )
+    material = meta.get("material") or None
+    papel = meta.get("papel") or None
+    if meta["kind"] == "prompt":
+        if material not in PROMPT_MATERIALS or papel not in PROMPT_PAPELES:
+            raise ValueError(
+                f"{path.name}: un pegote `prompt` tiene que declarar `material` "
+                f"({sorted(PROMPT_MATERIALS)}) y `papel` ({sorted(PROMPT_PAPELES)}). "
+                "Sin los dos ejes, el género vuelve a confundir 'qué hace el "
+                "modelo' con 'qué artefacto tocó en el sorteo', que es lo que "
+                "pasó en la Fase 1b."
+            )
+    elif material or papel:
+        raise ValueError(
+            f"{path.name}: `material`/`papel` son ejes del género `prompt` y "
+            f"este es `{meta['kind']}`. Declararlos aquí sugiere un reparto que "
+            "nadie mide."
+        )
     return Artifact(
         id=meta["id"],
         kind=meta["kind"],
@@ -62,6 +103,8 @@ def _parse(path: Path, level: str = "N0") -> Artifact:
         entities=tuple(json.loads(meta["entities"])),
         level=level,
         signal=signal,
+        material=material,
+        papel=papel,
     )
 
 

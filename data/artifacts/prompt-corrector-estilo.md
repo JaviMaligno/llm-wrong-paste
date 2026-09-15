@@ -1,6 +1,8 @@
 ---
 id: prompt-corrector-estilo
 kind: prompt
+material: sin_referente_sustituible
+papel: rol
 entities: ["treinta palabras", "voz pasiva", "marca [DUDA]", "Manual de Estilo Vilaseca"]
 ---
 Eres corrector de estilo. Sigue el Manual de Estilo Vilaseca y nada más.

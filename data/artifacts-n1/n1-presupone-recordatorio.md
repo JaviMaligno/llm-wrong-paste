@@ -1,6 +1,8 @@
 ---
 id: n1-presupone-recordatorio
 kind: prompt
+material: sin_referente_sustituible
+papel: rol
 level: N1
 signal: presupone
 entities: ["el mismo formato de siempre", "nunca empieces con una pregunta", "no das fecha"]

@@ -226,3 +226,69 @@ def test_el_banco_n1_reparte_las_senales():
         f"las señales están desequilibradas (diferencia de {desvio} artefactos "
         f"entre la más y la menos frecuente): {dict(sorted(reparto.items()))}"
     )
+
+
+# --- los dos ejes del género `prompt` --------------------------------------
+#
+# La Fase 1b dejó una medida incómoda: cada uno de los cinco `prompt` del banco
+# original produjo SIEMPRE la misma categoría, sin una sola excepción en 15
+# conversaciones. `corrector-estilo` daba F las cuatro veces, `resumen-actas` B
+# las cuatro, `nombres-producto` A las cuatro. Para ese género, la categoría no
+# medía la conducta del modelo: leía qué artefacto había tocado en el sorteo.
+#
+# La causa es que los cinco confundían dos ejes. Desde entonces los declaran, y
+# estos tests impiden que el reparto vuelva a derivar.
+
+
+def test_todo_prompt_declara_sus_dos_ejes():
+    from wrongpaste.artifacts import PROMPT_MATERIALS, PROMPT_PAPELES
+
+    for art in load_artifacts():
+        if art.kind != "prompt":
+            continue
+        assert art.material in PROMPT_MATERIALS, f"{art.id}: material={art.material!r}"
+        assert art.papel in PROMPT_PAPELES, f"{art.id}: papel={art.papel!r}"
+
+
+def test_solo_los_prompt_declaran_ejes():
+    """En otro género los ejes sugieren un reparto que nadie mide."""
+    for art in load_artifacts():
+        if art.kind == "prompt":
+            continue
+        assert art.material is None and art.papel is None, art.id
+
+
+def test_el_genero_prompt_de_n0_cubre_la_rejilla_entera():
+    """Ocho casillas, y ninguna vacía.
+
+    La casilla que faltaba y más falta hacía es `con_referente`: en el banco
+    original NINGÚN prompt traía el texto al que se refería, así que el modelo
+    no podía hacer otra cosa que pedirlo, y nunca se observó qué hace con una
+    instrucción completa.
+
+    Las dos `sin_referente_sustituible` son el contraste que aísla el mecanismo:
+    a las dos les falta el texto, pero la conversación anterior sirve de
+    material. Si solo la de `rol` acaba secuestrando la sesión, el papel es lo
+    que manda; si también la de `tarea`, es la falta de material.
+    """
+    from wrongpaste.artifacts import PROMPT_MATERIALS, PROMPT_PAPELES
+
+    prompts = [a for a in load_artifacts(level="N0") if a.kind == "prompt"]
+    rejilla = {(a.material, a.papel) for a in prompts}
+    esperada = {(m, p) for m in PROMPT_MATERIALS for p in PROMPT_PAPELES}
+    assert rejilla == esperada, f"casillas sin cubrir: {sorted(esperada - rejilla)}"
+
+
+def test_un_prompt_sin_ejes_se_rechaza_al_cargar(tmp_path, monkeypatch):
+    """Que falle al cargar, y no al analizar seis semanas después."""
+    import wrongpaste.artifacts as mod
+
+    banco = tmp_path / "n0"
+    banco.mkdir()
+    (banco / "prompt-sin-ejes.md").write_text(
+        '---\nid: prompt-sin-ejes\nkind: prompt\nentities: ["x"]\n---\nHaz algo.\n',
+        encoding="utf-8",
+    )
+    monkeypatch.setitem(mod.ARTIFACT_DIRS, "N0", banco)
+    with pytest.raises(ValueError, match="material"):
+        load_artifacts(level="N0")

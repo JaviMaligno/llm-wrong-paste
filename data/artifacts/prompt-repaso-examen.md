@@ -1,6 +1,8 @@
 ---
 id: prompt-repaso-examen
 kind: prompt
+material: autosuficiente
+papel: rol
 entities: ["Termodinámica II", "examen del 4 de febrero", "de una en una", "segundo intento"]
 ---
 Ayúdame a repasar Termodinámica II para el examen del 4 de febrero.

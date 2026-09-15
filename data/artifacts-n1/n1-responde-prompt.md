@@ -1,6 +1,8 @@
 ---
 id: n1-responde-prompt
 kind: prompt
+material: sin_referente
+papel: tarea
 level: N1
 signal: responde
 entities: ["el segundo párrafo", "empieza siempre por la conclusión", "no inventes fuentes"]

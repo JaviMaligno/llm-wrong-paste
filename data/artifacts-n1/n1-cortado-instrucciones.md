@@ -1,6 +1,8 @@
 ---
 id: n1-cortado-instrucciones
 kind: prompt
+material: sin_referente_sustituible
+papel: rol
 level: N1
 signal: cortado
 entities: ["el tercer paso", "la cifra antes que la explicación", "un asterisco"]

@@ -1,6 +1,8 @@
 ---
 id: prompt-traductor-tecnico
 kind: prompt
+material: sin_referente
+papel: tarea
 entities: ["castellano peninsular", "glosario Trébol", "nombres de función", "dos versiones"]
 ---
 Traduce el texto que te pego a castellano peninsular, no neutro.

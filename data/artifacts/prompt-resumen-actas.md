@@ -1,6 +1,8 @@
 ---
 id: prompt-resumen-actas
 kind: prompt
+material: sin_referente
+papel: rol
 entities: ["Cuaderno Bermejo", "cinco viñetas", "responsable y fecha", "TONO: seco"]
 ---
 Actúa como secretario de reuniones del equipo Cuaderno Bermejo.

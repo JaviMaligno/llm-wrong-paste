@@ -1,6 +1,8 @@
 ---
 id: prompt-nombres-producto
 kind: prompt
+material: autosuficiente
+papel: tarea
 entities: ["doce nombres", "dos sílabas", "dominio .app", "suene a medicamento"]
 ---
 Necesito doce nombres para un producto nuevo. Reglas:

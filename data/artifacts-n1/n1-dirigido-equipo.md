@@ -1,6 +1,8 @@
 ---
 id: n1-dirigido-equipo
 kind: prompt
+material: sin_referente_sustituible
+papel: rol
 level: N1
 signal: dirigido
 entities: ["dos párrafos como mucho", "promesas de fechas", "se pasa a Valeria"]
