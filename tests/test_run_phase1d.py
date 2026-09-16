@@ -35,6 +35,7 @@ import pytest
 import wrongpaste.conversation as conv
 import wrongpaste.run_phase0 as rp0
 import wrongpaste.run_phase1b as rp1b
+import wrongpaste.run_judging as run_judging
 import wrongpaste.run_phase1d as rp
 import wrongpaste.similarity as sim
 import wrongpaste.simulated_user as su
@@ -52,11 +53,60 @@ from wrongpaste.run_phase1d import (
     plan_phase1d,
 )
 
-# El banco N1 de verdad tiene 72 artefactos, que es lo que hace que una banda
-# traiga exactamente los 18 slots del diseño. Los tests que cuentan estímulos se
-# escriben contra ese tamaño: con otro, los números del plan (4 x 18 x 16)
+# El banco N1 de verdad. Es lo que hace que una banda traiga exactamente los
+# `ARTIFACTS_PER_BAND` slots del diseño; con otro tamaño, los números del plan
 # dejarían de ser los que se van a correr.
-BANK_N1 = 72
+BANK_N1 = 84
+
+# Los recuentos del diseño se DERIVAN de las constantes, no se clavan a mano.
+# Clavarlos obligaba a repasar cuarenta y cinco números cada vez que el diseño
+# cambiaba de tamaño —y el tamaño ha cambiado dos veces ya, de 18 a 19 y de 19 a
+# 21— con el riesgo de dejar la mitad viejos y la suite verde. Lo que sí se clava
+# es cada constante por separado, en `test_las_constantes_del_diseno_son_las_que
+# _se_va_a_pagar`: si alguien mueve una, ese test lo dice, y estos recuentos se
+# mueven con ella en vez de mentir.
+PREFIXES = 16  # 8 temas x 2 longitudes
+CELLS = BANDS * ARTIFACTS_PER_BAND * PREFIXES
+CELLS_PER_BAND = CELLS // BANDS
+CELLS_PER_MODEL = CELLS // len(PHASE1D_MODELS)
+CELLS_PER_BAND_MODEL = CELLS_PER_BAND // len(PHASE1D_MODELS)
+CELLS_PER_BAND_MODEL_LENGTH = CELLS_PER_BAND_MODEL // len(LENGTHS)
+# El contraste primario pliega las BANDS bandas a dos, así que cada punto de la
+# curva primaria son la mitad de las celdas.
+CELLS_PER_PRIMARY_BAND = CELLS // 2
+
+# Potencia de una prueba primaria con el plantel de TRES modelos: cada modelo ve
+# CELLS_PER_MODEL celdas, plegadas a dos puntos. Se clava porque es el número
+# que la puerta compara contra MIN_POWER; si el diseño cambia de tamaño, cambia.
+POTENCIA_H4_TRES_MODELOS = 0.2348
+
+# La misma prueba, mismo tamaño y mismo alfa, para `sol`. Sale distinta porque
+# lo que más pesa en un diseño binario es la tasa base, y la de `sol` en N1 es
+# 3/32 frente a los 16/29 de Opus. Va aparte y clavada por lo mismo que la otra:
+# es un resultado del estimador, no una constante del diseño.
+POTENCIA_H4_SOL_TRES_MODELOS = 0.7355
+
+# Y con el plantel de UN modelo —la tanda que de verdad se va a pagar—. Cambian
+# las dos cosas a la vez: la familia encoge a dos pruebas (alfa 0,05/2 en vez de
+# 0,05/6) y Opus se queda las CELLS celdas enteras, CELLS_PER_PRIMARY_BAND por
+# punto del contraste plegado. Con el tamaño nuevo del diseño (21 artefactos por
+# banda, 1.344 celdas) este número cruza el MIN_POWER de 0,80; con el viejo, de
+# 18 y 1.152, se quedaba en 0,797. Es el número por el que el diseño creció.
+POTENCIA_H4_UN_MODELO = 0.859
+
+
+def test_las_constantes_del_diseno_son_las_que_se_va_a_pagar():
+    """Los recuentos de esta suite se derivan de aquí, así que aquí se clavan.
+
+    `ARTIFACTS_PER_BAND` tiene que dividir entre 3: la guarda de `plan_phase1d`
+    exige que el plantel reparta por igual los slots de cada (prefijo, banda), y
+    con un primo ningún plantel de tres modelos lo hace.
+    """
+    assert BANDS == 4
+    assert ARTIFACTS_PER_BAND == 21
+    assert ARTIFACTS_PER_BAND % len(PHASE1D_MODELS) == 0
+    assert BANK_N1 == BANDS * ARTIFACTS_PER_BAND
+    assert CELLS == 1344
 
 SIGNALS = ("cortado", "dirigido", "responde", "presupone")
 KINDS = ("email", "nota", "mensaje", "albaran", "aviso", "sms", "carta", "acta")
@@ -135,6 +185,33 @@ def test_una_banda_fuera_de_rango_es_un_error():
         band_window(_ranking(), BANDS, BANDS)
     with pytest.raises(ValueError):
         band_window(_ranking(), -1, BANDS)
+
+
+def test_las_bandas_que_pliega_el_analisis_son_las_que_muestrea_este_runner():
+    """El test que el comentario de `curve.BANDS` dice que existe, y no existía.
+
+    `curve` no importa la constante del runner a propósito —el análisis no sabe
+    de tiradas—, así que el 4 está escrito dos veces. Lo que hace que duplicarlo
+    sea aceptable es exactamente esto: que moverlo en un lado ponga la suite
+    roja. Sin este test, subir las bandas del runner a 6 no revienta nada —
+    `fold_band` devuelve `None` para las bandas que el análisis no declara y los
+    dos sitios que pliegan las descartan—, y el contraste primario sale de dos
+    puntos bien formados sobre 768 de las 1.152 conversaciones pagadas.
+
+    La guarda de `curve.rate_by_position` sobre el `n_strata` de la fila cubre
+    las filas ya escritas; ésta cubre el caso en que las dos mitades del proyecto
+    se separan ANTES de pagar la tanda.
+    """
+    from wrongpaste import curve
+
+    assert curve.BANDS == rp.BANDS, (
+        "el análisis pliega desde el muestreo del runner: si no son el mismo "
+        "número, las bandas que sobran se caen del contraste en silencio"
+    )
+    # Y el campo en el que la fila declara su muestreo es el que el runner
+    # escribe: la guarda del análisis lee `n_strata` y `run_cell` lo pone ahí.
+    assert curve.BAND_COUNT_FIELD == "n_strata"
+    assert curve.BAND_AXIS == "stratum"
 
 
 # --- el muestreo sin reemplazo dentro de la banda --------------------------
@@ -230,8 +307,8 @@ def test_el_barajado_no_depende_de_la_semilla_de_hash_del_proceso():
 
 def test_el_plan_tiene_1152_celdas():
     # 4 bandas x 8 temas x 2 longitudes x 18 artefactos
-    assert BANDS * 8 * len(LENGTHS) * ARTIFACTS_PER_BAND == 1152
-    assert len(plan_phase1d(1)) == 1152
+    assert BANDS * 8 * len(LENGTHS) * ARTIFACTS_PER_BAND == CELLS
+    assert len(plan_phase1d(1)) == CELLS
 
 
 def test_cada_celda_declara_banda_slot_modelo_y_nivel():
@@ -265,7 +342,7 @@ def test_cada_prefijo_y_banda_agota_los_18_slots():
 
 
 def test_el_reparto_de_modelos_es_exacto_en_las_tres_particiones():
-    """384 por modelo, 96 por (modelo, banda) y 48 por (modelo, banda, longitud).
+    """CELLS_PER_MODEL por modelo, y su reparto exacto por banda y por longitud.
 
     El equilibrio por banda no es cosmético: si un modelo cayera más en las
     bandas altas, el contraste entre modelos mediría la banda, y el contraste
@@ -273,15 +350,15 @@ def test_el_reparto_de_modelos_es_exacto_en_las_tres_particiones():
     """
     plan = plan_phase1d(1)
     assert collections.Counter(c["model_id"] for c in plan) == {
-        m: 384 for m in PHASE1D_MODELS
+        m: CELLS_PER_MODEL for m in PHASE1D_MODELS
     }
     por_banda = collections.Counter((c["model_id"], c["band"]) for c in plan)
-    assert set(por_banda.values()) == {96}
+    assert set(por_banda.values()) == {CELLS_PER_BAND_MODEL}
     assert len(por_banda) == len(PHASE1D_MODELS) * BANDS
     por_largo = collections.Counter(
         (c["model_id"], c["band"], c["n_turns"]) for c in plan
     )
-    assert set(por_largo.values()) == {48}
+    assert set(por_largo.values()) == {CELLS_PER_BAND_MODEL_LENGTH}
     assert len(por_largo) == len(PHASE1D_MODELS) * BANDS * len(LENGTHS)
 
 
@@ -315,8 +392,8 @@ def test_las_1152_celdas_son_1152_pares_prefijo_artefacto_distintos():
         )
         for c in plan_phase1d(1)
     ]
-    assert len(pares) == 1152
-    assert len(set(pares)) == 1152, collections.Counter(pares).most_common(3)
+    assert len(pares) == CELLS
+    assert len(set(pares)) == CELLS, collections.Counter(pares).most_common(3)
 
 
 def test_los_estimulos_distintos_de_cada_banda_son_288():
@@ -400,7 +477,7 @@ def test_los_modelos_rotan_celda_a_celda_en_el_orden_de_la_tirada():
 
     Es lo que sostiene el término de la **banda** en el desplazamiento: sin él,
     las cuatro celdas seguidas que comparten slot —las cuatro bandas— irían al
-    mismo modelo. El equilibrio de 384/96/48 no lo notaría, porque sigue saliendo
+    mismo modelo. El equilibrio de CELLS_PER_MODEL/96/48 no lo notaría, porque sigue saliendo
     exacto.
     """
     plan = plan_phase1d(1)
@@ -414,7 +491,7 @@ def test_los_modelos_rotan_celda_a_celda_en_el_orden_de_la_tirada():
 
 def test_conversation_id_unico_y_el_plan_es_determinista():
     ids = [c["conversation_id"] for c in plan_phase1d(1)]
-    assert len(set(ids)) == 1152
+    assert len(set(ids)) == CELLS
     assert plan_phase1d(9) == plan_phase1d(9)
 
 
@@ -447,7 +524,7 @@ def test_el_plan_de_la_fase_1b_sigue_dando_exactamente_lo_mismo():
     """La Fase 1b está pagada y publicada: su plan no se puede mover ni un bit.
 
     Las huellas se tomaron antes de escribir una línea de la Fase 1d. Un test que
-    solo contara 288 celdas no vería un cambio de semillas, de longitudes o de
+    solo contara CELLS_PER_BAND celdas no vería un cambio de semillas, de longitudes o de
     identificadores, que es justo lo que rompería la reanudación de una tirada ya
     hecha.
     """
@@ -580,11 +657,11 @@ def test_la_tirada_escribe_una_fila_por_celda_con_su_banda(harness, tmp_path):
     # plan se siguió sin reconstruirlo.
     assert header["plan_path"] == PLAN_BANDAS, header["plan_path"]
     assert header["plan_path"] != rp1b.PLAN_PATH_BY_LEVEL["N1"]
-    assert header["planned_cells"] == 1152
+    assert header["planned_cells"] == CELLS
     assert header["bands"] == BANDS
     assert header["artifacts_per_band"] == ARTIFACTS_PER_BAND
     assert "sweep_positions" not in header, "1d no barre posiciones: barre bandas"
-    assert len(rows) == 1152
+    assert len(rows) == CELLS
     assert all(r["paste_level"] == "N1" for r in rows)
     # La banda viaja en la fila como el estrato por rango que es, con su
     # denominador al lado: sin `n_strata`, un 3 no distingue 4 bandas de 8.
@@ -606,8 +683,8 @@ def test_las_filas_no_repiten_ningun_estimulo(harness, tmp_path):
     path = rp.main(seed=1, out=tmp_path / "t.jsonl", measure=False)
     _, rows = _rows(path)
     pares = [(r["prefix_id"], r["artifact_id"]) for r in rows]
-    assert len(pares) == 1152
-    assert len(set(pares)) == 1152, collections.Counter(pares).most_common(3)
+    assert len(pares) == CELLS
+    assert len(set(pares)) == CELLS, collections.Counter(pares).most_common(3)
     # Y el corolario: nadie ve el mismo estímulo dos veces con dos modelos.
     modelos = collections.defaultdict(set)
     for r in rows:
@@ -673,7 +750,7 @@ def test_una_celda_rota_no_tumba_la_tirada(harness, tmp_path, monkeypatch):
     monkeypatch.setattr(rp, "inject_paste", revienta)
     path = rp.main(seed=1, out=tmp_path / "t.jsonl", measure=False)
     _, rows = _rows(path)
-    assert len(rows) == 1152, "una celda rota no se descarta en silencio"
+    assert len(rows) == CELLS, "una celda rota no se descarta en silencio"
     rotas = [r for r in rows if r["status"] != "ok"]
     assert rotas
     for r in rotas:
@@ -697,12 +774,12 @@ def test_la_tirada_se_reanuda_sin_duplicar_filas(harness, tmp_path):
     )
     rp.main(seed=1, out=path, measure=False)
     _, rows = _rows(path)
-    assert len(rows) == 1152
-    assert len({r["conversation_id"] for r in rows}) == 1152
+    assert len(rows) == CELLS
+    assert len({r["conversation_id"] for r in rows}) == CELLS
     # Y reanudar no cambia el pegote de ninguna celda: el muestreo depende de
     # (prefijo, banda, slot) y de nada más.
     pares = {(r["prefix_id"], r["artifact_id"]) for r in rows}
-    assert len(pares) == 1152
+    assert len(pares) == CELLS
 
 
 def test_la_puerta_del_eje_para_la_tirada_si_el_eje_es_estrecho(
@@ -734,7 +811,7 @@ def test_no_se_reanuda_un_fichero_del_barrido_viejo(harness, tmp_path):
     `levels: ["N1"]`, así que el control de nivel de 1b las da por compatibles.
 
     Lo que pasaría sin esto es el fallo silencioso de siempre: ninguno de los
-    288 identificadores `...-s05` del fichero viejo está entre los 1.152
+    CELLS_PER_BAND identificadores `...-s05` del fichero viejo está entre los 1.152
     `...-b1-a07` del plan nuevo, así que no se saltaría ni una celda, se
     volvería a pagar la tanda entera y quedarían 1.440 filas de dos diseños
     distintos bajo una cabecera que dice `sweep_positions: 12`. El resumen solo
@@ -756,7 +833,7 @@ def test_no_se_reanuda_un_fichero_del_barrido_viejo(harness, tmp_path):
 # no tenga que reconstruir el diseño: abre el documento y lo lee. Eso solo vale
 # si el documento describe ESTA tanda, y aquí hay una trampa concreta: el plan
 # «Fase 1d» de 1b (`PLAN_PATH_BY_LEVEL["N1"]`) declara el mismo brazo y la misma
-# fase, pero describe el barrido de doce posiciones —288 celdas, banco de 44,
+# fase, pero describe el barrido de doce posiciones —CELLS_PER_BAND celdas, banco de 44,
 # «no hay runner nuevo», los tres modelos viendo cada pegote—, que es justo el
 # diseño que este módulo NO corre.
 
@@ -812,11 +889,17 @@ def _describe_el_muestreo_por_bandas(texto: str) -> bool:
     posiciones: la palabra banda, el recuento de celdas, la constante que fija
     cuántos artefactos salen de cada banda y el nombre del runner nuevo —aquel
     plan dice literalmente que no lo hay—.
+
+    **El recuento se DERIVA de `CELLS`, no se clava.** Clavado, este predicado
+    estuvo un tiempo exigiendo «1.152» contra un plan que decía «1.152» mientras
+    el diseño ya iba por 1.344: los dos lados viejos a la vez, y el test pasando
+    sin comprobar nada. Derivado, el día que el diseño cambie de tamaño el test
+    exige que el documento cambie con él, que es justo para lo que existe.
     """
     bajo = texto.lower()
     return (
         "banda" in bajo
-        and "1.152" in texto
+        and f"{CELLS:,}".replace(",", ".") in texto
         and "artifacts_per_band" in bajo
         and "run_phase1d" in bajo
     )
@@ -830,7 +913,7 @@ def test_el_plan_declarado_no_es_el_del_barrido_por_posiciones():
     """
     assert rp.PLAN_PATH != rp1b.PLAN_PATH_BY_LEVEL["N1"], (
         "la cabecera declararía el plan del barrido de doce posiciones, que "
-        "describe 288 celdas sobre un banco de 44 y sin runner nuevo"
+        "describe CELLS_PER_BAND celdas sobre un banco de 44 y sin runner nuevo"
     )
     assert rp.PLAN_PATH == PLAN_BANDAS
 
@@ -868,13 +951,24 @@ def test_la_familia_de_1d_declara_el_eje_que_el_runner_escribe():
     Sin esto, mover uno de los dos deja el otro apuntando a una columna que ya no
     existe, y el modo de fallo no es una excepción: es un nulo impecable.
     """
-    from wrongpaste.curve import HYPOTHESIS_FAMILIES, _como_hipotesis
+    from wrongpaste.curve import (
+        HYPOTHESIS_FAMILIES,
+        PRIMARY_BAND_LEVELS,
+        _como_hipotesis,
+    )
 
     h4 = _como_hipotesis(HYPOTHESIS_FAMILIES["1d"]["H4 contempla el error"])
     assert h4.axis == "stratum", "es el campo en el que `run_cell` escribe la banda"
-    # Y los niveles son las bandas de ESTE runner: si alguien sube `BANDS` a 6,
-    # una familia clavada en 4 dejaría dos bandas fuera del contraste.
-    assert h4.levels == tuple(range(BANDS))
+    # Y los niveles son los del CONTRASTE —dos bandas—, que no tienen por qué
+    # ser los del muestreo. Lo que ata la familia a ESTE runner es `fold_from`:
+    # si alguien sube `BANDS` a 6, el pliegue lo sigue y ninguna banda se queda
+    # fuera. Clavar aquí `range(BANDS)` sería exigir que el contraste tuviera la
+    # resolución del muestreo, que es justo lo que `PRIMARY_BANDS` decide que no.
+    assert h4.levels == PRIMARY_BAND_LEVELS
+    assert h4.fold_from == BANDS, (
+        "sin esto, un `levels` de (0, 1) no agrupa las bandas 2 y 3: las tira, "
+        "y el contraste primario se queda con media tanda"
+    )
 
 
 def test_el_analisis_de_1d_cuenta_las_1152_filas_que_escribe_el_runner(
@@ -887,11 +981,15 @@ def test_el_analisis_de_1d_cuenta_las_1152_filas_que_escribe_el_runner(
     su `sweep_position` a `None`. La caída va metida en la banda y es enorme, así
     que si H4 mirase el eje viejo no saldría discreta: saldría n = 0.
     """
-    from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
+    from wrongpaste.curve import (
+        HYPOTHESIS_FAMILIES,
+        PRIMARY_BANDS,
+        primary_family_report,
+    )
 
     path = rp.main(seed=1, out=tmp_path / "t.jsonl", measure=False)
     _, rows = _rows(path)
-    assert len(rows) == 1152
+    assert len(rows) == CELLS
     assert all(r["sweep_position"] is None for r in rows), "el runner no barre"
 
     # G cae con la banda, de forma determinista: 75 % en la 0 y 25 % en la 3.
@@ -902,13 +1000,17 @@ def test_el_analisis_de_1d_cuenta_las_1152_filas_que_escribe_el_runner(
     rep = primary_family_report(rows, family=HYPOTHESIS_FAMILIES["1d"])
     h4 = rep["hypotheses"]["H4 contempla el error"]
     assert h4["axis"] == "stratum"
-    assert sum(c["n"] for c in h4["pooled"]["curve"]) == 1152, (
+    assert sum(c["n"] for c in h4["pooled"]["curve"]) == CELLS, (
         "las 1.152 conversaciones que se pagan tienen que entrar en el contraste"
     )
-    assert [c["n"] for c in h4["pooled"]["curve"]] == [288] * BANDS
+    # Dos puntos, no cuatro: H4 contrasta las bandas plegadas de dos en dos
+    # (0+1 contra 2+3), así que las CELLS_PER_BAND de cada banda muestreada se suman de par
+    # en par. Que la curva tuviera cuatro puntos aquí querría decir que el
+    # análisis no está plegando y que las 1.152 se reparten a 288.
+    assert [c["n"] for c in h4["pooled"]["curve"]] == [CELLS_PER_PRIMARY_BAND] * PRIMARY_BANDS
     for modelo in PHASE1D_MODELS:
         t = h4["by"][modelo]["trend"]
-        assert t["n"] == 384, "1.152 celdas entre 3 modelos"
+        assert t["n"] == CELLS_PER_MODEL, "1.152 celdas entre 3 modelos"
         assert t["slope_sign"] == -1 and t["p"] < 1e-9
     # Las seis pruebas de la familia, todas sobre filas de verdad.
     assert rep["family_size"] == 6
@@ -933,7 +1035,8 @@ def _con_veredicto_por_longitud(rows, g_por_longitud):
     """Le pega a cada fila la categoría que habría puesto el juez.
 
     La cuota se reparte por (modelo, banda, longitud), que en esta tanda son
-    grupos de 48 filas exactas: con la misma cuota en las cuatro bandas, la tasa
+    grupos de `CELLS_PER_BAND_MODEL_LENGTH` filas exactas: con la misma cuota en
+    las cuatro bandas, la tasa
     de cada banda sale idéntica y H4 tiene que dar z = 0 **exactamente**, no
     «pequeña». Una tolerancia sobre una señal que no se plantó dejaría pasar
     justo el caso que este test busca.
@@ -964,25 +1067,34 @@ def test_el_analisis_ve_la_senal_de_longitud_cuando_esta_en_la_longitud(
 
     path = rp.main(seed=1, out=tmp_path / "t.jsonl", measure=False)
     _, rows = _rows(path)
-    # 12 de 48 en las cortas y 36 de 48 en las largas: 25 % contra 75 %.
-    filas = _con_veredicto_por_longitud(rows, {2: 12, 10: 36})
+    # Un cuarto de G en las cortas y tres cuartos en las largas: 25 % contra
+    # 75 %. La cuota se planta por (modelo, banda, longitud), así que lo que hay
+    # que partir en cuartos es el tamaño de ESE grupo. Derivado y no clavado
+    # porque el grupo encoge y crece con `ARTIFACTS_PER_BAND`: con un 12 escrito
+    # a mano la señal plantada dejaría de ser el 25 % que el test dice medir en
+    # cuanto el diseño cambiara de tamaño, y las k de abajo saldrían torcidas.
+    cuarto = CELLS_PER_BAND_MODEL_LENGTH // 4
+    filas = _con_veredicto_por_longitud(rows, {2: cuarto, 10: 3 * cuarto})
 
     rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
     h4 = rep["hypotheses"]["H4 contempla el error"]
     h5 = rep["hypotheses"]["H5 contempla el error en las largas"]
     assert h5["axis"] == "n_turns" and h5["levels"] == [2, 10]
     for modelo in PHASE1D_MODELS:
-        # H4 sigue midiendo sus 384 filas —no es que se haya quedado sin
+        # H4 sigue midiendo sus CELLS_PER_MODEL filas —no es que se haya quedado sin
         # denominador— y sale plana porque en la banda no se plantó nada.
-        assert h4["by"][modelo]["trend"]["n"] == 384
+        assert h4["by"][modelo]["trend"]["n"] == CELLS_PER_MODEL
         assert h4["by"][modelo]["trend"]["z"] == pytest.approx(0.0, abs=1e-9)
         largo = h5["by"][modelo]["trend"]
-        assert largo["n"] == 384 and largo["slope_sign"] == 1
+        assert largo["n"] == CELLS_PER_MODEL and largo["slope_sign"] == 1
         assert largo["significant_holm"] is True
-    # 144 de 576 en las cortas y 432 de 576 en las largas: los dos puntos de la
-    # curva de H5 salen de las 1.152 filas y de ninguna otra parte.
-    assert [c["n"] for c in h5["pooled"]["curve"]] == [576, 576]
-    assert [c["k"] for c in h5["pooled"]["curve"]] == [144, 432]
+    # Un cuarto en las cortas y tres cuartos en las largas: los dos puntos de la
+    # curva de H5 salen de las CELLS filas de la tanda y de ninguna otra parte.
+    assert [c["n"] for c in h5["pooled"]["curve"]] == [CELLS_PER_PRIMARY_BAND] * 2
+    assert [c["k"] for c in h5["pooled"]["curve"]] == [
+        CELLS_PER_PRIMARY_BAND // 4,
+        3 * CELLS_PER_PRIMARY_BAND // 4,
+    ]
 
 
 # --- la potencia del diseño -------------------------------------------------
@@ -994,16 +1106,115 @@ def test_el_analisis_ve_la_senal_de_longitud_cuando_esta_en_la_longitud(
 # cuando la respuesta es «no la suficiente».
 
 
+def test_la_potencia_cuenta_TODAS_las_celdas_del_plan_de_cada_hipotesis():
+    """Ninguna celda pagada puede caerse de la cuenta que autoriza el gasto.
+
+    Es el invariante, no un número: sea cual sea el eje y sean cuantos sean los
+    niveles que el contraste declare, la potencia de una hipótesis tiene que
+    estar calculada sobre las celdas que la tanda va a comprar — todas.
+
+    Existe porque el modo de fallo no se ve. `H4` se contrasta sobre DOS bandas
+    (`PRIMARY_BAND_LEVELS`) mientras el plan escribe las CUATRO del muestreo, y
+    contar `celda["band"] == nivel` contra un `levels` de (0, 1) se queda con las
+    bandas 0 y 1 y tira las otras dos: el informe sale bien formado, con un
+    número plausible, y es la potencia de media tanda. `curve.fold_band` pliega
+    las FILAS en el análisis; quien cuente celdas del PLAN tiene que plegar
+    igual, y eso es lo que esto vigila.
+
+    Se comprueba por modelo y no solo en total para que un pliegue que agrupara
+    mal —juntando las cuatro bandas en un nivel, por ejemplo— tampoco pasara: la
+    suma seguiría cuadrando, pero el reparto por nivel no.
+    """
+    plan = plan_phase1d(1)
+    rep = rp.design_power(plan)
+    celdas_por_modelo = collections.Counter(c["model_id"] for c in plan)
+
+    for nombre, por_modelo in rep["tests"].items():
+        for modelo, inf in por_modelo.items():
+            assert sum(n for _, n in inf["counts"]) == celdas_por_modelo[modelo], (
+                f"{nombre} / {modelo}: la potencia se calculó sobre "
+                f"{sum(n for _, n in inf['counts'])} celdas de las "
+                f"{celdas_por_modelo[modelo]} que este modelo paga"
+            )
+            # Y repartidas a partes iguales: el diseño es equilibrado por
+            # construcción, así que un reparto desigual delata un pliegue que
+            # mandó bandas contiguas al nivel que no era.
+            assert len({n for _, n in inf["counts"]}) == 1, (nombre, modelo)
+
+
+def test_la_potencia_de_h4_es_la_de_las_dos_bandas_que_contrasta():
+    """El número que la puerta usa es el del contraste declarado, no otro.
+
+    H4 muestrea cuatro bandas y contrasta dos. Hay tres números en danza y solo
+    uno es el bueno (tirada de un solo modelo, alfa de una familia de dos):
+
+    - sobre las cuatro bandas del muestreo (CELLS_PER_BAND por punto) la
+      potencia es 0,59;
+    - plegando a las dos que el contraste declara (CELLS_PER_PRIMARY_BAND por
+      punto) es **0,859**, que es el motivo por el que el pliegue existe;
+    - y contando `band == nivel` sin plegar salen 0,54 — la potencia de media
+      tanda, que no es ninguno de los dos y es el que salía antes.
+
+    Los tres subieron con el diseño: con 18 artefactos por banda el plegado daba
+    0,797 y se quedaba corto, y es justo por eso por lo que `ARTIFACTS_PER_BAND`
+    se subió a 21. Ahora **cruza** el MIN_POWER de 0,80, así que lo que este test
+    ancla ya no es «sigue sin llegar» sino «llega»: `underpowered` a False y un
+    nulo de esta tanda que sí se puede leer como ausencia.
+
+    Se ancla contra H5 a propósito: H5 va sobre `n_turns`, cuyos niveles (2, 10)
+    son los valores que el plan ya escribe, así que no necesita pliegue ninguno.
+    Con la misma tasa base, el mismo alfa y el mismo tamaño por punto las dos
+    potencias tienen que salir IGUALES. Es la comprobación que no depende de que
+    yo haya copiado bien un decimal.
+    """
+    plan = plan_phase1d(1, models=["claude-opus-5"])
+    rep = rp.design_power(plan)
+    h4 = rep["tests"]["H4 contempla el error"]["claude-opus-5"]
+    h5 = rep["tests"]["H5 contempla el error en las largas"]["claude-opus-5"]
+
+    assert h4["counts"] == [
+        [0, CELLS_PER_PRIMARY_BAND],
+        [1, CELLS_PER_PRIMARY_BAND],
+    ], "las celdas del plan, plegadas a dos"
+    assert h5["counts"] == [
+        [2, CELLS_PER_PRIMARY_BAND],
+        [10, CELLS_PER_PRIMARY_BAND],
+    ]
+    assert h4["power"] == pytest.approx(POTENCIA_H4_UN_MODELO, abs=5e-3)
+    assert h4["power"] == pytest.approx(h5["power"], abs=1e-9), (
+        "mismo tamaño, misma tasa y mismo alfa: si no coinciden, una de las dos "
+        "no está contando las celdas que dice"
+    )
+    # Y ahora SÍ pasa del 0,80 declarado, que es para lo que el diseño creció de
+    # 18 artefactos por banda a 21. Se ancla igual de fuerte que cuando no
+    # llegaba: si alguien encoge el diseño, la puerta vuelve a saltar y este test
+    # lo dice antes de que la tanda se pague creyendo que decide algo.
+    assert h4["underpowered"] is False
+    assert rep["null_would_be_informative"] is True
+
+
 def test_la_potencia_del_diseno_se_calcula_desde_el_plan_y_no_se_supone():
     """Las seis pruebas de la familia declarada, con su potencia, antes de gastar.
 
-    Los números son el resultado, no la promesa: con 96 celdas por (modelo,
-    banda) y las tasas base de N1 de la Fase 1a, la caída de 9 puntos que la
-    puerta declara relevante se vería el 9 % de las veces en Opus y el 35 % en
-    `sol`. Van clavados —no como desigualdad— porque son lo que decide si esta
+    Los números son el resultado, no la promesa: repartiendo las CELLS celdas
+    entre los TRES modelos quedan CELLS_PER_MODEL // 2 por (modelo, banda
+    plegada) y, con las tasas base de N1 de la Fase 1a, la caída de 9 puntos que
+    la puerta declara relevante se vería el 23 % de las veces en Opus y el 74 %
+    en `sol`. Van clavados —no como desigualdad— porque son lo que decide si esta
     tanda se puede leer: una versión que devolviera «0,8 y pico» para todo
     pasaría cualquier `>` y volvería a certificar lo que este módulo vino a
     arreglar.
+
+    Que ninguno llegue al 0,80 con el plantel de tres no contradice al test de
+    arriba, donde Opus solo sí llega: ahí la familia es de dos pruebas y Opus se
+    queda la tanda entera; aquí es de seis —el alfa de Holm se divide entre tres
+    modelos más— y cada modelo se lleva un tercio de las celdas. Es la razón por
+    la que la tanda que se paga corre un solo modelo.
+
+    H4 y H5 dan el mismo número sobre este plan y no es casualidad ni copia:
+    plegadas las cuatro bandas a dos, los dos ejes parten las mismas celdas de
+    cada modelo por la mitad, y a igual denominador y misma tasa base la potencia
+    es la misma. Lo que las separa es el eje, no el tamaño.
     """
     rep = rp.design_power(plan_phase1d())
 
@@ -1013,17 +1224,34 @@ def test_la_potencia_del_diseno_se_calcula_desde_el_plan_y_no_se_supone():
 
     h4 = rep["tests"]["H4 contempla el error"]
     h5 = rep["tests"]["H5 contempla el error en las largas"]
-    assert h4["claude-opus-5"]["power"] == pytest.approx(0.094, abs=5e-3)
-    assert h4["gpt-5.6-sol-tst"]["power"] == pytest.approx(0.351, abs=5e-3)
+    assert h4["claude-opus-5"]["power"] == pytest.approx(POTENCIA_H4_TRES_MODELOS, abs=5e-3)
+    assert h4["gpt-5.6-sol-tst"]["power"] == pytest.approx(
+        POTENCIA_H4_SOL_TRES_MODELOS, abs=5e-3
+    )
     assert h4["gpt-5.6-luna-tst"]["power"] == 0.0
-    assert h5["claude-opus-5"]["power"] == pytest.approx(0.194, abs=5e-3)
-    assert h5["gpt-5.6-sol-tst"]["power"] == pytest.approx(0.651, abs=5e-3)
+    assert h5["claude-opus-5"]["power"] == pytest.approx(POTENCIA_H4_TRES_MODELOS, abs=5e-3)
+    assert h5["gpt-5.6-sol-tst"]["power"] == pytest.approx(
+        POTENCIA_H4_SOL_TRES_MODELOS, abs=5e-3
+    )
     assert h5["gpt-5.6-luna-tst"]["power"] == 0.0
 
-    # El denominador de cada prueba, que es lo que hace comparables los números:
-    # 96 celdas por (modelo, banda) en H4 y 192 por (modelo, longitud) en H5.
-    assert h4["claude-opus-5"]["counts"] == [[0, 96], [1, 96], [2, 96], [3, 96]]
-    assert h5["claude-opus-5"]["counts"] == [[2, 192], [10, 192]]
+    # El denominador de cada prueba, que es lo que hace comparables los números.
+    # H4 va sobre las DOS bandas del contraste, no sobre las cuatro del
+    # muestreo: las CELLS_PER_MODEL celdas de un modelo plegadas de dos en dos
+    # son CELLS_PER_MODEL // 2 por punto. Que aquí pusiera cuatro niveles de
+    # CELLS_PER_BAND_MODEL era la cuenta sin plegar, y con ella la puerta juzgaba
+    # media tanda.
+    assert h4["claude-opus-5"]["counts"] == [
+        [0, CELLS_PER_MODEL // 2],
+        [1, CELLS_PER_MODEL // 2],
+    ]
+    assert h5["claude-opus-5"]["counts"] == [
+        [2, CELLS_PER_MODEL // 2],
+        [10, CELLS_PER_MODEL // 2],
+    ]
+    assert sum(n for _, n in h4["claude-opus-5"]["counts"]) == sum(
+        n for _, n in h5["claude-opus-5"]["counts"]
+    ), "los dos contrastes se pagan con las MISMAS conversaciones"
 
     assert rep["null_would_be_informative"] is False, (
         "con estas potencias un nulo de esta tanda vuelve a ser «no lo hemos "
@@ -1051,7 +1279,69 @@ def test_la_potencia_sale_del_plan_y_no_de_una_tabla_escrita_a_mano():
 
     assert menos["power"] < base["power"] < mas["power"]
     assert mas["power"] > 0.80, "ocho veces la tanda sí vería la caída declarada"
-    assert mas["counts"] == [[0, 768], [1, 768], [2, 768], [3, 768]]
+    # Ocho veces las CELLS_PER_MODEL celdas de Opus, plegadas a los dos puntos
+    # del contraste: 8 * CELLS_PER_MODEL / 2 por punto.
+    assert mas["counts"] == [
+        [0, 4 * CELLS_PER_MODEL],
+        [1, 4 * CELLS_PER_MODEL],
+    ]
+
+
+def test_la_potencia_de_h4_cuenta_las_celdas_plegadas_igual_que_el_analisis():
+    """La puerta y el análisis tienen que contar la MISMA tanda.
+
+    H4 se declara con `levels=(0, 1)` y `fold_from=BANDS`: la celda trae una de
+    las cuatro bandas del muestreo y el contraste va sobre dos, agrupando. El
+    análisis pliega (`curve.rate_by_position`), pero `design_power` contaba
+    `celda["band"] == nivel` a pelo, así que se quedaba con las bandas 0 y 1 y
+    tiraba las 576 celdas de las bandas 2 y 3 —la potencia de la puerta salía
+    la de media tanda, 0,47 en vez de 0,80—.
+
+    El fallo no se ve mirando el número: 0,47 y 0,80 son los dos plausibles.
+    Por eso el test no compara contra una constante escrita a mano sino contra
+    lo que el análisis cuenta sobre filas con esas mismas bandas: si los dos
+    lados vuelven a separarse, el que se mueva se lleva el test por delante.
+    """
+    from wrongpaste.curve import (
+        HYPOTHESIS_FAMILIES,
+        _como_hipotesis,
+        rate_by_position,
+    )
+
+    plan = plan_phase1d(models=["claude-opus-5"])
+    assert len(plan) == CELLS, "la tanda entera, un solo modelo"
+
+    h4 = _como_hipotesis(HYPOTHESIS_FAMILIES["1d"]["H4 contempla el error"])
+    counts = rp.design_power(plan)["tests"]["H4 contempla el error"]["claude-opus-5"][
+        "counts"
+    ]
+
+    # El denominador que cuenta el ANÁLISIS sobre filas con esas mismas bandas.
+    # `stratum` es el campo de la fila; `band`, el de la celda del plan.
+    filas = [{"stratum": c["band"], "judge_category": "B"} for c in plan]
+    esperado = [
+        [tasa.position, tasa.n]
+        for tasa in rate_by_position(
+            filas,
+            set(h4.member),
+            axis=h4.axis,
+            levels=h4.levels,
+            fold_from=h4.fold_from,
+        )
+    ]
+
+    assert counts == esperado, (
+        "la puerta cuenta las celdas del plan de otra forma que el análisis "
+        "cuenta las filas: una de las dos está mirando media tanda"
+    )
+    assert counts == [
+        [0, CELLS_PER_PRIMARY_BAND],
+        [1, CELLS_PER_PRIMARY_BAND],
+    ]
+    assert sum(n for _, n in counts) == len(plan), (
+        "las 1.152 conversaciones que se pagan tienen que entrar en el "
+        "contraste que las justifica, no la mitad"
+    )
 
 
 def test_una_tasa_base_de_cero_no_es_falta_de_tamano_y_el_informe_lo_dice():
@@ -1144,7 +1434,7 @@ def test_con_el_reconocimiento_explicito_la_tirada_corre_y_queda_escrito(
     monkeypatch.setattr(rp, "check_axis", lambda *a, **k: None)
     path = rp.main(seed=1, out=tmp_path / "t.jsonl", acknowledge_underpowered=True)
     header, rows = _rows(path)
-    assert len(rows) == 1152
+    assert len(rows) == CELLS
     assert header["underpowered_acknowledged"] is True
     assert header["design_power"]["null_would_be_informative"] is False
 
@@ -1163,5 +1453,889 @@ def test_la_cabecera_lleva_la_potencia_de_la_tanda_que_declara(harness, tmp_path
     assert potencia["alpha_effective"] == pytest.approx(0.05 / 6)
     assert potencia["tests"]["H4 contempla el error"]["claude-opus-5"][
         "power"
-    ] == pytest.approx(0.094, abs=5e-3)
+    ] == pytest.approx(POTENCIA_H4_TRES_MODELOS, abs=5e-3)
+    # Y el registro D5 tiene que llevar el denominador PLEGADO, que es el que el
+    # análisis usará dentro de seis meses. Si la cabecera guardara las cuatro
+    # bandas sin agrupar, quien audite la tanda leería la potencia de media.
+    assert potencia["tests"]["H4 contempla el error"]["claude-opus-5"]["counts"] == [
+        [0, CELLS_PER_MODEL // 2],
+        [1, CELLS_PER_MODEL // 2],
+    ]
     assert header["underpowered_acknowledged"] is False
+
+
+# --- la tanda partida en dos: la parte 1 no paga los turnos posteriores ------
+#
+# La decisión, tomada antes de escribir esto: la tirada se parte en dos partes
+# que se pagan por separado. La **parte 1** es prefijo + pegote + reacción, que
+# es lo único que decide la categoría G — la variable de H4 y H5— y por tanto lo
+# único que hay que comprar para responder la pregunta de la fase. La **parte
+# 2** son los dos turnos posteriores (D7), que la Fase 2 necesitará para el
+# recuento de fuga de entidades y que se generan más adelante retomando la
+# transcripción guardada.
+#
+# Lo que estos tests vigilan es que la parte 1 no sea una tanda mutilada: que la
+# fila siga siendo válida y clasificable, que la transcripción conserve sus
+# etiquetas —de las que depende que el usuario simulado no vea el pegote cuando
+# se retome—, que la cabecera diga cuál de las dos cosas es, y que la parte 2
+# sea de verdad posible sin volver a pagar la reacción.
+
+
+def _part1(tmp_path, **kwargs):
+    """Una tirada de parte 1 en `tmp_path`, con los dobles del `harness`."""
+    kwargs.setdefault("seed", 1)
+    kwargs.setdefault("measure", False)
+    kwargs.setdefault("post_turns", 0)
+    return rp.main(out=tmp_path / "parte1.jsonl", **kwargs)
+
+
+def test_con_post_turns_cero_no_se_llama_a_continue_after_paste(harness, tmp_path):
+    """El test que justifica la partición: lo que no se corre, no se paga.
+
+    Se cuenta con el doble, no con el presupuesto declarado ni con la forma de
+    la fila: un runner que llamara a `continue_after_paste` y luego tirara los
+    turnos dejaría filas idénticas a las de la parte 1 y habría gastado las dos
+    terceras partes del dinero de la tanda igualmente.
+    """
+    from tests.test_run_phase1a import CALLS
+
+    path = _part1(tmp_path)
+    _, rows = _rows(path)
+    assert len(rows) == CELLS
+    assert CALLS["post"] == [], (
+        f"{len(CALLS['post'])} llamadas a los turnos posteriores en una tanda "
+        "que no los compra"
+    )
+    # Y la reacción sí se paga, una por celda: si no, la parte 1 no mide nada.
+    assert len(CALLS["paste"]) == CELLS
+
+
+def test_la_fila_de_parte_1_termina_en_la_reaccion_y_conserva_las_etiquetas(
+    harness, tmp_path
+):
+    """La transcripción acaba en la reacción, y con sus `tag` (D5).
+
+    Las etiquetas son lo que hace posible la parte 2: `user_visible_history`
+    esconde el mensaje `paste` y la reacción a él, que es lo que sostiene el
+    brazo «sin reparación» de D7. Una transcripción guardada sin `tag` se
+    retomaría igual de bien —el modelo evaluado no las ve— pero el usuario
+    simulado leería el pegote entero, y el brazo se convertiría en silencio en
+    uno de reparación meses después de haberse pagado.
+    """
+    path = _part1(tmp_path)
+    _, rows = _rows(path)
+    for r in rows:
+        assert r["post_indices"] == [], r["conversation_id"]
+        etiquetas = [m["tag"] for m in r["transcript"]]
+        assert etiquetas == ["opening", "assistant", "paste", "assistant"], etiquetas
+        assert r["transcript"][r["paste_index"]]["content"] == r["artifact_text"]
+        assert r["transcript"][-1]["content"] == r["reaction"]
+        visible = conv.user_visible_history(r["transcript"])
+        assert [m["tag"] for m in visible] == ["opening", "assistant"]
+        assert all(r["artifact_text"] not in m["content"] for m in visible), (
+            "el usuario simulado vería el pegote al retomar esta transcripción"
+        )
+
+
+def test_la_fila_de_parte_1_sigue_siendo_valida_y_clasificable(harness, tmp_path):
+    """Una fila de parte 1 entra en el paso de clasificación como cualquier otra.
+
+    Es la condición de que la partición no rompa nada: el juez mira la reacción
+    al pegote y el texto pegado, y las dos cosas están. Si la fila saliera con
+    `status` distinto de `ok` —porque el arnés leyera la ausencia de turnos
+    posteriores como un agujero— las 1.152 conversaciones se caerían del
+    denominador enteras y en silencio, que es el modo de fallo de esta casa.
+    """
+    from wrongpaste.run_judging import judgeable
+
+    path = _part1(tmp_path)
+    _, rows = _rows(path)
+    assert {r["status"] for r in rows} == {"ok"}
+    assert len(judgeable(rows)) == CELLS
+    for r in rows:
+        assert r["reaction"] and r["artifact_text"]
+        assert r["similarity_user"] is not None and r["similarity_rank"] is not None
+        assert r["stratum"] in range(BANDS) and r["n_strata"] == BANDS
+        assert r["paste_level"] == "N1" and r["sweep_position"] is None
+        assert r["stop_reasons"] == ["end_turn"], (
+            "la parte 1 tiene una sola llamada al modelo evaluado, la del pegote"
+        )
+
+
+def test_la_parte_1_sola_decide_la_categoria_g_de_h4_y_h5(harness, tmp_path):
+    """Y por eso se puede pagar sola: la familia declarada sale entera de ella.
+
+    Mismo contraste que el test de punta a punta del protocolo completo, sobre
+    filas que no tienen turnos posteriores. Si G dependiera de lo que viene
+    después del pegote, la curva se quedaría sin denominador aquí.
+    """
+    from wrongpaste.curve import (
+        HYPOTHESIS_FAMILIES,
+        PRIMARY_BANDS,
+        primary_family_report,
+    )
+
+    path = _part1(tmp_path)
+    _, rows = _rows(path)
+    g_por_banda = {0: 3, 1: 2, 2: 1, 3: 0}
+    for i, r in enumerate(rows):
+        r[CATEGORY_FIELD] = "G" if i % 4 <= g_por_banda[r["stratum"]] else "B"
+
+    rep = primary_family_report(rows, family=HYPOTHESIS_FAMILIES["1d"])
+    h4 = rep["hypotheses"]["H4 contempla el error"]
+    # Las mismas 1.152 de la tanda completa, plegadas a los dos puntos del
+    # contraste: la parte 1 no encoge el denominador de H4.
+    assert [c["n"] for c in h4["pooled"]["curve"]] == [CELLS_PER_PRIMARY_BAND] * PRIMARY_BANDS
+    for modelo in PHASE1D_MODELS:
+        t = h4["by"][modelo]["trend"]
+        assert t["n"] == CELLS_PER_MODEL and t["slope_sign"] == -1 and t["p"] < 1e-9
+
+
+def test_la_cabecera_declara_post_turns_y_el_plantel_realmente_corrido(
+    harness, tmp_path
+):
+    """Sin esto, una tanda de parte 1 y una de protocolo completo son iguales.
+
+    Y no son comparables: la métrica de fuga de la Fase 2 se cuenta sobre los
+    turnos posteriores, así que mezclar las dos tandas mete un denominador de
+    conversaciones que nunca tuvieron esos turnos. El plantel va por lo mismo:
+    esta tirada corre SOLO Opus —es el único modelo que produce G en N1, 55 %
+    frente a 9 % y 0 % en la Fase 1a—, y una cabecera que declarase los tres
+    diría que los otros dos salieron a cero cuando lo que pasa es que no
+    corrieron.
+    """
+    parte1 = rp.main(
+        seed=1,
+        out=tmp_path / "parte1.jsonl",
+        measure=False,
+        post_turns=0,
+        models=["claude-opus-5"],
+    )
+    completa = rp.main(seed=1, out=tmp_path / "completa.jsonl", measure=False)
+
+    h1, filas1 = _rows(parte1)
+    h2, filas2 = _rows(completa)
+
+    assert h1["post_turns"] == 0
+    assert h1["roster"] == ["claude-opus-5"]
+    assert h2["post_turns"] == conv.N_POST_TURNS
+    assert h2["roster"] == list(PHASE1D_MODELS)
+    assert (h1["post_turns"], h1["roster"]) != (h2["post_turns"], h2["roster"]), (
+        "las dos tandas tienen que poder distinguirse por la cabecera"
+    )
+    # Y el plantel declarado es el que de verdad corrió, no el de la constante.
+    assert {r["model_id"] for r in filas1} == set(h1["roster"])
+    assert {r["model_id"] for r in filas2} == set(h2["roster"])
+
+
+def test_el_presupuesto_declarado_es_el_que_la_parte_1_gasta(harness, tmp_path):
+    """El presupuesto de la cabecera se cuenta contra las llamadas de verdad.
+
+    `call_budget` cablea los dos turnos de D7, así que una parte 1 heredaría el
+    presupuesto del protocolo completo —CELLS x (1 + N_POST_TURNS) llamadas al
+    modelo evaluado y CELLS x N_POST_TURNS al usuario simulado— para una tanda
+    que hace CELLS y ninguna. El número que se lee antes de pagar es justo el que
+    no puede mentir.
+    """
+    from tests.test_run_phase1a import CALLS, _reset_calls
+
+    path = _part1(tmp_path)
+    header, _ = _rows(path)
+    presupuesto = header["call_budget"]
+    evaluadas = len(CALLS["paste"]) + sum(n for _, n in CALLS["post"])
+    assert presupuesto["evaluated_model_calls"] == evaluadas == CELLS
+    assert presupuesto["simulated_user_calls"] == 0
+    assert presupuesto["post_turns"] == 0
+
+    _reset_calls()
+    completa = rp.main(seed=1, out=tmp_path / "completa.jsonl", measure=False)
+    header2, _ = _rows(completa)
+    evaluadas2 = len(CALLS["paste"]) + sum(n for _, n in CALLS["post"])
+    assert header2["call_budget"]["evaluated_model_calls"] == evaluadas2 == CELLS * (1 + conv.N_POST_TURNS)
+    # El usuario simulado habla una vez por turno posterior y por celda: derivado
+    # de CELLS y no clavado, que es lo que hizo que este test dijera 2.304
+    # cuando la tanda ya pedía 2.688.
+    assert header2["call_budget"]["simulated_user_calls"] == CELLS * conv.N_POST_TURNS
+
+
+def test_el_camino_por_defecto_sigue_dando_exactamente_lo_de_antes(harness, tmp_path):
+    """Los parámetros nuevos, puestos a su valor por defecto, no mueven nada.
+
+    Se compara fila a fila la tirada por defecto contra la que declara los dos
+    parámetros a mano: si `post_turns` o `models` hubieran cambiado el plan, el
+    muestreo o el reparto de modelos, las dos tandas dejarían de ser la misma.
+    Lo que se ignora es el reloj y el nombre del fichero, que es lo único que
+    tiene que cambiar entre dos ejecuciones.
+    """
+    from tests.test_run_phase1a import CALLS
+
+    a = rp.main(seed=1, out=tmp_path / "a.jsonl", measure=False)
+    assert CALLS["post"] == [
+        (r["model_id"], conv.N_POST_TURNS) for _, r in enumerate(_rows(a)[1])
+    ]
+    b = rp.main(
+        seed=1,
+        out=tmp_path / "b.jsonl",
+        measure=False,
+        post_turns=conv.N_POST_TURNS,
+        models=PHASE1D_MODELS,
+    )
+    reloj = {"run_id", "started_at", "ended_at", "latency_ms"}
+
+    ha, filas_a = _rows(a)
+    hb, filas_b = _rows(b)
+    assert len(filas_a) == len(filas_b) == CELLS
+    for x, y in zip(filas_a, filas_b):
+        assert {k: v for k, v in x.items() if k not in reloj} == {
+            k: v for k, v in y.items() if k not in reloj
+        }, x["conversation_id"]
+    assert {k: v for k, v in ha.items() if k not in reloj | {"path"}} == {
+        k: v for k, v in hb.items() if k not in reloj | {"path"}
+    }
+    # Y los turnos posteriores siguen ahí, que es lo que la parte 1 quita.
+    for r in filas_a:
+        assert len(r["post_indices"]) == 2 * conv.N_POST_TURNS
+        assert [m["tag"] for m in r["transcript"]][-4:] == [
+            "post",
+            "assistant",
+            "post",
+            "assistant",
+        ]
+
+
+# --- el plantel es un parámetro, y el reparto tiene que seguir cuadrando -----
+
+
+def test_con_un_solo_modelo_el_plan_sigue_siendo_el_cruce_completo():
+    """Solo Opus, pero el cruce entero: 1.152 celdas y 1.152 estímulos distintos.
+
+    Que el plantel encoja no puede encoger el diseño. El modelo se asigna a una
+    celda **después** de que el cruce esté hecho, así que quitar dos modelos
+    tiene que dejar las mismas 1.152 celdas con los mismos (prefijo, banda,
+    slot) — y por tanto los mismos 1.152 pegotes distintos, que es el recuento
+    de estímulos independientes por el que se rediseñó la fase.
+    """
+    plan = plan_phase1d(1, models=["claude-opus-5"])
+    assert len(plan) == CELLS
+    assert {c["model_id"] for c in plan} == {"claude-opus-5"}
+    assert len({c["conversation_id"] for c in plan}) == CELLS
+
+    r = _ranking()
+    pares = [
+        (
+            (c["topic_id"], c["n_turns"]),
+            choose_band_artifact(
+                r, c["band"], c["artifact_slot"], f"pfx-{c['topic_id']}-{c['n_turns']}"
+            )[0].id,
+        )
+        for c in plan
+    ]
+    assert len(set(pares)) == CELLS, collections.Counter(pares).most_common(3)
+
+    # Y son los MISMOS estímulos que con el plantel de tres: lo único que cambia
+    # es quién los ve.
+    completo = plan_phase1d(1)
+    for a, b in zip(plan, completo):
+        assert (a["topic_id"], a["n_turns"], a["band"], a["artifact_slot"]) == (
+            b["topic_id"],
+            b["n_turns"],
+            b["band"],
+            b["artifact_slot"],
+        )
+
+
+@pytest.mark.parametrize(
+    "plantel",
+    [
+        list(PHASE1D_MODELS),
+        ["claude-opus-5"],
+        # Un plantel de DOS no entra aquí a propósito: 21 slots no se reparten
+        # entre dos, y la guarda lo rechaza. El caso vive en
+        # `test_un_plantel_que_no_reparte_la_banda_por_igual_revienta`.
+    ],
+)
+def test_el_reparto_de_modelos_es_exacto_con_cualquier_plantel(plantel):
+    """Equilibrado en las tres particiones, sea el plantel de 3, de 1 o de 2.
+
+    Es la misma propiedad que el plan declara para los tres modelos, y la razón
+    es la misma: si un modelo cayera más en las bandas altas, el contraste entre
+    modelos mediría la banda y el contraste entre bandas mediría el modelo. Con
+    un plantel de uno es trivial, pero el test tiene que seguir mirándolo: el
+    día que la tanda vuelva a correr dos modelos, el reparto no puede depender
+    de que alguien se acuerde de comprobarlo.
+    """
+    plan = plan_phase1d(1, models=plantel)
+    m = len(plantel)
+    assert collections.Counter(c["model_id"] for c in plan) == {
+        modelo: CELLS // m for modelo in plantel
+    }
+    por_banda = collections.Counter((c["model_id"], c["band"]) for c in plan)
+    assert set(por_banda.values()) == {CELLS_PER_BAND // m}
+    assert len(por_banda) == m * BANDS
+    por_largo = collections.Counter(
+        (c["model_id"], c["band"], c["n_turns"]) for c in plan
+    )
+    assert set(por_largo.values()) == {CELLS // (BANDS * len(LENGTHS)) // m}
+    assert len(por_largo) == m * BANDS * len(LENGTHS)
+
+
+def test_un_plantel_que_no_reparte_la_banda_por_igual_revienta():
+    """Con 2 o 4 modelos, 21 slots no se reparten por igual.
+
+    El desequilibrio es pequeño y por eso es peligroso: el plan seguiría
+    teniendo CELLS celdas bien formadas y nadie miraría el recuento. Lo que
+    quedaría dentro es el modelo correlacionado con la banda, que son las dos
+    preguntas de la tanda a la vez.
+    """
+    for plantel in (
+        [*PHASE1D_MODELS, "claude-opus-5-bis"],
+        ["claude-opus-5", "gpt-5.6-sol-tst"],
+    ):
+        with pytest.raises(ValueError, match=str(ARTIFACTS_PER_BAND)):
+            plan_phase1d(1, models=plantel)
+    with pytest.raises(ValueError, match="plantel"):
+        plan_phase1d(1, models=[])
+
+
+def test_la_tirada_de_un_solo_modelo_escribe_sus_1152_filas(harness, tmp_path):
+    """La tanda que se va a pagar, de punta a punta: Opus, parte 1, 1.152 filas."""
+    path = _part1(tmp_path, models=["claude-opus-5"])
+    header, rows = _rows(path)
+    assert header["planned_cells"] == CELLS and len(rows) == CELLS
+    assert {r["model_id"] for r in rows} == {"claude-opus-5"}
+    pares = {(r["prefix_id"], r["artifact_id"]) for r in rows}
+    assert len(pares) == CELLS
+    assert {r["stratum"] for r in rows} == set(range(BANDS))
+    assert all(r["post_indices"] == [] for r in rows)
+
+
+# --- la parte 2: retomar la transcripción sin volver a pagar la reacción -----
+
+
+def test_resume_post_turns_completa_las_filas_sin_repagar_la_reaccion(
+    harness, tmp_path
+):
+    """Lo que hará la Fase 2, y la razón de que la parte 1 se pueda pagar sola.
+
+    Existe ahora —con sus tests, sin correrse— para que la parte 1 no se compre
+    sin saber que la parte 2 es posible. Lo que no puede hacer, y es la mitad
+    del valor de la función, es volver a llamar al modelo para la reacción: eso
+    ya está pagado y además cambiaría el estímulo que la fila declara.
+    """
+    from tests.test_run_phase1a import CALLS, _reset_calls
+
+    parte1 = _part1(tmp_path, models=["claude-opus-5"])
+    _, antes = _rows(parte1)
+
+    _reset_calls()
+    completa = rp.resume_post_turns(parte1, out=tmp_path / "completa.jsonl")
+    header, despues = _rows(completa)
+
+    assert CALLS["paste"] == [], "la reacción ya estaba pagada"
+    assert CALLS["post"] == [("claude-opus-5", conv.N_POST_TURNS)] * CELLS
+    assert len(despues) == CELLS
+
+    por_id = {r["conversation_id"]: r for r in antes}
+    for r in despues:
+        viejo = por_id[r["conversation_id"]]
+        # Lo de la parte 1 se conserva intacto: es lo que ya se pagó.
+        assert r["reaction"] == viejo["reaction"]
+        assert r["artifact_id"] == viejo["artifact_id"]
+        assert r["similarity_user"] == viejo["similarity_user"]
+        assert r["stratum"] == viejo["stratum"]
+        assert r["transcript"][: len(viejo["transcript"])] == viejo["transcript"]
+        # Y lo de la parte 2 aparece, con sus índices y sus etiquetas.
+        assert len(r["post_indices"]) == 2 * conv.N_POST_TURNS
+        assert [m["tag"] for m in r["transcript"]][-4:] == [
+            "post",
+            "assistant",
+            "post",
+            "assistant",
+        ]
+        assert [r["transcript"][i]["tag"] for i in r["post_indices"]] == [
+            "post",
+            "assistant",
+            "post",
+            "assistant",
+        ]
+        assert r["status"] == "ok"
+        assert len(r["stop_reasons"]) == 1 + conv.N_POST_TURNS
+
+    assert header["post_turns"] == conv.N_POST_TURNS
+    assert header["roster"] == ["claude-opus-5"]
+    assert header["post_turns_run"]["source_run_id"] == "parte1"
+
+
+def test_resume_post_turns_no_inventa_turnos_sobre_las_filas_rotas(
+    harness, tmp_path, monkeypatch
+):
+    """Una fila que falló en la parte 1 no tiene reacción que continuar.
+
+    Se copia tal cual —las pérdidas por banda son un dato del diseño y no se
+    pueden perder por el camino— y no se le gasta ni una llamada: continuar una
+    conversación rota produciría turnos posteriores colgando de un agujero, y la
+    fila seguiría contando como completa en la Fase 2.
+    """
+    from tests.test_run_phase1a import CALLS, _reset_calls, fake_inject_paste
+
+    def revienta(
+        model_id,
+        transcript,
+        artifact,
+        request_params_out=None,
+        max_tokens=conv.MAX_TOKENS,
+    ):
+        if artifact.id.endswith("3"):
+            raise RuntimeError("se cayó el gateway")
+        return fake_inject_paste(
+            model_id,
+            transcript,
+            artifact,
+            request_params_out=request_params_out,
+            max_tokens=max_tokens,
+        )
+
+    monkeypatch.setattr(rp, "inject_paste", revienta)
+    parte1 = _part1(tmp_path)
+    _, antes = _rows(parte1)
+    rotas = {r["conversation_id"] for r in antes if r["status"] != "ok"}
+    assert rotas, "el doble tenía que romper algunas celdas"
+
+    _reset_calls()
+    completa = rp.resume_post_turns(parte1, out=tmp_path / "completa.jsonl")
+    _, despues = _rows(completa)
+
+    assert len(despues) == len(antes), "una fila rota no se descarta en silencio"
+    assert len(CALLS["post"]) == len(antes) - len(rotas)
+    por_id = {r["conversation_id"]: r for r in antes}
+    for r in despues:
+        if r["conversation_id"] in rotas:
+            assert r == por_id[r["conversation_id"]], "se copia tal cual"
+            assert r["post_indices"] == []
+        else:
+            assert len(r["post_indices"]) == 2 * conv.N_POST_TURNS
+
+
+def test_resume_post_turns_se_niega_sobre_una_tanda_que_ya_los_tiene(
+    harness, tmp_path
+):
+    """Retomar una tirada completa le añadiría DOS turnos más a cada fila.
+
+    La transcripción se puede continuar siempre —esa es la propiedad que hace
+    posible la partición—, así que nada revienta: quedarían filas de cuatro
+    turnos posteriores bajo una cabecera que declara dos, y el recuento de fuga
+    de la Fase 2 saldría sobre el doble de texto en la mitad de las tandas. Lo
+    que decide es lo que la cabecera declara (D5), no la forma de las filas.
+    """
+    completa = rp.main(seed=1, out=tmp_path / "completa.jsonl", measure=False)
+    with pytest.raises(ValueError, match="post_turns"):
+        rp.resume_post_turns(completa, out=tmp_path / "otra.jsonl")
+    assert not (tmp_path / "otra.jsonl").exists()
+
+
+def test_resume_post_turns_se_reanuda_sin_duplicar_ni_repagar(harness, tmp_path):
+    """Los turnos posteriores también cuestan, así que tampoco se pagan dos veces."""
+    from tests.test_run_phase1a import CALLS, _reset_calls
+
+    parte1 = _part1(tmp_path, models=["claude-opus-5"])
+    completa = tmp_path / "completa.jsonl"
+    rp.resume_post_turns(parte1, out=completa)
+    header, filas = _rows(completa)
+    completa.write_text(
+        "\n".join(json.dumps(x, ensure_ascii=False) for x in [header, *filas[:300]])
+        + "\n",
+        encoding="utf-8",
+    )
+
+    _reset_calls()
+    rp.resume_post_turns(parte1, out=completa)
+    _, filas2 = _rows(completa)
+    assert len(filas2) == CELLS
+    assert len({r["conversation_id"] for r in filas2}) == CELLS
+    assert len(CALLS["post"]) == CELLS - 300, "las 300 ya hechas no se vuelven a pagar"
+    assert all(len(r["post_indices"]) == 2 * conv.N_POST_TURNS for r in filas2)
+    # Y el estado de la parte 1 sobrevive a la reanudación, que reescribe el
+    # fichero (`compact_resume_file`): sin él, las filas de un fichero reanudado
+    # volverían a depender de `status` para entrar en el denominador de G.
+    assert all(r["part1_status"] == "ok" for r in filas2)
+    assert len(rp.reaction_judgeable(filas2)) == CELLS
+
+
+def test_no_se_reanuda_una_parte_1_como_si_fuera_el_protocolo_completo(
+    harness, tmp_path
+):
+    """`main` tampoco puede mezclar las dos mitades dentro de un mismo fichero.
+
+    Es el mismo fallo silencioso que el del barrido viejo: los identificadores
+    de las celdas no llevan ni el plantel ni los turnos, así que reanudar una
+    parte 1 con el protocolo completo saltaría las 1.152 celdas hechas, no
+    correría ninguna y dejaría un fichero de filas sin turnos posteriores bajo
+    una cabecera que declara dos. Y al revés —otro plantel— no saltaría ninguna
+    celda, porque el modelo sí va en el identificador: se pagaría la tanda
+    entera otra vez.
+    """
+    parte1 = _part1(tmp_path, models=["claude-opus-5"])
+    with pytest.raises(ValueError, match="post_turns"):
+        rp.main(seed=1, out=parte1, measure=False, models=["claude-opus-5"])
+    with pytest.raises(ValueError, match="plantel"):
+        rp.main(seed=1, out=parte1, measure=False, post_turns=0)
+
+
+# --- la precedencia del `status`, que ahora aplican dos caminos --------------
+#
+# `run_cell` y `resume_post_turns` deciden el mismo `status` sobre la misma
+# conversación en dos momentos separados por meses. La precedencia vive en una
+# función compartida por eso, y estos tests existen porque sin ellos no había
+# ninguno: quitarle la rama de `refusal` dejaba la suite entera en verde, con
+# las negativas del modelo entrando en el denominador de G como reacciones
+# normales.
+
+
+def _resp(text: str):
+    """Algo con `.text`, que es todo lo que mira `_has_empty_response`."""
+    import types
+
+    return types.SimpleNamespace(text=text)
+
+
+def test_la_precedencia_del_status_es_la_de_siempre():
+    """Las cuatro reglas, con los empates que las ordenan.
+
+    `refusal` manda sobre todo porque es lo único de aquí que es conducta;
+    `empty` sobre `truncated` porque es la afirmación más fuerte que se puede
+    hacer de una respuesta; `truncated` sobre `ok` porque una reacción cortada a
+    media frase se lee luego como «lo ignoró y siguió», que es justo la
+    categoría que el experimento mide.
+    """
+    assert rp.conversation_status(["end_turn"], [_resp("hola")]) == "ok"
+    assert rp.conversation_status(["max_tokens"], [_resp("hola")]) == "truncated"
+    assert rp.conversation_status(["end_turn"], [_resp("  ")]) == "empty"
+    # Empates:
+    assert rp.conversation_status(["max_tokens", "refusal"], [_resp("x")]) == "refusal"
+    assert rp.conversation_status(["refusal"], [_resp("")]) == "refusal"
+    assert rp.conversation_status(["max_tokens"], [_resp("")]) == "empty"
+    # Y mira TODAS las respuestas, no solo la última: la reacción al pegote de
+    # una fila de parte 1 sigue contando cuando se le añaden los turnos.
+    assert rp.conversation_status(["end_turn", "end_turn"], [_resp(""), _resp("ya")]) == (
+        "empty"
+    )
+
+
+def _continue_con_stop(stop_reason: str):
+    """Doble de `continue_after_paste` cuyos turnos vuelven con ese `stop_reason`."""
+    from tests.test_run_phase1a import _fake_reply
+    from wrongpaste.clients import Reply
+
+    def doble(
+        model_id,
+        transcript,
+        topic,
+        n_post=conv.N_POST_TURNS,
+        request_params_out=None,
+        max_tokens=conv.MAX_TOKENS,
+        user_max_tokens=su.USER_MAX_TOKENS,
+        user_replies_out=None,
+    ):
+        indices, usages, replies = [], [], []
+        for _ in range(n_post):
+            if user_replies_out is not None:
+                user_replies_out.append(
+                    Reply("sigo", {"total_tokens": 2}, {}, stop_reason="stop")
+                )
+            indices.append(len(transcript))
+            transcript.append({"role": "user", "content": "sigo", "tag": "post"})
+            indices.append(len(transcript))
+            transcript.append({"role": "assistant", "content": "ya", "tag": "assistant"})
+            usages.append({"total_tokens": 3})
+            replies.append(_fake_reply(model_id, "ya", stop_reason=stop_reason))
+        return indices, usages, replies
+
+    return doble
+
+
+@pytest.mark.parametrize(
+    ("stop_reason", "esperado"), [("max_tokens", "truncated"), ("refusal", "refusal")]
+)
+def test_la_parte_2_no_deja_pasar_por_ok_un_turno_posterior_roto(
+    harness, tmp_path, monkeypatch, stop_reason, esperado
+):
+    """Los turnos que añade la parte 2 pasan por la misma precedencia que los de
+    la parte 1: un turno cortado por el tope no es `ok`, y una negativa es una
+    negativa aunque llegue meses después de la reacción que sí se pagó."""
+    parte1 = _part1(tmp_path, models=["claude-opus-5"])
+    monkeypatch.setattr(rp, "continue_after_paste", _continue_con_stop(stop_reason))
+    completa = rp.resume_post_turns(parte1, out=tmp_path / "completa.jsonl")
+    _, filas = _rows(completa)
+    assert {r["status"] for r in filas} == {esperado}
+    # Y la fila conserva de dónde viene: la reacción de la parte 1 sigue ahí.
+    assert all(r["reaction"] and r["stop_reasons"][0] == "end_turn" for r in filas)
+
+
+def test_la_parte_2_deja_las_filas_que_revientan_como_estaban(
+    harness, tmp_path, monkeypatch
+):
+    """Una continuación que se cae no puede dejar la transcripción a medias.
+
+    `continue_after_paste` escribe el turno del usuario **antes** de llamar al
+    modelo evaluado, así que cuando el gateway se cae el mensaje ya está dentro
+    del transcript. Si la fila se guardara así, el reintento —que es todo el
+    sentido de que esto se reanude— continuaría encima de un mensaje colgado y
+    la conversación acabaría con dos turnos de usuario seguidos y un turno
+    posterior de más: una fila que la Fase 2 contaría como buena.
+    """
+    from tests.test_run_phase1a import fake_continue_after_paste
+
+    parte1 = _part1(tmp_path, models=["claude-opus-5"])
+    _, antes = _rows(parte1)
+    estado = {"n": 0}
+
+    def revienta(
+        model_id,
+        transcript,
+        topic,
+        n_post=conv.N_POST_TURNS,
+        request_params_out=None,
+        max_tokens=conv.MAX_TOKENS,
+        user_max_tokens=su.USER_MAX_TOKENS,
+        user_replies_out=None,
+    ):
+        estado["n"] += 1
+        if estado["n"] % 3 == 0:
+            transcript.append({"role": "user", "content": "sigo", "tag": "post"})
+            raise RuntimeError("se cayó el gateway")
+        return fake_continue_after_paste(
+            model_id,
+            transcript,
+            topic,
+            n_post=n_post,
+            request_params_out=request_params_out,
+            max_tokens=max_tokens,
+            user_max_tokens=user_max_tokens,
+            user_replies_out=user_replies_out,
+        )
+
+    completa = tmp_path / "completa.jsonl"
+    monkeypatch.setattr(rp, "continue_after_paste", revienta)
+    rp.resume_post_turns(parte1, out=completa)
+    _, primeras = _rows(completa)
+
+    viejas = {r["conversation_id"]: r for r in antes}
+    rotas = [r for r in primeras if r["status"] != "ok"]
+    assert len(rotas) == CELLS // 3
+    for r in rotas:
+        assert r["status"] == "http_error"
+        assert r["post_indices"] == []
+        assert r["transcript"] == viejas[r["conversation_id"]]["transcript"], (
+            "el turno de usuario que se quedó sin respuesta no puede quedarse"
+        )
+        # Una caída del gateway en la parte 2 tampoco dice nada del estímulo: la
+        # reacción al pegote es la misma que el juez clasificó, así que la fila
+        # no puede salir del denominador de G por esto.
+        assert r["part1_status"] == "ok"
+
+    assert len(rp.reaction_judgeable(primeras)) == CELLS
+    resumen = json.loads(
+        (completa.parent / f"summary-{completa.stem}.json").read_text(encoding="utf-8")
+    )
+    # Y las degradaciones se cuentan **también** cuando vienen de una excepción,
+    # no solo de un `stop_reason` feo: las dos sacan la fila de `judgeable`.
+    assert resumen["degraded"] == CELLS // 3
+    assert (
+        sum(resumen["by_band"][str(b)]["degraded"] for b in range(BANDS))
+        == CELLS // 3
+    )
+
+    # Y el reintento las completa bien, que es lo que la restauración compra.
+    monkeypatch.setattr(rp, "continue_after_paste", fake_continue_after_paste)
+    rp.resume_post_turns(parte1, out=completa)
+    _, segundas = _rows(completa)
+    assert len(segundas) == CELLS
+    assert len({r["conversation_id"] for r in segundas}) == CELLS
+    for r in segundas:
+        assert r["status"] == "ok", r["conversation_id"]
+        assert [m["tag"] for m in r["transcript"]] == [
+            "opening",
+            "assistant",
+            "paste",
+            "assistant",
+            "post",
+            "assistant",
+            "post",
+            "assistant",
+        ], r["conversation_id"]
+
+
+# --- lo que la parte 2 NO puede quitarle al denominador de G -----------------
+#
+# La categoría G la decide la reacción al pegote, y la reacción al pegote la
+# paga y la clasifica la parte 1. Los turnos posteriores ocurren DESPUÉS de ese
+# estímulo, así que nada de lo que pase en ellos puede cambiar qué filas entran
+# en el contraste de H4/H5 — y sin embargo `status` es uno solo por fila y baja
+# a `truncated` con un turno `post` cortado, que es lo que `rates` y
+# `run_judging` miran para juzgar.
+
+
+def _continue_cortando_una_de_cada(n: int, stop_reason: str = "max_tokens"):
+    """Doble de `continue_after_paste` que corta una continuación de cada `n`.
+
+    Con `n=4` las roturas caen **todas en la misma banda**: el plan lleva la
+    banda en el bucle más interno, así que las filas salen b0, b1, b2, b3, b0...
+    y una de cada cuatro es siempre el mismo tramo del ranking. No es un caso
+    rebuscado, es el peor caso realista —un hueco sistemático en un extremo de
+    la variable independiente— y es el que hace falta para que el recuento por
+    banda tenga algo que decir.
+    """
+    from tests.test_run_phase1a import _fake_reply
+    from wrongpaste.clients import Reply
+
+    estado = {"n": 0}
+
+    def doble(
+        model_id,
+        transcript,
+        topic,
+        n_post=conv.N_POST_TURNS,
+        request_params_out=None,
+        max_tokens=conv.MAX_TOKENS,
+        user_max_tokens=su.USER_MAX_TOKENS,
+        user_replies_out=None,
+    ):
+        estado["n"] += 1
+        corta = estado["n"] % n == 0
+        indices, usages, replies = [], [], []
+        for _ in range(n_post):
+            if user_replies_out is not None:
+                user_replies_out.append(
+                    Reply("sigo", {"total_tokens": 2}, {}, stop_reason="stop")
+                )
+            indices.append(len(transcript))
+            transcript.append({"role": "user", "content": "sigo", "tag": "post"})
+            indices.append(len(transcript))
+            transcript.append({"role": "assistant", "content": "ya", "tag": "assistant"})
+            usages.append({"total_tokens": 3})
+            replies.append(
+                _fake_reply(model_id, "ya", stop_reason=stop_reason if corta else "end_turn")
+            )
+        return indices, usages, replies
+
+    return doble
+
+
+def test_la_parte_2_no_retira_del_denominador_de_g_lo_que_la_parte_1_pago(
+    harness, tmp_path, monkeypatch
+):
+    """Una fila juzgable en la parte 1 sigue siéndolo en el fichero completo.
+
+    El caso concreto: una de cada cuatro continuaciones vuelve con
+    `max_tokens`. `status` baja a `truncated` —y tiene que bajar, porque la
+    conversación entera ya no es material limpio para el recuento de fuga de la
+    Fase 2— pero la reacción al pegote es **byte a byte la que el juez ya
+    clasificó**. Sin este arreglo, `run_judging.judgeable` pasaba de 1.152 filas
+    en la parte 1 a 864 en la completa: CELLS_PER_BAND filas pagadas, juzgadas y retiradas
+    del contraste por algo que ocurrió después del estímulo que mide G.
+    """
+    parte1 = _part1(tmp_path, models=["claude-opus-5"])
+    _, antes = _rows(parte1)
+    monkeypatch.setattr(rp, "continue_after_paste", _continue_cortando_una_de_cada(4))
+    completa = rp.resume_post_turns(parte1, out=tmp_path / "completa.jsonl")
+    _, despues = _rows(completa)
+
+    # El escenario es el que se dice que es: la conversación entera sí se
+    # degrada, y `judgeable` —que mira `status`— pierde filas por ello.
+    degradadas = [r for r in despues if r["status"] != "ok"]
+    assert len(degradadas) == CELLS_PER_BAND
+    assert {r["status"] for r in degradadas} == {"truncated"}
+    assert len(run_judging.judgeable(despues)) == CELLS - CELLS_PER_BAND
+
+    # Y lo que el arreglo compra: el denominador de G del fichero completo es el
+    # mismo que el de la parte 1, fila a fila.
+    assert {r["conversation_id"] for r in rp.reaction_judgeable(despues)} == {
+        r["conversation_id"] for r in run_judging.judgeable(antes)
+    }
+    assert len(rp.reaction_judgeable(despues)) == CELLS
+
+    # El estímulo de las CELLS_PER_BAND es idéntico al que ya se clasificó: no es que se
+    # readmitan filas dudosas, es que su reacción nunca cambió.
+    por_id = {r["conversation_id"]: r for r in antes}
+    for r in degradadas:
+        viejo = por_id[r["conversation_id"]]
+        assert r["reaction"] == viejo["reaction"]
+        assert r["stop_reasons"][0] == viejo["stop_reasons"][0] == "end_turn"
+        assert r["part1_status"] == "ok"
+
+
+def test_reaction_judgeable_no_readmite_lo_que_la_parte_1_ya_habia_roto(
+    harness, tmp_path, monkeypatch
+):
+    """El denominador de G se hereda de la parte 1, y eso corta en los dos lados.
+
+    Una fila que salió rota de la parte 1 no tiene reacción que clasificar, y la
+    parte 2 la copia tal cual sin gastar una llamada. `reaction_judgeable` no
+    puede colarla de vuelta por el hecho de que la parte 2 no la haya tocado:
+    sin `part1_status` cae a `status`, que en esas filas sigue siendo el suyo.
+    """
+    from tests.test_run_phase1a import fake_inject_paste
+
+    def revienta(
+        model_id, transcript, artifact, request_params_out=None, max_tokens=conv.MAX_TOKENS
+    ):
+        if artifact.id.endswith("3"):
+            raise RuntimeError("se cayó el gateway")
+        return fake_inject_paste(
+            model_id,
+            transcript,
+            artifact,
+            request_params_out=request_params_out,
+            max_tokens=max_tokens,
+        )
+
+    monkeypatch.setattr(rp, "inject_paste", revienta)
+    parte1 = _part1(tmp_path, models=["claude-opus-5"])
+    _, antes = _rows(parte1)
+    rotas = {r["conversation_id"] for r in antes if r["status"] != "ok"}
+    assert rotas, "el doble tenía que romper algunas celdas"
+
+    from tests.test_run_phase1a import fake_continue_after_paste
+
+    monkeypatch.setattr(rp, "continue_after_paste", fake_continue_after_paste)
+    completa = rp.resume_post_turns(parte1, out=tmp_path / "completa.jsonl")
+    _, despues = _rows(completa)
+
+    ids = {r["conversation_id"] for r in rp.reaction_judgeable(despues)}
+    assert ids == {r["conversation_id"] for r in run_judging.judgeable(antes)}
+    assert not (ids & rotas), "una fila sin reacción no vuelve al denominador"
+
+
+def test_el_resumen_de_la_parte_2_cuenta_por_banda_lo_que_degrada(
+    harness, tmp_path, monkeypatch
+):
+    """Si el hueco cae todo en un extremo del eje, el resumen tiene que decirlo.
+
+    `main` escribe `by_band` justo por esto —las pérdidas por banda dicen si el
+    hueco es sistemático o aleatorio— y la parte 2 no lo hacía: su resumen solo
+    tenía totales, así que CELLS_PER_BAND degradaciones apiladas en una sola banda salían
+    del fichero sin que nada las contara.
+    """
+    parte1 = _part1(tmp_path, models=["claude-opus-5"])
+    monkeypatch.setattr(rp, "continue_after_paste", _continue_cortando_una_de_cada(4))
+    completa = rp.resume_post_turns(parte1, out=tmp_path / "completa.jsonl")
+    _, despues = _rows(completa)
+
+    resumen = json.loads(
+        (completa.parent / f"summary-{completa.stem}.json").read_text(encoding="utf-8")
+    )
+    por_banda = resumen["by_band"]
+    assert sum(por_banda[str(b)]["degraded"] for b in range(BANDS)) == CELLS_PER_BAND
+    # Y están todas en la misma banda, que es el caso que hace daño.
+    con_hueco = [b for b in range(BANDS) if por_banda[str(b)]["degraded"]]
+    assert len(con_hueco) == 1
+    assert por_banda[str(con_hueco[0])]["degraded"] == CELLS_PER_BAND
+    # El recuento del resumen es el del fichero, no un contador aparte.
+    reales = collections.Counter(
+        r["stratum"] for r in despues if r.get("part1_status") == "ok" and r["status"] != "ok"
+    )
+    assert reales[con_hueco[0]] == CELLS_PER_BAND
+    # Y el denominador de G que sobrevive, también por banda: CELLS_PER_BAND en cada una.
+    assert collections.Counter(
+        r["stratum"] for r in rp.reaction_judgeable(despues)
+    ) == {b: CELLS_PER_BAND for b in range(BANDS)}

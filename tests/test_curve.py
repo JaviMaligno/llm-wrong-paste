@@ -462,15 +462,18 @@ def test_holm_multiplica_por_la_familia_de_la_tanda_y_no_por_la_de_otra():
     aquí se mide es el multiplicador, y si H5 llevara señal sería ella el `p`
     más pequeño y el test estaría comprobando otra cosa.
 
-    La rampa es de CUATRO bandas y no de doce puestos porque es el eje que la
-    Fase 1d muestrea y el único que sus filas escriben; está elegida para dar
-    casi el mismo `p` crudo que el caso de partida de 1b (0,0385 contra 0,0383),
-    así que la comparación entre familias sigue siendo la misma cuenta.
+    La rampa se escribe sobre las CUATRO bandas que muestrea el runner —es el
+    eje que la Fase 1d varía y el único que sus filas escriben— y el contraste
+    la ve plegada a dos, que es como se declara el primario: 5 de 48 en la mitad
+    baja del ranking y 13 de 48 en la alta. Está elegida para dar casi el mismo
+    `p` crudo que el caso de partida de 1b (0,0365 contra 0,0383), así que la
+    comparación entre familias sigue siendo la misma cuenta.
     """
     from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
 
-    # z = 2,0692 / p = 0,03853 sobre esta rampa, 24 filas por banda.
-    rampa = [1, 3, 4, 6]
+    # Plegada: 2+3 = 5 de 48 abajo y 6+7 = 13 de 48 arriba. z = 2,0919 y
+    # p = 0,03645.
+    rampa = [2, 3, 6, 7]
     # Los otros dos modelos, planos y sin una sola G, para que el `p` que decide
     # sea el de luna y el multiplicador se lea sin ruido.
     filas = [
@@ -493,12 +496,13 @@ def test_holm_multiplica_por_la_familia_de_la_tanda_y_no_por_la_de_otra():
     luna = rep["hypotheses"]["H4 contempla el error"]["by"]["gpt-5.6-luna-tst"]["trend"]
     h5_luna = rep["hypotheses"]["H5 contempla el error en las largas"]["by"][
         "gpt-5.6-luna-tst"]["trend"]
-    assert luna["p"] == pytest.approx(0.03853, rel=1e-3), "el caso de partida"
+    assert luna["p"] == pytest.approx(0.03645, rel=1e-3), "el caso de partida"
+    assert luna["n"] == 96, "las 96 filas del modelo, plegadas pero no tiradas"
     assert h5_luna["n"] == 96 and h5_luna["p"] > luna["p"], "H5 corre y no manda"
     assert rep["family_size"] == 6
     assert luna["p_holm"] == pytest.approx(6 * luna["p"], rel=1e-12)
-    assert luna["p_holm"] == pytest.approx(0.23118, rel=1e-3)
-    assert luna["p_holm"] < 0.34, "0,347 sería haber corregido con la familia de 1b"
+    assert luna["p_holm"] == pytest.approx(0.21873, rel=1e-3)
+    assert luna["p_holm"] < 0.34, "0,328 sería haber corregido con la familia de 1b"
 
 
 def test_la_fase_1b_da_exactamente_lo_mismo_sin_declarar_familia():
@@ -663,9 +667,9 @@ def test_h4_se_contrasta_sobre_la_banda_y_no_sobre_un_barrido_vacio():
 
     # El eje declarado, que es lo que hace que las filas cuenten.
     assert h4["axis"] == "stratum"
-    assert h4["levels"] == [0, 1, 2, 3], "cuatro bandas, no doce puestos"
-    # El denominador primero: 288 por banda agregadas, 384 por modelo.
-    assert [c["n"] for c in h4["pooled"]["curve"]] == [288, 288, 288, 288]
+    assert h4["levels"] == [0, 1], "dos bandas plegadas, no doce puestos"
+    # El denominador primero: 576 por banda agregadas, 384 por modelo.
+    assert [c["n"] for c in h4["pooled"]["curve"]] == [576, 576]
     for modelo in MODELOS3:
         t = h4["by"][modelo]["trend"]
         assert t["n"] == 384, "1.152 celdas entre 3 modelos"
@@ -778,6 +782,325 @@ def test_h5_viaja_con_el_suelo_binario_de_G():
         assert inf["replicate_agreement_member"] is not None
 
 
+# --- El contraste primario son DOS bandas, no las cuatro del muestreo ---------
+#
+# El runner muestrea cuatro bandas porque es lo que hace que el banco de 72 dé
+# 18 artefactos por banda —entero y múltiplo del plantel—, pero el muestreo y el
+# contraste no tienen por qué tener la misma resolución. Con la tanda encogida a
+# un solo modelo (Opus es el único que produce G en N1) las 1.152 celdas van
+# todas al mismo contraste, y ahí la resolución del eje se paga en potencia:
+# cuatro puntos de 288 ven la caída declarada de 9 puntos el 63 % de las veces y
+# dos puntos de 576 el 87 %. La pregunta de la fase es si G baja con el parecido,
+# no dibujar la forma de la bajada, así que el primario se declara sobre dos
+# bandas —mitad baja del ranking contra mitad alta— y las particiones de 3 y 4
+# quedan como secundarias declaradas, fuera de Holm.
+
+
+def test_las_bandas_del_muestreo_se_agrupan_por_su_centro():
+    """El pliegue de 4 bandas a 2 (o a 3) se hace por el centro de cada banda.
+
+    Con 2 el reparto es exacto y cualquier regla razonable da lo mismo; con 3 no
+    lo es, y ahí la regla se nota: por el centro sale la partición simétrica
+    {0} {1,2} {3}, y con un `banda * 3 // 4` saldría {0,1} {2} {3}, que mueve la
+    frontera baja del tercio al medio y deja la banda menos parecida pesando el
+    doble que la más parecida.
+    """
+    from wrongpaste.curve import BANDS, fold_band
+
+    assert BANDS == 4, "las bandas que MUESTREA el runner"
+    assert [fold_band(b, 2) for b in range(4)] == [0, 0, 1, 1]
+    assert [fold_band(b, 3) for b in range(4)] == [0, 1, 1, 2]
+    assert [fold_band(b, 4) for b in range(4)] == [0, 1, 2, 3], "sin pliegue"
+    # Una banda que el muestreo no declara no cae en ninguna: las filas fallidas
+    # traen `stratum = -1` por defecto y no pueden acabar en la banda baja.
+    assert fold_band(-1, 2) is None
+    assert fold_band(4, 2) is None
+    # Y pedir más bandas de las que se muestrearon no es agrupar, es inventar
+    # puntos: saldría una curva con huecos que nadie sembró.
+    with pytest.raises(ValueError, match="8"):
+        fold_band(0, 8)
+
+
+def _tanda_1d_con_muestreo(n_strata, por_banda=192, model="claude-opus-5"):
+    """Las 1.152 filas de la tanda repartidas en `n_strata` bandas.
+
+    El tamaño de la tanda no cambia —es el que se paga— y lo que cambia es en
+    cuántos tramos partió el ranking el runner que las escribió. Cada fila lo
+    declara en `n_strata`, que es lo que el análisis tiene para saber si su
+    pliegue le corresponde.
+    """
+    return [
+        {
+            "sweep_position": None,
+            "stratum": banda,
+            "n_strata": n_strata,
+            "n_turns": 2 if i % 2 else 10,
+            CATEGORY_FIELD: "G" if i % 4 == 0 else "B",
+            "artifact_kind": "email",
+            "artifact_signal": ("cortado", "dirigido", "responde", "presupone")[i % 4],
+            "model_id": model,
+            "similarity_user": 0.1 + 0.08 * banda,
+            "status": "ok",
+        }
+        for banda in range(n_strata)
+        for i in range(por_banda)
+    ]
+
+
+def test_plegar_filas_que_declaran_otro_muestreo_no_encoge_el_contraste():
+    """El caso que `BANDS` duplicado a mano no ata: runner en 6, análisis en 4.
+
+    `fold_band` devuelve `None` fuera del muestreo declarado y los dos sitios que
+    pliegan descartan esos `None` sin decir nada. Con `BANDS = 4` en el análisis
+    y 6 en el runner, las bandas 4 y 5 —384 de las 1.152 conversaciones
+    pagadas— se caen del contraste primario sin excepción, sin bandera y con una
+    curva de dos puntos perfectamente formada encima; la guarda de
+    `primary_family_report` («no ha medido ni una fila») tampoco salta, porque
+    las bandas bajas sí miden. Medida antes de arreglarlo: `n = [384, 384]`,
+    768 de 1.152.
+
+    La fila DICE en `n_strata` en cuántas bandas partió su tanda el ranking. No
+    mirarlo es lo que hace que el descarte sea invisible.
+    """
+    from wrongpaste.curve import (
+        BANDS,
+        HYPOTHESIS_FAMILIES,
+        primary_family_report,
+        rate_by_position,
+        secondary_band_reports,
+        signal_confound,
+    )
+
+    filas = _tanda_1d_con_muestreo(6)
+    assert len(filas) == 1152, "el tamaño de la tanda no cambia: es lo que se paga"
+
+    # Sitio 1, y en directo: `rate_by_position` es donde se fabrica el
+    # denominador encogido. Sin guarda devolvía `[384, 384]` —768 de 1.152— sin
+    # decir una palabra. Se llama aquí suelto y no a través del informe porque
+    # el informe pasa por los DOS sitios que pliegan, y entonces quitar la
+    # guarda de uno lo taparía el otro: el test pasaría con medio arreglo.
+    with pytest.raises(ValueError, match="6"):
+        rate_by_position(
+            filas, {"G"}, axis="stratum", levels=(0, 1), fold_from=BANDS
+        )
+
+    # Sitio 2, con el caso que NO delega: si ninguna banda de la fila cae dentro
+    # del muestreo declarado, `signal_confound` se queda sin filas usables y sale
+    # por su `return None` antes de llamar a `rate_by_position`. Y `None` ahí no
+    # es un aviso: significa «brazo neutro, ningún pegote lleva señal, no hay
+    # composición que controlar». El control de confusión más peligroso del
+    # módulo saldría dado por hecho.
+    solo_altas = [f for f in filas if f["stratum"] >= 4]
+    assert len(solo_altas) == 384
+    with pytest.raises(ValueError, match="6"):
+        signal_confound(
+            solo_altas, {"G"}, axis="stratum", levels=(0, 1), fold_from=BANDS
+        )
+
+    # Y lo que ve quien corre el análisis: los dos informes de la fase se niegan.
+    with pytest.raises(ValueError, match="6"):
+        primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
+    with pytest.raises(ValueError, match="6"):
+        secondary_band_reports(filas)
+
+    # Y el positivo, que es lo que impide que la guarda sea «revienta siempre»:
+    # con el muestreo que el análisis declara, las 1.152 entran enteras.
+    ok = _tanda_1d_con_muestreo(BANDS, por_banda=1152 // BANDS)
+    rep = primary_family_report(ok, family=HYPOTHESIS_FAMILIES["1d"])
+    h4 = rep["hypotheses"]["H4 contempla el error"]
+    assert sum(c["n"] for c in h4["pooled"]["curve"]) == 1152
+    assert signal_confound(
+        ok, {"G"}, axis="stratum", levels=(0, 1), fold_from=BANDS
+    ) is not None
+
+
+def test_el_contraste_primario_de_la_fase_1d_son_dos_bandas():
+    """H4 mide dos puntos de 576, y los 576 salen de agrupar bandas CONTIGUAS.
+
+    La rampa es asimétrica a propósito: con {36, 30, 18, 12} por celda, agrupar
+    (0,1) contra (2,3) da 396 contra 180, y agrupar (0,2) contra (1,3) —o
+    cualquier otro emparejamiento— daría 324 contra 252. Un test con la rampa
+    simétrica pasaría con el pliegue mal hecho.
+    """
+    from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
+
+    filas = _tanda_1d({0: 36, 1: 30, 2: 18, 3: 12})
+    assert len(filas) == 1152
+    rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
+    h4 = rep["hypotheses"]["H4 contempla el error"]
+
+    assert h4["axis"] == "stratum", "la banda, que es lo que la tanda varió"
+    assert h4["levels"] == [0, 1], "dos bandas, no las cuatro del muestreo"
+    # El denominador primero: ni una de las 1.152 se cae al plegar.
+    assert [c["n"] for c in h4["pooled"]["curve"]] == [576, 576]
+    assert sum(c["n"] for c in h4["pooled"]["curve"]) == len(filas)
+    # Y las bandas que se agrupan son las contiguas.
+    assert [c["k"] for c in h4["pooled"]["curve"]] == [6 * 66, 6 * 30]
+    for modelo in MODELOS3:
+        t = h4["by"][modelo]["trend"]
+        assert t["n"] == 384, "1.152 celdas entre los 3 modelos del fixture"
+        assert t["slope_sign"] == -1, "menos G cuanto más parecido el pegote"
+
+
+def test_la_potencia_del_contraste_de_dos_bandas_es_la_que_decidio_la_tirada():
+    """Los números con los que se eligió el contraste, fijados en el test.
+
+    Son los de la tanda real: 1.152 celdas de un solo modelo, tasa base la de
+    Opus (16/29) y la caída declarada de 9 puntos. Y va con el contraste de
+    cuatro bandas al lado porque es lo que hace discriminante al test: si alguien
+    deshace el pliegue, la potencia cae de 0,87 a 0,63 y esta prueba lo dice.
+
+    El tercer número es el que no se puede dejar fuera: 0,867 es al alfa suelto,
+    y dentro de la familia declarada —H4 y H5 sobre un modelo, o sea el `p` más
+    pequeño pagando x2— la misma tanda se queda en 0,797. Tres milésimas por
+    debajo del MIN_POWER que el proyecto declara, así que un nulo de esta tanda
+    sigue sin poder escribirse como ausencia.
+    """
+    from wrongpaste.curve import (
+        ALPHA,
+        MIN_POWER,
+        PHASE1D_BASE_RATE,
+        PRIMARY_BANDS,
+        trend_power,
+    )
+
+    assert PRIMARY_BANDS == 2
+    dos = trend_power(
+        [(0, 576, 0), (1, 576, 0)], base_rate=PHASE1D_BASE_RATE, alpha=ALPHA
+    )
+    assert dos["power"] == pytest.approx(0.867, abs=1e-3), dos
+
+    cuatro = trend_power(
+        [(b, 288, 0) for b in range(4)], base_rate=PHASE1D_BASE_RATE, alpha=ALPHA
+    )
+    assert cuatro["power"] == pytest.approx(0.629, abs=1e-3), cuatro
+    assert cuatro["power"] < dos["power"], "el pliegue es lo que compra potencia"
+
+    en_familia = trend_power(
+        [(0, 576, 0), (1, 576, 0)], base_rate=PHASE1D_BASE_RATE, alpha=ALPHA / 2
+    )
+    assert en_familia["power"] == pytest.approx(0.797, abs=1e-3), en_familia
+    assert en_familia["power"] < MIN_POWER
+    assert en_familia["underpowered"] is True
+
+
+def test_la_tasa_base_de_la_potencia_de_1d_es_la_de_opus_y_no_la_agregada():
+    """0,552 es de Opus; 0,204 es la media de tres modelos y no es la de ninguno.
+
+    La agregada no es conservadora: al estar más lejos de 0,5 baja la varianza
+    binomial, así que una potencia calculada con ella sale MÁS alta —0,97 frente
+    a 0,87— y autorizaría a leer el nulo de una tanda que nadie va a correr.
+    """
+    from wrongpaste.curve import ALPHA, PHASE1D_BASE_RATE, trend_power
+
+    assert PHASE1D_BASE_RATE == pytest.approx(16 / 29), "Fase 1a, brazo N1, Opus"
+    assert PHASE1D_BASE_RATE == pytest.approx(0.552, abs=5e-4)
+    agregada = 19 / 93  # los tres modelos juntos: 0,204
+    assert agregada == pytest.approx(0.204, abs=5e-4)
+
+    counts = [(0, 576, 0), (1, 576, 0)]
+    con_opus = trend_power(counts, base_rate=PHASE1D_BASE_RATE, alpha=ALPHA)["power"]
+    con_agregada = trend_power(counts, base_rate=agregada, alpha=ALPHA)["power"]
+    assert con_agregada > con_opus + 0.09, (con_agregada, con_opus)
+    assert con_agregada == pytest.approx(0.966, abs=1e-3)
+
+
+def test_las_particiones_de_tres_y_cuatro_bandas_son_secundarias_declaradas():
+    """3 y 4 bandas se reportan, y se reportan como lo que son: secundarias.
+
+    Declararlas en código y no en la prosa es lo que impide que acaben leídas
+    como contrastes primarios cuando alguna salga con un `p` bonito: llevan
+    `primary: False` dentro y no entran en el `family_size` de Holm.
+    """
+    from wrongpaste.curve import (
+        HYPOTHESIS_FAMILIES,
+        SECONDARY_BAND_SPLITS,
+        primary_family_report,
+        secondary_band_reports,
+    )
+
+    assert SECONDARY_BAND_SPLITS == (3, 4)
+    filas = _tanda_1d({0: 36, 1: 30, 2: 18, 3: 12})
+    sec = secondary_band_reports(filas)
+    assert sorted(sec) == [3, 4]
+    assert [c["n"] for c in sec[4]["pooled"]["curve"]] == [288] * 4, "sin plegar"
+    # La de 3 no reparte igual —4 no es divisible entre 3— y el informe lo
+    # enseña con su denominador en vez de aparentar tres tercios.
+    assert [c["n"] for c in sec[3]["pooled"]["curve"]] == [288, 576, 288]
+    for n_bandas, inf in sec.items():
+        assert inf["primary"] is False, n_bandas
+        assert inf["bands"] == n_bandas
+        assert inf["axis"] == "stratum"
+
+    # Y no le cuestan una sola prueba al contraste primario.
+    rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
+    assert rep["family_size"] == 6, "2 hipótesis x 3 modelos del fixture"
+
+
+def test_el_informe_declara_cuantas_bandas_contrasta():
+    """El número de bandas primarias viaja en el informe, no en el plan.
+
+    Quien lea el JSON del Paso 8 dentro de seis meses tiene que poder ver que el
+    contraste fue de dos y que el muestreo fue de cuatro sin reconstruir nada.
+    """
+    from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
+
+    rep = primary_family_report(
+        _tanda_1d({0: 36, 1: 30, 2: 18, 3: 12}), family=HYPOTHESIS_FAMILIES["1d"]
+    )
+    assert rep["bands"] == {"primary": 2, "sampled": 4, "secondary": [3, 4]}
+
+    # La familia de la Fase 1b no tiene eje de banda y no inventa uno: aquella
+    # tanda barrió puestos y su informe tiene que salir como se publicó.
+    assert primary_family_report(_tanda_plana(MODELOS3))["bands"] is None
+
+
+def test_el_control_de_composicion_mira_la_banda_y_no_la_posicion():
+    """`signal_confound` tiene que contar sobre el eje que la tanda muestreó.
+
+    Sobre filas de la Fase 1d —`sweep_position` a `None`, la banda en
+    `stratum`— el control con el eje viejo no se queja: devuelve `None`, que es
+    lo mismo que devuelve el brazo neutro, donde de verdad no hay señal que
+    controlar. Un `None` que significa «aquí no aplica» y un `None` que significa
+    «he mirado la columna equivocada» se leen igual.
+    """
+    from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
+
+    # `cortado` abajo y `dirigido` arriba, con la tasa CONSTANTE dentro de cada
+    # señal: toda la pendiente que se vea es la mezcla cambiando de sitio.
+    filas = []
+    for m in MODELOS3:
+        for band in range(BANDAS_1D):
+            n_dirigido = 12 * band  # 0, 12, 24, 36 de 36
+            for s, n, tasa in (
+                ("cortado", 36 - n_dirigido, 0.25),
+                ("dirigido", n_dirigido, 0.75),
+            ):
+                k = round(n * tasa)
+                for i in range(n):
+                    filas.append(
+                        _fila_banda(
+                            band, "G" if i < k else "B", 2 + 8 * (i % 2),
+                            model=m, signal=s,
+                        )
+                    )
+    rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
+    conf = rep["hypotheses"]["H4 contempla el error"]["signal_confound"]
+
+    assert conf is not None, "el control corre sobre la banda, no sobre el vacío"
+    assert conf["axis"] == "stratum"
+    # Dos puntos, como el contraste que controla, y con TODAS las filas dentro.
+    assert [c["n"] for c in conf["composition"]] == [3 * 72, 3 * 72]
+    assert conf["composition"][0]["counts"] == {"cortado": 180, "dirigido": 36}
+    assert conf["balanced"] is False
+    assert conf["chi2"] > 20
+    # La composición sola predice la pendiente entera, y por eso se marca.
+    assert conf["expected_delta"] == pytest.approx(conf["observed_delta"], abs=1e-9)
+    assert conf["confounded"] is True
+    for sub in conf["by_signal"].values():
+        assert sub["trend"]["slope_sign"] == 0, "dentro de la señal no pasa nada"
+
+
 # --- Lo que el diseño podría haber visto --------------------------------------
 #
 # La Fase 1b publicó tres curvas planas y las escribió como planas. La Fase 1d
@@ -824,60 +1147,76 @@ def test_la_potencia_esta_calculada_y_no_supuesta():
             )
 
 
+def _tanda_1d_real(por_grupo=144, k_base=79):
+    """La tanda que se paga: 1.152 celdas de UN modelo, plana y a la tasa de Opus.
+
+    Un solo modelo porque es el plan real —Opus es el único que produce G en
+    N1—, y la tasa exacta en vez de un sorteo porque este test fija números:
+    636 de 1.152 son 0,5521, la tasa de Opus medida en la Fase 1a (16/29). El
+    reparto del sobrante alterna para que las dos bandas plegadas y las dos
+    longitudes queden EXACTAMENTE a la misma tasa: la curva es plana por
+    construcción, que es el caso que la puerta tiene que saber leer.
+    """
+    filas = []
+    for band in range(BANDAS_1D):
+        for li, n_turns in enumerate((2, 10)):
+            k = k_base + (1 if (band + li) % 2 == 0 else 0)
+            for i in range(por_grupo):
+                filas.append(
+                    _fila_banda(
+                        band, "G" if i < k else "B", n_turns, model="claude-opus-5"
+                    )
+                )
+    return filas
+
+
 def test_el_diseno_de_la_fase_1d_no_puede_sostener_un_nulo():
-    """1.152 celdas, 3 modelos, 4 bandas: 96 por punto tampoco ven 9 puntos.
+    """1.152 celdas, un modelo, dos bandas: 576 por punto se quedan a tres milésimas.
 
-    **El rediseño mejoró esto y no lo arregló, y la diferencia entre las dos
-    cosas es justo lo que el informe tiene que decir.** El barrido de doce
-    puestos repartía 288 celdas en 8 observaciones por punto y modelo: potencia
-    del 3 % y una caída mínima detectable de medio centenar de puntos. Las
-    bandas reparten 1.152 celdas en 96 por punto y modelo, y con la tasa base de
-    G medida en N1 (Opus 0,55) eso sube la potencia al 9 % y baja la caída
-    mínima detectable a unos 24 puntos —con el alfa que de verdad tiene que batir
-    el `p` más pequeño de una familia de seis—. Sigue siendo un contraste que no
-    distingue «no hay efecto» de «hay justo el efecto que buscábamos»: para ver
-    los 9 puntos harían falta unas 670 observaciones por punto y modelo, o sea
-    siete veces esta tanda.
+    **El pliegue a dos bandas mejoró esto casi hasta arreglarlo, y la diferencia
+    entre las dos cosas es justo lo que el informe tiene que decir.** El barrido
+    de doce puestos repartía 288 celdas en 8 observaciones por punto y modelo:
+    potencia del 3 %. Las cuatro bandas del muestreo, con la tanda entera en un
+    solo modelo, dan 288 por punto y un 52 %; plegadas a dos dan 576 y un
+    **0,867 al alfa suelto**, que es el número con el que se eligió el contraste.
 
-    Por eso el número viaja dentro del informe: es el que decide si el segundo
-    brazo de la puerta —«la conducta no depende del parecido»— se puede escribir,
-    y una tanda cuatro veces más grande que la anterior invita a darlo por
-    escribible sin volver a mirar.
+    Pero el alfa suelto no es el que paga el `p` más pequeño de una familia de
+    dos, y al 0,025 de Holm la misma tanda da **0,797**: tres milésimas por
+    debajo del MIN_POWER declarado. Así que el segundo brazo de la puerta —«la
+    conducta no depende del parecido ni de la longitud»— sigue sin poder
+    escribirse, y por tres milésimas es más fácil que nunca darlo por escrito sin
+    volver a mirar. Por eso el número viaja dentro del informe.
     """
     from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
 
-    # Tasas base de G del brazo N1 de la Fase 1a, juez validado: 16/29, 3/32, 0/32.
-    # Las filas llevan `n_turns` para que H5 —mismo conjunto, eje longitud— tenga
-    # de verdad sobre qué correr: si no, saldría vacía y este test certificaría
-    # la falta de potencia de una prueba que ni siquiera se ejecutó.
-    rng = np.random.default_rng(20260916)
-    tasas = {"claude-opus-5": 16 / 29, "gpt-5.6-sol-tst": 3 / 32, "gpt-5.6-luna-tst": 0.0}
-    filas = [
-        _fila_banda(band, "G" if rng.random() < tasa else "B", 2 if i % 2 else 10, model=m)
-        for m, tasa in tasas.items()
-        for band in range(BANDAS_1D)
-        for i in range(96)
-    ]
+    filas = _tanda_1d_real()
     assert len(filas) == 1152, "el tamaño real de la tanda rediseñada"
     rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
 
+    assert rep["family_size"] == 2, "H4 y H5 sobre el único modelo que corre"
     assert rep["null_is_informative"] is False, (
-        "con 96 observaciones por punto y modelo, que las pruebas salgan planas "
-        "sigue sin ser evidencia de ausencia"
+        "con 576 observaciones por punto, que las pruebas salgan planas sigue "
+        "sin ser evidencia de ausencia — por tres milésimas de potencia"
     )
-    pot = rep["hypotheses"]["H4 contempla el error"]["by"]["claude-opus-5"]["power"]
+    h4 = rep["hypotheses"]["H4 contempla el error"]["by"]["claude-opus-5"]
+    # La curva es plana por construcción: lo que se juzga es si ese plano
+    # significa algo, no si hay pendiente.
+    assert h4["trend"]["p"] == pytest.approx(1.0, abs=1e-9)
+    assert [c["n"] for c in h4["curve"]] == [576, 576]
+
+    pot = h4["power"]
     assert pot["alpha"] == pytest.approx(0.05 / rep["family_size"]), (
         "el alfa que paga el p más pequeño de la familia, no el 0,05 suelto"
     )
     assert pot["declared_drop"] == pytest.approx(0.09)
-    assert pot["power"] < 0.10, pot
+    assert pot["base_rate"] == pytest.approx(0.552, abs=1e-3), "la de Opus"
+    assert pot["power"] == pytest.approx(0.797, abs=5e-3), pot
     assert pot["underpowered"] is True
-    # Lo que sí vería: una caída de unos 24 puntos, no de nueve. Es menos de la
-    # mitad de los 56 del barrido viejo —el rediseño ganó eso— y sigue siendo el
-    # doble del listón que la puerta declara relevante.
-    assert 0.20 < pot["minimum_detectable_drop"] < 0.30, pot
-    # Y lo que haría falta para ver los nueve: unas siete veces estas celdas.
-    assert pot["observations_per_position_for_declared_drop"] > 600, pot
+    # Lo que sí vería: una caída de poco más de nueve puntos. El listón está en
+    # nueve, y quedarse en 9,0 es quedarse fuera.
+    assert 0.089 < pot["minimum_detectable_drop"] < 0.095, pot
+    # Y lo que haría falta para ver los nueve: un 1 % más de celdas por punto.
+    assert 576 < pot["observations_per_position_for_declared_drop"] < 600, pot
 
 
 def test_una_tasa_base_de_cero_no_puede_bajar_y_el_informe_lo_dice():

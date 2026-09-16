@@ -30,15 +30,26 @@ era un nulo que no se puede leer.
 3. **El tamaño.** 4 bandas x 8 temas x 2 longitudes x 18 artefactos = **1.152
    celdas**, todas con (prefijo, artefacto) distinto.
 
-**Lo que el rediseño NO arregla, y hay que decirlo aquí.** Triplicar los
-estímulos no da la potencia que falta. Pasado el estimador del repo por el plan
-nuevo (`design_power`, más abajo) con las tasas de G medidas en N1 y el alfa que
-de verdad hay que batir dentro de la familia declarada —2 hipótesis x 3 modelos,
-Holm—, H4 sale con **0,09 en Opus, 0,35 en `sol` y 0,00 en `luna`**, y H5 con
-0,19 / 0,65 / 0,00. El mínimo que el proyecto declara es 0,80. O sea: el eje de
-1b se barría con una potencia del 16 % y este se barre con una del 9 al 35 %,
-que es cuatro veces mejor y sigue sin alcanzar para que un nulo signifique
-«no hay efecto» en vez de «no lo habríamos visto».
+**Lo que hizo falta para que el rediseño alcanzara, porque triplicar los
+estímulos no bastó.** Pasado el estimador del repo por el plan (`design_power`)
+con las tasas de G medidas en N1 y el alfa de Holm dentro de la familia
+declarada, el plan de **tres modelos** sale con 0,23 en Opus, 0,74 en `sol` y
+**0,00 en `luna`** —que no produce G ni una vez en 96 conversaciones, así que ahí
+no hay nada que medir— contra un mínimo declarado de 0,80. Ninguna llega.
+
+Dos cambios lo arreglan, y los dos están en el plan:
+
+1. **El plantel baja a `claude-opus-5`.** Es el único donde la conducta existe
+   (55 % de G en N1, frente al 9 % de `sol` y el 0 % de `luna`). La familia baja
+   de 6 pruebas a 2, así que el alfa de Holm pasa de 0,0083 a 0,025, y las celdas
+   por prueba se triplican.
+2. **21 artefactos por banda y no 18.** Con 18 el diseño se quedaba en 0,797
+   contra el 0,80 declarado.
+
+Con eso, H4 y H5 salen a **0,859** y `null_is_informative` pasa a `True`: un nulo
+de esta tanda sí se podrá leer como «no hay efecto» y no como «no lo habríamos
+visto». Con los tres modelos, no; por eso el plantel es parte del diseño y no una
+preferencia.
 
 Se escribe en el docstring y además en una **puerta** (`check_design_power`),
 porque la Fase 1b enseñó que un número que solo vive en la prosa no frena a
@@ -71,6 +82,7 @@ import json
 import time
 from collections import Counter
 from pathlib import Path
+from types import SimpleNamespace
 from typing import Any
 
 import numpy as np
@@ -89,10 +101,12 @@ from wrongpaste.curve import (
     DECLARED_DROP,
     HYPOTHESIS_FAMILIES,
     MIN_POWER,
+    fold_band,
     trend_power,
 )
 from wrongpaste.judging import JUDGES
 from wrongpaste.prefixes import PREFIX_MODEL, ensure_prefix
+from wrongpaste.rates import JUDGEABLE_STATUSES
 from wrongpaste.records import (
     ARM_NO_REPAIR,
     ConversationRecord,
@@ -100,6 +114,7 @@ from wrongpaste.records import (
     run_header_line,
 )
 from wrongpaste.rubric import RUBRIC_VERSION
+from wrongpaste.run_judging import load_rows
 
 # La maquinaria de las fases anteriores, tal cual. Lo que se importa con guion
 # bajo es privado de aquel módulo y se toma prestado a propósito: dos copias de
@@ -120,10 +135,12 @@ from wrongpaste.run_phase0 import (
     _has_empty_response,
     _model_label,
     _response_model,
+    _status_for_error,
     _system_prompt,
     bank_sha,
     code_sha,
     compact_resume_file,
+    failure_origin,
     is_resumable,
     rank_for_prefix,
     read_run_header,
@@ -171,7 +188,17 @@ BANDS = 4
 # fallida y sigue. Con un banco de 71, eso era la tanda entera pagada para
 # terminar con 1.136 estímulos de los 1.152 y las 16 pérdidas todas en la banda
 # 0: un hueco sistemático en un extremo de la variable independiente.
-ARTIFACTS_PER_BAND = 18
+# 21 y no 18: con 18 el diseño se quedaba en potencia 0,797 contra el mínimo
+# declarado de 0,80 —tres milésimas— y la tirada habría necesitado firmar
+# `acknowledge_underpowered`. Con 21 la tanda va a 1.344 conversaciones y 0,859.
+#
+# Y 21 y no 19 o 20, que también cruzaban, porque **tiene que dividir entre 3**:
+# la guarda de `plan_phase1d` exige que el plantel reparta por igual los slots de
+# cada (prefijo, banda), y con un número primo ningún plantel de tres modelos lo
+# hace. Subir la potencia a costa de perder la vía de tres modelos habría sido un
+# mal cambio: la tanda actual corre solo Opus, pero el diseño no debería cerrarse
+# esa puerta por 0,02 de potencia.
+ARTIFACTS_PER_BAND = 21
 
 MASTER_SEED = 20260916
 
@@ -316,17 +343,38 @@ def make_conversation_id(
     return f"p{PHASE}-{model_id}-{topic_id}-{n_turns}-b{band}-a{slot:02d}"
 
 
-def plan_phase1d(seed: int = MASTER_SEED) -> list[dict]:
+def plan_phase1d(
+    seed: int = MASTER_SEED,
+    models: tuple[str, ...] | list[str] = tuple(PHASE1D_MODELS),
+) -> list[dict]:
     """1.152 celdas: 4 bandas x 8 temas x 2 longitudes x 18 artefactos.
 
+    **El plantel es un parámetro, y el cruce no depende de él.** La tanda que se
+    paga corre SOLO `claude-opus-5`: es el único modelo que produce G en N1
+    —55 % frente al 9 % de `sol` y el 0 % de `luna`, medido en la Fase 1a con
+    n = 96 por modelo—, así que en los otros dos no hay curva que medir y las
+    conversaciones que se les compraran no entrarían en ningún contraste. Lo que
+    NO cambia al encoger el plantel es el diseño: el modelo se asigna a una celda
+    **después** de que el cruce esté hecho, así que las 1.152 celdas, sus
+    (prefijo, banda, slot) y por tanto sus 1.152 pegotes distintos son los
+    mismos con tres modelos que con uno. Lo único que cambia es quién los ve.
+
     **El modelo no se sortea.** Se asigna con `(slot + t + longitud + banda) %
-    3`, y el reparto sale exacto sin depender de la suerte: cada (prefijo, banda)
-    tiene 18 slots, 18 es múltiplo de 3, y por tanto cada modelo se lleva 6 de
-    cada (prefijo, banda) — 384 por modelo, 96 por (modelo, banda) y 48 por
-    (modelo, banda, longitud). Dejarlo al azar sería el error que más caro sale
-    aquí: si un modelo cayera más en las bandas altas, el contraste entre modelos
-    mediría la banda y el contraste entre bandas mediría el modelo, que son
-    justo las dos preguntas de la tanda.
+    len(plantel)`, y el reparto sale exacto sin depender de la suerte: cada
+    (prefijo, banda) tiene 18 slots y el plantel tiene que dividir a 18, así que
+    cada modelo se lleva 18/len de cada (prefijo, banda) —con tres: 6, o sea 384
+    por modelo, 96 por (modelo, banda) y 48 por (modelo, banda, longitud)—.
+    Dejarlo al azar sería el error que más caro sale aquí: si un modelo cayera
+    más en las bandas altas, el contraste entre modelos mediría la banda y el
+    contraste entre bandas mediría el modelo, que son justo las dos preguntas de
+    la tanda.
+
+    Un plantel que **no** divida a 18 revienta en vez de repartir de más a unos
+    y de menos a otros. Con 4 modelos, dos verían 5 artefactos de cada banda y
+    dos verían 4: un desequilibrio pequeño, sistemático y perfectamente
+    invisible —el plan seguiría teniendo 1.152 celdas bien formadas— que mete
+    justo la correlación entre modelo y banda que el párrafo anterior existe
+    para evitar.
 
     El desplazamiento por tema, longitud y banda no cambia el equilibrio —con 18
     slots cualquier desplazamiento reparte 6, 6 y 6—, y hay que decir qué sí
@@ -354,6 +402,23 @@ def plan_phase1d(seed: int = MASTER_SEED) -> list[dict]:
     slot)—: se conserva porque identifica la tirada y porque el runner lo pasa a
     los turnos posteriores.
     """
+    plantel = list(models)
+    if not plantel:
+        raise ValueError(
+            "el plantel está vacío: eso no es una tanda pequeña, son 1.152 "
+            "celdas sin nadie que las corra"
+        )
+    if ARTIFACTS_PER_BAND % len(plantel):
+        raise ValueError(
+            f"un plantel de {len(plantel)} modelos no reparte por igual los "
+            f"{ARTIFACTS_PER_BAND} slots de cada (prefijo, banda): unos verían "
+            f"{ARTIFACTS_PER_BAND // len(plantel) + 1} artefactos de cada banda "
+            f"y otros {ARTIFACTS_PER_BAND // len(plantel)}. El desequilibrio es "
+            "pequeño, sistemático e invisible —el plan seguiría teniendo 1.152 "
+            "celdas bien formadas— y deja el modelo correlacionado con la "
+            f"banda, que son las dos preguntas de la tanda. Usa un plantel que "
+            f"divida a {ARTIFACTS_PER_BAND}."
+        )
     topics = load_topics()
     rng = np.random.default_rng(seed)
     plan: list[dict] = []
@@ -361,9 +426,7 @@ def plan_phase1d(seed: int = MASTER_SEED) -> list[dict]:
         for li, n_turns in enumerate(LENGTHS):
             for slot in range(ARTIFACTS_PER_BAND):
                 for band in range(BANDS):
-                    model_id = PHASE1D_MODELS[
-                        (slot + t + li + band) % len(PHASE1D_MODELS)
-                    ]
+                    model_id = plantel[(slot + t + li + band) % len(plantel)]
                     plan.append(
                         {
                             "cell_index": len(plan),
@@ -387,6 +450,90 @@ def plan_phase1d(seed: int = MASTER_SEED) -> list[dict]:
 # --- ejecución de una celda -----------------------------------------------
 
 
+def conversation_status(stop_reasons: list[str | None], replies: list[Any]) -> str:
+    """La precedencia de `status` de una conversación (D6), en un solo sitio.
+
+    Es la de las tandas anteriores, sin cambiarle nada: `refusal` es lo único de
+    aquí que es conducta y manda; `empty` es la afirmación más fuerte que se
+    puede hacer sobre una respuesta; `truncated` es un corte por el tope que
+    mandamos nosotros; y si no hay nada de eso, `ok`.
+
+    Vive en una función porque ahora la aplican DOS caminos —`run_cell`, cuando
+    la celda se corre entera, y `resume_post_turns`, cuando los turnos
+    posteriores se generan meses después sobre una transcripción guardada— y dos
+    copias de esta precedencia divergen en cuanto alguien arregle una: bastaría
+    con que la de la parte 2 leyera un `truncated` como `ok` para que una
+    reacción cortada a media frase entrase en el denominador de G.
+
+    `replies` es cualquier cosa con `.text` (los `Reply` del cliente, o el
+    envoltorio con el que la parte 2 vuelve a meter la reacción ya pagada), y
+    tienen que estar TODAS las respuestas del modelo evaluado de la
+    conversación: mirar solo las nuevas dejaría de ver una reacción vacía.
+
+    **Lo que este `status` NO es: el denominador de G.** Es el estado de la
+    CONVERSACIÓN ENTERA, turnos posteriores incluidos, y así tiene que ser —un
+    turno `post` cortado falsea el recuento de fuga igual que una reacción
+    cortada falsea la categoría—. Pero la categoría G la decide solo la reacción
+    al pegote, y en una tanda partida esa reacción se paga y se clasifica meses
+    antes de que existan los turnos posteriores. O sea que la precedencia mira
+    también hacia el otro lado: aplicada tal cual en `resume_post_turns`, un
+    turno `post` roto baja la fila de `ok` a `truncated` y la saca de
+    `JUDGEABLE_STATUSES` —que es exactamente `{"ok"}`— con la reacción intacta.
+    El fichero completo tendría entonces menos filas en el denominador de H4 y
+    H5 que el de la parte 1, y la diferencia la decidiría algo ocurrido DESPUÉS
+    del estímulo. Por eso la parte 2 escribe además `part1_status`, y el
+    denominador de G se lee con `reaction_judgeable`.
+    """
+    declared = status_for_stop_reasons(stop_reasons)
+    if declared == "refusal":
+        return "refusal"
+    if _has_empty_response(replies):
+        return "empty"
+    if declared is not None:
+        return declared
+    return "ok"
+
+
+def reaction_judgeable(rows: list[dict]) -> list[dict]:
+    """Las filas cuya REACCIÓN al pegote se puede clasificar: el denominador de G.
+
+    `run_judging.judgeable` mira `status`, que es el estado de la conversación
+    entera, y sobre una tanda de una sola pieza las dos cosas coinciden. Sobre
+    una tanda partida no: el `status` de un fichero de parte 2 ya lleva dentro
+    los turnos posteriores, así que una fila cuya reacción el juez clasificó en
+    la parte 1 sale de `judgeable` si meses después un turno `post` volvió
+    cortado. Medido con una de cada cuatro continuaciones en `max_tokens`:
+    `judgeable` baja de 1.152 filas a 864, y las 288 que se van conservan su
+    `reaction` byte a byte.
+
+    Eso no es una pérdida aceptable, es una pérdida **de información nueva que
+    crea la partición**: la variable de H4 y H5 es la categoría G, la categoría G
+    la decide el estímulo (prefijo + pegote + reacción) y ese estímulo terminó
+    antes de que el primer turno posterior existiera. Un filtro que lo deshace
+    después estaría metiendo en el eje de la similaridad un hueco decidido por
+    algo posterior al estímulo — y, como las bandas se recorren en el bucle más
+    interno, un hueco que ni siquiera tiene por qué repartirse igual entre ellas.
+
+    Por eso se lee `part1_status` —el estado que la parte 1 declaró y con el que
+    el juez trabajó— y solo se cae a `status` cuando no está: una fila sin el
+    campo es de una tanda de una sola pieza, o una fila que la parte 2 copió tal
+    cual porque ya venía rota, y en los dos casos su `status` **es** el de su
+    reacción. Caer a `status` no readmite nada: lo que la parte 1 rompió sigue
+    fuera.
+
+    No toca `run_judging.judgeable` ni `JUDGEABLE_STATUSES`: los usan las Fases
+    1a y 1b, que están pagadas y publicadas, y allí no hay nada que arreglar
+    porque no hay partición. `JUDGEABLE_STATUSES` se importa en vez de
+    reescribirse para que el día que cambie la definición de «juzgable» cambie
+    en los dos sitios a la vez.
+    """
+    return [
+        r
+        for r in rows
+        if str(r.get("part1_status", r.get("status", "ok"))) in JUDGEABLE_STATUSES
+    ]
+
+
 def run_cell(
     cell: dict,
     topic: Topic,
@@ -395,6 +542,7 @@ def run_cell(
     run_id: str,
     started_at: float,
     partial: dict[str, Any],
+    post_turns: int = N_POST_TURNS,
 ) -> ConversationRecord:
     """Una conversación: prefijo, pegote de la banda, turnos posteriores.
 
@@ -411,6 +559,19 @@ def run_cell(
     ponerle un 3 haría que un análisis conjunto leyera las dos tandas como si
     hubieran muestreado igual. Por eso `sweep_position` se queda en `None`, que
     es lo que significa «aquí no hubo barrido».
+
+    **`post_turns=0` corre la parte 1 y solo la parte 1**: prefijo, pegote y
+    reacción. Es lo único que decide la categoría G, que es la variable de H4 y
+    H5, así que es lo único que hay que comprar para responder la pregunta de la
+    fase; los dos turnos posteriores de D7 alimentan el recuento de fuga de la
+    Fase 2 y se generan más adelante con `resume_post_turns`, retomando la
+    transcripción que esta fila guarda. Con 0 **no se llama** a
+    `continue_after_paste` —que es de donde sale el ahorro: son dos tercios de
+    las llamadas al modelo evaluado y todas las del usuario simulado— y la fila
+    queda con `post_indices` vacía y la transcripción terminada en la reacción.
+    Lo demás no cambia: `reaction`, `status`, las dos similaridades, la banda y
+    las etiquetas del transcript salen igual, así que la fila se clasifica y se
+    analiza como cualquier otra.
     """
     model_id = cell["model_id"]
 
@@ -452,35 +613,25 @@ def run_cell(
     usages = [paste_usage]
     replies.append(paste_reply)
 
-    partial["stage"] = STAGE_POST
-    post_indices, post_usages, post_replies = continue_after_paste(
-        model_id,
-        transcript,
-        topic,
-        n_post=N_POST_TURNS,
-        request_params_out=request_params,
-        user_replies_out=user_replies,
-    )
-    usages.extend(post_usages)
-    replies.extend(post_replies)
+    post_indices: list[int] = []
+    if post_turns:
+        partial["stage"] = STAGE_POST
+        post_indices, post_usages, post_replies = continue_after_paste(
+            model_id,
+            transcript,
+            topic,
+            n_post=post_turns,
+            request_params_out=request_params,
+            user_replies_out=user_replies,
+        )
+        usages.extend(post_usages)
+        replies.extend(post_replies)
 
     traces = reply_traces(replies)
     stop_reasons = [trace["stop_reason"] for trace in traces]
 
-    # Precedencia del `status`, igual que en las tandas anteriores y por los
-    # mismos motivos: `refusal` es lo único que es conducta y manda; `empty` es
-    # la afirmación más fuerte que se puede hacer sobre una respuesta;
-    # `truncated` es un corte por el tope que mandamos nosotros; y si no hay nada
-    # de eso, `ok`.
-    declared = status_for_stop_reasons(stop_reasons)
-    if declared == "refusal":
-        status = "refusal"
-    elif _has_empty_response(replies):
-        status = "empty"
-    elif declared is not None:
-        status = declared
-    else:
-        status = "ok"
+    # La precedencia de siempre, ahora compartida con la parte 2 (D6).
+    status = conversation_status(stop_reasons, replies)
 
     # Y por encima de todo, el lado del usuario simulado: si uno de sus turnos
     # salió vacío o cortado, la conversación tiene un agujero y ninguna categoría
@@ -633,13 +784,15 @@ def design_power(
     288 conversaciones con una potencia del 16 %, y la escribió en su docstring
     como el motivo del rediseño. Pero el rediseño solo se declaraba a sí mismo:
     triplicaba los estímulos independientes y nadie volvía a pasar el estimador
-    del repo por el plan nuevo. Hecha la cuenta —96 celdas por (modelo, banda),
+    del repo por el plan nuevo. Hecha la cuenta —las celdas que salgan del plan,
     las tasas de G medidas en N1 y el alfa que de verdad hay que batir dentro de
-    la familia declarada— sale **0,09 en Opus, 0,35 en `sol` y 0,00 en `luna`**
-    para H4, y 0,19 / 0,65 / 0,00 para H5. Ninguna llega al `MIN_POWER` de 0,80
-    que el propio proyecto declara, así que `null_is_informative` volvería a
-    salir `False` y un nulo habría que volver a escribirlo como «no lo hemos
-    podido ver» — después de pagar cuatro veces la tanda de 1b.
+    la familia declarada— el plan de tres modelos no llega al `MIN_POWER` de
+    0,80: con `luna` a cero de tasa base, dos de las seis pruebas no tienen nada
+    que medir y arrastran la familia entera. El plan de un solo modelo sí llega.
+
+    Esa diferencia es el motivo de que esta función exista y de que corra
+    **antes** del gasto: es lo que separa pagar una tanda cuyo nulo significará
+    algo de pagar una cuyo nulo habrá que escribir como «no lo habríamos visto».
 
     La cuenta se hace **sobre el plan**, sin datos y sin red: las celdas por
     nivel las da el propio plan y la tasa base la Fase 1a. Por eso puede ir
@@ -693,21 +846,43 @@ def design_power(
                 "no se puede correr sobre esta tanda, y la curva saldría bien "
                 "formada con n = 0 en todos los niveles."
             )
+        # **Contar el plan por nivel exige plegar igual que pliega el análisis.**
+        # H4 declara `levels=(0, 1)` y `fold_from=BANDS`: la celda trae una de
+        # las CUATRO bandas del muestreo y el contraste va sobre DOS, agrupando
+        # 0+1 y 2+3. Comparar `celda[campo] == nivel` a pelo no agrupa: se queda
+        # con las bandas 0 y 1 y tira las 576 celdas de las bandas 2 y 3, así
+        # que la potencia que sale —y con ella la puerta que decide si la tirada
+        # arranca— es la de media tanda (0,47 en vez de 0,80). No es un fallo
+        # que se vea leyendo el número: los dos son plausibles. Por eso se llama
+        # a `fold_band`, la misma función que usa `rate_by_position`, y no a una
+        # regla equivalente escrita aquí: dos reglas se separan, una no.
+        plegar = getattr(hipotesis, "fold_from", None)
+        indice = {nivel: i for i, nivel in enumerate(niveles)}
         por_modelo: dict[str, dict] = {}
         for modelo in modelos:
             k, n = tasas[modelo]
             tasa = k / n if n else 0.0
-            counts = [
-                [
-                    int(nivel),
-                    sum(
-                        1
-                        for celda in plan
-                        if celda["model_id"] == modelo and celda[campo] == nivel
-                    ),
-                ]
-                for nivel in niveles
-            ]
+            conteo = [0] * len(niveles)
+            for celda in plan:
+                if celda["model_id"] != modelo:
+                    continue
+                bruto = celda.get(campo)
+                if bruto is None:
+                    continue
+                nivel = int(bruto)
+                if plegar is not None:
+                    plegado = fold_band(nivel, len(niveles), plegar)
+                    # Una banda que el muestreo no declara no tiene sitio en la
+                    # escala y no se reparte a ojo: se queda fuera del conteo,
+                    # igual que su fila se queda fuera de la curva.
+                    if plegado is None:
+                        continue
+                    nivel = plegado
+                i = indice.get(nivel)
+                if i is None:
+                    continue
+                conteo[i] += 1
+            counts = [[int(nivel), conteo[i]] for i, nivel in enumerate(niveles)]
             informe = trend_power(
                 [(nivel, celdas, 0) for nivel, celdas in counts],
                 base_rate=tasa,
@@ -857,7 +1032,42 @@ def check_bank_size(bank: list[Artifact]) -> None:
         )
 
 
-def check_resume_design(header: dict, path: Path) -> None:
+def call_budget_for(
+    plan: list[dict], post_turns: int = N_POST_TURNS
+) -> dict[str, Any]:
+    """El presupuesto de `run_phase1a.call_budget` con los turnos de ESTA tanda.
+
+    Aquel cuenta siempre los dos turnos posteriores de D7, porque cuando se
+    escribió no había otra forma de correr una celda. Heredado tal cual, una
+    tanda de parte 1 declararía —y le imprimiría a quien la paga— 3.456 llamadas
+    al modelo evaluado y 2.304 al usuario simulado para una tirada que hace
+    1.152 y ninguna. El número que se lee antes de gastar es justo el que no
+    puede mentir, y el presupuesto es el motivo entero de partir la tanda.
+
+    Se recalcula encima del suyo en vez de tocarlo: `call_budget` lo comparten
+    las Fases 1a y 1b, que están pagadas y publicadas, y darle un parámetro
+    nuevo sería mover el camino de dos tandas cerradas para arreglar una tercera.
+    Lo que se rehace son las dos entradas que dependen de los turnos; el resto
+    —celdas, reparto por nivel y por modelo, prefijos— sale de allí.
+    """
+    presupuesto = dict(call_budget(plan))
+    con_pegote = sum(1 for c in plan if c["condition"] == "paste")
+    presupuesto["evaluated_model_calls"] = (
+        con_pegote * (1 + post_turns) + (len(plan) - con_pegote) * post_turns
+    )
+    presupuesto["simulated_user_calls"] = len(plan) * post_turns
+    # Va en el presupuesto y no solo en la cabecera: es lo que explica el número
+    # de al lado, y quien compare dos tiradas comparará estos dicts.
+    presupuesto["post_turns"] = post_turns
+    return presupuesto
+
+
+def check_resume_design(
+    header: dict,
+    path: Path,
+    post_turns: int = N_POST_TURNS,
+    models: tuple[str, ...] | list[str] = tuple(PHASE1D_MODELS),
+) -> None:
     """Que la tirada que se reanuda sea la de ESTE diseño, no la del barrido.
 
     `check_resume_level` no cubre esto y no puede: la Fase 1d anterior —el
@@ -877,7 +1087,35 @@ def check_resume_design(header: dict, path: Path) -> None:
     no puede dejar rastro. Una cabecera que no declara ni bandas ni posiciones
     —formato anterior a las dos— no contradice nada y no frena: lo que se castiga
     es la contradicción, no el silencio.
+
+    **Los turnos posteriores y el plantel se miran por lo mismo**, y los dos
+    fallos son silenciosos en direcciones opuestas. Reanudar una parte 1 con el
+    protocolo completo saltaría las 1.152 celdas ya hechas —el identificador no
+    lleva los turnos—, no correría ninguna y dejaría un fichero de filas sin
+    turnos posteriores bajo una cabecera que declara dos; la métrica de fuga de
+    la Fase 2 saldría entonces sobre un denominador de conversaciones que nunca
+    los tuvieron. Con otro plantel pasa lo contrario: el modelo SÍ va en el
+    identificador, así que no se saltaría ni una celda y se pagaría la tanda
+    entera por segunda vez.
     """
+    declarados = header.get("post_turns")
+    if declarados is not None and declarados != post_turns:
+        raise ValueError(
+            f"{path} se corrió con post_turns={declarados} y ahora se pide "
+            f"{post_turns}: las dos mitades de la tanda no se mezclan en un "
+            "fichero. Los identificadores de celda no llevan los turnos, así "
+            "que la reanudación daría por hechas filas que no tienen lo que la "
+            "cabecera declararía. Para añadir los turnos posteriores a una "
+            "parte 1 está `resume_post_turns`, que escribe un fichero nuevo."
+        )
+    plantel = header.get("roster")
+    if plantel is not None and list(plantel) != list(models):
+        raise ValueError(
+            f"{path} se corrió con el plantel {list(plantel)} y ahora se pide "
+            f"{list(models)}: el modelo va dentro del `conversation_id`, así "
+            "que no se saltaría ninguna celda y se pagaría la tanda entera otra "
+            "vez, anexada a la anterior bajo una sola cabecera."
+        )
     if header.get("sweep_positions") is not None:
         raise ValueError(
             f"{path} es una tirada del barrido por posiciones "
@@ -904,6 +1142,8 @@ def build_header(
     topics: list[Topic],
     started_at: float,
     acknowledge_underpowered: bool = False,
+    post_turns: int = N_POST_TURNS,
+    models: tuple[str, ...] | list[str] = tuple(PHASE1D_MODELS),
 ) -> dict:
     """La primera línea del JSONL (D5).
 
@@ -914,6 +1154,16 @@ def build_header(
     dentro de seis meses tiene que poder recontar el denominador sin reconstruir
     el plan. `RunHeader` no tiene esos campos —`records.py` no es de este
     agente— y se añaden a la línea, que es un dict.
+
+    Declara además **`post_turns`** y el **plantel realmente corrido**, que son
+    lo que distingue una tanda de parte 1 —prefijo, pegote y reacción— de una de
+    protocolo completo. Sin los dos campos los dos ficheros son indistinguibles
+    al analizarlos, y no son comparables: la métrica de fuga de la Fase 2 se
+    cuenta sobre los turnos posteriores, así que mezclarlos mete en el
+    denominador conversaciones que nunca los tuvieron. El plantel sale de lo que
+    se corre y no de `PHASE1D_MODELS`: esta tanda corre solo Opus, y una
+    cabecera que declarase los tres diría que los otros dos salieron a cero
+    cuando lo que pasa es que no corrieron.
     """
     header = run_header_line(
         RunHeader(
@@ -925,7 +1175,7 @@ def build_header(
             bank_sha=bank_sha(bank),
             topics_sha=topics_sha(topics),
             master_seed=seed,
-            roster=list(PHASE1D_MODELS),
+            roster=list(models),
             planned_cells=len(plan),
             embedding_model=config.EMBEDDING_MODEL,
             prefix_model=PREFIX_MODEL,
@@ -941,7 +1191,8 @@ def build_header(
     header["replicates"] = 1
     header["rubric_version"] = RUBRIC_VERSION
     header["judges"] = list(JUDGES)
-    header["call_budget"] = call_budget(plan)
+    header["post_turns"] = post_turns
+    header["call_budget"] = call_budget_for(plan, post_turns)
     # La potencia viaja con la tanda por la misma razón que el presupuesto de
     # llamadas y el sha del banco: es una propiedad del diseño, conocida antes de
     # llamar a nadie, y sin ella el fichero no dice qué podía haber visto. Va
@@ -958,6 +1209,8 @@ def main(
     out: Path | str | None = None,
     measure: bool = True,
     acknowledge_underpowered: bool = False,
+    post_turns: int = N_POST_TURNS,
+    models: tuple[str, ...] | list[str] = tuple(PHASE1D_MODELS),
 ) -> Path:
     """Corre la tanda entera y devuelve la ruta del JSONL.
 
@@ -987,10 +1240,28 @@ def main(
     familia declarada no llega al `MIN_POWER` del proyecto. Es un parámetro y no
     una constante porque es una decisión de quien paga la tanda, y queda escrita
     en la cabecera al lado de los números que la motivan.
+
+    **`post_turns` y `models` son las dos decisiones de gasto de esta tanda**, y
+    por eso son parámetros y no constantes:
+
+    - `post_turns=0` compra la **parte 1** —prefijo, pegote y reacción—, que es
+      lo único que decide la categoría G y por tanto lo único que hacen falta
+      para H4 y H5. Los dos turnos posteriores (D7) se generan más adelante, si
+      la Fase 2 los necesita, con `resume_post_turns` sobre la transcripción que
+      la fila guarda. Son dos tercios de las llamadas al modelo evaluado y todas
+      las del usuario simulado.
+    - `models=["claude-opus-5"]` corre el único modelo que produce G en N1: 55 %
+      frente al 9 % de `sol` y el 0 % de `luna` en la Fase 1a, con n = 96 por
+      modelo. No es un supuesto ni un atajo, es el resultado de la tanda
+      anterior: en los otros dos no hay curva que medir.
+
+    Los dos valores viajan a la cabecera, porque una tanda de parte 1 con un
+    solo modelo y una de protocolo completo con tres no son comparables y tienen
+    que poder distinguirse sin leer las filas.
     """
     topics = load_topics()
     topics_by_id = {t.id: t for t in topics}
-    plan = plan_phase1d(seed)
+    plan = plan_phase1d(seed, models=models)
     # Un solo banco, y pedido por su nivel: `load_artifacts()` sin nivel
     # devolvería N0 y N1 juntos, y el ranking —que aquí ES el eje— saldría
     # contaminado con artefactos que esta tanda no puede pegar.
@@ -1013,7 +1284,9 @@ def main(
         header_previa = read_run_header(path)
         # Antes de tocar nada: que el fichero sea de este brazo y de este diseño.
         check_resume_level(header_previa, PASTE_LEVEL, path)
-        check_resume_design(header_previa, path)
+        check_resume_design(
+            header_previa, path, post_turns=post_turns, models=models
+        )
         run_id = header_previa.get("run_id") or path.stem
         compact_resume_file(path, out=path)
         done, _ = resume_state(path)
@@ -1022,13 +1295,15 @@ def main(
         run_id = path.stem
         done = set()
 
-    presupuesto = call_budget(plan)
+    presupuesto = call_budget_for(plan, post_turns)
     print(
         f"--- fase {PHASE} ({PASTE_LEVEL}, {len(bank)} artefactos) | "
         f"{presupuesto['cells']} celdas | {BANDS} bandas x "
-        f"{ARTIFACTS_PER_BAND} artefactos por prefijo | llamadas: "
-        f"{presupuesto['evaluated_model_calls']} al modelo evaluado, "
-        f"{presupuesto['simulated_user_calls']} al usuario simulado, "
+        f"{ARTIFACTS_PER_BAND} artefactos por prefijo | plantel "
+        f"{list(models)} | {post_turns} turnos posteriores"
+        + (" (parte 1: solo la reacción)" if not post_turns else "")
+        + f" | llamadas: {presupuesto['evaluated_model_calls']} al modelo "
+        f"evaluado, {presupuesto['simulated_user_calls']} al usuario simulado, "
         f"{presupuesto['prefixes']} prefijos (ya en disco desde la Fase 0)"
     )
 
@@ -1060,6 +1335,8 @@ def main(
                 topics,
                 time.time(),
                 acknowledge_underpowered=acknowledge_underpowered,
+                post_turns=post_turns,
+                models=models,
             )
             fh.write(json.dumps(header, ensure_ascii=False) + "\n")
             fh.flush()
@@ -1075,7 +1352,14 @@ def main(
             partial: dict[str, Any] = {}
             try:
                 rec = run_cell(
-                    cell, topic, bank, rank_caches, run_id, started_at, partial
+                    cell,
+                    topic,
+                    bank,
+                    rank_caches,
+                    run_id,
+                    started_at,
+                    partial,
+                    post_turns=post_turns,
                 )
             except Exception as exc:  # D6: una celda rota no tumba la tirada.
                 rec = failed_record(
@@ -1096,6 +1380,8 @@ def main(
     summary = {
         "run_id": run_id,
         "path": str(path),
+        "post_turns": post_turns,
+        "roster": list(models),
         "planned": len(plan),
         "completed": completed,
         "failed": failed,
@@ -1125,6 +1411,365 @@ def main(
     for b in range(BANDS):
         print(f"---   banda {b}: {summary['by_band'][b]}")
     return path
+
+
+
+# --- la parte 2: los turnos posteriores, meses después ----------------------
+
+
+def _record_from_row(row: dict) -> Phase0Record:
+    """Una fila del JSONL de vuelta a la fila que la escribió.
+
+    Se filtra por los campos del dataclass a propósito: `to_json()` añade la
+    columna derivada `similarity_text_truncated`, que no es campo y que el
+    constructor aceptaría como el nombre antiguo del booleano colapsado — o sea
+    que pasarla a ciegas resucitaría una ruta de compatibilidad (con su
+    `DeprecationWarning`) en filas que ya tienen los dos truncados desglosados.
+    """
+    campos = set(Phase0Record.field_names())
+    return Phase0Record(**{k: v for k, v in row.items() if k in campos})
+
+
+def _con_part1(rec: Phase0Record, fila: dict) -> dict:
+    """La fila de la parte 2 con el `status` que la parte 1 dejó, al lado.
+
+    `status` pasa a ser el de la conversación entera —turnos posteriores
+    incluidos, que es lo correcto para el recuento de fuga de la Fase 2— y eso
+    lo puede bajar de `ok` a `truncated`, `refusal`, `empty` o `http_error` por
+    algo que ocurrió DESPUÉS de la reacción al pegote. `part1_status` guarda lo
+    que la fila declaraba cuando se juzgó, que es lo que decide si su reacción
+    entra en el denominador de G (H4 y H5). Sin él, el fichero completo —el que
+    parece el bueno, porque tiene la conversación entera— tendría menos filas en
+    ese denominador que el de la parte 1, y no habría forma de recuperarlas sin
+    volver a abrir el fichero viejo y cruzar por `conversation_id`.
+
+    Se escribe **siempre** en las filas continuadas, no solo cuando el estado
+    cambia: un campo que aparece únicamente en las filas dañadas es un campo que
+    hay que saber que existe para poder buscarlo, y `reaction_judgeable` tendría
+    que distinguir «no lo lleva porque no cambió» de «no lo lleva porque es de
+    otra tanda». Va fuera del dataclass —como los campos de banda de la
+    cabecera— porque `records.py` lo comparten las fases anteriores.
+    """
+    salida = rec.to_json()
+    salida["part1_status"] = fila["status"]
+    return salida
+
+
+def resume_post_turns(
+    run_path: Path | str,
+    out: Path | str,
+    post_turns: int = N_POST_TURNS,
+) -> Path:
+    """Le añade los turnos posteriores (D7) a una tirada de parte 1.
+
+    **Por qué existe antes de hacer falta.** La tanda se parte en dos partes que
+    se pagan por separado: la parte 1 —prefijo, pegote y reacción— decide la
+    categoría G, que es la variable de H4 y H5, y es lo único que hay que
+    comprar para responder la pregunta de la fase; la parte 2 son los dos turnos
+    posteriores, que alimentan el recuento de fuga de entidades de la Fase 2.
+    Esta función es lo que hace que la parte 1 no sea una tanda mutilada, y por
+    eso se escribe **ahora**, con sus tests y sin correrse: partir el gasto sin
+    haber comprobado que la segunda mitad es posible sería decidir hoy con una
+    promesa que solo se puede desmentir dentro de meses, cuando las 1.152
+    conversaciones ya estén pagadas.
+
+    **Lo que no vuelve a pagar.** La reacción al pegote. Está en la fila y la
+    transcripción guardada la lleva entera con sus `tag`, así que
+    `continue_after_paste` la retoma tal cual: se llama al modelo evaluado
+    `post_turns` veces por fila y ni una más. Repetirla costaría dos tercios de
+    la parte 1 otra vez y, peor, cambiaría el estímulo: la reacción nueva no
+    sería la que la fila declara ni la que el juez clasificó.
+
+    **Qué filas se continúan.** Las `ok`. Una fila que falló en la parte 1 no
+    tiene una reacción completa de la que seguir, así que continuarla produciría
+    turnos colgando de un agujero y una fila que la Fase 2 contaría como
+    completa. Se copian tal cual, sin gastar una llamada: las pérdidas por banda
+    son un dato del diseño —dicen si el hueco del eje es sistemático o
+    aleatorio— y perderlas por el camino sería peor que no tener la parte 2.
+
+    **El fichero de salida es nuevo.** No se reescribe la parte 1: es la tanda
+    que se pagó y se clasificó, y su cabecera declara `post_turns: 0`. La salida
+    hereda esa cabecera —mismo diseño, mismo banco, mismo plantel, misma
+    potencia— con `post_turns` ya al día y un `post_turns_run` que dice de qué
+    fichero salió y con qué código se generó la segunda mitad: el `code_sha` de
+    la cabecera es el de la parte 1, y fingir que es el de las dos sería la
+    procedencia falsa que D5 existe para evitar.
+
+    **Lo que la parte 2 no puede quitarle a la parte 1.** El `status` de la fila
+    pasa a ser el de la conversación entera, así que un turno posterior cortado
+    o una negativa en un turno posterior lo bajan de `ok`. Eso es correcto para
+    la Fase 2 —esos turnos son los que se cuentan— y sería un desastre para H4 y
+    H5, porque `JUDGEABLE_STATUSES` es `{"ok"}` y la fila saldría del
+    denominador de G con la reacción al pegote intacta: el fichero completo
+    tendría menos filas que el de la parte 1 y la diferencia la decidiría algo
+    posterior al estímulo. Por eso cada fila continuada se lleva su
+    `part1_status` (ver `_con_part1`) y el denominador de G se lee con
+    `reaction_judgeable`; y por eso el resumen cuenta las degradaciones **por
+    banda**, que es donde se ve si el hueco cae todo en un extremo del eje.
+
+    Se reanuda como cualquier otra tirada de este repositorio, y por el mismo
+    motivo: los turnos posteriores también cuestan, así que una caída a mitad de
+    camino no puede obligar a pagarlos dos veces.
+    """
+    run_path = Path(run_path)
+    out = Path(out)
+    if post_turns < 1:
+        raise ValueError(
+            f"post_turns={post_turns}: esta función existe para añadir turnos, "
+            "y con 0 lo único que haría es copiar el fichero con otro nombre"
+        )
+
+    header_origen = read_run_header(run_path)
+    if not header_origen:
+        raise ValueError(
+            f"{run_path} no tiene cabecera: sin ella no se sabe de qué tirada "
+            "son las filas ni con qué diseño se corrieron (D5)"
+        )
+    declarados = header_origen.get("post_turns")
+    if declarados != 0:
+        raise ValueError(
+            f"{run_path} declara post_turns={declarados!r}, no 0: no es una "
+            "tirada de parte 1. Una transcripción se puede continuar siempre, "
+            "así que esto no reventaría solo: dejaría filas con "
+            f"{(declarados or 0) + post_turns} turnos posteriores bajo una "
+            f"cabecera que declara {post_turns}, y el recuento de fuga de la "
+            "Fase 2 saldría sobre el doble de texto en unas filas que en otras. "
+            "Lo que decide es lo que la cabecera declara, no la forma de las "
+            "filas."
+        )
+
+    topics_by_id = {t.id: t for t in load_topics()}
+    filas = load_rows(run_path)
+    origen_id = header_origen.get("run_id") or run_path.stem
+
+    resuming = is_resumable(out)
+    if resuming:
+        header_previa = read_run_header(out)
+        if header_previa.get("post_turns") != post_turns:
+            raise ValueError(
+                f"{out} se empezó con post_turns="
+                f"{header_previa.get('post_turns')!r} y ahora se piden "
+                f"{post_turns}: las filas hechas tendrían otros turnos que las "
+                "que quedan."
+            )
+        previo = header_previa.get("post_turns_run") or {}
+        if previo.get("source_run_id") != origen_id:
+            raise ValueError(
+                f"{out} continúa la tirada {previo.get('source_run_id')!r} y "
+                f"ahora se le pasa {origen_id!r}: los identificadores de celda "
+                "de dos tiradas distintas no se solapan, así que no se saltaría "
+                "ninguna y quedarían las dos mezcladas bajo una cabecera."
+            )
+        run_id = header_previa.get("run_id") or out.stem
+        compact_resume_file(out, out=out)
+        done, _ = resume_state(out)
+        print(f"reanudando {out.name}: {len(done)} filas ya completadas")
+    else:
+        run_id = out.stem
+        done = set()
+
+    a_continuar = [f for f in filas if f.get("status") == "ok"]
+    print(
+        f"--- parte 2 de {run_path.name}: {len(a_continuar)} de {len(filas)} "
+        f"filas continuables x {post_turns} turnos | llamadas: "
+        f"{len(a_continuar) * post_turns} al modelo evaluado y otras tantas al "
+        "usuario simulado. La reacción al pegote NO se vuelve a pagar"
+    )
+
+    completed = 0
+    failed = 0
+    copied = 0
+    skipped = 0
+    # Por banda, como en `main` y por el mismo motivo: un recuento global no
+    # distingue 288 pérdidas repartidas de 288 apiladas en un extremo del eje, y
+    # aquí la diferencia importa más todavía —el orden del fichero es el del
+    # plan, que lleva la banda en el bucle más interno, así que una avería
+    # periódica del gateway cae toda en la misma banda—. `degraded` es la cuenta
+    # que no existía: filas que la parte 1 dejó juzgables y que la parte 2 saca
+    # del denominador de G. No se pierden (`part1_status` las conserva), pero
+    # que no se pierdan no quita que haya que poder verlas.
+    by_band: dict[Any, Counter] = {b: Counter() for b in range(BANDS)}
+
+    def _cuenta(fila: dict, que: str) -> None:
+        banda = fila.get("stratum")
+        by_band.setdefault(banda, Counter())[que] += 1
+
+    with out.open("a" if resuming else "w", encoding="utf-8") as fh:
+        if not resuming:
+            cabecera = dict(header_origen)
+            cabecera["run_id"] = run_id
+            cabecera["post_turns"] = post_turns
+            # La procedencia de la SEGUNDA mitad, separada de la primera: el
+            # `code_sha` de la cabecera es el del código que compró la reacción,
+            # y estos turnos los genera otro commit, meses después.
+            cabecera["post_turns_run"] = {
+                "source_run_id": origen_id,
+                "source_path": str(run_path),
+                "code_sha": code_sha(),
+                "started_at": time.time(),
+                "rows": len(filas),
+                "resumable_rows": len(a_continuar),
+                "evaluated_model_calls": len(a_continuar) * post_turns,
+                "simulated_user_calls": len(a_continuar) * post_turns,
+            }
+            fh.write(json.dumps(cabecera, ensure_ascii=False) + "\n")
+            fh.flush()
+
+        for fila in filas:
+            if fila.get("conversation_id") in done:
+                skipped += 1
+                _cuenta(fila, "skipped")
+                continue
+
+            if fila.get("status") != "ok":
+                # Tal cual, sin tocarle una coma —ni `part1_status`: la fila no
+                # se continúa, así que su `status` sigue siendo el de su
+                # reacción y `reaction_judgeable` lo lee de ahí. Añadirle el
+                # campo sería reescribir una fila que la parte 1 cerró.
+                fh.write(json.dumps(fila, ensure_ascii=False) + "\n")
+                copied += 1
+                _cuenta(fila, "copied")
+                continue
+
+            rec = _record_from_row(fila)
+            topic = topics_by_id[rec.topic_id]
+            transcript = rec.transcript
+            # La transcripción tal y como la dejó la parte 1. Si la continuación
+            # revienta a mitad, `continue_after_paste` ya ha podido añadir el
+            # turno de usuario que se quedó sin respuesta, y dejarlo dentro
+            # haría que el siguiente intento continuara encima de un mensaje
+            # colgado: la fila acabaría con tres turnos de usuario y dos
+            # respuestas.
+            antes = list(transcript)
+            request_params = dict(rec.request_params)
+            user_replies: list = []
+            comenzo = time.time()
+            try:
+                post_indices, post_usages, post_replies = continue_after_paste(
+                    rec.model_id,
+                    transcript,
+                    topic,
+                    n_post=post_turns,
+                    request_params_out=request_params,
+                    user_replies_out=user_replies,
+                )
+            except Exception as exc:  # D6: una fila rota no tumba la parte 2.
+                # El origen se lee del transcript **como lo dejó el fallo**, y
+                # por eso va ANTES de restaurarlo: `failure_origin` distingue
+                # quién habló mirando el último mensaje —un turno de usuario
+                # esperando respuesta significa que quien reventó fue el modelo
+                # evaluado—, y sobre el transcript ya restaurado todos los
+                # fallos de la etapa `post` saldrían como del arnés. Un
+                # `http_error` del modelo contado como `harness_error` es la
+                # confusión que D6 existe para no cometer.
+                origen = failure_origin(STAGE_POST, transcript)
+                rec.transcript = antes
+                rec.post_indices = []
+                rec.status, rec.error_code, rec.error_body = _status_for_error(
+                    exc, origin=origen
+                )
+                fh.write(json.dumps(_con_part1(rec, fila), ensure_ascii=False) + "\n")
+                fh.flush()
+                failed += 1
+                _cuenta(fila, "failed")
+                _cuenta(fila, "degraded")
+                continue
+
+            traces = reply_traces(post_replies)
+            stop_reasons = list(rec.stop_reasons) + [t["stop_reason"] for t in traces]
+            # La reacción ya pagada vuelve a entrar en la cuenta del `status`:
+            # si viniera vacía, la fila es `empty` por mucho que los turnos
+            # nuevos hayan ido bien. Envuelta porque `_has_empty_response` lee
+            # `.text`, y un `str` suelto le saldría vacío siempre.
+            respuestas = [SimpleNamespace(text=rec.reaction), *post_replies]
+            status = conversation_status(stop_reasons, respuestas)
+
+            user_traces = list(rec.user_reply_traces) + [
+                {**trace, "stage": STAGE_POST}
+                for trace in reply_traces(user_replies)
+            ]
+            # El prefijo compartido son los mensajes anteriores al pegote, que
+            # es justo lo que `paste_index` guarda: así cada problema dice su
+            # etapa sin tener que recontar el transcript.
+            problemas = user_side_problems(
+                user_traces, transcript, prefix_len=rec.paste_index or 0
+            )
+            if problemas:
+                status = HARNESS_ERROR
+                rec.error_code = SimulatedUserError.__name__
+                rec.error_body = "; ".join(problemas)[:ERROR_BODY_CHARS]
+
+            rec.post_indices = post_indices
+            rec.stop_reasons = stop_reasons
+            rec.usages = list(rec.usages) + list(post_usages)
+            rec.attempts = max(rec.attempts, _attempts(traces))
+            rec.request_params = request_params
+            rec.user_reply_traces = user_traces
+            rec.user_stop_reasons = [t.get("stop_reason") for t in user_traces]
+            rec.status = status
+            rec.ended_at = time.time()
+            # Los dos tramos se suman: la latencia de esta fila es lo que costó
+            # producirla, y se produjo en dos veces.
+            rec.latency_ms = int(rec.latency_ms or 0) + int(
+                (rec.ended_at - comenzo) * 1000
+            )
+
+            fh.write(json.dumps(_con_part1(rec, fila), ensure_ascii=False) + "\n")
+            fh.flush()
+            if rec.status in DONE_STATUSES:
+                completed += 1
+                _cuenta(fila, "completed")
+            else:
+                failed += 1
+                _cuenta(fila, "failed")
+            if rec.status not in JUDGEABLE_STATUSES:
+                # Juzgable al salir de la parte 1 y ya no: la reacción sigue
+                # siendo la misma, lo que cambió es un turno posterior.
+                _cuenta(fila, "degraded")
+
+    summary = {
+        "run_id": run_id,
+        "path": str(out),
+        "source_run_id": origen_id,
+        "source_path": str(run_path),
+        "post_turns": post_turns,
+        "rows": len(filas),
+        "completed": completed,
+        "failed": failed,
+        # Las filas que ya venían rotas de la parte 1: ni se continúan ni se
+        # pierden.
+        "copied": copied,
+        "skipped": skipped,
+        # Cuántas filas juzgables de la parte 1 deja de serlo la conversación
+        # entera. Su reacción no ha cambiado —`part1_status` la mantiene en el
+        # denominador de G— pero el número tiene que estar: si sube, la Fase 2
+        # está midiendo la fuga sobre bastantes menos conversaciones de las que
+        # se compraron.
+        "degraded": sum(c["degraded"] for c in by_band.values()),
+        # Y repartido por banda, que es lo que dice si el hueco de la Fase 2 es
+        # sistemático en un extremo del eje o ruido repartido.
+        "by_band": {
+            b: {
+                clave: c[clave]
+                for clave in ("completed", "failed", "copied", "skipped", "degraded")
+            }
+            for b, c in by_band.items()
+        },
+    }
+    summary_file = summary_path(run_id, out=out)
+    summary_file.parent.mkdir(parents=True, exist_ok=True)
+    summary_file.write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    print(
+        f"--- parte 2: completadas {completed} | fallidas {failed} | "
+        f"copiadas sin continuar {copied} | saltadas {skipped} | "
+        f"salen del denominador de G por los turnos posteriores: "
+        f"{summary['degraded']} (siguen juzgables por `part1_status`)"
+    )
+    for b, cuenta in summary["by_band"].items():
+        print(f"---   banda {b}: {cuenta}")
+    return out
 
 
 def _cell_line(rec: ConversationRecord, cell: dict) -> str:
