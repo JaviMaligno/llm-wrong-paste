@@ -1,5 +1,7 @@
 from collections import Counter
 
+import math
+
 import pytest
 
 from wrongpaste.artifacts import _parse, entity_hits, load_artifacts
@@ -161,8 +163,18 @@ def test_un_frontmatter_que_miente_sobre_su_nivel_se_rechaza(tmp_path):
 # de la ventana del estrato, el artefacto cuyo género lleve menos usos. Un
 # género con uno o dos artefactos sale sobremuestreado una y otra vez, y un
 # género con doce arrastra el banco entero. De ahí la horquilla.
-MIN_POR_GENERO = 3
-MAX_POR_GENERO = 6
+# La horquilla es PROPORCIONAL al tamaño del banco, no un par de números fijos.
+# Con 44 artefactos y 11 géneros lo uniforme son 4 por género y la horquilla sale
+# [3, 6], que es la que había escrita a mano. Al crecer el banco a 72 lo uniforme
+# pasa a 6,5 y un tope absoluto de 6 haría imposible cualquier reparto: el
+# criterio es el equilibrio relativo, así que se expresa como tal.
+FACTOR_MIN = 0.6
+FACTOR_MAX = 1.4
+
+
+def _horquilla(n_artefactos: int, n_generos: int) -> tuple[int, int]:
+    uniforme = n_artefactos / n_generos
+    return math.floor(FACTOR_MIN * uniforme), math.ceil(FACTOR_MAX * uniforme)
 
 
 def test_el_banco_n1_reparte_los_generos():
@@ -171,7 +183,9 @@ def test_el_banco_n1_reparte_los_generos():
     Se mide sobre el banco real en disco a propósito: un recuento construido a
     mano en el test no diría nada de los ficheros que el runner va a cargar.
     """
-    reparto = Counter(a.kind for a in load_artifacts(level="N1"))
+    banco = load_artifacts(level="N1")
+    reparto = Counter(a.kind for a in banco)
+    MIN_POR_GENERO, MAX_POR_GENERO = _horquilla(len(banco), len(reparto))
     flacos = {k: n for k, n in reparto.items() if n < MIN_POR_GENERO}
     gordos = {k: n for k, n in reparto.items() if n > MAX_POR_GENERO}
     assert not flacos, (
