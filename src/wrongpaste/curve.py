@@ -58,6 +58,20 @@ def _como_hipotesis(valor: Hypothesis | frozenset[str] | set[str]) -> Hypothesis
     return valor if isinstance(valor, Hypothesis) else Hypothesis(frozenset(valor))
 
 
+# El eje de la Fase 1d: cuatro BANDAS por rango del ranking, no doce puestos.
+#
+# Viaja en la fila como `stratum`/`n_strata` porque una banda es literalmente un
+# estrato por rango —la misma partición que `stratum_window` de la Fase 0—, y el
+# runner deja `sweep_position` en `None`: escribir la banda ahí haría que un
+# análisis conjunto leyera las dos tandas como si hubieran muestreado igual.
+#
+# Se escribe aquí y no se importa de `run_phase1d` para no atar el análisis al
+# runner —`curve` no sabe de tiradas—, y la suite del runner comprueba que los
+# dos números sigan siendo el mismo. Duplicar el 4 sin ese test sería la manera
+# de que el día que alguien mueva las bandas el análisis siga leyendo cuatro.
+BANDS = 4
+BAND_LEVELS: tuple[int, ...] = tuple(range(BANDS))
+
 # **Cada tanda declara SU familia.** Hasta la Fase 1d bastaba una constante
 # única porque solo había una tanda que corregir; con dos, una familia global
 # corrige por pruebas que esta tanda no ha corrido —infla el `p` ajustado— y
@@ -81,7 +95,15 @@ HYPOTHESIS_FAMILIES: dict[str, dict[str, Hypothesis | frozenset[str]]] = {
     # eso no están en esta familia: describir no es contrastar, y meterlas
     # dentro le costaría potencia a H4 por pruebas que no deciden nada.
     "1d": {
-        "H4 contempla el error": Hypothesis(ENTERTAINS_ERROR),
+        # H4 va sobre la BANDA (`stratum`), que es el eje que esta tanda muestrea
+        # y el único que sus filas escriben. Declararla sobre `sweep_position`
+        # —el eje de la 1b— la dejaba midiendo un campo que el runner de la 1d
+        # pone a `None` en las 1.152 filas, y el informe salía bien formado con
+        # la curva a n = [0] * 12 y p = 1,0: la hipótesis primaria de la tanda
+        # certificando una llanura sobre cero conversaciones.
+        "H4 contempla el error": Hypothesis(
+            ENTERTAINS_ERROR, axis="stratum", levels=BAND_LEVELS
+        ),
         # H5: más G en las conversaciones largas. Mismo conjunto, otro eje. Va
         # por modelo como H4 porque así la declara la familia (2 x 3 = 6); el
         # agregado de ~137 por longitud que menciona el texto del plan sale en
@@ -446,14 +468,20 @@ def trend_report(
     número de pruebas que acaba de correr, para que nadie lea tres pruebas al
     5 % como si fueran una.
     """
+    # Los niveles de VERDAD, que con `levels` no son `positions`. El informe
+    # declaraba 12 puntos para la curva de dos de H5 —y habría declarado 12 para
+    # las cuatro bandas de H4— porque copiaba el argumento en vez de la escala
+    # que se acaba de usar. Un `positions` que no es el largo de `curve` es la
+    # misma clase de mentira que este módulo está corrigiendo, en pequeño.
+    niveles = _niveles(positions, levels)
     informe: dict = {
         "member": sorted(member),
-        "positions": positions,
+        "positions": len(niveles),
         # El eje viaja en el informe porque dos hipótesis de la misma familia
         # pueden medir el MISMO conjunto sobre ejes distintos (H4 y H5 de la
         # Fase 1d): sin esto, las dos curvas se leen como la misma repetida.
         "axis": axis,
-        "levels": list(range(positions)) if levels is None else list(levels),
+        "levels": niveles,
         "replicate_agreement_n0": REPLICATE_AGREEMENT_N0,
         # El que manda para juzgar ESTA curva: el binario de su conjunto.
         "replicate_agreement_member": replicate_agreement(member),
@@ -546,6 +574,37 @@ def primary_family_report(
         )
         for nombre, h in declaradas.items()
     }
+
+    # **Una hipótesis que no ha medido ni una fila no es un nulo.** `rate_by_
+    # position` descarta en silencio las filas cuyo eje sea `None` o caiga fuera
+    # de la escala —y hace bien: una fila sin eje no está en ningún punto de la
+    # curva—, así que una hipótesis declarada sobre un campo que la tanda no
+    # escribe sale como un informe **bien formado**: la curva a ceros, z = 0,
+    # p = 1,0, potencia 0 y el `family_size` correcto. Es exactamente lo que
+    # pasó al declarar H4 de la Fase 1d sobre `sweep_position` mientras el
+    # runner escribía la banda en `stratum`, y lo que la puerta del plan habría
+    # leído como «el parecido no importa» firmado sobre 1.152 conversaciones en
+    # las que no entró ninguna.
+    #
+    # Reventar aquí y no devolver una bandera: este informe es lo que autoriza a
+    # concluir, y una bandera más en un diccionario de veinte claves es una
+    # bandera que nadie mira. El nulo legítimo —`n` grande y `k` = 0, que es como
+    # la Fase 1b publicó H2— no pasa por aquí: ahí sí se midió, y lo que no hubo
+    # fue la conducta.
+    hay_categoria = any(row.get(CATEGORY_FIELD) is not None for row in rows)
+    if hay_categoria:
+        for nombre, informe in informes.items():
+            if sum(c["n"] for c in informe["pooled"]["curve"]) == 0:
+                raise ValueError(
+                    f"la hipótesis {nombre!r} no ha medido ni una de las "
+                    f"{len(rows)} filas: ninguna cae en el eje "
+                    f"{declaradas[nombre].axis!r} sobre los niveles "
+                    f"{informe['levels']}. No es una curva plana, es una "
+                    f"hipótesis declarada sobre un campo que esta tanda no "
+                    f"escribe — revisa el eje de la familia contra lo que el "
+                    f"runner pone en la fila"
+                )
+
     crudos = {
         (nombre, grupo): sub["trend"]["p"]
         for nombre, informe in informes.items()

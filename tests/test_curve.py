@@ -421,9 +421,9 @@ def test_el_informe_de_familia_corrige_por_el_tamano_declarado():
     """
     from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
 
-    filas = [{**_fila(p, "G" if p < 4 else "A", model=m), "n_turns": 2 + 8 * r}
+    filas = [_fila_banda(b, "G" if b < 2 else "A", 2 + 8 * r, model=m)
              for m in ("gpt-5.6-sol-tst", "gpt-5.6-luna-tst", "claude-opus-5")
-             for p in range(12) for r in range(2)]
+             for b in range(BANDAS_1D) for r in range(2)]
     rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
     assert rep["family_size"] == 6, "2 hipótesis x 3 modelos"
     assert set(rep["hypotheses"]) == {
@@ -461,28 +461,44 @@ def test_holm_multiplica_por_la_familia_de_la_tanda_y_no_por_la_de_otra():
     Las longitudes van alternadas para que H5 quede plana a propósito: lo que
     aquí se mide es el multiplicador, y si H5 llevara señal sería ella el `p`
     más pequeño y el test estaría comprobando otra cosa.
+
+    La rampa es de CUATRO bandas y no de doce puestos porque es el eje que la
+    Fase 1d muestrea y el único que sus filas escriben; está elegida para dar
+    casi el mismo `p` crudo que el caso de partida de 1b (0,0385 contra 0,0383),
+    así que la comparación entre familias sigue siendo la misma cuenta.
     """
     from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
 
-    # z = 2,0714 / p = 0,03832 sobre esta rampa, igual que en la familia de 1b.
-    rampa = [3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 6]
-    filas = _tanda_plana(("claude-opus-5", "gpt-5.6-sol-tst"))  # sin una sola G
+    # z = 2,0692 / p = 0,03853 sobre esta rampa, 24 filas por banda.
+    rampa = [1, 3, 4, 6]
+    # Los otros dos modelos, planos y sin una sola G, para que el `p` que decide
+    # sea el de luna y el multiplicador se lea sin ruido.
+    filas = [
+        _fila_banda(banda, "B", 2 + 8 * (i % 2), model=m)
+        for m in ("claude-opus-5", "gpt-5.6-sol-tst")
+        for banda in range(BANDAS_1D)
+        for i in range(24)
+    ]
     filas += [
-        {**_fila(pos, "G" if i < rampa[pos] else "B", model="gpt-5.6-luna-tst"),
-         "n_turns": 2 + 8 * (i % 2)}
-        for pos in range(12)
-        for i in range(8)
+        _fila_banda(
+            banda,
+            "G" if i < rampa[banda] else "B",
+            2 + 8 * (i % 2),
+            model="gpt-5.6-luna-tst",
+        )
+        for banda in range(BANDAS_1D)
+        for i in range(24)
     ]
     rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
     luna = rep["hypotheses"]["H4 contempla el error"]["by"]["gpt-5.6-luna-tst"]["trend"]
     h5_luna = rep["hypotheses"]["H5 contempla el error en las largas"]["by"][
         "gpt-5.6-luna-tst"]["trend"]
-    assert luna["p"] == pytest.approx(0.03832, rel=1e-3), "el caso de partida"
+    assert luna["p"] == pytest.approx(0.03853, rel=1e-3), "el caso de partida"
     assert h5_luna["n"] == 96 and h5_luna["p"] > luna["p"], "H5 corre y no manda"
     assert rep["family_size"] == 6
     assert luna["p_holm"] == pytest.approx(6 * luna["p"], rel=1e-12)
-    assert luna["p_holm"] == pytest.approx(0.22993, rel=1e-3)
-    assert luna["p_holm"] < 0.34, "0,345 sería haber corregido con la familia de 1b"
+    assert luna["p_holm"] == pytest.approx(0.23118, rel=1e-3)
+    assert luna["p_holm"] < 0.34, "0,347 sería haber corregido con la familia de 1b"
 
 
 def test_la_fase_1b_da_exactamente_lo_mismo_sin_declarar_familia():
@@ -573,6 +589,97 @@ def _tanda(modelos, g_por_longitud, k_por_posicion=None, por_celda=4):
 MODELOS3 = ("claude-opus-5", "gpt-5.6-luna-tst", "gpt-5.6-sol-tst")
 
 
+# --- H4 se contrasta sobre la BANDA, que es lo que la tanda varió -------------
+#
+# El rediseño movió la variable independiente de `sweep_position` a la banda del
+# ranking: `run_phase1d.run_cell` escribe la banda en `stratum` y deja
+# `sweep_position` en `None` a propósito, porque esta tanda no barrió puestos.
+# Una familia que siga declarando H4 sobre el eje viejo NO se queja:
+# `rate_by_position` salta las filas cuyo eje viene a `None`, así que las 1.152
+# se caen del contraste y H4 sale z = 0, p = 1 sobre n = 0. Un nulo impecable
+# calculado sobre cero observaciones tiene exactamente la misma pinta que un nulo
+# de verdad, y encima ocupa 3 de las 6 pruebas de la familia, así que el `p` de
+# H5 —la única que sí correría— paga x6 por tres contrastes vacíos.
+
+BANDAS_1D = 4
+
+
+def _fila_banda(band, cat, n_turns, model="gpt-5.6-sol-tst", signal=None):
+    """Una fila con la forma EXACTA que escribe `run_phase1d.run_cell`.
+
+    `sweep_position` va a `None` y la banda a `stratum`, con su denominador al
+    lado. Si este helper escribiera un `sweep_position`, los tests de abajo
+    pasarían con H4 declarada sobre el eje viejo y estarían certificando sobre
+    filas que el runner no escribe.
+    """
+    return {
+        "sweep_position": None,
+        "stratum": band,
+        "n_strata": BANDAS_1D,
+        "n_turns": n_turns,
+        CATEGORY_FIELD: cat,
+        "artifact_kind": "email",
+        "artifact_signal": signal,
+        "model_id": model,
+        # La banda alta es la más parecida: la similaridad crece con ella.
+        "similarity_user": 0.1 + 0.08 * band,
+        "status": "ok",
+    }
+
+
+def _tanda_1d(g_por_banda, g_por_longitud=None, por_celda=48):
+    """Las 1.152 celdas repartidas como las reparte el plan de la Fase 1d.
+
+    3 modelos x 4 bandas x 2 longitudes x 48. Los dos ejes quedan balanceados
+    entre sí a propósito: el efecto se pone en uno o en el otro, nunca en los
+    dos, y así una prueba que mire el eje equivocado no ve absolutamente nada.
+    """
+    filas = []
+    for m in MODELOS3:
+        for band in range(BANDAS_1D):
+            for n in (2, 10):
+                g = g_por_longitud[n] if g_por_longitud else g_por_banda[band]
+                for i in range(por_celda):
+                    filas.append(_fila_banda(band, "G" if i < g else "B", n, model=m))
+    return filas
+
+
+def test_h4_se_contrasta_sobre_la_banda_y_no_sobre_un_barrido_vacio():
+    """El contraste que paga la tanda tiene que ver las 1.152 filas.
+
+    La caída va metida en la banda y es enorme —del 75 % al 25 %—, así que si
+    H4 sigue declarada sobre `sweep_position` no sale «poco significativa»: sale
+    n = 0, z = 0, p = 1. Ese es el modo de fallo que este test tiene que pillar,
+    y por eso mira el denominador antes que el `p`: un contraste sobre cero
+    observaciones es el único que puede salir perfectamente plano teniendo medio
+    centenar de puntos de efecto delante.
+    """
+    from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
+
+    filas = _tanda_1d({0: 36, 1: 28, 2: 20, 3: 12})  # 75 % -> 25 % sobre 48
+    assert len(filas) == 1152, "el tamaño real de la tanda"
+    rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
+    h4 = rep["hypotheses"]["H4 contempla el error"]
+
+    # El eje declarado, que es lo que hace que las filas cuenten.
+    assert h4["axis"] == "stratum"
+    assert h4["levels"] == [0, 1, 2, 3], "cuatro bandas, no doce puestos"
+    # El denominador primero: 288 por banda agregadas, 384 por modelo.
+    assert [c["n"] for c in h4["pooled"]["curve"]] == [288, 288, 288, 288]
+    for modelo in MODELOS3:
+        t = h4["by"][modelo]["trend"]
+        assert t["n"] == 384, "1.152 celdas entre 3 modelos"
+        assert t["slope_sign"] == -1, "menos G cuanto más parecido el pegote"
+        assert t["p"] < 1e-9
+
+    # Y ninguna de las seis pruebas de la familia corre sobre el vacío: con H4
+    # sobre el eje viejo, tres de las seis salían con n = 0 y el multiplicador de
+    # Holm que paga H5 seguía siendo x6.
+    for nombre, inf in rep["hypotheses"].items():
+        for modelo, sub in inf["by"].items():
+            assert sub["trend"]["n"] > 0, (nombre, modelo)
+
+
 def test_la_familia_de_la_fase_1d_son_seis_pruebas_y_no_tres():
     """Lo que el plan declaró antes de mirar: 2 hipótesis x 3 modelos.
 
@@ -584,13 +691,15 @@ def test_la_familia_de_la_fase_1d_son_seis_pruebas_y_no_tres():
 
     assert len(HYPOTHESIS_FAMILIES["1d"]) == 2, "H4 y H5"
     rep = primary_family_report(
-        _tanda(MODELOS3, {2: 1, 10: 1}), family=HYPOTHESIS_FAMILIES["1d"]
+        _tanda_1d([24] * BANDAS_1D), family=HYPOTHESIS_FAMILIES["1d"]
     )
     assert rep["family_size"] == 6, "2 hipótesis x 3 modelos"
     assert len(rep["hypotheses"]) == 2
-    # Las dos miden el MISMO conjunto; lo que cambia es el eje.
+    # Las dos miden el MISMO conjunto; lo que cambia es el eje. Y el de H4 es la
+    # BANDA: con `sweep_position` estaría declarada sobre un campo que esta tanda
+    # no escribe, así que sus tres pruebas ocuparían familia sin medir nada.
     ejes = {inf["axis"] for inf in rep["hypotheses"].values()}
-    assert ejes == {"sweep_position", "n_turns"}
+    assert ejes == {"stratum", "n_turns"}
     for inf in rep["hypotheses"].values():
         assert inf["member"] == ["G"]
 
@@ -598,40 +707,44 @@ def test_la_familia_de_la_fase_1d_son_seis_pruebas_y_no_tres():
 def test_h5_se_contrasta_sobre_la_longitud_y_no_sobre_la_posicion():
     """El test que discrimina: G depende SOLO de la longitud.
 
-    Si H5 mirase `sweep_position` como H4, aquí saldría plana y este test
-    fallaría; si H4 mirase la longitud, saldría significativa y también fallaría.
-    Un test que solo comprobase `family_size == 6` pasaría con las dos pruebas
-    corriendo sobre el mismo eje, o sea con H5 siendo H4 otra vez.
+    Si H5 mirase la banda como H4, aquí saldría plana y este test fallaría; si
+    H4 mirase la longitud, saldría significativa y también fallaría. Un test que
+    solo comprobase `family_size == 6` pasaría con las dos pruebas corriendo
+    sobre el mismo eje, o sea con H5 siendo H4 otra vez —o con las dos sobre un
+    eje que la tanda no escribe, que es como estaban—.
     """
     from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
 
-    filas = _tanda(MODELOS3, {2: 1, 10: 3})  # 25 % en las cortas, 75 % en las largas
+    # 25 % en las cortas y 75 % en las largas, con las bandas equilibradas.
+    filas = _tanda_1d(None, g_por_longitud={2: 12, 10: 36})
     rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
     h4 = rep["hypotheses"]["H4 contempla el error"]
     h5 = rep["hypotheses"]["H5 contempla el error en las largas"]
     for modelo in MODELOS3:
-        pos = h4["by"][modelo]["trend"]
+        banda = h4["by"][modelo]["trend"]
         largo = h5["by"][modelo]["trend"]
-        assert pos["z"] == pytest.approx(0.0, abs=1e-9), "la posición no lleva señal"
+        assert banda["z"] == pytest.approx(0.0, abs=1e-9), "la banda no lleva señal"
+        assert banda["n"] == 384, "y las 384 filas del modelo entran en el contraste"
         assert largo["slope_sign"] == 1, "más G en las largas, que es la predicción"
         assert largo["p"] < 1e-5
-        assert largo["n"] == 96, "48 conversaciones por longitud y modelo"
-    # Y la curva de H5 tiene dos puntos, no doce: 2 y 10 turnos.
+        assert largo["n"] == 384, "192 conversaciones por longitud y modelo"
+    # Y la curva de H5 tiene dos puntos, no cuatro: 2 y 10 turnos.
     assert [c["position"] for c in h5["pooled"]["curve"]] == [2, 10]
-    assert [c["n"] for c in h5["pooled"]["curve"]] == [144, 144]
+    assert [c["n"] for c in h5["pooled"]["curve"]] == [576, 576]
 
 
-def test_h4_sigue_midiendo_la_posicion_cuando_la_longitud_esta_plana():
-    """El espejo del anterior: G depende SOLO de la posición."""
+def test_h4_sigue_midiendo_la_banda_cuando_la_longitud_esta_plana():
+    """El espejo del anterior: G depende SOLO de la banda del ranking."""
     from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
 
-    rampa = [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4]
-    filas = _tanda(MODELOS3, {2: 1, 10: 1}, k_por_posicion=rampa)
+    rampa = [12, 20, 28, 36]  # de 25 % a 75 % sobre las 48 celdas de cada mitad
+    filas = _tanda_1d(rampa)
     rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
     for modelo in MODELOS3:
         h4 = rep["hypotheses"]["H4 contempla el error"]["by"][modelo]["trend"]
         h5 = rep["hypotheses"]["H5 contempla el error en las largas"]["by"][modelo]["trend"]
         assert h4["slope_sign"] == 1 and h4["p"] < 0.01
+        assert h4["n"] == 384, "las filas del modelo, no un subconjunto"
         assert h5["z"] == pytest.approx(0.0, abs=1e-9), "la longitud no lleva señal"
 
 
@@ -657,7 +770,8 @@ def test_h5_viaja_con_el_suelo_binario_de_G():
     from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report, replicate_agreement
 
     rep = primary_family_report(
-        _tanda(MODELOS3, {2: 1, 10: 3}), family=HYPOTHESIS_FAMILIES["1d"]
+        _tanda_1d(None, g_por_longitud={2: 12, 10: 36}),
+        family=HYPOTHESIS_FAMILIES["1d"],
     )
     for inf in rep["hypotheses"].values():
         assert inf["replicate_agreement_member"] == replicate_agreement({"G"})
@@ -711,15 +825,24 @@ def test_la_potencia_esta_calculada_y_no_supuesta():
 
 
 def test_el_diseno_de_la_fase_1d_no_puede_sostener_un_nulo():
-    """288 celdas, 3 modelos, 12 posiciones: 8 por punto no ven 9 puntos.
+    """1.152 celdas, 3 modelos, 4 bandas: 96 por punto tampoco ven 9 puntos.
 
-    Con la tasa base de G medida en N1 (Opus 0,552) la potencia para la caída de
-    9 puntos que la puerta declara relevante es del 8 % a alfa 0,05, y del 3 %
-    con el alfa que de verdad tiene que batir el `p` más pequeño de una familia
-    de tres. Un contraste al 3 % de potencia no distingue «no hay efecto» de «hay
-    justo el efecto que buscábamos»: sale plano en los dos casos. El informe
-    tiene que llevar ese número dentro, porque es el que decide si el segundo
-    brazo de la puerta —«la conducta no depende del parecido»— se puede escribir.
+    **El rediseño mejoró esto y no lo arregló, y la diferencia entre las dos
+    cosas es justo lo que el informe tiene que decir.** El barrido de doce
+    puestos repartía 288 celdas en 8 observaciones por punto y modelo: potencia
+    del 3 % y una caída mínima detectable de medio centenar de puntos. Las
+    bandas reparten 1.152 celdas en 96 por punto y modelo, y con la tasa base de
+    G medida en N1 (Opus 0,55) eso sube la potencia al 9 % y baja la caída
+    mínima detectable a unos 24 puntos —con el alfa que de verdad tiene que batir
+    el `p` más pequeño de una familia de seis—. Sigue siendo un contraste que no
+    distingue «no hay efecto» de «hay justo el efecto que buscábamos»: para ver
+    los 9 puntos harían falta unas 670 observaciones por punto y modelo, o sea
+    siete veces esta tanda.
+
+    Por eso el número viaja dentro del informe: es el que decide si el segundo
+    brazo de la puerta —«la conducta no depende del parecido»— se puede escribir,
+    y una tanda cuatro veces más grande que la anterior invita a darlo por
+    escribible sin volver a mirar.
     """
     from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report
 
@@ -730,17 +853,17 @@ def test_el_diseno_de_la_fase_1d_no_puede_sostener_un_nulo():
     rng = np.random.default_rng(20260916)
     tasas = {"claude-opus-5": 16 / 29, "gpt-5.6-sol-tst": 3 / 32, "gpt-5.6-luna-tst": 0.0}
     filas = [
-        {**_fila(pos, "G" if rng.random() < tasa else "B", model=m),
-         "n_turns": 2 if i % 2 else 10}
+        _fila_banda(band, "G" if rng.random() < tasa else "B", 2 if i % 2 else 10, model=m)
         for m, tasa in tasas.items()
-        for pos in range(12)
-        for i in range(8)
+        for band in range(BANDAS_1D)
+        for i in range(96)
     ]
+    assert len(filas) == 1152, "el tamaño real de la tanda rediseñada"
     rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
 
     assert rep["null_is_informative"] is False, (
-        "con 8 observaciones por punto y modelo, que las pruebas salgan planas "
-        "no es evidencia de ausencia"
+        "con 96 observaciones por punto y modelo, que las pruebas salgan planas "
+        "sigue sin ser evidencia de ausencia"
     )
     pot = rep["hypotheses"]["H4 contempla el error"]["by"]["claude-opus-5"]["power"]
     assert pot["alpha"] == pytest.approx(0.05 / rep["family_size"]), (
@@ -749,10 +872,12 @@ def test_el_diseno_de_la_fase_1d_no_puede_sostener_un_nulo():
     assert pot["declared_drop"] == pytest.approx(0.09)
     assert pot["power"] < 0.10, pot
     assert pot["underpowered"] is True
-    # Lo que sí vería: una caída de medio centenar de puntos, no de nueve.
-    assert pot["minimum_detectable_drop"] > 0.45, pot
-    # Y lo que haría falta para ver los nueve: más de treinta veces estas celdas.
-    assert pot["observations_per_position_for_declared_drop"] > 200, pot
+    # Lo que sí vería: una caída de unos 24 puntos, no de nueve. Es menos de la
+    # mitad de los 56 del barrido viejo —el rediseño ganó eso— y sigue siendo el
+    # doble del listón que la puerta declara relevante.
+    assert 0.20 < pot["minimum_detectable_drop"] < 0.30, pot
+    # Y lo que haría falta para ver los nueve: unas siete veces estas celdas.
+    assert pot["observations_per_position_for_declared_drop"] > 600, pot
 
 
 def test_una_tasa_base_de_cero_no_puede_bajar_y_el_informe_lo_dice():
@@ -773,8 +898,9 @@ def test_una_tasa_base_de_cero_no_puede_bajar_y_el_informe_lo_dice():
 
 def test_un_diseno_con_potencia_declara_que_su_nulo_informa():
     """El contraste del test anterior: si la bandera fuera un `False` cableado,
-    los dos pasarían. Con 400 observaciones por punto y modelo, la misma caída de
-    9 puntos se ve de sobra y el nulo sí informa."""
+    los dos pasarían. Con 800 observaciones por banda y modelo —las ~670 que la
+    forma cerrada pide, con margen— la misma caída de 9 puntos se ve de sobra y
+    el nulo sí informa."""
     from wrongpaste.curve import HYPOTHESIS_FAMILIES, primary_family_report, trend_power
 
     grande = trend_power([(p, 400, 220) for p in range(12)])
@@ -784,11 +910,10 @@ def test_un_diseno_con_potencia_declara_que_su_nulo_informa():
 
     rng = np.random.default_rng(20260916)
     filas = [
-        {**_fila(pos, "G" if rng.random() < 0.55 else "B", model=m),
-         "n_turns": 2 if i % 2 else 10}
-        for m in ("claude-opus-5", "gpt-5.6-sol-tst", "gpt-5.6-luna-tst")
-        for pos in range(12)
-        for i in range(400)
+        _fila_banda(band, "G" if rng.random() < 0.55 else "B", 2 if i % 2 else 10, model=m)
+        for m in MODELOS3
+        for band in range(BANDAS_1D)
+        for i in range(800)
     ]
     rep = primary_family_report(filas, family=HYPOTHESIS_FAMILIES["1d"])
     assert rep["null_is_informative"] is True
@@ -972,3 +1097,66 @@ def test_el_brazo_neutro_no_lleva_control_de_senal_porque_no_hay_senal():
     filas = [_fila(p, "C" if p > 5 else "A") for p in range(12) for _ in range(8)]
     rep = trend_report(filas, {"C"})
     assert rep["signal_confound"] is None
+
+
+def test_una_hipotesis_que_no_mide_ni_una_fila_revienta_en_vez_de_salir_plana():
+    """Un informe que mide CERO filas no es un nulo: es una hipótesis mal cableada.
+
+    El daño concreto que esto evita ya ocurrió: la familia de la Fase 1d se
+    declaró sobre `sweep_position` y el runner de la Fase 1d escribe la banda en
+    `stratum` dejando aquel campo en `None`. `rate_by_position` descarta en
+    silencio las filas cuyo eje sea `None` —y hace bien, porque una fila sin eje
+    no está en ningún punto de la curva—, así que el informe salía **bien
+    formado**: `n = [0] * 12`, `z = 0,0`, `p = 1,0`, `family_size` correcto. La
+    puerta del plan lo habría leído como una curva plana sobre 1.152
+    conversaciones.
+
+    Arreglar el eje de H4 quita ESE caso; lo que quita la CLASE es esto. Es la
+    diferencia entre corregir el dato y corregir el instrumento: mañana alguien
+    declara otra hipótesis sobre otro campo que la tanda no escribe y el informe
+    volvería a salir plano y sin un solo error.
+
+    El nulo legítimo —n grande y k = 0, que es como la Fase 1b escribió H2— no
+    se toca: eso es no haber encontrado nada, y se reporta.
+    """
+    from wrongpaste.curve import Hypothesis, primary_family_report
+
+    # Las filas de la Fase 1d: banda en `stratum`, `sweep_position` a `None`.
+    filas = [
+        {
+            "stratum": b,
+            "n_strata": 4,
+            "sweep_position": None,
+            CATEGORY_FIELD: "G" if i < 2 else "B",
+            "model_id": "claude-opus-5",
+            "n_turns": 2 + 8 * (i % 2),
+            "artifact_signal": None,
+            "status": "ok",
+        }
+        for b in range(4)
+        for i in range(8)
+    ]
+    familia = {"H sobre un eje que esta tanda no escribe": Hypothesis(frozenset({"G"}))}
+    with pytest.raises(ValueError, match="sweep_position"):
+        primary_family_report(filas, family=familia)
+
+    # Y el control que hace discriminante al test: sobre el eje que la tanda SÍ
+    # escribe, el mismo informe sale y cuenta las 32 filas.
+    buena = {"H sobre la banda": Hypothesis(frozenset({"G"}), axis="stratum", levels=(0, 1, 2, 3))}
+    rep = primary_family_report(filas, family=buena)
+    curva = rep["hypotheses"]["H sobre la banda"]["pooled"]["curve"]
+    assert [c["n"] for c in curva] == [8, 8, 8, 8]
+
+
+def test_el_nulo_legitimo_de_la_fase_1b_sigue_saliendo_y_no_revienta():
+    """H2 de la Fase 1b fue `n` grande con `k = 0` y se publicó como «sin nada
+    que medir». Eso es un resultado, no un cableado roto, y tiene que seguir
+    saliendo: un guardián que confundiera «nadie hizo E» con «nadie midió»
+    tumbaría la tanda ya publicada.
+    """
+    filas = _tanda_plana(("claude-opus-5", "gpt-5.6-luna-tst", "gpt-5.6-sol-tst"))
+    rep = primary_family_report(filas)  # familia de 1b, sin una sola E
+    h2 = rep["hypotheses"]["H2 puente confabulado"]["pooled"]
+    assert sum(c["n"] for c in h2["curve"]) == 288
+    assert sum(c["k"] for c in h2["curve"]) == 0
+    assert h2["trend"]["p"] == pytest.approx(1.0)
