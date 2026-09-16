@@ -1,4 +1,4 @@
-"""Runner de la Fase 1b: el barrido de similaridad sobre el brazo N0.
+"""Runner del barrido de similaridad: Fase 1b sobre N0, Fase 1d sobre N1.
 
 La Fase 1a usaba la similaridad como **estrato**: ocho ventanas, y dentro de cada
 ventana se elegía cubriendo géneros. Servía para que el nivel del pegote no se
@@ -10,16 +10,28 @@ cada (tema, modelo) recorre **las doce posiciones** del ranking de su prefijo, d
 la menos parecida a la más parecida. Lo demás —prefijos, pegado, turnos
 posteriores, reanudación, fallo como dato— se importa de la Fase 1a sin tocarlo.
 
+**Un solo runner para las dos tandas.** La Fase 1b barrió el brazo limpio (N0) y
+no encontró nada: con un pegote sin señal, el parecido no predice la conducta.
+La pregunta que quedaba —en el brazo donde los modelos SÍ dudan, ¿el parecido
+ayuda o estorba?— es la Fase 1d, y es este mismo barrido sobre el banco N1. La
+única diferencia real es de qué banco sale el pegote, así que el nivel entra por
+parámetro (`main(level="N1")`) en vez de por un runner copiado: dos copias del
+mismo bucle divergen en cuanto alguien arregle una de las dos.
+
+Lo que el nivel cambia son tres cosas, y ninguna más: el banco, el prefijo del
+`conversation_id` —para que las dos tandas no compartan identificadores, que
+haría que una reanudación diera por hecha una celda de la otra— y el directorio
+de salida. El plan de celdas es idéntico, semillas incluidas, porque 1d se lee
+celda a celda contra 1b.
+
 Dos cosas que NO se hacen aquí, y constan en el plan:
 
-1. **No hay réplicas.** El acuerdo entre réplicas de N0 ya se midió en 1a (0,73)
-   y viaja en el informe como suelo de ruido. Para estimar una curva, 288
-   estímulos distintos valen más que 144 repetidos: dos tiradas del mismo pegote
-   están correlacionadas.
-2. **No entra N1 ni N2.** 1b va sobre el brazo limpio (§7 del spec). La
-   dependencia de G respecto al parecido vive en N1 y se queda para más adelante:
-   en N0, G es el 6,6 % y con 24 observaciones por posición su intervalo se come
-   cualquier efecto.
+1. **No hay réplicas.** El acuerdo entre réplicas ya se midió en 1a —0,73 sobre
+   N0, 0,87 sobre N1— y viaja en el informe como suelo de ruido. Para estimar
+   una curva, 288 estímulos distintos valen más que 144 repetidos: dos tiradas
+   del mismo pegote están correlacionadas.
+2. **No entra N2.** No es un banco: se fabrica contra cada conversación (ver
+   `contradictions.py`), así que no hay ranking que barrer.
 """
 
 from __future__ import annotations
@@ -103,17 +115,89 @@ SWEEP_POSITIONS = 12
 
 MASTER_SEED = 20260915
 
-# Un solo brazo, y declarado como constante para que no haya dos sitios donde
-# cambiarlo: el nivel entra en el plan, en el banco que se carga y en cada fila.
+# Cada tirada corre UN solo brazo, y el nivel entra por parámetro porque la
+# Fase 1d es este mismo barrido sobre el banco N1. No hay runner nuevo: la
+# única diferencia real es de qué banco sale el pegote, y dos copias del mismo
+# bucle divergen en cuanto alguien arregle una de las dos. `PASTE_LEVEL` se
+# queda como el valor por defecto —el de la tanda ya pagada— para que llamar a
+# `main()` sin argumentos siga siendo exactamente la Fase 1b.
 PASTE_LEVEL = "N0"
 
-PHASE = "1b"
+# Qué tanda es cada brazo. El nivel no basta como identidad: las dos tandas se
+# analizan juntas y viven en el mismo repositorio, así que la fase es lo que
+# separa los identificadores, los directorios de salida y el `phase` de la
+# cabecera (D5).
+PHASE_BY_LEVEL = {"N0": "1b", "N1": "1d"}
+
+PHASE = PHASE_BY_LEVEL[PASTE_LEVEL]
 
 OUT_DIR = Path(__file__).resolve().parents[2] / "runs" / "phase1b"
 
 # Rutas declaradas en la cabecera (D5). Viven en el repo del blog, no en este.
-PLAN_PATH = "docs/superpowers/plans/2026-09-15-pegado-accidental-fase-1b.md"
+# El plan es distinto en cada tanda y la cabecera tiene que decir cuál se
+# siguió: apuntar la tirada de 1d al plan de 1b sería declarar una procedencia
+# falsa justo en el campo que existe para no tener que reconstruirla.
+PLAN_PATH_BY_LEVEL = {
+    "N0": "docs/superpowers/plans/2026-09-15-pegado-accidental-fase-1b.md",
+    "N1": "docs/superpowers/plans/2026-09-16-pegado-accidental-fase-1d.md",
+}
+PLAN_PATH = PLAN_PATH_BY_LEVEL[PASTE_LEVEL]
 SPEC_PATH = "docs/superpowers/specs/2026-09-14-pegado-accidental-fase-1-design.md"
+
+
+def out_dir_for(level: str) -> Path:
+    """Dónde cae la tirada de cada brazo cuando no se le da `out`.
+
+    N1 va a `runs/phase1d/` y no a `runs/phase1b/`: el análisis de una tanda
+    lista su directorio, y mezclarlas ahí haría que 1b leyera filas de 1d sin
+    que nadie lo hubiera pedido. Se deriva de `OUT_DIR` en vez de ser una tabla
+    aparte para que quede un solo sitio que apunte a `runs/` —y para que los
+    tests, que redirigen `OUT_DIR` a un `tmp_path`, redirijan los dos brazos.
+    """
+    if level == PASTE_LEVEL:
+        return OUT_DIR
+    return OUT_DIR.parent / f"phase{PHASE_BY_LEVEL[level]}"
+
+
+def check_resume_level(header: dict, level: str, path: Path) -> None:
+    """Que la tirada que se reanuda sea la del brazo que se está corriendo.
+
+    El prefijo `p1b-`/`p1d-` de `make_conversation_id` impide que los
+    identificadores de las dos tandas choquen, y eso es justo lo que hace que
+    equivocarse de nivel al reanudar sea **silencioso** en vez de ruidoso:
+    reanudar sin `level` un fichero de la Fase 1d no da por hecha ninguna celda
+    —ninguno de los 288 identificadores `p1b-` está entre los `p1d-` del
+    fichero—, así que no salta ninguna, vuelve a pagar la tirada entera y anexa
+    288 filas `paste_level: "N0"` bajo una cabecera que declara `phase: "1d"` y
+    `levels: ["N1"]`. El análisis de 1d lista su directorio y lee el fichero, con
+    lo que mezclaría los dos brazos; lo único que se vería sería un resumen
+    diciendo «saltadas: 0».
+
+    Se comprueba contra lo que la cabecera **declara** (D5), que es el campo que
+    existe para no tener que reconstruir la procedencia, y antes de tocar el
+    fichero: `compact_resume_file` lo reescribe, y una reanudación que no se
+    puede hacer no puede dejar rastro. Una cabecera que no declara nivel ni fase
+    —formato anterior— no contradice nada y no frena: lo que se castiga es la
+    contradicción, no el silencio.
+    """
+    declarados = header.get("levels")
+    fase = header.get("phase")
+    esperada = PHASE_BY_LEVEL[level]
+    if declarados is not None and list(declarados) != [level]:
+        raise ValueError(
+            f"{path} es una tirada de {declarados} y se está reanudando con "
+            f"level={level!r}: las celdas de un brazo no aparecen entre las "
+            f"hechas del otro (los identificadores llevan el prefijo de su "
+            f"fase), así que la reanudación no saltaría ninguna y anexaría "
+            f"{level} bajo una cabecera que dice {declarados}. Pasa "
+            f"level={declarados[0]!r} si querías continuar esa tirada."
+        )
+    if fase is not None and fase != esperada:
+        raise ValueError(
+            f"{path} es una tirada de la fase {fase} y se está reanudando como "
+            f"fase {esperada} (level={level!r}): mezclar las dos tandas en un "
+            f"fichero deja filas de dos brazos bajo una sola cabecera."
+        )
 
 
 def sweep_index(
@@ -143,13 +227,23 @@ def sweep_index(
 
 
 def make_conversation_id(
-    model_id: str, topic_id: str, n_turns: int, position: int
+    model_id: str,
+    topic_id: str,
+    n_turns: int,
+    position: int,
+    level: str = PASTE_LEVEL,
 ) -> str:
-    """Identidad de una celda 1b: legible y única sin necesitar el índice."""
-    return f"p1b-{model_id}-{topic_id}-{n_turns}-s{position:02d}"
+    """Identidad de una celda: legible y única sin necesitar el índice.
+
+    El prefijo es el de la **fase**, no el del nivel, y es lo único que impide
+    que las dos tandas choquen: sin él, `p1b-claude-opus-5-viaje-japon-2-s11`
+    nombraría una celda de N0 y otra de N1, y una reanudación de 1d daría por
+    hecha una celda que en realidad corrió 1b contra el otro banco.
+    """
+    return f"p{PHASE_BY_LEVEL[level]}-{model_id}-{topic_id}-{n_turns}-s{position:02d}"
 
 
-def plan_phase1b(seed: int) -> list[dict]:
+def plan_phase1b(seed: int, level: str = PASTE_LEVEL) -> list[dict]:
     """12 posiciones × 8 temas × 3 modelos = 288 celdas, sin réplicas.
 
     La longitud **no rota por modelo** como en la Fase 0, sino que se alterna con
@@ -165,7 +259,18 @@ def plan_phase1b(seed: int) -> list[dict]:
     El bucle exterior es el tema y el siguiente el modelo —round-robin de
     modelos— por lo mismo que en 1a: con horas de tirada contra un gateway
     compartido, el orden modelo-mayor confunde el modelo con la hora de reloj.
+
+    `level` elige el banco del que saldrá el pegote y **no cambia nada más**:
+    las mismas 288 celdas, las mismas longitudes y las mismas semillas. Es a
+    propósito: la Fase 1d se compara celda a celda con la 1b, y si el plan de N1
+    sorteara distinto la comparación dejaría de serlo.
     """
+    if level not in PHASE_BY_LEVEL:
+        raise KeyError(
+            f"nivel {level!r} sin fase declarada: el barrido solo corre sobre "
+            f"un banco en disco ({sorted(PHASE_BY_LEVEL)}). N2 no es un banco, "
+            "se fabrica contra cada conversación."
+        )
     topics = load_topics()
     rng = np.random.default_rng(seed)
     plan: list[dict] = []
@@ -180,11 +285,11 @@ def plan_phase1b(seed: int) -> list[dict]:
                         "topic_id": topic.id,
                         "n_turns": n_turns,
                         "sweep_position": pos,
-                        "paste_level": "N0",
+                        "paste_level": level,
                         "condition": "paste",
                         "seed": int(rng.integers(0, 2**31)),
                         "conversation_id": make_conversation_id(
-                            model_id, topic.id, n_turns, pos
+                            model_id, topic.id, n_turns, pos, level
                         ),
                     }
                 )
@@ -214,11 +319,22 @@ def choose_sweep_artifact(
 # --- la puerta del eje (D12) ----------------------------------------------
 
 
+# Lo que midió la Fase 1a sobre cada banco, para que el mensaje de NO-GO diga
+# contra qué se compara. Son rangos distintos —el eje de N1 es suficiente pero
+# más estrecho que el de N0— y enseñar el del otro brazo convertiría la pista en
+# una pista falsa justo cuando hace falta.
+AXIS_REFERENCE_BY_LEVEL = {
+    "N0": "0,236-0,502 (mediana 0,334)",
+    "N1": "0,219-0,369 (mediana 0,290)",
+}
+
+
 def check_axis(
     topics: list[Topic],
     bank: list[Artifact],
     run_id: str,
     out: Path | str | None = None,
+    level: str = PASTE_LEVEL,
 ) -> dict:
     """Mide el ancho del eje y decide si merece la pena barrerlo (D12).
 
@@ -242,9 +358,10 @@ def check_axis(
     usuario hay que tenerlos y `measure_axis` se los pide a `ensure_prefix`. Esos
     quedan en disco y la tirada siguiente los reutiliza, pero se han pagado.
 
-    Medido en la Fase 1a este mismo eje dio rangos de 0,236 a 0,502 con mediana
-    0,334 y ninguna celda estrecha. Si esto salta, lo que ha cambiado es el banco
-    o los prefijos, no el umbral.
+    Medido en la Fase 1a, este mismo eje dio 0,236-0,502 (mediana 0,334) sobre
+    N0 y 0,219-0,369 (mediana 0,290) sobre N1, sin una sola celda estrecha en
+    ninguno de los dos. Si esto salta, lo que ha cambiado es el banco o los
+    prefijos, no el umbral.
     """
     informe = measure_axis(
         topics=topics, arts=bank, lengths=tuple(LENGTHS), run_id=run_id
@@ -261,9 +378,10 @@ def check_axis(
         print(
             f"--- NO-GO: {len(estrechas)} celdas con el eje estrecho en los "
             f"temas {sorted(informe.get('narrow_topics') or [])}. El barrido de "
-            "la Fase 1b mediría posiciones que no se distinguen entre sí. En la "
-            "Fase 1a el eje medía 0,236-0,502, así que si esto salta ha cambiado "
-            "el banco o los prefijos."
+            f"la Fase {PHASE_BY_LEVEL[level]} mediría posiciones que no se "
+            f"distinguen entre sí. En la Fase 1a el eje de {level} medía "
+            f"{AXIS_REFERENCE_BY_LEVEL[level]}, así que si esto salta ha "
+            "cambiado el banco o los prefijos."
         )
         raise NarrowAxisError(estrechas, report_path=ruta)
     return informe
@@ -283,9 +401,14 @@ def run_cell(
 ) -> ConversationRecord:
     """Una conversación: prefijo, pegote de la posición, turnos posteriores.
 
-    Idéntica a `run_phase1a.run_cell` salvo en tres puntos: el banco es siempre
-    N0, el pegote sale de `choose_sweep_artifact` (sin estado compartido) y la
-    fila lleva `sweep_position` en vez de `stratum`.
+    Idéntica a `run_phase1a.run_cell` salvo en tres puntos: el banco es el del
+    brazo que corre esta tanda —uno solo—, el pegote sale de
+    `choose_sweep_artifact` (sin estado compartido) y la fila lleva
+    `sweep_position` en vez de `stratum`.
+
+    El nivel se lee de la **celda** y no de la constante del módulo: la celda es
+    lo único que sabe de qué banco salió su pegote, y con el nivel cableado una
+    tirada de 1d escribiría 288 filas diciendo que son de N0.
 
     `partial` se va rellenando sobre la marcha, igual que en 1a: una celda que
     reviente a mitad tiene que dejar una fila con todo lo que se supiera hasta
@@ -403,7 +526,7 @@ def run_cell(
         artifact_id=artifact.id,
         artifact_kind=artifact.kind,
         artifact_signal=artifact.signal,
-        paste_level=PASTE_LEVEL,
+        paste_level=cell["paste_level"],
         sweep_position=cell["sweep_position"],
         artifact_text=artifact.text,
         artifact_entities=list(artifact.entities),
@@ -450,7 +573,9 @@ def failed_record(
 
     Se apoya entera en la de la Fase 0 —que es la que sabe distinguir un fallo
     del arnés de una negativa del modelo evaluado— y solo le añade lo que aquel
-    runner no podía saber: que el pegote era N0 y en qué punto del eje estaba.
+    runner no podía saber: de qué banco salía el pegote y en qué punto del eje
+    estaba. El nivel sale de la celda por lo mismo que en `run_cell`: si aquí
+    quedara cableado, las pérdidas de 1d se contarían como pérdidas de 1b.
 
     La posición se escribe **aunque la celda haya fallado**: no es un resultado
     sino un dato del diseño, conocido antes de llamar a nadie. Sin ella, el
@@ -469,7 +594,7 @@ def failed_record(
         partial,
         exc,
     )
-    rec.paste_level = PASTE_LEVEL
+    rec.paste_level = cell["paste_level"]
     rec.sweep_position = cell["sweep_position"]
     return rec
 
@@ -484,10 +609,14 @@ def build_header(
     bank: list[Artifact],
     topics: list[Topic],
     started_at: float,
+    level: str = PASTE_LEVEL,
 ) -> dict:
     """La primera línea del JSONL (D5).
 
-    Un solo banco y un solo nivel, así que un solo `bank_sha`. Lo que sí lleva
+    Un solo banco y un solo nivel —el del brazo que corre—, así que un solo
+    `bank_sha`. La cabecera declara la fase y el plan de ESA tanda: es el campo
+    por el que se sabe, dentro de seis meses, cuál de los dos barridos es este
+    fichero sin tener que mirar las filas. Lo que sí lleva
     de más que la de 1a es el **número de posiciones del barrido**: es la
     variable independiente de la tanda y quien lea el fichero dentro de seis
     meses tiene que poder saber sobre cuántos puntos se dibujó la curva sin
@@ -497,8 +626,8 @@ def build_header(
     header = run_header_line(
         RunHeader(
             run_id=run_id,
-            phase=PHASE,
-            plan_path=PLAN_PATH,
+            phase=PHASE_BY_LEVEL[level],
+            plan_path=PLAN_PATH_BY_LEVEL[level],
             spec_path=SPEC_PATH,
             code_sha=code_sha(),
             bank_sha=bank_sha(bank),
@@ -514,7 +643,7 @@ def build_header(
         )
     )
     header["corrections_path"] = CORRECTIONS_PATH
-    header["levels"] = [PASTE_LEVEL]
+    header["levels"] = [level]
     header["sweep_positions"] = SWEEP_POSITIONS
     header["replicates"] = 1
     header["rubric_version"] = RUBRIC_VERSION
@@ -527,8 +656,9 @@ def main(
     seed: int = MASTER_SEED,
     out: Path | str | None = None,
     measure: bool = True,
+    level: str = PASTE_LEVEL,
 ) -> Path:
-    """Corre la Fase 1b entera y devuelve la ruta del JSONL.
+    """Corre el barrido entero sobre un brazo y devuelve la ruta del JSONL.
 
     Misma mecánica que las tandas anteriores: si `out` apunta a una tirada ya
     empezada se reanuda —saltando las celdas hechas y retirando del fichero las
@@ -546,25 +676,34 @@ def main(
     levanta `NarrowAxisError` sin haber escrito el JSONL. `measure=False` la
     salta, y es solo para los tests del arnés, donde el ancho del eje da igual
     porque no se llama a ningún modelo.
+
+    `level="N0"` es la Fase 1b, la tanda ya pagada, y llamar sin argumentos
+    sigue siendo exactamente eso. `level="N1"` es la Fase 1d: el mismo barrido
+    sobre el banco con señal, con sus propios identificadores y su propio
+    directorio de salida. Lo que cambia son esas tres cosas y nada más; si
+    cambiara el plan de celdas, las dos tandas dejarían de compararse.
     """
     topics = load_topics()
     topics_by_id = {t.id: t for t in topics}
     # Un solo banco, y pedido por su nivel: `load_artifacts()` sin nivel
     # devolvería N0 y N1 juntos, y el ranking —que aquí ES el eje— saldría
     # contaminado con artefactos que esta tanda no puede pegar.
-    bank = load_artifacts(level=PASTE_LEVEL)
-    plan = plan_phase1b(seed)
+    plan = plan_phase1b(seed, level)  # valida el nivel antes de tocar el disco
+    bank = load_artifacts(level=level)
 
     path = (
         Path(out)
         if out is not None
-        else OUT_DIR / f"{time.strftime('%Y%m%dT%H%M%S')}.jsonl"
+        else out_dir_for(level) / f"{time.strftime('%Y%m%dT%H%M%S')}.jsonl"
     )
     path.parent.mkdir(parents=True, exist_ok=True)
     resuming = is_resumable(path)
 
     if resuming:
-        run_id = read_run_header(path).get("run_id") or path.stem
+        header_previa = read_run_header(path)
+        # Antes de tocar nada: si el fichero es del otro brazo, esto para aquí.
+        check_resume_level(header_previa, level, path)
+        run_id = header_previa.get("run_id") or path.stem
         compact_resume_file(path, out=path)
         done, _ = resume_state(path)
         print(f"reanudando {path.name}: {len(done)} celdas ya hechas")
@@ -574,7 +713,8 @@ def main(
 
     presupuesto = call_budget(plan)
     print(
-        f"--- {presupuesto['cells']} celdas | {SWEEP_POSITIONS} posiciones del "
+        f"--- fase {PHASE_BY_LEVEL[level]} ({level}, {len(bank)} artefactos) | "
+        f"{presupuesto['cells']} celdas | {SWEEP_POSITIONS} posiciones del "
         f"barrido | llamadas: {presupuesto['evaluated_model_calls']} al modelo "
         f"evaluado, {presupuesto['simulated_user_calls']} al usuario simulado, "
         f"{presupuesto['prefixes']} prefijos (ya en disco desde la Fase 0)"
@@ -585,7 +725,7 @@ def main(
         # similaridad es la variable independiente. Y no solo se mide: si sale
         # estrecho, `check_axis` para la tirada aquí, con el informe ya escrito
         # al lado del JSONL y sin que el JSONL llegue a existir.
-        check_axis(topics, bank, run_id, out=path)
+        check_axis(topics, bank, run_id, out=path, level=level)
 
     rank_caches: dict[str, tuple] = {}
     completed = 0
@@ -595,7 +735,9 @@ def main(
 
     with path.open("a" if resuming else "w", encoding="utf-8") as fh:
         if not resuming:
-            header = build_header(run_id, seed, plan, bank, topics, time.time())
+            header = build_header(
+                run_id, seed, plan, bank, topics, time.time(), level=level
+            )
             fh.write(json.dumps(header, ensure_ascii=False) + "\n")
             fh.flush()
 

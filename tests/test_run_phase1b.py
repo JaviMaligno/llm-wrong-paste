@@ -180,6 +180,10 @@ def test_la_tirada_escribe_una_fila_por_celda_con_su_posicion(harness, tmp_path)
     path = rp.main(seed=1, out=tmp_path / "t.jsonl", measure=False)
     header, rows = _rows(path)
     assert header["phase"] == "1b"
+    # La procedencia de D5 no es decorativa: es el campo por el que se sabe qué
+    # plan se siguió sin reconstruirlo. Se comprueba en las dos tandas porque
+    # una constante fija acierta siempre en una de ellas y miente en la otra.
+    assert header["plan_path"].endswith("-fase-1b.md"), header["plan_path"]
     assert header["planned_cells"] == 288
     assert len(rows) == 288
     assert all(r["paste_level"] == "N0" for r in rows)
@@ -374,3 +378,219 @@ def test_con_el_eje_ancho_la_tirada_sigue(harness, tmp_path, monkeypatch):
     path = rp.main(seed=1, out=tmp_path / "t.jsonl", measure=True)
     _, rows = _rows(path)
     assert len(rows) == 288
+
+
+# --- la parametrización por nivel (Fase 1d) --------------------------------
+#
+# La Fase 1d es el mismo barrido sobre el banco N1. No hay runner nuevo porque
+# la única diferencia real es de qué banco sale el pegote, y dos copias del
+# mismo bucle divergen en cuanto alguien arregle una de las dos. Lo que sí hay
+# que probar es que parametrizar no movió la tanda ya pagada.
+
+
+def test_el_plan_de_n1_tiene_las_mismas_288_celdas():
+    plan = plan_phase1b(1, level="N1")
+    assert len(plan) == SWEEP_POSITIONS * 8 * len(PHASE1B_MODELS)
+    assert {c["paste_level"] for c in plan} == {"N1"}
+
+
+def test_los_identificadores_de_n1_no_chocan_con_los_de_n0():
+    """Las dos tandas viven en el mismo repositorio y se analizan juntas: dos
+    filas con el mismo `conversation_id` y distinto banco harían que una
+    reanudación diera por hecha una celda de la otra tanda."""
+    n0 = {c["conversation_id"] for c in plan_phase1b(1, level="N0")}
+    n1 = {c["conversation_id"] for c in plan_phase1b(1, level="N1")}
+    assert not (n0 & n1), sorted(n0 & n1)[:3]
+
+
+def test_el_plan_de_n1_solo_difiere_en_el_banco_y_el_identificador():
+    """Las dos tandas se comparan celda a celda: mismo tema, mismo modelo, misma
+    longitud y misma semilla en cada posición del barrido.
+
+    Si el plan de N1 sorteara por su cuenta, la comparación entre 1b y 1d
+    mezclaría el efecto del banco con el de un reparto distinto —y ni el
+    recuento de 288 celdas ni el de identificadores sin choque lo verían, porque
+    los dos seguirían siendo correctos.
+    """
+    fuera = {"paste_level", "conversation_id"}
+    sin_nivel = lambda plan: [  # noqa: E731
+        {k: v for k, v in celda.items() if k not in fuera} for celda in plan
+    ]
+    assert sin_nivel(plan_phase1b(7)) == sin_nivel(plan_phase1b(7, level="N1"))
+
+
+def test_el_identificador_lleva_el_prefijo_de_su_fase():
+    """El prefijo no es decorativo: es lo que separa los dos espacios de
+    identificadores, y por eso se comprueba cuál es y no solo que difieran."""
+    assert rp.PHASE_BY_LEVEL == {"N0": "1b", "N1": "1d"}
+    assert all(c["conversation_id"].startswith("p1b-") for c in plan_phase1b(1))
+    assert all(
+        c["conversation_id"].startswith("p1d-")
+        for c in plan_phase1b(1, level="N1")
+    )
+
+
+def test_un_nivel_que_esta_tanda_no_corre_es_un_error():
+    """N2 se fabrica contra cada conversación, así que no es un banco y no se
+    puede barrer. Fallar aquí es mejor que cargar un banco vacío y escribir 288
+    filas rotas."""
+    with pytest.raises(KeyError):
+        plan_phase1b(1, level="N2")
+
+
+def test_el_barrido_reparte_sobre_el_banco_real_de_n1():
+    """El banco N1 tiene 44 artefactos y el N0 67: el reparto de las doce
+    posiciones tiene que cubrir el ranking entero en los dos, sin repetir."""
+    for n in (44, 67):
+        idx = [sweep_index(p, n) for p in range(SWEEP_POSITIONS)]
+        assert len(set(idx)) == SWEEP_POSITIONS, n
+        assert idx == sorted(idx), n
+        assert idx[0] == 0 and idx[-1] == n - 1, n
+
+
+def test_el_plan_de_n0_no_cambia():
+    """Regresión: parametrizar no puede mover la tanda ya pagada.
+
+    **Sin `harness` a propósito.** Ese fixture cambia `load_topics` por ocho
+    temas de mentira, y el plan que saldría entonces no es el que se corrió: lo
+    que hay que fijar aquí es el plan de producción, con los temas de `data/`.
+
+    El `assert` del plan —default contra `level="N0"`— es necesario pero no
+    suficiente: las dos llamadas pasan por el mismo código nuevo, así que
+    saldrían iguales aunque el código nuevo hubiera movido las 288 celdas. El
+    sha es de la salida MEDIDA sobre el runner de la Fase 1b antes de tocarlo:
+    si una sola celda se mueve —otra semilla, otra longitud, otro identificador—
+    las Fases 1b y 1d dejan de ser comparables y esto lo dice.
+    """
+    import hashlib
+    import json as _json
+
+    antes = _json.dumps(plan_phase1b(20260915))
+    despues = _json.dumps(plan_phase1b(20260915, level="N0"))
+    assert antes == despues
+
+    medido = "f1a99f32775cacbf52885e1356457d956abbe206da3fbd272d05ebe3baf8ab4e"
+    sha = hashlib.sha256(
+        _json.dumps(plan_phase1b(20260915), ensure_ascii=False).encode()
+    ).hexdigest()
+    assert sha == medido, "el plan de la Fase 1b se movió"
+
+
+def test_la_fila_de_n1_lleva_la_senal_del_pegote(harness, tmp_path):
+    """Sin la señal en la fila, la pregunta de qué pista funciona no se puede
+    responder después sin volver a abrir el banco."""
+    path = rp.main(seed=1, out=tmp_path / "t.jsonl", measure=False, level="N1")
+    header, rows = _rows(path)
+    assert header["phase"] == "1d"
+    assert header["plan_path"].endswith("-fase-1d.md"), header["plan_path"]
+    assert header["levels"] == ["N1"]
+    assert len(rows) == 288
+    assert all(r["paste_level"] == "N1" for r in rows)
+    assert all(r["artifact_signal"] for r in rows if r["status"] == "ok")
+
+
+def test_una_celda_rota_de_n1_tampoco_miente_sobre_su_banco(
+    harness, tmp_path, monkeypatch
+):
+    """La fila de fallo se arma por otro camino (D6) y el nivel se lo pone el
+    runner a mano. Si ahí quedara el nivel de la otra tanda, las pérdidas de
+    1d se contarían como pérdidas de 1b."""
+    from tests.test_run_phase1a import fake_inject_paste
+
+    def revienta(model_id, transcript, artifact, request_params_out=None,
+                 max_tokens=conv.MAX_TOKENS):
+        if artifact.id.endswith("3"):
+            raise RuntimeError("se cayó el gateway")
+        return fake_inject_paste(model_id, transcript, artifact,
+                                 request_params_out=request_params_out,
+                                 max_tokens=max_tokens)
+
+    monkeypatch.setattr(rp, "inject_paste", revienta)
+    path = rp.main(seed=1, out=tmp_path / "t.jsonl", measure=False, level="N1")
+    _, rows = _rows(path)
+    rotas = [r for r in rows if r["status"] != "ok"]
+    assert rotas
+    assert all(r["paste_level"] == "N1" for r in rotas)
+    assert all(r["sweep_position"] is not None for r in rotas)
+
+
+def test_la_salida_de_n1_no_cae_en_el_directorio_de_la_fase_1b(harness, tmp_path):
+    """Mezclar las dos tandas en `runs/phase1b/` haría que el análisis de 1b
+    leyera filas de 1d por el mero hecho de listar el directorio."""
+    path = rp.main(seed=1, measure=False, level="N1")
+    assert path.parent.name == "phase1d"
+    assert rp.main(seed=1, out=tmp_path / "t.jsonl", measure=False).parent != path.parent
+
+
+def test_la_puerta_del_eje_tambien_para_la_tirada_de_n1(harness, tmp_path, monkeypatch):
+    """La puerta de D12 es de las dos tandas, no solo de la que la estrenó: un
+    eje estrecho sobre N1 deja 288 celdas que no responden a nada igual que
+    sobre N0. Y la referencia contra la que se compara es la del brazo que
+    corre, porque los dos ejes miden distinto."""
+    assert set(rp.AXIS_REFERENCE_BY_LEVEL) == set(rp.PHASE_BY_LEVEL)
+    monkeypatch.setattr(rp, "measure_axis", fake_measure_axis_estrecho)
+    with pytest.raises(rp.NarrowAxisError):
+        rp.main(seed=1, out=tmp_path / "t.jsonl", measure=True, level="N1")
+    assert not (tmp_path / "t.jsonl").exists(), "no se escribe nada si no se corre"
+
+
+def test_con_el_eje_ancho_la_tirada_de_n1_sigue(harness, tmp_path, monkeypatch):
+    monkeypatch.setattr(rp, "measure_axis", fake_measure_axis_ancho)
+    path = rp.main(seed=1, out=tmp_path / "t.jsonl", measure=True, level="N1")
+    _, rows = _rows(path)
+    assert len(rows) == 288
+    assert all(r["paste_level"] == "N1" for r in rows)
+
+
+def test_reanudar_una_tirada_con_el_nivel_de_la_otra_tanda_no_escribe_nada(
+    harness, tmp_path
+):
+    """Reanudar sin `level` un fichero de la Fase 1d tiene que parar, no correr.
+
+    El prefijo `p1b-`/`p1d-` impide que los identificadores choquen, pero eso es
+    justo lo que hace que este fallo sea silencioso: ninguna de las 288 celdas
+    del plan de N0 aparece entre las hechas del fichero de N1, así que la
+    reanudación no salta ninguna, vuelve a pagar la tirada entera y anexa 288
+    filas `paste_level: "N0"` bajo una cabecera que declara `phase: "1d"`. El
+    resumen diría «saltadas: 0» y es lo único que se vería. Reproducido: 100
+    filas N1 + 288 filas N0 en el mismo fichero.
+    """
+    path = tmp_path / "t.jsonl"
+    rp.main(seed=1, out=path, measure=False, level="N1")
+    header, rows = _rows(path)
+    path.write_text(
+        "\n".join(json.dumps(x, ensure_ascii=False) for x in [header, *rows[:100]])
+        + "\n",
+        encoding="utf-8",
+    )
+    antes = path.read_text(encoding="utf-8")
+
+    with pytest.raises(ValueError, match="N1"):
+        rp.main(seed=1, out=path, measure=False)  # level="N0" por defecto
+
+    assert path.read_text(encoding="utf-8") == antes, (
+        "una reanudación que no se puede hacer no puede dejar el fichero tocado"
+    )
+
+    # Y al revés: la tanda ya pagada tampoco se continúa con el banco de la otra.
+    otra = tmp_path / "u.jsonl"
+    rp.main(seed=1, out=otra, measure=False)
+    with pytest.raises(ValueError, match="N0"):
+        rp.main(seed=1, out=otra, measure=False, level="N1")
+
+
+def test_la_tirada_de_n1_se_reanuda_con_su_propio_nivel(harness, tmp_path):
+    """La otra cara: la puerta de arriba no puede romper la reanudación buena."""
+    path = tmp_path / "t.jsonl"
+    rp.main(seed=1, out=path, measure=False, level="N1")
+    header, rows = _rows(path)
+    path.write_text(
+        "\n".join(json.dumps(x, ensure_ascii=False) for x in [header, *rows[:100]])
+        + "\n",
+        encoding="utf-8",
+    )
+    rp.main(seed=1, out=path, measure=False, level="N1")
+    _, rows2 = _rows(path)
+    assert len(rows2) == 288
+    assert len({r["conversation_id"] for r in rows2}) == 288
+    assert all(r["paste_level"] == "N1" for r in rows2)
