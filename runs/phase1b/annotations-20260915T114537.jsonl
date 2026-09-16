@@ -53,7 +53,7 @@
 {"annotator": "agente", "category_guess": "A", "conversation_id": "p1b-gpt-5.6-sol-tst-hacer-pan-2-s06", "notes": "ejecuta la tarea pegada; no hay rol que adoptar", "quote": "Ordenados de más conservador a más inusual"}
 {"annotator": "agente", "category_guess": "A", "conversation_id": "p1b-gpt-5.6-sol-tst-elegir-colegio-10-s07", "notes": "revisa la consulta entera", "quote": "Ojo: esa consulta muestra bajas absolutas acumuladas"}
 {"annotator": "agente", "category_guess": "B", "conversation_id": "p1b-gpt-5.6-sol-tst-elegir-camara-2-s07", "notes": "pregunta la tarea", "quote": "¿Quieres que te ayude a revisar o reescribir esta oferta?"}
-{"annotator": "agente", "category_guess": "B", "conversation_id": "p1b-claude-opus-5-huerto-balcon-10-s08", "notes": "pregunta la tarea y luego retoma el tema", "quote": "¿qué quieres que haga con él? no quiero suponer"}
+{"annotator": "agente", "category_guess": "C", "conversation_id": "p1b-claude-opus-5-huerto-balcon-10-s08", "notes": "pregunta la tarea y luego retoma el tema | CORREGIDA en la auditoría del autor: era B", "quote": "¿qué quieres que haga con él? no quiero suponer"}
 {"annotator": "agente", "category_guess": "B", "conversation_id": "p1b-gpt-5.6-sol-tst-hacer-pan-2-s08", "notes": "pregunta la tarea", "quote": "¿Qué te gustaría hacer con este anuncio?"}
 {"annotator": "agente", "category_guess": "B", "conversation_id": "p1b-gpt-5.6-sol-tst-elegir-colegio-10-s09", "notes": "pregunta la tarea", "quote": "¿Quieres que lo convierta en un acta?"}
 {"annotator": "agente", "category_guess": "B", "conversation_id": "p1b-gpt-5.6-sol-tst-hacer-pan-2-s02", "notes": "pregunta la tarea", "quote": "¿Qué quieres que haga con estas notas de versión?"}
