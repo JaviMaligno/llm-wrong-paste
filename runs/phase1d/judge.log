@@ -1,0 +1,176 @@
+--- 1339 filas juzgables | 1339 con algo pendiente | 2678 llamadas (una por veredicto que falta, no por fila)
+    [8] p1d-claude-opus-5-carrera-10k-2-b3-a01 gemini-2.5-flash: truncated el juez agotó JUDGE_MAX_TOKENS antes de cerrar el JSON: 'area solicitada, asumie
+    [20/1339] 40 veredictos escritos
+    [40/1339] 80 veredictos escritos
+    [60/1339] 120 veredictos escritos
+    [80/1339] 160 veredictos escritos
+    [100/1339] 200 veredictos escritos
+    [120/1339] 240 veredictos escritos
+    [140/1339] 280 veredictos escritos
+    [160/1339] 320 veredictos escritos
+    [180/1339] 360 veredictos escritos
+    [200/1339] 400 veredictos escritos
+    [220/1339] 440 veredictos escritos
+    [240/1339] 480 veredictos escritos
+    [260/1339] 520 veredictos escritos
+    [280/1339] 560 veredictos escritos
+    [300/1339] 600 veredictos escritos
+    [320/1339] 640 veredictos escritos
+    [340/1339] 680 veredictos escritos
+    [360/1339] 720 veredictos escritos
+    [373] p1d-claude-opus-5-elegir-colegio-2-b0-a09 gemini-2.5-flash: truncated el juez agotó JUDGE_MAX_TOKENS antes de cerrar el JSON: 'o por ración (al servir
+    [380/1339] 760 veredictos escritos
+    [400/1339] 800 veredictos escritos
+    [420/1339] 840 veredictos escritos
+    [440/1339] 880 veredictos escritos
+    [460/1339] 920 veredictos escritos
+    [480/1339] 960 veredictos escritos
+    [500/1339] 1000 veredictos escritos
+    [520/1339] 1040 veredictos escritos
+    [540/1339] 1080 veredictos escritos
+    [560/1339] 1120 veredictos escritos
+    [580/1339] 1160 veredictos escritos
+    [600/1339] 1200 veredictos escritos
+    [620/1339] 1240 veredictos escritos
+    [640/1339] 1280 veredictos escritos
+    [660/1339] 1320 veredictos escritos
+    [680/1339] 1360 veredictos escritos
+    [700/1339] 1400 veredictos escritos
+    [720/1339] 1440 veredictos escritos
+    [740/1339] 1480 veredictos escritos
+    [760/1339] 1520 veredictos escritos
+    [780/1339] 1560 veredictos escritos
+    [800/1339] 1600 veredictos escritos
+    [820/1339] 1640 veredictos escritos
+    [840/1339] 1680 veredictos escritos
+    [860/1339] 1720 veredictos escritos
+    [880/1339] 1760 veredictos escritos
+    [900/1339] 1800 veredictos escritos
+    [920/1339] 1840 veredictos escritos
+    [940/1339] 1880 veredictos escritos
+    [947] p1d-claude-opus-5-huerto-balcon-10-b2-a06 gemini-2.5-flash: bad_json el juez no devolvió JSON: 'La respuesta del asistente primero procesa el "mensaj
+    [960/1339] 1920 veredictos escritos
+    [980/1339] 1960 veredictos escritos
+    [1000/1339] 2000 veredictos escritos
+    [1020/1339] 2040 veredictos escritos
+    [1040/1339] 2080 veredictos escritos
+    [1060/1339] 2120 veredictos escritos
+    [1080/1339] 2160 veredictos escritos
+    [1100/1339] 2200 veredictos escritos
+    [1120/1339] 2240 veredictos escritos
+    [1140/1339] 2280 veredictos escritos
+    [1160/1339] 2320 veredictos escritos
+    [1180/1339] 2360 veredictos escritos
+    [1200/1339] 2400 veredictos escritos
+    [1220/1339] 2440 veredictos escritos
+Python(25333) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25438) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25503) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25547) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25608) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+    [1240/1339] 2480 veredictos escritos
+Python(25642) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25664) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25702) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25784) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25833) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25866) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25904) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25938) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25959) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(25984) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26014) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26066) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26098) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26135) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26173) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26200) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26223) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26280) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26317) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26503) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+    [1260/1339] 2520 veredictos escritos
+Python(26665) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26697) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26736) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26767) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26789) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26829) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26869) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26899) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26922) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(26950) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27006) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27050) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27078) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27106) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27156) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27179) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27204) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27235) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27265) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27302) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+    [1280/1339] 2560 veredictos escritos
+Python(27333) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27353) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27394) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27436) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27465) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27511) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27542) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27578) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27611) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27649) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27676) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27726) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27760) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27802) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27842) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27871) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27900) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(27958) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28041) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28110) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+    [1300/1339] 2600 veredictos escritos
+Python(28147) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28178) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28211) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28247) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28282) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28324) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28392) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28421) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28441) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28492) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28536) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28576) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28608) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28663) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28694) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28737) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28768) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28808) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28867) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28898) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+    [1320/1339] 2640 veredictos escritos
+Python(28921) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28968) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(28997) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29055) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29075) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29102) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29158) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29184) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29215) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29243) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29296) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29332) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29371) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29416) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29463) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29490) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29537) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29568) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Python(29587) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+    [1339/1339] 2678 veredictos escritos
+--- runs/phase1d/verdicts-20260916T163736.jsonl

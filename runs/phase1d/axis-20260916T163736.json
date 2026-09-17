@@ -1,0 +1,465 @@
+{
+  "run_id": "20260916T163736",
+  "embedding_model": "text-embedding-3-small-tst",
+  "prefix_model": "gpt-5.6-terra-tst",
+  "lengths": [
+    2,
+    10
+  ],
+  "n_artifacts": 84,
+  "prefixes_generated": 0,
+  "prefixes_reused": 16,
+  "narrow_threshold": 0.15,
+  "narrow_cells": [],
+  "narrow_topics": [],
+  "entries": [
+    {
+      "topic_id": "carrera-10k",
+      "prefix_id": "25f65120b504b2ef",
+      "n_turns": 2,
+      "min": 0.08391678333282471,
+      "median": 0.22346138954162598,
+      "max": 0.34023773670196533,
+      "range": 0.2563209533691406,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-presupone-loquehablamos",
+          "kind": "note_to_self",
+          "similarity": 0.34023773670196533
+        },
+        {
+          "artifact_id": "n1-dirigido-changelog-idiomas",
+          "kind": "changelog",
+          "similarity": 0.3181014358997345
+        },
+        {
+          "artifact_id": "n1-dirigido-compra-reciclaje",
+          "kind": "shopping_list",
+          "similarity": 0.3077619671821594
+        }
+      ]
+    },
+    {
+      "topic_id": "carrera-10k",
+      "prefix_id": "2f6a99830587b222",
+      "n_turns": 10,
+      "min": 0.13641664385795593,
+      "median": 0.27790988981723785,
+      "max": 0.42677533626556396,
+      "range": 0.29035869240760803,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-presupone-loquehablamos",
+          "kind": "note_to_self",
+          "similarity": 0.42677533626556396
+        },
+        {
+          "artifact_id": "n1-presupone-nota-tatuajes",
+          "kind": "note_to_self",
+          "similarity": 0.38031449913978577
+        },
+        {
+          "artifact_id": "n1-cortado-prompt-lectura",
+          "kind": "prompt",
+          "similarity": 0.35754862427711487
+        }
+      ]
+    },
+    {
+      "topic_id": "elegir-camara",
+      "prefix_id": "61b10707a589a600",
+      "n_turns": 2,
+      "min": 0.0802578404545784,
+      "median": 0.20914457738399506,
+      "max": 0.3430197834968567,
+      "range": 0.2627619430422783,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-dirigido-changelog-optica",
+          "kind": "changelog",
+          "similarity": 0.3430197834968567
+        },
+        {
+          "artifact_id": "n1-responde-cantidad",
+          "kind": "shopping_list",
+          "similarity": 0.3148132562637329
+        },
+        {
+          "artifact_id": "n1-presupone-loquehablamos",
+          "kind": "note_to_self",
+          "similarity": 0.3087736964225769
+        }
+      ]
+    },
+    {
+      "topic_id": "elegir-camara",
+      "prefix_id": "bdac892b26ff3d40",
+      "n_turns": 10,
+      "min": 0.10611020773649216,
+      "median": 0.23416107147932053,
+      "max": 0.3805199861526489,
+      "range": 0.27440977841615677,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-dirigido-marta",
+          "kind": "email",
+          "similarity": 0.3805199861526489
+        },
+        {
+          "artifact_id": "n1-dirigido-changelog-optica",
+          "kind": "changelog",
+          "similarity": 0.3715003430843353
+        },
+        {
+          "artifact_id": "n1-responde-cantidad",
+          "kind": "shopping_list",
+          "similarity": 0.3642940819263458
+        }
+      ]
+    },
+    {
+      "topic_id": "elegir-colegio",
+      "prefix_id": "48335422e888794a",
+      "n_turns": 2,
+      "min": 0.08929969370365143,
+      "median": 0.2347807064652443,
+      "max": 0.3854086399078369,
+      "range": 0.2961089462041855,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-responde-actas-archivo",
+          "kind": "meeting_notes",
+          "similarity": 0.3854086399078369
+        },
+        {
+          "artifact_id": "n1-responde-votacion",
+          "kind": "meeting_notes",
+          "similarity": 0.38370221853256226
+        },
+        {
+          "artifact_id": "n1-dirigido-marta",
+          "kind": "email",
+          "similarity": 0.3747937083244324
+        }
+      ]
+    },
+    {
+      "topic_id": "elegir-colegio",
+      "prefix_id": "065a28551f29767d",
+      "n_turns": 10,
+      "min": 0.09662923216819763,
+      "median": 0.27340051531791687,
+      "max": 0.4401264190673828,
+      "range": 0.3434971868991852,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-responde-actas-archivo",
+          "kind": "meeting_notes",
+          "similarity": 0.4401264190673828
+        },
+        {
+          "artifact_id": "n1-dirigido-changelog-idiomas",
+          "kind": "changelog",
+          "similarity": 0.42970940470695496
+        },
+        {
+          "artifact_id": "n1-dirigido-marta",
+          "kind": "email",
+          "similarity": 0.40692704916000366
+        }
+      ]
+    },
+    {
+      "topic_id": "factura-luz",
+      "prefix_id": "f44998b0ac8c93ef",
+      "n_turns": 2,
+      "min": 0.09440366178750992,
+      "median": 0.3026622235774994,
+      "max": 0.4632051885128021,
+      "range": 0.3688015267252922,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-presupone-loquehablamos",
+          "kind": "note_to_self",
+          "similarity": 0.4632051885128021
+        },
+        {
+          "artifact_id": "n1-dirigido-nuria",
+          "kind": "meeting_notes",
+          "similarity": 0.41397327184677124
+        },
+        {
+          "artifact_id": "n1-dirigido-marta",
+          "kind": "email",
+          "similarity": 0.40782204270362854
+        }
+      ]
+    },
+    {
+      "topic_id": "factura-luz",
+      "prefix_id": "58f32881ee84bf83",
+      "n_turns": 10,
+      "min": 0.13731373846530914,
+      "median": 0.3267616033554077,
+      "max": 0.4716423749923706,
+      "range": 0.33432863652706146,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-presupone-nota-herbolario",
+          "kind": "note_to_self",
+          "similarity": 0.4716423749923706
+        },
+        {
+          "artifact_id": "n1-dirigido-nuria",
+          "kind": "meeting_notes",
+          "similarity": 0.45989635586738586
+        },
+        {
+          "artifact_id": "n1-dirigido-marta",
+          "kind": "email",
+          "similarity": 0.44789305329322815
+        }
+      ]
+    },
+    {
+      "topic_id": "hacer-pan",
+      "prefix_id": "ce64ba740c48aaa2",
+      "n_turns": 2,
+      "min": 0.10125822573900223,
+      "median": 0.23101681470870972,
+      "max": 0.472013920545578,
+      "range": 0.3707556948065758,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-presupone-flan",
+          "kind": "recipe",
+          "similarity": 0.472013920545578
+        },
+        {
+          "artifact_id": "n1-dirigido-receta-residencia",
+          "kind": "recipe",
+          "similarity": 0.4331391751766205
+        },
+        {
+          "artifact_id": "n1-dirigido-crema",
+          "kind": "recipe",
+          "similarity": 0.3864310681819916
+        }
+      ]
+    },
+    {
+      "topic_id": "hacer-pan",
+      "prefix_id": "47ef15df47f6d13d",
+      "n_turns": 10,
+      "min": 0.15032526850700378,
+      "median": 0.2856907546520233,
+      "max": 0.5120857357978821,
+      "range": 0.3617604672908783,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-presupone-flan",
+          "kind": "recipe",
+          "similarity": 0.5120857357978821
+        },
+        {
+          "artifact_id": "n1-dirigido-encargo",
+          "kind": "shopping_list",
+          "similarity": 0.43824470043182373
+        },
+        {
+          "artifact_id": "n1-dirigido-crema",
+          "kind": "recipe",
+          "similarity": 0.4261147379875183
+        }
+      ]
+    },
+    {
+      "topic_id": "huerto-balcon",
+      "prefix_id": "372767872798f53c",
+      "n_turns": 2,
+      "min": 0.11184609681367874,
+      "median": 0.23868803679943085,
+      "max": 0.40678870677948,
+      "range": 0.29494260996580124,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-dirigido-receta-residencia",
+          "kind": "recipe",
+          "similarity": 0.40678870677948
+        },
+        {
+          "artifact_id": "n1-cortado-email-vivero",
+          "kind": "email",
+          "similarity": 0.40638893842697144
+        },
+        {
+          "artifact_id": "n1-dirigido-mercado",
+          "kind": "shopping_list",
+          "similarity": 0.3998664915561676
+        }
+      ]
+    },
+    {
+      "topic_id": "huerto-balcon",
+      "prefix_id": "781a6c674894e474",
+      "n_turns": 10,
+      "min": 0.15904493629932404,
+      "median": 0.29879356920719147,
+      "max": 0.4770925045013428,
+      "range": 0.31804756820201874,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-cortado-email-vivero",
+          "kind": "email",
+          "similarity": 0.4770925045013428
+        },
+        {
+          "artifact_id": "n1-dirigido-receta-residencia",
+          "kind": "recipe",
+          "similarity": 0.4580858647823334
+        },
+        {
+          "artifact_id": "n1-dirigido-mercado",
+          "kind": "shopping_list",
+          "similarity": 0.44647884368896484
+        }
+      ]
+    },
+    {
+      "topic_id": "mudanza",
+      "prefix_id": "09c38831a1ae1dc4",
+      "n_turns": 2,
+      "min": 0.11953458935022354,
+      "median": 0.26280318200588226,
+      "max": 0.4596322774887085,
+      "range": 0.34009768813848495,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-dirigido-nuria",
+          "kind": "meeting_notes",
+          "similarity": 0.4596322774887085
+        },
+        {
+          "artifact_id": "n1-dirigido-actas-lonja",
+          "kind": "meeting_notes",
+          "similarity": 0.44322896003723145
+        },
+        {
+          "artifact_id": "n1-presupone-nota-imprenta",
+          "kind": "note_to_self",
+          "similarity": 0.42056700587272644
+        }
+      ]
+    },
+    {
+      "topic_id": "mudanza",
+      "prefix_id": "31d4ccea79d1eba8",
+      "n_turns": 10,
+      "min": 0.17169030010700226,
+      "median": 0.30758029222488403,
+      "max": 0.4985072612762451,
+      "range": 0.32681696116924286,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-presupone-nota-imprenta",
+          "kind": "note_to_self",
+          "similarity": 0.4985072612762451
+        },
+        {
+          "artifact_id": "n1-presupone-nota-tatuajes",
+          "kind": "note_to_self",
+          "similarity": 0.49204903841018677
+        },
+        {
+          "artifact_id": "n1-presupone-nota-herbolario",
+          "kind": "note_to_self",
+          "similarity": 0.4858984649181366
+        }
+      ]
+    },
+    {
+      "topic_id": "viaje-japon",
+      "prefix_id": "76adab2b530051b3",
+      "n_turns": 2,
+      "min": 0.08271835744380951,
+      "median": 0.22591985762119293,
+      "max": 0.3533344566822052,
+      "range": 0.2706160992383957,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-presupone-nota-tatuajes",
+          "kind": "note_to_self",
+          "similarity": 0.3533344566822052
+        },
+        {
+          "artifact_id": "n1-dirigido-equipo",
+          "kind": "prompt",
+          "similarity": 0.34952133893966675
+        },
+        {
+          "artifact_id": "n1-dirigido-actas-coral",
+          "kind": "meeting_notes",
+          "similarity": 0.33137476444244385
+        }
+      ]
+    },
+    {
+      "topic_id": "viaje-japon",
+      "prefix_id": "a0288e054af3f484",
+      "n_turns": 10,
+      "min": 0.13930009305477142,
+      "median": 0.2546625882387161,
+      "max": 0.38323694467544556,
+      "range": 0.24393685162067413,
+      "narrow": false,
+      "truncated": false,
+      "top": [
+        {
+          "artifact_id": "n1-presupone-nota-tatuajes",
+          "kind": "note_to_self",
+          "similarity": 0.38323694467544556
+        },
+        {
+          "artifact_id": "n1-presupone-loquehablamos",
+          "kind": "note_to_self",
+          "similarity": 0.3732894957065582
+        },
+        {
+          "artifact_id": "n1-dirigido-marta",
+          "kind": "email",
+          "similarity": 0.37184786796569824
+        }
+      ]
+    }
+  ]
+}

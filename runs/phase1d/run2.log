@@ -1,0 +1,532 @@
+reanudando: 271 filas retiradas del JSONL (se reintentan) y guardadas en superseded-20260916T163736.jsonl
+reanudando 20260916T163736.jsonl: 946 celdas ya hechas
+--- fase 1d (N1, 84 artefactos) | 1344 celdas | 4 bandas x 21 artefactos por prefijo | plantel ['claude-opus-5'] | 0 turnos posteriores (parte 1: solo la reacción) | llamadas: 1344 al modelo evaluado, 0 al usuario simulado, 16 prefijos (ya en disco desde la Fase 0)
+[ 946] claude-opus-5      huerto-balcon    n=10 N1 b2a 5 sim=0.325 config         presupone    ok
+[ 947] claude-opus-5      huerto-balcon    n=10 N1 b3a 5 sim=0.397 meeting_notes  dirigido     ok
+[ 948] claude-opus-5      huerto-balcon    n=10 N1 b0a 6 sim=0.235 stacktrace     cortado      ok
+[ 949] claude-opus-5      huerto-balcon    n=10 N1 b1a 6 sim=0.299 prompt         cortado      ok
+[ 950] claude-opus-5      huerto-balcon    n=10 N1 b2a 6 sim=0.312 prompt         presupone    ok
+[ 951] claude-opus-5      huerto-balcon    n=10 N1 b3a 6 sim=0.425 note_to_self   dirigido     ok
+[ 952] claude-opus-5      huerto-balcon    n=10 N1 b0a 7 sim=0.234 changelog      responde     ok
+[ 953] claude-opus-5      huerto-balcon    n=10 N1 b1a 7 sim=0.273 job_ad         cortado      ok
+[ 954] claude-opus-5      huerto-balcon    n=10 N1 b2a 7 sim=0.324 changelog      dirigido     ok
+[ 955] claude-opus-5      huerto-balcon    n=10 N1 b3a 7 sim=0.382 prompt         dirigido     ok
+[ 956] claude-opus-5      huerto-balcon    n=10 N1 b0a 8 sim=0.237 stacktrace     dirigido     ok
+[ 957] claude-opus-5      huerto-balcon    n=10 N1 b1a 8 sim=0.298 email          presupone    ok
+[ 958] claude-opus-5      huerto-balcon    n=10 N1 b2a 8 sim=0.316 meeting_notes  presupone    ok
+[ 959] claude-opus-5      huerto-balcon    n=10 N1 b3a 8 sim=0.404 recipe         dirigido     ok
+[ 960] claude-opus-5      huerto-balcon    n=10 N1 b0a 9 sim=0.237 config         responde     ok
+[ 961] claude-opus-5      huerto-balcon    n=10 N1 b1a 9 sim=0.285 job_ad         cortado      ok
+[ 962] claude-opus-5      huerto-balcon    n=10 N1 b2a 9 sim=0.327 job_ad         presupone    ok
+[ 963] claude-opus-5      huerto-balcon    n=10 N1 b3a 9 sim=0.348 shopping_list  dirigido     ok
+[ 964] claude-opus-5      huerto-balcon    n=10 N1 b0a10 sim=0.241 stacktrace     presupone    ok
+[ 965] claude-opus-5      huerto-balcon    n=10 N1 b1a10 sim=0.280 meeting_notes  responde     ok
+[ 966] claude-opus-5      huerto-balcon    n=10 N1 b2a10 sim=0.301 email          responde     ok
+[ 967] claude-opus-5      huerto-balcon    n=10 N1 b3a10 sim=0.357 shopping_list  dirigido     ok
+[ 968] claude-opus-5      huerto-balcon    n=10 N1 b0a11 sim=0.226 stacktrace     responde     ok
+[ 969] claude-opus-5      huerto-balcon    n=10 N1 b1a11 sim=0.275 note_to_self   cortado      ok
+[ 970] claude-opus-5      huerto-balcon    n=10 N1 b2a11 sim=0.319 changelog      cortado      ok
+[ 971] claude-opus-5      huerto-balcon    n=10 N1 b3a11 sim=0.477 email          cortado      ok
+[ 972] claude-opus-5      huerto-balcon    n=10 N1 b0a12 sim=0.211 email          cortado      ok
+[ 973] claude-opus-5      huerto-balcon    n=10 N1 b1a12 sim=0.257 job_ad         cortado      ok
+[ 974] claude-opus-5      huerto-balcon    n=10 N1 b2a12 sim=0.325 recipe         responde     ok
+[ 975] claude-opus-5      huerto-balcon    n=10 N1 b3a12 sim=0.458 recipe         dirigido     ok
+[ 976] claude-opus-5      huerto-balcon    n=10 N1 b0a13 sim=0.227 sql            responde     ok
+[ 977] claude-opus-5      huerto-balcon    n=10 N1 b1a13 sim=0.279 email          presupone    ok
+[ 978] claude-opus-5      huerto-balcon    n=10 N1 b2a13 sim=0.320 recipe         responde     ok
+[ 979] claude-opus-5      huerto-balcon    n=10 N1 b3a13 sim=0.375 recipe         presupone    ok
+[ 980] claude-opus-5      huerto-balcon    n=10 N1 b0a14 sim=0.227 prompt         cortado      ok
+[ 981] claude-opus-5      huerto-balcon    n=10 N1 b1a14 sim=0.275 recipe         presupone    ok
+[ 982] claude-opus-5      huerto-balcon    n=10 N1 b2a14 sim=0.300 changelog      presupone    ok
+[ 983] claude-opus-5      huerto-balcon    n=10 N1 b3a14 sim=0.331 job_ad         dirigido     ok
+[ 984] claude-opus-5      huerto-balcon    n=10 N1 b0a15 sim=0.227 config         cortado      ok
+[ 985] claude-opus-5      huerto-balcon    n=10 N1 b1a15 sim=0.267 note_to_self   responde     ok
+[ 986] claude-opus-5      huerto-balcon    n=10 N1 b2a15 sim=0.316 changelog      dirigido     ok
+[ 987] claude-opus-5      huerto-balcon    n=10 N1 b3a15 sim=0.410 note_to_self   presupone    ok
+[ 988] claude-opus-5      huerto-balcon    n=10 N1 b0a16 sim=0.207 stacktrace     presupone    ok
+[ 989] claude-opus-5      huerto-balcon    n=10 N1 b1a16 sim=0.262 stacktrace     dirigido     ok
+[ 990] claude-opus-5      huerto-balcon    n=10 N1 b2a16 sim=0.310 email          presupone    ok
+[ 991] claude-opus-5      huerto-balcon    n=10 N1 b3a16 sim=0.338 shopping_list  responde     ok
+[ 992] claude-opus-5      huerto-balcon    n=10 N1 b0a17 sim=0.207 config         dirigido     ok
+[ 993] claude-opus-5      huerto-balcon    n=10 N1 b1a17 sim=0.287 prompt         responde     ok
+[ 994] claude-opus-5      huerto-balcon    n=10 N1 b2a17 sim=0.330 recipe         cortado      ok
+[ 995] claude-opus-5      huerto-balcon    n=10 N1 b3a17 sim=0.380 meeting_notes  responde     ok
+[ 996] claude-opus-5      huerto-balcon    n=10 N1 b0a18 sim=0.235 note_to_self   cortado      ok
+[ 997] claude-opus-5      huerto-balcon    n=10 N1 b1a18 sim=0.297 shopping_list  cortado      ok
+[ 998] claude-opus-5      huerto-balcon    n=10 N1 b2a18 sim=0.312 config         presupone    ok
+[ 999] claude-opus-5      huerto-balcon    n=10 N1 b3a18 sim=0.416 note_to_self   presupone    ok
+[1000] claude-opus-5      huerto-balcon    n=10 N1 b0a19 sim=0.159 sql            cortado      ok
+[1001] claude-opus-5      huerto-balcon    n=10 N1 b1a19 sim=0.287 changelog      cortado      ok
+[1002] claude-opus-5      huerto-balcon    n=10 N1 b2a19 sim=0.310 changelog      presupone    ok
+[1003] claude-opus-5      huerto-balcon    n=10 N1 b3a19 sim=0.432 note_to_self   presupone    ok
+[1004] claude-opus-5      huerto-balcon    n=10 N1 b0a20 sim=0.226 sql            presupone    ok
+[1005] claude-opus-5      huerto-balcon    n=10 N1 b1a20 sim=0.279 job_ad         responde     ok
+[1006] claude-opus-5      huerto-balcon    n=10 N1 b2a20 sim=0.299 note_to_self   presupone    ok
+[1007] claude-opus-5      huerto-balcon    n=10 N1 b3a20 sim=0.446 shopping_list  dirigido     ok
+[1008] claude-opus-5      mudanza          n=2  N1 b0a 0 sim=0.211 recipe         presupone    ok
+[1009] claude-opus-5      mudanza          n=2  N1 b1a 0 sim=0.251 prompt         responde     ok
+[1010] claude-opus-5      mudanza          n=2  N1 b2a 0 sim=0.293 shopping_list  cortado      ok
+[1011] claude-opus-5      mudanza          n=2  N1 b3a 0 sim=0.382 shopping_list  dirigido     ok
+[1012] claude-opus-5      mudanza          n=2  N1 b0a 1 sim=0.210 config         cortado      ok
+[1013] claude-opus-5      mudanza          n=2  N1 b1a 1 sim=0.223 prompt         cortado      ok
+[1014] claude-opus-5      mudanza          n=2  N1 b2a 1 sim=0.288 email          cortado      ok
+[1015] claude-opus-5      mudanza          n=2  N1 b3a 1 sim=0.376 prompt         dirigido     ok
+[1016] claude-opus-5      mudanza          n=2  N1 b0a 2 sim=0.169 sql            responde     ok
+[1017] claude-opus-5      mudanza          n=2  N1 b1a 2 sim=0.235 config         presupone    ok
+[1018] claude-opus-5      mudanza          n=2  N1 b2a 2 sim=0.272 email          responde     ok
+[1019] claude-opus-5      mudanza          n=2  N1 b3a 2 sim=0.377 note_to_self   presupone    ok
+[1020] claude-opus-5      mudanza          n=2  N1 b0a 3 sim=0.189 sql            cortado      ok
+[1021] claude-opus-5      mudanza          n=2  N1 b1a 3 sim=0.230 email          responde     ok
+[1022] claude-opus-5      mudanza          n=2  N1 b2a 3 sim=0.279 changelog      cortado      ok
+[1023] claude-opus-5      mudanza          n=2  N1 b3a 3 sim=0.460 meeting_notes  dirigido     ok
+[1024] claude-opus-5      mudanza          n=2  N1 b0a 4 sim=0.192 sql            cortado      ok
+[1025] claude-opus-5      mudanza          n=2  N1 b1a 4 sim=0.256 changelog      dirigido     ok
+[1026] claude-opus-5      mudanza          n=2  N1 b2a 4 sim=0.286 meeting_notes  responde     ok
+[1027] claude-opus-5      mudanza          n=2  N1 b3a 4 sim=0.443 meeting_notes  dirigido     ok
+[1028] claude-opus-5      mudanza          n=2  N1 b0a 5 sim=0.182 stacktrace     responde     ok
+[1029] claude-opus-5      mudanza          n=2  N1 b1a 5 sim=0.259 note_to_self   cortado      ok
+[1030] claude-opus-5      mudanza          n=2  N1 b2a 5 sim=0.329 meeting_notes  presupone    ok
+[1031] claude-opus-5      mudanza          n=2  N1 b3a 5 sim=0.392 job_ad         presupone    ok
+[1032] claude-opus-5      mudanza          n=2  N1 b0a 6 sim=0.150 stacktrace     presupone    ok
+[1033] claude-opus-5      mudanza          n=2  N1 b1a 6 sim=0.240 note_to_self   responde     ok
+[1034] claude-opus-5      mudanza          n=2  N1 b2a 6 sim=0.274 changelog      presupone    ok
+[1035] claude-opus-5      mudanza          n=2  N1 b3a 6 sim=0.342 note_to_self   presupone    ok
+[1036] claude-opus-5      mudanza          n=2  N1 b0a 7 sim=0.216 config         responde     ok
+[1037] claude-opus-5      mudanza          n=2  N1 b1a 7 sim=0.216 stacktrace     dirigido     ok
+[1038] claude-opus-5      mudanza          n=2  N1 b2a 7 sim=0.278 meeting_notes  cortado      ok
+[1039] claude-opus-5      mudanza          n=2  N1 b3a 7 sim=0.419 job_ad         dirigido     ok
+[1040] claude-opus-5      mudanza          n=2  N1 b0a 8 sim=0.216 prompt         responde     ok
+[1041] claude-opus-5      mudanza          n=2  N1 b1a 8 sim=0.233 sql            responde     ok
+[1042] claude-opus-5      mudanza          n=2  N1 b2a 8 sim=0.273 shopping_list  responde     ok
+[1043] claude-opus-5      mudanza          n=2  N1 b3a 8 sim=0.388 meeting_notes  dirigido     ok
+[1044] claude-opus-5      mudanza          n=2  N1 b0a 9 sim=0.205 config         dirigido     ok
+[1045] claude-opus-5      mudanza          n=2  N1 b1a 9 sim=0.256 changelog      dirigido     ok
+[1046] claude-opus-5      mudanza          n=2  N1 b2a 9 sim=0.298 config         presupone    ok
+[1047] claude-opus-5      mudanza          n=2  N1 b3a 9 sim=0.391 note_to_self   dirigido     ok
+[1048] claude-opus-5      mudanza          n=2  N1 b0a10 sim=0.175 stacktrace     cortado      ok
+[1049] claude-opus-5      mudanza          n=2  N1 b1a10 sim=0.243 sql            presupone    ok
+[1050] claude-opus-5      mudanza          n=2  N1 b2a10 sim=0.266 job_ad         responde     ok
+[1051] claude-opus-5      mudanza          n=2  N1 b3a10 sim=0.388 job_ad         dirigido     ok
+[1052] claude-opus-5      mudanza          n=2  N1 b0a11 sim=0.213 prompt         cortado      ok
+[1053] claude-opus-5      mudanza          n=2  N1 b1a11 sim=0.216 stacktrace     responde     ok
+[1054] claude-opus-5      mudanza          n=2  N1 b2a11 sim=0.317 shopping_list  dirigido     ok
+[1055] claude-opus-5      mudanza          n=2  N1 b3a11 sim=0.346 prompt         cortado      ok
+[1056] claude-opus-5      mudanza          n=2  N1 b0a12 sim=0.204 recipe         presupone    ok
+[1057] claude-opus-5      mudanza          n=2  N1 b1a12 sim=0.217 stacktrace     dirigido     ok
+[1058] claude-opus-5      mudanza          n=2  N1 b2a12 sim=0.293 config         responde     ok
+[1059] claude-opus-5      mudanza          n=2  N1 b3a12 sim=0.405 note_to_self   presupone    ok
+[1060] claude-opus-5      mudanza          n=2  N1 b0a13 sim=0.154 recipe         cortado      ok
+[1061] claude-opus-5      mudanza          n=2  N1 b1a13 sim=0.222 recipe         dirigido     ok
+[1062] claude-opus-5      mudanza          n=2  N1 b2a13 sim=0.327 job_ad         cortado      ok
+[1063] claude-opus-5      mudanza          n=2  N1 b3a13 sim=0.347 job_ad         cortado      ok
+[1064] claude-opus-5      mudanza          n=2  N1 b0a14 sim=0.181 sql            responde     ok
+[1065] claude-opus-5      mudanza          n=2  N1 b1a14 sim=0.219 meeting_notes  presupone    ok
+[1066] claude-opus-5      mudanza          n=2  N1 b2a14 sim=0.324 sql            dirigido     ok
+[1067] claude-opus-5      mudanza          n=2  N1 b3a14 sim=0.394 email          dirigido     ok
+[1068] claude-opus-5      mudanza          n=2  N1 b0a15 sim=0.189 recipe         dirigido     ok
+[1069] claude-opus-5      mudanza          n=2  N1 b1a15 sim=0.248 stacktrace     presupone    ok
+[1070] claude-opus-5      mudanza          n=2  N1 b2a15 sim=0.334 note_to_self   cortado      ok
+[1071] claude-opus-5      mudanza          n=2  N1 b3a15 sim=0.419 email          presupone    ok
+[1072] claude-opus-5      mudanza          n=2  N1 b0a16 sim=0.152 recipe         responde     ok
+[1073] claude-opus-5      mudanza          n=2  N1 b1a16 sim=0.235 changelog      cortado      ok
+[1074] claude-opus-5      mudanza          n=2  N1 b2a16 sim=0.306 email          cortado      ok
+[1075] claude-opus-5      mudanza          n=2  N1 b3a16 sim=0.351 email          presupone    ok
+[1076] claude-opus-5      mudanza          n=2  N1 b0a17 sim=0.120 recipe         responde     ok
+[1077] claude-opus-5      mudanza          n=2  N1 b1a17 sim=0.237 shopping_list  cortado      ok
+[1078] claude-opus-5      mudanza          n=2  N1 b2a17 sim=0.290 changelog      presupone    ok
+[1079] claude-opus-5      mudanza          n=2  N1 b3a17 sim=0.421 note_to_self   presupone    ok
+[1080] claude-opus-5      mudanza          n=2  N1 b0a18 sim=0.189 changelog      responde     ok
+[1081] claude-opus-5      mudanza          n=2  N1 b1a18 sim=0.259 email          presupone    ok
+[1082] claude-opus-5      mudanza          n=2  N1 b2a18 sim=0.303 job_ad         cortado      ok
+[1083] claude-opus-5      mudanza          n=2  N1 b3a18 sim=0.395 meeting_notes  responde     ok
+[1084] claude-opus-5      mudanza          n=2  N1 b0a19 sim=0.208 recipe         responde     ok
+[1085] claude-opus-5      mudanza          n=2  N1 b1a19 sim=0.255 changelog      dirigido     ok
+[1086] claude-opus-5      mudanza          n=2  N1 b2a19 sim=0.281 shopping_list  dirigido     ok
+[1087] claude-opus-5      mudanza          n=2  N1 b3a19 sim=0.397 shopping_list  dirigido     ok
+[1088] claude-opus-5      mudanza          n=2  N1 b0a20 sim=0.167 config         cortado      ok
+[1089] claude-opus-5      mudanza          n=2  N1 b1a20 sim=0.238 config         responde     ok
+[1090] claude-opus-5      mudanza          n=2  N1 b2a20 sim=0.292 sql            presupone    ok
+[1091] claude-opus-5      mudanza          n=2  N1 b3a20 sim=0.379 prompt         presupone    ok
+[1092] claude-opus-5      mudanza          n=10 N1 b0a 0 sim=0.218 stacktrace     cortado      ok
+[1093] claude-opus-5      mudanza          n=10 N1 b1a 0 sim=0.272 email          cortado      ok
+[1094] claude-opus-5      mudanza          n=10 N1 b2a 0 sim=0.315 config         responde     ok
+[1095] claude-opus-5      mudanza          n=10 N1 b3a 0 sim=0.404 prompt         presupone    ok
+[1096] claude-opus-5      mudanza          n=10 N1 b0a 1 sim=0.239 config         cortado      ok
+[1097] claude-opus-5      mudanza          n=10 N1 b1a 1 sim=0.256 sql            presupone    ok
+[1098] claude-opus-5      mudanza          n=10 N1 b2a 1 sim=0.323 changelog      dirigido     ok
+[1099] claude-opus-5      mudanza          n=10 N1 b3a 1 sim=0.498 note_to_self   presupone    ok
+[1100] claude-opus-5      mudanza          n=10 N1 b0a 2 sim=0.221 config         responde     ok
+[1101] claude-opus-5      mudanza          n=10 N1 b1a 2 sim=0.298 email          presupone    ok
+[1102] claude-opus-5      mudanza          n=10 N1 b2a 2 sim=0.351 config         presupone    ok
+[1103] claude-opus-5      mudanza          n=10 N1 b3a 2 sim=0.473 shopping_list  dirigido     ok
+[1104] claude-opus-5      mudanza          n=10 N1 b0a 3 sim=0.223 stacktrace     dirigido     ok
+[1105] claude-opus-5      mudanza          n=10 N1 b1a 3 sim=0.284 job_ad         cortado      ok
+[1106] claude-opus-5      mudanza          n=10 N1 b2a 3 sim=0.310 sql            dirigido     ok
+[1107] claude-opus-5      mudanza          n=10 N1 b3a 3 sim=0.407 shopping_list  dirigido     ok
+[1108] claude-opus-5      mudanza          n=10 N1 b0a 4 sim=0.211 sql            responde     ok
+[1109] claude-opus-5      mudanza          n=10 N1 b1a 4 sim=0.290 recipe         responde     ok
+[1110] claude-opus-5      mudanza          n=10 N1 b2a 4 sim=0.339 changelog      dirigido     ok
+[1111] claude-opus-5      mudanza          n=10 N1 b3a 4 sim=0.414 shopping_list  cortado      ok
+[1112] claude-opus-5      mudanza          n=10 N1 b0a 5 sim=0.244 changelog      responde     ok
+[1113] claude-opus-5      mudanza          n=10 N1 b1a 5 sim=0.300 meeting_notes  cortado      ok
+[1114] claude-opus-5      mudanza          n=10 N1 b2a 5 sim=0.323 prompt         responde     ok
+[1115] claude-opus-5      mudanza          n=10 N1 b3a 5 sim=0.428 job_ad         dirigido     ok
+[1116] claude-opus-5      mudanza          n=10 N1 b0a 6 sim=0.203 sql            cortado      ok
+[1117] claude-opus-5      mudanza          n=10 N1 b1a 6 sim=0.292 prompt         cortado      ok
+[1118] claude-opus-5      mudanza          n=10 N1 b2a 6 sim=0.309 recipe         presupone    ok
+[1119] claude-opus-5      mudanza          n=10 N1 b3a 6 sim=0.451 meeting_notes  dirigido     ok
+[1120] claude-opus-5      mudanza          n=10 N1 b0a 7 sim=0.172 sql            responde     ok
+[1121] claude-opus-5      mudanza          n=10 N1 b1a 7 sim=0.300 changelog      cortado      ok
+[1122] claude-opus-5      mudanza          n=10 N1 b2a 7 sim=0.323 prompt         cortado      ok
+[1123] claude-opus-5      mudanza          n=10 N1 b3a 7 sim=0.492 note_to_self   presupone    ok
+[1124] claude-opus-5      mudanza          n=10 N1 b0a 8 sim=0.245 recipe         responde     ok
+[1125] claude-opus-5      mudanza          n=10 N1 b1a 8 sim=0.266 job_ad         responde     ok
+[1126] claude-opus-5      mudanza          n=10 N1 b2a 8 sim=0.329 note_to_self   cortado      ok
+[1127] claude-opus-5      mudanza          n=10 N1 b3a 8 sim=0.410 prompt         dirigido     ok
+[1128] claude-opus-5      mudanza          n=10 N1 b0a 9 sim=0.224 meeting_notes  presupone    ok
+[1129] claude-opus-5      mudanza          n=10 N1 b1a 9 sim=0.246 recipe         cortado      ok
+[1130] claude-opus-5      mudanza          n=10 N1 b2a 9 sim=0.310 note_to_self   presupone    ok
+[1131] claude-opus-5      mudanza          n=10 N1 b3a 9 sim=0.429 shopping_list  dirigido     ok
+[1132] claude-opus-5      mudanza          n=10 N1 b0a10 sim=0.217 config         cortado      ok
+[1133] claude-opus-5      mudanza          n=10 N1 b1a10 sim=0.278 config         presupone    ok
+[1134] claude-opus-5      mudanza          n=10 N1 b2a10 sim=0.329 email          presupone    ok
+[1135] claude-opus-5      mudanza          n=10 N1 b3a10 sim=0.468 email          dirigido     ok
+[1136] claude-opus-5      mudanza          n=10 N1 b0a11 sim=0.227 stacktrace     dirigido     ok
+[1137] claude-opus-5      mudanza          n=10 N1 b1a11 sim=0.306 meeting_notes  responde     ok
+[1138] claude-opus-5      mudanza          n=10 N1 b2a11 sim=0.338 changelog      cortado      ok
+[1139] claude-opus-5      mudanza          n=10 N1 b3a11 sim=0.425 meeting_notes  responde     ok
+[1140] claude-opus-5      mudanza          n=10 N1 b0a12 sim=0.221 sql            responde     ok
+[1141] claude-opus-5      mudanza          n=10 N1 b1a12 sim=0.257 email          responde     ok
+[1142] claude-opus-5      mudanza          n=10 N1 b2a12 sim=0.321 changelog      dirigido     ok
+[1143] claude-opus-5      mudanza          n=10 N1 b3a12 sim=0.374 job_ad         presupone    ok
+[1144] claude-opus-5      mudanza          n=10 N1 b0a13 sim=0.187 stacktrace     presupone    ok
+[1145] claude-opus-5      mudanza          n=10 N1 b1a13 sim=0.294 job_ad         cortado      ok
+[1146] claude-opus-5      mudanza          n=10 N1 b2a13 sim=0.343 changelog      presupone    ok
+[1147] claude-opus-5      mudanza          n=10 N1 b3a13 sim=0.379 shopping_list  responde     ok
+[1148] claude-opus-5      mudanza          n=10 N1 b0a14 sim=0.233 recipe         responde     ok
+[1149] claude-opus-5      mudanza          n=10 N1 b1a14 sim=0.294 recipe         dirigido     ok
+[1150] claude-opus-5      mudanza          n=10 N1 b2a14 sim=0.344 meeting_notes  presupone    ok
+[1151] claude-opus-5      mudanza          n=10 N1 b3a14 sim=0.417 note_to_self   dirigido     ok
+[1152] claude-opus-5      mudanza          n=10 N1 b0a15 sim=0.217 config         responde     ok
+[1153] claude-opus-5      mudanza          n=10 N1 b1a15 sim=0.259 sql            presupone    ok
+[1154] claude-opus-5      mudanza          n=10 N1 b2a15 sim=0.339 email          cortado      ok
+[1155] claude-opus-5      mudanza          n=10 N1 b3a15 sim=0.411 prompt         cortado      ok
+[1156] claude-opus-5      mudanza          n=10 N1 b0a16 sim=0.214 stacktrace     presupone    ok
+[1157] claude-opus-5      mudanza          n=10 N1 b1a16 sim=0.288 email          responde     ok
+[1158] claude-opus-5      mudanza          n=10 N1 b2a16 sim=0.324 note_to_self   cortado      ok
+[1159] claude-opus-5      mudanza          n=10 N1 b3a16 sim=0.381 shopping_list  dirigido     ok
+[1160] claude-opus-5      mudanza          n=10 N1 b0a17 sim=0.218 stacktrace     responde     ok
+[1161] claude-opus-5      mudanza          n=10 N1 b1a17 sim=0.276 note_to_self   responde     ok
+[1162] claude-opus-5      mudanza          n=10 N1 b2a17 sim=0.370 email          presupone    ok
+[1163] claude-opus-5      mudanza          n=10 N1 b3a17 sim=0.400 meeting_notes  dirigido     ok
+[1164] claude-opus-5      mudanza          n=10 N1 b0a18 sim=0.206 config         dirigido     ok
+[1165] claude-opus-5      mudanza          n=10 N1 b1a18 sim=0.273 recipe         presupone    ok
+[1166] claude-opus-5      mudanza          n=10 N1 b2a18 sim=0.366 shopping_list  cortado      ok
+[1167] claude-opus-5      mudanza          n=10 N1 b3a18 sim=0.381 job_ad         dirigido     ok
+[1168] claude-opus-5      mudanza          n=10 N1 b0a19 sim=0.234 sql            cortado      ok
+[1169] claude-opus-5      mudanza          n=10 N1 b1a19 sim=0.295 recipe         dirigido     ok
+[1170] claude-opus-5      mudanza          n=10 N1 b2a19 sim=0.311 prompt         responde     ok
+[1171] claude-opus-5      mudanza          n=10 N1 b3a19 sim=0.486 note_to_self   presupone    ok
+[1172] claude-opus-5      mudanza          n=10 N1 b0a20 sim=0.213 stacktrace     responde     ok
+[1173] claude-opus-5      mudanza          n=10 N1 b1a20 sim=0.305 job_ad         cortado      ok
+[1174] claude-opus-5      mudanza          n=10 N1 b2a20 sim=0.312 changelog      presupone    ok
+[1175] claude-opus-5      mudanza          n=10 N1 b3a20 sim=0.450 meeting_notes  dirigido     ok
+[1176] claude-opus-5      viaje-japon      n=2  N1 b0a 0 sim=0.158 recipe         presupone    ok
+[1177] claude-opus-5      viaje-japon      n=2  N1 b1a 0 sim=0.183 email          responde     ok
+[1178] claude-opus-5      viaje-japon      n=2  N1 b2a 0 sim=0.239 stacktrace     presupone    ok
+[1179] claude-opus-5      viaje-japon      n=2  N1 b3a 0 sim=0.300 note_to_self   presupone    ok
+[1180] claude-opus-5      viaje-japon      n=2  N1 b0a 1 sim=0.160 stacktrace     responde     ok
+[1181] claude-opus-5      viaje-japon      n=2  N1 b1a 1 sim=0.187 stacktrace     presupone    ok
+[1182] claude-opus-5      viaje-japon      n=2  N1 b2a 1 sim=0.264 shopping_list  dirigido     ok
+[1183] claude-opus-5      viaje-japon      n=2  N1 b3a 1 sim=0.276 meeting_notes  responde     ok
+[1184] claude-opus-5      viaje-japon      n=2  N1 b0a 2 sim=0.177 sql            responde     ok
+[1185] claude-opus-5      viaje-japon      n=2  N1 b1a 2 sim=0.212 recipe         dirigido     ok
+[1186] claude-opus-5      viaje-japon      n=2  N1 b2a 2 sim=0.243 meeting_notes  dirigido     ok
+[1187] claude-opus-5      viaje-japon      n=2  N1 b3a 2 sim=0.274 prompt         responde     ok
+[1188] claude-opus-5      viaje-japon      n=2  N1 b0a 3 sim=0.166 recipe         dirigido     ok
+[1189] claude-opus-5      viaje-japon      n=2  N1 b1a 3 sim=0.210 email          presupone    ok
+[1190] claude-opus-5      viaje-japon      n=2  N1 b2a 3 sim=0.239 shopping_list  cortado      ok
+[1191] claude-opus-5      viaje-japon      n=2  N1 b3a 3 sim=0.298 note_to_self   presupone    ok
+[1192] claude-opus-5      viaje-japon      n=2  N1 b0a 4 sim=0.139 recipe         cortado      ok
+[1193] claude-opus-5      viaje-japon      n=2  N1 b1a 4 sim=0.179 config         responde     ok
+[1194] claude-opus-5      viaje-japon      n=2  N1 b2a 4 sim=0.237 job_ad         cortado      ok
+[1195] claude-opus-5      viaje-japon      n=2  N1 b3a 4 sim=0.277 job_ad         responde     ok
+[1196] claude-opus-5      viaje-japon      n=2  N1 b0a 5 sim=0.164 note_to_self   responde     ok
+[1197] claude-opus-5      viaje-japon      n=2  N1 b1a 5 sim=0.226 shopping_list  dirigido     ok
+[1198] claude-opus-5      viaje-japon      n=2  N1 b2a 5 sim=0.246 prompt         cortado      ok
+[1199] claude-opus-5      viaje-japon      n=2  N1 b3a 5 sim=0.278 job_ad         cortado      ok
+[1200] claude-opus-5      viaje-japon      n=2  N1 b0a 6 sim=0.175 changelog      dirigido     ok
+[1201] claude-opus-5      viaje-japon      n=2  N1 b1a 6 sim=0.190 recipe         responde     ok
+[1202] claude-opus-5      viaje-japon      n=2  N1 b2a 6 sim=0.250 job_ad         presupone    ok
+[1203] claude-opus-5      viaje-japon      n=2  N1 b3a 6 sim=0.313 meeting_notes  cortado      ok
+[1204] claude-opus-5      viaje-japon      n=2  N1 b0a 7 sim=0.155 config         cortado      ok
+[1205] claude-opus-5      viaje-japon      n=2  N1 b1a 7 sim=0.221 note_to_self   cortado      ok
+[1206] claude-opus-5      viaje-japon      n=2  N1 b2a 7 sim=0.228 email          cortado      ok
+[1207] claude-opus-5      viaje-japon      n=2  N1 b3a 7 sim=0.267 changelog      dirigido     ok
+[1208] claude-opus-5      viaje-japon      n=2  N1 b0a 8 sim=0.169 config         dirigido     ok
+[1209] claude-opus-5      viaje-japon      n=2  N1 b1a 8 sim=0.208 changelog      cortado      ok
+[1210] claude-opus-5      viaje-japon      n=2  N1 b2a 8 sim=0.227 prompt         responde     ok
+[1211] claude-opus-5      viaje-japon      n=2  N1 b3a 8 sim=0.278 config         responde     ok
+[1212] claude-opus-5      viaje-japon      n=2  N1 b0a 9 sim=0.140 stacktrace     cortado      ok
+[1213] claude-opus-5      viaje-japon      n=2  N1 b1a 9 sim=0.220 sql            presupone    ok
+[1214] claude-opus-5      viaje-japon      n=2  N1 b2a 9 sim=0.230 job_ad         cortado      ok
+[1215] claude-opus-5      viaje-japon      n=2  N1 b3a 9 sim=0.290 changelog      dirigido     ok
+[1216] claude-opus-5      viaje-japon      n=2  N1 b0a10 sim=0.167 email          responde     ok
+[1217] claude-opus-5      viaje-japon      n=2  N1 b1a10 sim=0.207 meeting_notes  presupone    ok
+Python(66490) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1218] claude-opus-5      viaje-japon      n=2  N1 b2a10 sim=0.226 email          presupone    ok
+Python(66568) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1219] claude-opus-5      viaje-japon      n=2  N1 b3a10 sim=0.353 note_to_self   presupone    ok
+Python(66708) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1220] claude-opus-5      viaje-japon      n=2  N1 b0a11 sim=0.131 recipe         responde     ok
+Python(66853) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1221] claude-opus-5      viaje-japon      n=2  N1 b1a11 sim=0.196 sql            dirigido     ok
+Python(66903) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1222] claude-opus-5      viaje-japon      n=2  N1 b2a11 sim=0.226 changelog      presupone    ok
+Python(66960) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1223] claude-opus-5      viaje-japon      n=2  N1 b3a11 sim=0.297 note_to_self   dirigido     ok
+Python(66992) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1224] claude-opus-5      viaje-japon      n=2  N1 b0a12 sim=0.157 sql            presupone    ok
+Python(67042) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1225] claude-opus-5      viaje-japon      n=2  N1 b1a12 sim=0.221 config         presupone    ok
+Python(67117) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1226] claude-opus-5      viaje-japon      n=2  N1 b2a12 sim=0.241 changelog      cortado      ok
+Python(67150) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1227] claude-opus-5      viaje-japon      n=2  N1 b3a12 sim=0.294 note_to_self   presupone    ok
+Python(67227) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1228] claude-opus-5      viaje-japon      n=2  N1 b0a13 sim=0.130 stacktrace     responde     ok
+Python(67291) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1229] claude-opus-5      viaje-japon      n=2  N1 b1a13 sim=0.188 shopping_list  cortado      ok
+Python(67351) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1230] claude-opus-5      viaje-japon      n=2  N1 b2a13 sim=0.266 note_to_self   cortado      ok
+Python(67375) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1231] claude-opus-5      viaje-japon      n=2  N1 b3a13 sim=0.331 meeting_notes  dirigido     ok
+Python(67432) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1232] claude-opus-5      viaje-japon      n=2  N1 b0a14 sim=0.152 config         responde     ok
+Python(67458) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1233] claude-opus-5      viaje-japon      n=2  N1 b1a14 sim=0.179 recipe         presupone    ok
+Python(67493) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1234] claude-opus-5      viaje-japon      n=2  N1 b2a14 sim=0.236 config         presupone    ok
+Python(67570) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1235] claude-opus-5      viaje-japon      n=2  N1 b3a14 sim=0.279 shopping_list  dirigido     ok
+Python(67589) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1236] claude-opus-5      viaje-japon      n=2  N1 b0a15 sim=0.083 changelog      responde     ok
+Python(67621) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1237] claude-opus-5      viaje-japon      n=2  N1 b1a15 sim=0.201 stacktrace     dirigido     ok
+Python(67659) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1238] claude-opus-5      viaje-japon      n=2  N1 b2a15 sim=0.257 email          dirigido     ok
+Python(67696) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1239] claude-opus-5      viaje-japon      n=2  N1 b3a15 sim=0.279 prompt         cortado      ok
+Python(67731) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1240] claude-opus-5      viaje-japon      n=2  N1 b0a16 sim=0.147 config         cortado      ok
+Python(67755) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1241] claude-opus-5      viaje-japon      n=2  N1 b1a16 sim=0.181 stacktrace     dirigido     ok
+Python(67853) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1242] claude-opus-5      viaje-japon      n=2  N1 b2a16 sim=0.247 meeting_notes  dirigido     ok
+Python(67888) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1243] claude-opus-5      viaje-japon      n=2  N1 b3a16 sim=0.350 prompt         dirigido     ok
+Python(67921) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1244] claude-opus-5      viaje-japon      n=2  N1 b0a17 sim=0.158 sql            responde     ok
+Python(67977) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1245] claude-opus-5      viaje-japon      n=2  N1 b1a17 sim=0.181 recipe         responde     ok
+Python(68015) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1246] claude-opus-5      viaje-japon      n=2  N1 b2a17 sim=0.246 job_ad         dirigido     ok
+Python(68074) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1247] claude-opus-5      viaje-japon      n=2  N1 b3a17 sim=0.282 changelog      presupone    ok
+Python(68112) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1248] claude-opus-5      viaje-japon      n=2  N1 b0a18 sim=0.134 sql            cortado      ok
+Python(68147) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1249] claude-opus-5      viaje-japon      n=2  N1 b1a18 sim=0.210 shopping_list  dirigido     ok
+Python(68169) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1250] claude-opus-5      viaje-japon      n=2  N1 b2a18 sim=0.229 prompt         cortado      ok
+Python(68207) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1251] claude-opus-5      viaje-japon      n=2  N1 b3a18 sim=0.296 meeting_notes  responde     ok
+Python(68282) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1252] claude-opus-5      viaje-japon      n=2  N1 b0a19 sim=0.174 email          cortado      ok
+Python(68334) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1253] claude-opus-5      viaje-japon      n=2  N1 b1a19 sim=0.178 sql            cortado      ok
+Python(68402) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1254] claude-opus-5      viaje-japon      n=2  N1 b2a19 sim=0.265 job_ad         dirigido     ok
+Python(68478) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1255] claude-opus-5      viaje-japon      n=2  N1 b3a19 sim=0.276 prompt         presupone    ok
+Python(68516) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1256] claude-opus-5      viaje-japon      n=2  N1 b0a20 sim=0.140 sql            responde     ok
+Python(68558) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1257] claude-opus-5      viaje-japon      n=2  N1 b1a20 sim=0.213 meeting_notes  presupone    ok
+Python(68599) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1258] claude-opus-5      viaje-japon      n=2  N1 b2a20 sim=0.264 shopping_list  responde     ok
+Python(68636) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1259] claude-opus-5      viaje-japon      n=2  N1 b3a20 sim=0.282 email          presupone    ok
+Python(68682) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1260] claude-opus-5      viaje-japon      n=10 N1 b0a 0 sim=0.154 config         cortado      ok
+Python(68740) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1261] claude-opus-5      viaje-japon      n=10 N1 b1a 0 sim=0.214 recipe         responde     ok
+Python(68792) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1262] claude-opus-5      viaje-japon      n=10 N1 b2a 0 sim=0.263 sql            dirigido     ok
+Python(68851) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1263] claude-opus-5      viaje-japon      n=10 N1 b3a 0 sim=0.303 prompt         cortado      ok
+Python(68938) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1264] claude-opus-5      viaje-japon      n=10 N1 b0a 1 sim=0.194 job_ad         cortado      ok
+Python(69004) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1265] claude-opus-5      viaje-japon      n=10 N1 b1a 1 sim=0.214 email          responde     ok
+Python(69061) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1266] claude-opus-5      viaje-japon      n=10 N1 b2a 1 sim=0.261 prompt         presupone    truncated
+Python(69142) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1267] claude-opus-5      viaje-japon      n=10 N1 b3a 1 sim=0.383 note_to_self   presupone    ok
+Python(69247) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1268] claude-opus-5      viaje-japon      n=10 N1 b0a 2 sim=0.208 config         dirigido     ok
+Python(69751) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1269] claude-opus-5      viaje-japon      n=10 N1 b1a 2 sim=0.232 job_ad         cortado      ok
+Python(69822) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1270] claude-opus-5      viaje-japon      n=10 N1 b2a 2 sim=0.257 sql            presupone    ok
+Python(69872) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1271] claude-opus-5      viaje-japon      n=10 N1 b3a 2 sim=0.312 note_to_self   cortado      ok
+Python(69946) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1272] claude-opus-5      viaje-japon      n=10 N1 b0a 3 sim=0.188 note_to_self   responde     ok
+Python(70020) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1273] claude-opus-5      viaje-japon      n=10 N1 b1a 3 sim=0.230 stacktrace     cortado      ok
+Python(70316) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1274] claude-opus-5      viaje-japon      n=10 N1 b2a 3 sim=0.284 shopping_list  dirigido     ok
+Python(70423) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1275] claude-opus-5      viaje-japon      n=10 N1 b3a 3 sim=0.305 changelog      presupone    ok
+Python(70482) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1276] claude-opus-5      viaje-japon      n=10 N1 b0a 4 sim=0.202 stacktrace     presupone    ok
+Python(70564) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1277] claude-opus-5      viaje-japon      n=10 N1 b1a 4 sim=0.245 config         presupone    ok
+Python(70628) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1278] claude-opus-5      viaje-japon      n=10 N1 b2a 4 sim=0.262 shopping_list  dirigido     ok
+Python(70708) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1279] claude-opus-5      viaje-japon      n=10 N1 b3a 4 sim=0.336 prompt         dirigido     ok
+Python(70791) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1280] claude-opus-5      viaje-japon      n=10 N1 b0a 5 sim=0.178 config         responde     ok
+Python(71243) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1281] claude-opus-5      viaje-japon      n=10 N1 b1a 5 sim=0.230 changelog      cortado      ok
+Python(71327) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1282] claude-opus-5      viaje-japon      n=10 N1 b2a 5 sim=0.271 email          cortado      ok
+Python(71471) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1283] claude-opus-5      viaje-japon      n=10 N1 b3a 5 sim=0.313 note_to_self   cortado      ok
+Python(71555) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1284] claude-opus-5      viaje-japon      n=10 N1 b0a 6 sim=0.163 config         responde     ok
+Python(71607) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1285] claude-opus-5      viaje-japon      n=10 N1 b1a 6 sim=0.231 recipe         dirigido     ok
+Python(71660) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1286] claude-opus-5      viaje-japon      n=10 N1 b2a 6 sim=0.280 email          presupone    ok
+Python(71707) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1287] claude-opus-5      viaje-japon      n=10 N1 b3a 6 sim=0.303 meeting_notes  responde     ok
+Python(71790) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1288] claude-opus-5      viaje-japon      n=10 N1 b0a 7 sim=0.210 recipe         responde     ok
+Python(71833) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1289] claude-opus-5      viaje-japon      n=10 N1 b1a 7 sim=0.222 sql            cortado      ok
+Python(71924) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1290] claude-opus-5      viaje-japon      n=10 N1 b2a 7 sim=0.284 shopping_list  responde     ok
+Python(72039) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1291] claude-opus-5      viaje-japon      n=10 N1 b3a 7 sim=0.299 job_ad         dirigido     ok
+Python(72123) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1292] claude-opus-5      viaje-japon      n=10 N1 b0a 8 sim=0.192 sql            responde     ok
+Python(72198) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1293] claude-opus-5      viaje-japon      n=10 N1 b1a 8 sim=0.253 email          presupone    ok
+Python(72258) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1294] claude-opus-5      viaje-japon      n=10 N1 b2a 8 sim=0.255 job_ad         dirigido     ok
+Python(72394) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1295] claude-opus-5      viaje-japon      n=10 N1 b3a 8 sim=0.337 meeting_notes  cortado      ok
+Python(72446) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1296] claude-opus-5      viaje-japon      n=10 N1 b0a 9 sim=0.194 config         cortado      ok
+Python(72525) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1297] claude-opus-5      viaje-japon      n=10 N1 b1a 9 sim=0.236 stacktrace     presupone    ok
+Python(72580) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1298] claude-opus-5      viaje-japon      n=10 N1 b2a 9 sim=0.273 meeting_notes  dirigido     ok
+Python(72633) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1299] claude-opus-5      viaje-japon      n=10 N1 b3a 9 sim=0.291 note_to_self   dirigido     ok
+Python(72678) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1300] claude-opus-5      viaje-japon      n=10 N1 b0a10 sim=0.164 recipe         presupone    ok
+Python(72993) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1301] claude-opus-5      viaje-japon      n=10 N1 b1a10 sim=0.229 meeting_notes  presupone    ok
+Python(73082) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1302] claude-opus-5      viaje-japon      n=10 N1 b2a10 sim=0.272 changelog      presupone    ok
+Python(73145) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1303] claude-opus-5      viaje-japon      n=10 N1 b3a10 sim=0.373 note_to_self   presupone    ok
+Python(73209) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1304] claude-opus-5      viaje-japon      n=10 N1 b0a11 sim=0.141 recipe         responde     ok
+Python(73278) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1305] claude-opus-5      viaje-japon      n=10 N1 b1a11 sim=0.238 sql            responde     ok
+Python(73338) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1306] claude-opus-5      viaje-japon      n=10 N1 b2a11 sim=0.272 shopping_list  dirigido     ok
+Python(73477) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1307] claude-opus-5      viaje-japon      n=10 N1 b3a11 sim=0.301 changelog      dirigido     ok
+Python(73534) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1308] claude-opus-5      viaje-japon      n=10 N1 b0a12 sim=0.174 changelog      responde     ok
+Python(73576) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1309] claude-opus-5      viaje-japon      n=10 N1 b1a12 sim=0.240 shopping_list  dirigido     ok
+Python(73612) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1310] claude-opus-5      viaje-japon      n=10 N1 b2a12 sim=0.256 config         presupone    ok
+Python(73678) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1311] claude-opus-5      viaje-japon      n=10 N1 b3a12 sim=0.314 prompt         responde     ok
+Python(73767) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1312] claude-opus-5      viaje-japon      n=10 N1 b0a13 sim=0.186 email          cortado      ok
+Python(73897) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1313] claude-opus-5      viaje-japon      n=10 N1 b1a13 sim=0.237 shopping_list  cortado      ok
+Python(73973) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1314] claude-opus-5      viaje-japon      n=10 N1 b2a13 sim=0.276 sql            presupone    ok
+Python(74034) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1315] claude-opus-5      viaje-japon      n=10 N1 b3a13 sim=0.350 meeting_notes  dirigido     ok
+Python(74090) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1316] claude-opus-5      viaje-japon      n=10 N1 b0a14 sim=0.169 recipe         dirigido     ok
+Python(74140) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1317] claude-opus-5      viaje-japon      n=10 N1 b1a14 sim=0.229 sql            cortado      ok
+Python(74181) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1318] claude-opus-5      viaje-japon      n=10 N1 b2a14 sim=0.270 prompt         responde     ok
+Python(74279) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1319] claude-opus-5      viaje-japon      n=10 N1 b3a14 sim=0.318 prompt         cortado      ok
+Python(74369) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1320] claude-opus-5      viaje-japon      n=10 N1 b0a15 sim=0.139 stacktrace     responde     ok
+Python(74418) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1321] claude-opus-5      viaje-japon      n=10 N1 b1a15 sim=0.224 changelog      dirigido     ok
+Python(74471) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1322] claude-opus-5      viaje-japon      n=10 N1 b2a15 sim=0.277 email          presupone    ok
+Python(74536) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1323] claude-opus-5      viaje-japon      n=10 N1 b3a15 sim=0.372 email          dirigido     ok
+Python(74594) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1324] claude-opus-5      viaje-japon      n=10 N1 b0a16 sim=0.187 stacktrace     responde     ok
+Python(74795) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1325] claude-opus-5      viaje-japon      n=10 N1 b1a16 sim=0.246 email          responde     ok
+Python(74872) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1326] claude-opus-5      viaje-japon      n=10 N1 b2a16 sim=0.280 config         responde     ok
+Python(74927) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1327] claude-opus-5      viaje-japon      n=10 N1 b3a16 sim=0.323 changelog      dirigido     ok
+Python(74984) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1328] claude-opus-5      viaje-japon      n=10 N1 b0a17 sim=0.162 stacktrace     dirigido     ok
+Python(75047) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1329] claude-opus-5      viaje-japon      n=10 N1 b1a17 sim=0.223 job_ad         cortado      ok
+Python(75146) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1330] claude-opus-5      viaje-japon      n=10 N1 b2a17 sim=0.258 meeting_notes  presupone    ok
+Python(75182) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1331] claude-opus-5      viaje-japon      n=10 N1 b3a17 sim=0.353 note_to_self   presupone    ok
+Python(75255) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1332] claude-opus-5      viaje-japon      n=10 N1 b0a18 sim=0.208 recipe         presupone    ok
+Python(75356) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1333] claude-opus-5      viaje-japon      n=10 N1 b1a18 sim=0.222 sql            responde     ok
+Python(75405) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1334] claude-opus-5      viaje-japon      n=10 N1 b2a18 sim=0.279 meeting_notes  dirigido     ok
+Python(75470) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1335] claude-opus-5      viaje-japon      n=10 N1 b3a18 sim=0.326 meeting_notes  responde     ok
+Python(75543) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1336] claude-opus-5      viaje-japon      n=10 N1 b0a19 sim=0.194 shopping_list  cortado      ok
+Python(75663) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1337] claude-opus-5      viaje-japon      n=10 N1 b1a19 sim=0.239 stacktrace     dirigido     ok
+Python(75693) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1338] claude-opus-5      viaje-japon      n=10 N1 b2a19 sim=0.289 prompt         cortado      ok
+Python(75804) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1339] claude-opus-5      viaje-japon      n=10 N1 b3a19 sim=0.335 note_to_self   presupone    ok
+Python(75843) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1340] claude-opus-5      viaje-japon      n=10 N1 b0a20 sim=0.166 recipe         cortado      ok
+Python(75923) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1341] claude-opus-5      viaje-japon      n=10 N1 b1a20 sim=0.254 job_ad         presupone    ok
+Python(75963) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1342] claude-opus-5      viaje-japon      n=10 N1 b2a20 sim=0.256 job_ad         responde     ok
+Python(76034) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+[1343] claude-opus-5      viaje-japon      n=10 N1 b3a20 sim=0.298 changelog      cortado      ok
+--- planificadas: 1344 | completadas: 398 | fallidas: 0 | saltadas: 946
+---   banda 0: {'completed': 99, 'failed': 0, 'skipped': 237}
+---   banda 1: {'completed': 99, 'failed': 0, 'skipped': 237}
+---   banda 2: {'completed': 100, 'failed': 0, 'skipped': 236}
+---   banda 3: {'completed': 100, 'failed': 0, 'skipped': 236}

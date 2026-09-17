@@ -1,0 +1,1237 @@
+--- fase 1d (N1, 84 artefactos) | 1344 celdas | 4 bandas x 21 artefactos por prefijo | plantel ['claude-opus-5'] | 0 turnos posteriores (parte 1: solo la reacción) | llamadas: 1344 al modelo evaluado, 0 al usuario simulado, 16 prefijos (ya en disco desde la Fase 0)
+--- potencia del diseño (α de Holm 0.0250, caída declarada 9%): H4 claude-opus-5: 0.86 | H5 claude-opus-5: 0.86
+--- ancho del eje (D12): 84 artefactos, longitudes=[2, 10]
+  carrera-10k      n=2   min=0.084 med=0.223 max=0.340 rango=0.256
+  carrera-10k      n=10  min=0.136 med=0.278 max=0.427 rango=0.290
+  elegir-camara    n=2   min=0.080 med=0.209 max=0.343 rango=0.263
+  elegir-camara    n=10  min=0.106 med=0.234 max=0.381 rango=0.274
+  elegir-colegio   n=2   min=0.089 med=0.235 max=0.385 rango=0.296
+  elegir-colegio   n=10  min=0.097 med=0.273 max=0.440 rango=0.343
+  factura-luz      n=2   min=0.094 med=0.303 max=0.463 rango=0.369
+  factura-luz      n=10  min=0.137 med=0.327 max=0.472 rango=0.334
+  hacer-pan        n=2   min=0.101 med=0.231 max=0.472 rango=0.371
+  hacer-pan        n=10  min=0.150 med=0.286 max=0.512 rango=0.362
+  huerto-balcon    n=2   min=0.112 med=0.239 max=0.407 rango=0.295
+  huerto-balcon    n=10  min=0.159 med=0.299 max=0.477 rango=0.318
+  mudanza          n=2   min=0.120 med=0.263 max=0.460 rango=0.340
+  mudanza          n=10  min=0.172 med=0.308 max=0.499 rango=0.327
+  viaje-japon      n=2   min=0.083 med=0.226 max=0.353 rango=0.271
+  viaje-japon      n=10  min=0.139 med=0.255 max=0.383 rango=0.244
+--- prefijos: 0 generados (llamadas reales a gpt-5.6-terra-tst y al usuario simulado), 16 reutilizados de disco
+[   0] claude-opus-5      carrera-10k      n=2  N1 b0a 0 sim=0.084 recipe         responde     ok
+[   1] claude-opus-5      carrera-10k      n=2  N1 b1a 0 sim=0.196 stacktrace     dirigido     ok
+[   2] claude-opus-5      carrera-10k      n=2  N1 b2a 0 sim=0.242 email          dirigido     ok
+[   3] claude-opus-5      carrera-10k      n=2  N1 b3a 0 sim=0.260 prompt         presupone    ok
+[   4] claude-opus-5      carrera-10k      n=2  N1 b0a 1 sim=0.166 stacktrace     dirigido     ok
+[   5] claude-opus-5      carrera-10k      n=2  N1 b1a 1 sim=0.207 prompt         responde     ok
+[   6] claude-opus-5      carrera-10k      n=2  N1 b2a 1 sim=0.234 config         responde     ok
+[   7] claude-opus-5      carrera-10k      n=2  N1 b3a 1 sim=0.259 job_ad         dirigido     ok
+[   8] claude-opus-5      carrera-10k      n=2  N1 b0a 2 sim=0.150 note_to_self   responde     ok
+[   9] claude-opus-5      carrera-10k      n=2  N1 b1a 2 sim=0.209 recipe         responde     ok
+[  10] claude-opus-5      carrera-10k      n=2  N1 b2a 2 sim=0.253 email          presupone    ok
+[  11] claude-opus-5      carrera-10k      n=2  N1 b3a 2 sim=0.282 meeting_notes  dirigido     ok
+[  12] claude-opus-5      carrera-10k      n=2  N1 b0a 3 sim=0.139 sql            responde     ok
+[  13] claude-opus-5      carrera-10k      n=2  N1 b1a 3 sim=0.221 shopping_list  dirigido     ok
+[  14] claude-opus-5      carrera-10k      n=2  N1 b2a 3 sim=0.227 shopping_list  responde     ok
+[  15] claude-opus-5      carrera-10k      n=2  N1 b3a 3 sim=0.318 changelog      dirigido     ok
+[  16] claude-opus-5      carrera-10k      n=2  N1 b0a 4 sim=0.108 shopping_list  cortado      ok
+[  17] claude-opus-5      carrera-10k      n=2  N1 b1a 4 sim=0.192 sql            cortado      ok
+[  18] claude-opus-5      carrera-10k      n=2  N1 b2a 4 sim=0.250 meeting_notes  presupone    ok
+[  19] claude-opus-5      carrera-10k      n=2  N1 b3a 4 sim=0.262 changelog      cortado      ok
+[  20] claude-opus-5      carrera-10k      n=2  N1 b0a 5 sim=0.177 email          presupone    ok
+[  21] claude-opus-5      carrera-10k      n=2  N1 b1a 5 sim=0.188 email          cortado      ok
+[  22] claude-opus-5      carrera-10k      n=2  N1 b2a 5 sim=0.234 shopping_list  dirigido     ok
+[  23] claude-opus-5      carrera-10k      n=2  N1 b3a 5 sim=0.299 note_to_self   presupone    ok
+[  24] claude-opus-5      carrera-10k      n=2  N1 b0a 6 sim=0.161 changelog      responde     ok
+[  25] claude-opus-5      carrera-10k      n=2  N1 b1a 6 sim=0.190 sql            responde     ok
+[  26] claude-opus-5      carrera-10k      n=2  N1 b2a 6 sim=0.229 job_ad         cortado      ok
+[  27] claude-opus-5      carrera-10k      n=2  N1 b3a 6 sim=0.267 job_ad         presupone    ok
+[  28] claude-opus-5      carrera-10k      n=2  N1 b0a 7 sim=0.187 config         cortado      ok
+[  29] claude-opus-5      carrera-10k      n=2  N1 b1a 7 sim=0.222 recipe         dirigido     ok
+[  30] claude-opus-5      carrera-10k      n=2  N1 b2a 7 sim=0.224 meeting_notes  cortado      ok
+[  31] claude-opus-5      carrera-10k      n=2  N1 b3a 7 sim=0.269 meeting_notes  responde     ok
+[  32] claude-opus-5      carrera-10k      n=2  N1 b0a 8 sim=0.178 recipe         responde     ok
+[  33] claude-opus-5      carrera-10k      n=2  N1 b1a 8 sim=0.223 note_to_self   presupone    ok
+[  34] claude-opus-5      carrera-10k      n=2  N1 b2a 8 sim=0.230 job_ad         cortado      ok
+[  35] claude-opus-5      carrera-10k      n=2  N1 b3a 8 sim=0.291 config         responde     ok
+[  36] claude-opus-5      carrera-10k      n=2  N1 b0a 9 sim=0.107 sql            cortado      ok
+[  37] claude-opus-5      carrera-10k      n=2  N1 b1a 9 sim=0.189 config         dirigido     ok
+[  38] claude-opus-5      carrera-10k      n=2  N1 b2a 9 sim=0.249 changelog      dirigido     ok
+[  39] claude-opus-5      carrera-10k      n=2  N1 b3a 9 sim=0.256 changelog      presupone    ok
+[  40] claude-opus-5      carrera-10k      n=2  N1 b0a10 sim=0.164 sql            presupone    ok
+[  41] claude-opus-5      carrera-10k      n=2  N1 b1a10 sim=0.197 recipe         dirigido     ok
+[  42] claude-opus-5      carrera-10k      n=2  N1 b2a10 sim=0.227 prompt         responde     ok
+[  43] claude-opus-5      carrera-10k      n=2  N1 b3a10 sim=0.254 note_to_self   dirigido     ok
+[  44] claude-opus-5      carrera-10k      n=2  N1 b0a11 sim=0.166 stacktrace     cortado      ok
+[  45] claude-opus-5      carrera-10k      n=2  N1 b1a11 sim=0.204 prompt         cortado      ok
+[  46] claude-opus-5      carrera-10k      n=2  N1 b2a11 sim=0.242 sql            presupone    ok
+[  47] claude-opus-5      carrera-10k      n=2  N1 b3a11 sim=0.268 note_to_self   cortado      ok
+[  48] claude-opus-5      carrera-10k      n=2  N1 b0a12 sim=0.183 stacktrace     responde     ok
+[  49] claude-opus-5      carrera-10k      n=2  N1 b1a12 sim=0.218 meeting_notes  responde     ok
+[  50] claude-opus-5      carrera-10k      n=2  N1 b2a12 sim=0.243 prompt         cortado      ok
+[  51] claude-opus-5      carrera-10k      n=2  N1 b3a12 sim=0.274 changelog      dirigido     ok
+[  52] claude-opus-5      carrera-10k      n=2  N1 b0a13 sim=0.162 config         cortado      ok
+[  53] claude-opus-5      carrera-10k      n=2  N1 b1a13 sim=0.202 prompt         cortado      ok
+[  54] claude-opus-5      carrera-10k      n=2  N1 b2a13 sim=0.244 shopping_list  cortado      ok
+[  55] claude-opus-5      carrera-10k      n=2  N1 b3a13 sim=0.266 job_ad         responde     ok
+[  56] claude-opus-5      carrera-10k      n=2  N1 b0a14 sim=0.176 recipe         presupone    ok
+[  57] claude-opus-5      carrera-10k      n=2  N1 b1a14 sim=0.191 sql            responde     ok
+[  58] claude-opus-5      carrera-10k      n=2  N1 b2a14 sim=0.229 meeting_notes  dirigido     ok
+[  59] claude-opus-5      carrera-10k      n=2  N1 b3a14 sim=0.291 job_ad         dirigido     ok
+[  60] claude-opus-5      carrera-10k      n=2  N1 b0a15 sim=0.166 stacktrace     responde     ok
+[  61] claude-opus-5      carrera-10k      n=2  N1 b1a15 sim=0.220 email          presupone    ok
+[  62] claude-opus-5      carrera-10k      n=2  N1 b2a15 sim=0.247 config         presupone    ok
+[  63] claude-opus-5      carrera-10k      n=2  N1 b3a15 sim=0.283 stacktrace     presupone    ok
+[  64] claude-opus-5      carrera-10k      n=2  N1 b0a16 sim=0.173 changelog      cortado      ok
+[  65] claude-opus-5      carrera-10k      n=2  N1 b1a16 sim=0.193 stacktrace     presupone    ok
+[  66] claude-opus-5      carrera-10k      n=2  N1 b2a16 sim=0.243 email          responde     ok
+[  67] claude-opus-5      carrera-10k      n=2  N1 b3a16 sim=0.340 note_to_self   presupone    ok
+[  68] claude-opus-5      carrera-10k      n=2  N1 b0a17 sim=0.168 recipe         presupone    ok
+[  69] claude-opus-5      carrera-10k      n=2  N1 b1a17 sim=0.193 email          cortado      ok
+[  70] claude-opus-5      carrera-10k      n=2  N1 b2a17 sim=0.243 config         presupone    ok
+[  71] claude-opus-5      carrera-10k      n=2  N1 b3a17 sim=0.307 shopping_list  dirigido     ok
+[  72] claude-opus-5      carrera-10k      n=2  N1 b0a18 sim=0.138 recipe         cortado      ok
+[  73] claude-opus-5      carrera-10k      n=2  N1 b1a18 sim=0.223 meeting_notes  dirigido     ok
+[  74] claude-opus-5      carrera-10k      n=2  N1 b2a18 sim=0.254 job_ad         cortado      ok
+[  75] claude-opus-5      carrera-10k      n=2  N1 b3a18 sim=0.277 note_to_self   presupone    ok
+[  76] claude-opus-5      carrera-10k      n=2  N1 b0a19 sim=0.184 email          responde     ok
+[  77] claude-opus-5      carrera-10k      n=2  N1 b1a19 sim=0.207 meeting_notes  presupone    ok
+[  78] claude-opus-5      carrera-10k      n=2  N1 b2a19 sim=0.231 shopping_list  dirigido     ok
+[  79] claude-opus-5      carrera-10k      n=2  N1 b3a19 sim=0.279 sql            dirigido     ok
+[  80] claude-opus-5      carrera-10k      n=2  N1 b0a20 sim=0.175 note_to_self   cortado      ok
+[  81] claude-opus-5      carrera-10k      n=2  N1 b1a20 sim=0.204 changelog      presupone    ok
+[  82] claude-opus-5      carrera-10k      n=2  N1 b2a20 sim=0.226 config         responde     ok
+[  83] claude-opus-5      carrera-10k      n=2  N1 b3a20 sim=0.305 prompt         dirigido     ok
+[  84] claude-opus-5      carrera-10k      n=10 N1 b0a 0 sim=0.183 recipe         responde     ok
+[  85] claude-opus-5      carrera-10k      n=10 N1 b1a 0 sim=0.277 job_ad         cortado      ok
+[  86] claude-opus-5      carrera-10k      n=10 N1 b2a 0 sim=0.304 meeting_notes  cortado      ok
+[  87] claude-opus-5      carrera-10k      n=10 N1 b3a 0 sim=0.357 prompt         dirigido     ok
+[  88] claude-opus-5      carrera-10k      n=10 N1 b0a 1 sim=0.174 sql            responde     ok
+[  89] claude-opus-5      carrera-10k      n=10 N1 b1a 1 sim=0.261 sql            presupone    ok
+[  90] claude-opus-5      carrera-10k      n=10 N1 b2a 1 sim=0.282 meeting_notes  dirigido     ok
+[  91] claude-opus-5      carrera-10k      n=10 N1 b3a 1 sim=0.335 prompt         presupone    ok
+[  92] claude-opus-5      carrera-10k      n=10 N1 b0a 2 sim=0.162 shopping_list  cortado      ok
+[  93] claude-opus-5      carrera-10k      n=10 N1 b1a 2 sim=0.272 email          responde     ok
+[  94] claude-opus-5      carrera-10k      n=10 N1 b2a 2 sim=0.293 prompt         cortado      ok
+[  95] claude-opus-5      carrera-10k      n=10 N1 b3a 2 sim=0.311 prompt         responde     ok
+[  96] claude-opus-5      carrera-10k      n=10 N1 b0a 3 sim=0.195 stacktrace     dirigido     ok
+[  97] claude-opus-5      carrera-10k      n=10 N1 b1a 3 sim=0.259 recipe         presupone    ok
+[  98] claude-opus-5      carrera-10k      n=10 N1 b2a 3 sim=0.300 prompt         responde     ok
+[  99] claude-opus-5      carrera-10k      n=10 N1 b3a 3 sim=0.323 shopping_list  dirigido     ok
+[ 100] claude-opus-5      carrera-10k      n=10 N1 b0a 4 sim=0.234 email          cortado      ok
+[ 101] claude-opus-5      carrera-10k      n=10 N1 b1a 4 sim=0.239 config         responde     ok
+[ 102] claude-opus-5      carrera-10k      n=10 N1 b2a 4 sim=0.282 changelog      cortado      ok
+[ 103] claude-opus-5      carrera-10k      n=10 N1 b3a 4 sim=0.320 shopping_list  dirigido     ok
+[ 104] claude-opus-5      carrera-10k      n=10 N1 b0a 5 sim=0.212 changelog      cortado      ok
+[ 105] claude-opus-5      carrera-10k      n=10 N1 b1a 5 sim=0.270 meeting_notes  responde     ok
+[ 106] claude-opus-5      carrera-10k      n=10 N1 b2a 5 sim=0.299 shopping_list  responde     ok
+[ 107] claude-opus-5      carrera-10k      n=10 N1 b3a 5 sim=0.353 note_to_self   presupone    ok
+[ 108] claude-opus-5      carrera-10k      n=10 N1 b0a 6 sim=0.211 sql            cortado      ok
+[ 109] claude-opus-5      carrera-10k      n=10 N1 b1a 6 sim=0.269 shopping_list  cortado      ok
+[ 110] claude-opus-5      carrera-10k      n=10 N1 b2a 6 sim=0.293 job_ad         cortado      ok
+[ 111] claude-opus-5      carrera-10k      n=10 N1 b3a 6 sim=0.317 job_ad         presupone    ok
+[ 112] claude-opus-5      carrera-10k      n=10 N1 b0a 7 sim=0.212 sql            responde     ok
+[ 113] claude-opus-5      carrera-10k      n=10 N1 b1a 7 sim=0.244 config         dirigido     ok
+[ 114] claude-opus-5      carrera-10k      n=10 N1 b2a 7 sim=0.296 meeting_notes  dirigido     ok
+[ 115] claude-opus-5      carrera-10k      n=10 N1 b3a 7 sim=0.355 config         responde     ok
+[ 116] claude-opus-5      carrera-10k      n=10 N1 b0a 8 sim=0.187 sql            responde     ok
+[ 117] claude-opus-5      carrera-10k      n=10 N1 b1a 8 sim=0.239 stacktrace     dirigido     ok
+[ 118] claude-opus-5      carrera-10k      n=10 N1 b2a 8 sim=0.282 stacktrace     presupone    ok
+[ 119] claude-opus-5      carrera-10k      n=10 N1 b3a 8 sim=0.330 note_to_self   dirigido     ok
+[ 120] claude-opus-5      carrera-10k      n=10 N1 b0a 9 sim=0.213 sql            presupone    ok
+[ 121] claude-opus-5      carrera-10k      n=10 N1 b1a 9 sim=0.259 config         responde     ok
+[ 122] claude-opus-5      carrera-10k      n=10 N1 b2a 9 sim=0.278 meeting_notes  dirigido     ok
+[ 123] claude-opus-5      carrera-10k      n=10 N1 b3a 9 sim=0.333 job_ad         dirigido     ok
+[ 124] claude-opus-5      carrera-10k      n=10 N1 b0a10 sim=0.230 recipe         cortado      ok
+[ 125] claude-opus-5      carrera-10k      n=10 N1 b1a10 sim=0.265 meeting_notes  presupone    ok
+[ 126] claude-opus-5      carrera-10k      n=10 N1 b2a10 sim=0.311 email          presupone    ok
+[ 127] claude-opus-5      carrera-10k      n=10 N1 b3a10 sim=0.427 note_to_self   presupone    ok
+[ 128] claude-opus-5      carrera-10k      n=10 N1 b0a11 sim=0.177 stacktrace     cortado      ok
+[ 129] claude-opus-5      carrera-10k      n=10 N1 b1a11 sim=0.276 changelog      presupone    ok
+[ 130] claude-opus-5      carrera-10k      n=10 N1 b2a11 sim=0.309 email          dirigido     ok
+[ 131] claude-opus-5      carrera-10k      n=10 N1 b3a11 sim=0.311 job_ad         dirigido     ok
+[ 132] claude-opus-5      carrera-10k      n=10 N1 b0a12 sim=0.227 note_to_self   cortado      ok
+[ 133] claude-opus-5      carrera-10k      n=10 N1 b1a12 sim=0.247 config         cortado      ok
+[ 134] claude-opus-5      carrera-10k      n=10 N1 b2a12 sim=0.295 config         presupone    ok
+[ 135] claude-opus-5      carrera-10k      n=10 N1 b3a12 sim=0.315 config         presupone    ok
+[ 136] claude-opus-5      carrera-10k      n=10 N1 b0a13 sim=0.203 changelog      responde     ok
+[ 137] claude-opus-5      carrera-10k      n=10 N1 b1a13 sim=0.238 job_ad         cortado      ok
+[ 138] claude-opus-5      carrera-10k      n=10 N1 b2a13 sim=0.295 recipe         dirigido     ok
+[ 139] claude-opus-5      carrera-10k      n=10 N1 b3a13 sim=0.358 prompt         cortado      ok
+[ 140] claude-opus-5      carrera-10k      n=10 N1 b0a14 sim=0.205 email          responde     ok
+[ 141] claude-opus-5      carrera-10k      n=10 N1 b1a14 sim=0.256 stacktrace     responde     ok
+[ 142] claude-opus-5      carrera-10k      n=10 N1 b2a14 sim=0.302 note_to_self   cortado      ok
+[ 143] claude-opus-5      carrera-10k      n=10 N1 b3a14 sim=0.320 changelog      presupone    ok
+[ 144] claude-opus-5      carrera-10k      n=10 N1 b0a15 sim=0.155 note_to_self   responde     ok
+[ 145] claude-opus-5      carrera-10k      n=10 N1 b1a15 sim=0.277 job_ad         responde     ok
+[ 146] claude-opus-5      carrera-10k      n=10 N1 b2a15 sim=0.280 shopping_list  dirigido     ok
+[ 147] claude-opus-5      carrera-10k      n=10 N1 b3a15 sim=0.321 recipe         dirigido     ok
+[ 148] claude-opus-5      carrera-10k      n=10 N1 b0a16 sim=0.168 email          cortado      ok
+[ 149] claude-opus-5      carrera-10k      n=10 N1 b1a16 sim=0.277 recipe         responde     ok
+[ 150] claude-opus-5      carrera-10k      n=10 N1 b2a16 sim=0.291 changelog      dirigido     ok
+[ 151] claude-opus-5      carrera-10k      n=10 N1 b3a16 sim=0.347 changelog      dirigido     ok
+[ 152] claude-opus-5      carrera-10k      n=10 N1 b0a17 sim=0.194 stacktrace     responde     ok
+[ 153] claude-opus-5      carrera-10k      n=10 N1 b1a17 sim=0.252 email          presupone    ok
+[ 154] claude-opus-5      carrera-10k      n=10 N1 b2a17 sim=0.295 sql            dirigido     ok
+[ 155] claude-opus-5      carrera-10k      n=10 N1 b3a17 sim=0.325 meeting_notes  responde     ok
+[ 156] claude-opus-5      carrera-10k      n=10 N1 b0a18 sim=0.229 stacktrace     presupone    ok
+[ 157] claude-opus-5      carrera-10k      n=10 N1 b1a18 sim=0.276 meeting_notes  presupone    ok
+[ 158] claude-opus-5      carrera-10k      n=10 N1 b2a18 sim=0.300 shopping_list  dirigido     ok
+[ 159] claude-opus-5      carrera-10k      n=10 N1 b3a18 sim=0.354 changelog      dirigido     ok
+[ 160] claude-opus-5      carrera-10k      n=10 N1 b0a19 sim=0.196 email          presupone    ok
+[ 161] claude-opus-5      carrera-10k      n=10 N1 b1a19 sim=0.258 recipe         responde     ok
+[ 162] claude-opus-5      carrera-10k      n=10 N1 b2a19 sim=0.297 prompt         cortado      ok
+[ 163] claude-opus-5      carrera-10k      n=10 N1 b3a19 sim=0.380 note_to_self   presupone    ok
+[ 164] claude-opus-5      carrera-10k      n=10 N1 b0a20 sim=0.136 sql            cortado      ok
+[ 165] claude-opus-5      carrera-10k      n=10 N1 b1a20 sim=0.240 config         cortado      ok
+[ 166] claude-opus-5      carrera-10k      n=10 N1 b2a20 sim=0.279 recipe         presupone    ok
+[ 167] claude-opus-5      carrera-10k      n=10 N1 b3a20 sim=0.332 note_to_self   presupone    ok
+[ 168] claude-opus-5      elegir-camara    n=2  N1 b0a 0 sim=0.133 email          cortado      ok
+[ 169] claude-opus-5      elegir-camara    n=2  N1 b1a 0 sim=0.202 sql            responde     ok
+[ 170] claude-opus-5      elegir-camara    n=2  N1 b2a 0 sim=0.231 prompt         presupone    ok
+[ 171] claude-opus-5      elegir-camara    n=2  N1 b3a 0 sim=0.236 shopping_list  dirigido     ok
+[ 172] claude-opus-5      elegir-camara    n=2  N1 b0a 1 sim=0.138 config         responde     ok
+[ 173] claude-opus-5      elegir-camara    n=2  N1 b1a 1 sim=0.198 job_ad         cortado      ok
+[ 174] claude-opus-5      elegir-camara    n=2  N1 b2a 1 sim=0.213 meeting_notes  responde     ok
+[ 175] claude-opus-5      elegir-camara    n=2  N1 b3a 1 sim=0.253 note_to_self   presupone    ok
+[ 176] claude-opus-5      elegir-camara    n=2  N1 b0a 2 sim=0.086 meeting_notes  presupone    ok
+[ 177] claude-opus-5      elegir-camara    n=2  N1 b1a 2 sim=0.199 job_ad         cortado      ok
+[ 178] claude-opus-5      elegir-camara    n=2  N1 b2a 2 sim=0.227 config         presupone    ok
+[ 179] claude-opus-5      elegir-camara    n=2  N1 b3a 2 sim=0.235 email          presupone    ok
+[ 180] claude-opus-5      elegir-camara    n=2  N1 b0a 3 sim=0.159 sql            cortado      ok
+[ 181] claude-opus-5      elegir-camara    n=2  N1 b1a 3 sim=0.180 meeting_notes  presupone    ok
+[ 182] claude-opus-5      elegir-camara    n=2  N1 b2a 3 sim=0.216 email          presupone    ok
+[ 183] claude-opus-5      elegir-camara    n=2  N1 b3a 3 sim=0.307 email          responde     ok
+[ 184] claude-opus-5      elegir-camara    n=2  N1 b0a 4 sim=0.148 email          responde     ok
+[ 185] claude-opus-5      elegir-camara    n=2  N1 b1a 4 sim=0.191 shopping_list  dirigido     ok
+[ 186] claude-opus-5      elegir-camara    n=2  N1 b2a 4 sim=0.229 shopping_list  cortado      ok
+[ 187] claude-opus-5      elegir-camara    n=2  N1 b3a 4 sim=0.237 note_to_self   presupone    ok
+[ 188] claude-opus-5      elegir-camara    n=2  N1 b0a 5 sim=0.161 recipe         presupone    ok
+[ 189] claude-opus-5      elegir-camara    n=2  N1 b1a 5 sim=0.177 sql            responde     ok
+[ 190] claude-opus-5      elegir-camara    n=2  N1 b2a 5 sim=0.221 shopping_list  dirigido     ok
+[ 191] claude-opus-5      elegir-camara    n=2  N1 b3a 5 sim=0.242 meeting_notes  dirigido     ok
+[ 192] claude-opus-5      elegir-camara    n=2  N1 b0a 6 sim=0.149 recipe         cortado      ok
+[ 193] claude-opus-5      elegir-camara    n=2  N1 b1a 6 sim=0.190 prompt         responde     ok
+[ 194] claude-opus-5      elegir-camara    n=2  N1 b2a 6 sim=0.221 prompt         cortado      ok
+[ 195] claude-opus-5      elegir-camara    n=2  N1 b3a 6 sim=0.248 prompt         cortado      ok
+[ 196] claude-opus-5      elegir-camara    n=2  N1 b0a 7 sim=0.159 changelog      responde     ok
+[ 197] claude-opus-5      elegir-camara    n=2  N1 b1a 7 sim=0.175 stacktrace     responde     ok
+[ 198] claude-opus-5      elegir-camara    n=2  N1 b2a 7 sim=0.218 email          presupone    ok
+[ 199] claude-opus-5      elegir-camara    n=2  N1 b3a 7 sim=0.237 changelog      presupone    ok
+[ 200] claude-opus-5      elegir-camara    n=2  N1 b0a 8 sim=0.080 config         dirigido     ok
+[ 201] claude-opus-5      elegir-camara    n=2  N1 b1a 8 sim=0.189 meeting_notes  dirigido     ok
+[ 202] claude-opus-5      elegir-camara    n=2  N1 b2a 8 sim=0.232 note_to_self   presupone    ok
+[ 203] claude-opus-5      elegir-camara    n=2  N1 b3a 8 sim=0.265 changelog      dirigido     ok
+[ 204] claude-opus-5      elegir-camara    n=2  N1 b0a 9 sim=0.162 email          cortado      ok
+[ 205] claude-opus-5      elegir-camara    n=2  N1 b1a 9 sim=0.198 job_ad         responde     ok
+[ 206] claude-opus-5      elegir-camara    n=2  N1 b2a 9 sim=0.221 job_ad         cortado      ok
+[ 207] claude-opus-5      elegir-camara    n=2  N1 b3a 9 sim=0.315 shopping_list  responde     ok
+[ 208] claude-opus-5      elegir-camara    n=2  N1 b0a10 sim=0.145 stacktrace     responde     ok
+[ 209] claude-opus-5      elegir-camara    n=2  N1 b1a10 sim=0.197 config         responde     ok
+[ 210] claude-opus-5      elegir-camara    n=2  N1 b2a10 sim=0.212 changelog      cortado      ok
+[ 211] claude-opus-5      elegir-camara    n=2  N1 b3a10 sim=0.343 changelog      dirigido     ok
+[ 212] claude-opus-5      elegir-camara    n=2  N1 b0a11 sim=0.146 config         cortado      ok
+[ 213] claude-opus-5      elegir-camara    n=2  N1 b1a11 sim=0.184 stacktrace     dirigido     ok
+[ 214] claude-opus-5      elegir-camara    n=2  N1 b2a11 sim=0.216 recipe         responde     ok
+[ 215] claude-opus-5      elegir-camara    n=2  N1 b3a11 sim=0.253 meeting_notes  responde     ok
+[ 216] claude-opus-5      elegir-camara    n=2  N1 b0a12 sim=0.147 stacktrace     dirigido     ok
+[ 217] claude-opus-5      elegir-camara    n=2  N1 b1a12 sim=0.176 recipe         responde     ok
+[ 218] claude-opus-5      elegir-camara    n=2  N1 b2a12 sim=0.223 shopping_list  cortado      ok
+[ 219] claude-opus-5      elegir-camara    n=2  N1 b3a12 sim=0.263 job_ad         dirigido     ok
+[ 220] claude-opus-5      elegir-camara    n=2  N1 b0a13 sim=0.162 sql            presupone    ok
+[ 221] claude-opus-5      elegir-camara    n=2  N1 b1a13 sim=0.199 changelog      dirigido     ok
+[ 222] claude-opus-5      elegir-camara    n=2  N1 b2a13 sim=0.217 recipe         dirigido     ok
+[ 223] claude-opus-5      elegir-camara    n=2  N1 b3a13 sim=0.234 note_to_self   responde     ok
+[ 224] claude-opus-5      elegir-camara    n=2  N1 b0a14 sim=0.171 sql            responde     ok
+[ 225] claude-opus-5      elegir-camara    n=2  N1 b1a14 sim=0.204 recipe         presupone    ok
+[ 226] claude-opus-5      elegir-camara    n=2  N1 b2a14 sim=0.232 prompt         dirigido     ok
+[ 227] claude-opus-5      elegir-camara    n=2  N1 b3a14 sim=0.241 note_to_self   cortado      ok
+[ 228] claude-opus-5      elegir-camara    n=2  N1 b0a15 sim=0.148 sql            cortado      ok
+[ 229] claude-opus-5      elegir-camara    n=2  N1 b1a15 sim=0.189 config         responde     ok
+[ 230] claude-opus-5      elegir-camara    n=2  N1 b2a15 sim=0.216 recipe         dirigido     ok
+[ 231] claude-opus-5      elegir-camara    n=2  N1 b3a15 sim=0.279 email          dirigido     ok
+[ 232] claude-opus-5      elegir-camara    n=2  N1 b0a16 sim=0.160 stacktrace     presupone    ok
+[ 233] claude-opus-5      elegir-camara    n=2  N1 b1a16 sim=0.179 sql            presupone    ok
+[ 234] claude-opus-5      elegir-camara    n=2  N1 b2a16 sim=0.213 meeting_notes  dirigido     ok
+[ 235] claude-opus-5      elegir-camara    n=2  N1 b3a16 sim=0.266 note_to_self   dirigido     ok
+[ 236] claude-opus-5      elegir-camara    n=2  N1 b0a17 sim=0.143 stacktrace     presupone    ok
+[ 237] claude-opus-5      elegir-camara    n=2  N1 b1a17 sim=0.190 sql            dirigido     ok
+[ 238] claude-opus-5      elegir-camara    n=2  N1 b2a17 sim=0.216 meeting_notes  cortado      ok
+[ 239] claude-opus-5      elegir-camara    n=2  N1 b3a17 sim=0.252 changelog      cortado      ok
+[ 240] claude-opus-5      elegir-camara    n=2  N1 b0a18 sim=0.149 config         cortado      ok
+[ 241] claude-opus-5      elegir-camara    n=2  N1 b1a18 sim=0.201 recipe         responde     ok
+[ 242] claude-opus-5      elegir-camara    n=2  N1 b2a18 sim=0.232 shopping_list  dirigido     ok
+[ 243] claude-opus-5      elegir-camara    n=2  N1 b3a18 sim=0.238 job_ad         dirigido     ok
+[ 244] claude-opus-5      elegir-camara    n=2  N1 b0a19 sim=0.166 prompt         responde     ok
+[ 245] claude-opus-5      elegir-camara    n=2  N1 b1a19 sim=0.202 changelog      presupone    ok
+[ 246] claude-opus-5      elegir-camara    n=2  N1 b2a19 sim=0.230 config         presupone    ok
+[ 247] claude-opus-5      elegir-camara    n=2  N1 b3a19 sim=0.309 note_to_self   presupone    ok
+[ 248] claude-opus-5      elegir-camara    n=2  N1 b0a20 sim=0.152 stacktrace     cortado      ok
+[ 249] claude-opus-5      elegir-camara    n=2  N1 b1a20 sim=0.206 prompt         cortado      ok
+[ 250] claude-opus-5      elegir-camara    n=2  N1 b2a20 sim=0.216 job_ad         presupone    ok
+[ 251] claude-opus-5      elegir-camara    n=2  N1 b3a20 sim=0.272 note_to_self   cortado      ok
+[ 252] claude-opus-5      elegir-camara    n=10 N1 b0a 0 sim=0.164 sql            cortado      ok
+[ 253] claude-opus-5      elegir-camara    n=10 N1 b1a 0 sim=0.204 shopping_list  cortado      ok
+[ 254] claude-opus-5      elegir-camara    n=10 N1 b2a 0 sim=0.236 sql            responde     ok
+[ 255] claude-opus-5      elegir-camara    n=10 N1 b3a 0 sim=0.286 prompt         cortado      ok
+[ 256] claude-opus-5      elegir-camara    n=10 N1 b0a 1 sim=0.106 config         dirigido     ok
+[ 257] claude-opus-5      elegir-camara    n=10 N1 b1a 1 sim=0.221 recipe         responde     ok
+[ 258] claude-opus-5      elegir-camara    n=10 N1 b2a 1 sim=0.262 meeting_notes  dirigido     ok
+[ 259] claude-opus-5      elegir-camara    n=10 N1 b3a 1 sim=0.329 prompt         cortado      ok
+[ 260] claude-opus-5      elegir-camara    n=10 N1 b0a 2 sim=0.193 config         responde     ok
+[ 261] claude-opus-5      elegir-camara    n=10 N1 b1a 2 sim=0.211 email          presupone    ok
+[ 262] claude-opus-5      elegir-camara    n=10 N1 b2a 2 sim=0.259 changelog      dirigido     ok
+[ 263] claude-opus-5      elegir-camara    n=10 N1 b3a 2 sim=0.363 changelog      cortado      ok
+[ 264] claude-opus-5      elegir-camara    n=10 N1 b0a 3 sim=0.181 changelog      responde     ok
+[ 265] claude-opus-5      elegir-camara    n=10 N1 b1a 3 sim=0.220 config         responde     ok
+[ 266] claude-opus-5      elegir-camara    n=10 N1 b2a 3 sim=0.258 shopping_list  dirigido     ok
+[ 267] claude-opus-5      elegir-camara    n=10 N1 b3a 3 sim=0.372 changelog      dirigido     ok
+[ 268] claude-opus-5      elegir-camara    n=10 N1 b0a 4 sim=0.154 recipe         cortado      ok
+[ 269] claude-opus-5      elegir-camara    n=10 N1 b1a 4 sim=0.222 note_to_self   cortado      ok
+[ 270] claude-opus-5      elegir-camara    n=10 N1 b2a 4 sim=0.240 prompt         responde     ok
+[ 271] claude-opus-5      elegir-camara    n=10 N1 b3a 4 sim=0.315 email          responde     ok
+[ 272] claude-opus-5      elegir-camara    n=10 N1 b0a 5 sim=0.192 config         cortado      ok
+[ 273] claude-opus-5      elegir-camara    n=10 N1 b1a 5 sim=0.232 meeting_notes  dirigido     ok
+[ 274] claude-opus-5      elegir-camara    n=10 N1 b2a 5 sim=0.254 shopping_list  dirigido     ok
+[ 275] claude-opus-5      elegir-camara    n=10 N1 b3a 5 sim=0.359 note_to_self   presupone    ok
+[ 276] claude-opus-5      elegir-camara    n=10 N1 b0a 6 sim=0.159 recipe         presupone    ok
+[ 277] claude-opus-5      elegir-camara    n=10 N1 b1a 6 sim=0.215 recipe         dirigido     ok
+[ 278] claude-opus-5      elegir-camara    n=10 N1 b2a 6 sim=0.253 job_ad         dirigido     ok
+[ 279] claude-opus-5      elegir-camara    n=10 N1 b3a 6 sim=0.286 meeting_notes  responde     ok
+[ 280] claude-opus-5      elegir-camara    n=10 N1 b0a 7 sim=0.174 recipe         responde     ok
+[ 281] claude-opus-5      elegir-camara    n=10 N1 b1a 7 sim=0.216 recipe         presupone    ok
+[ 282] claude-opus-5      elegir-camara    n=10 N1 b2a 7 sim=0.278 changelog      presupone    ok
+[ 283] claude-opus-5      elegir-camara    n=10 N1 b3a 7 sim=0.307 changelog      dirigido     ok
+[ 284] claude-opus-5      elegir-camara    n=10 N1 b0a 8 sim=0.157 stacktrace     dirigido     ok
+[ 285] claude-opus-5      elegir-camara    n=10 N1 b1a 8 sim=0.210 sql            presupone    ok
+[ 286] claude-opus-5      elegir-camara    n=10 N1 b2a 8 sim=0.270 email          presupone    ok
+[ 287] claude-opus-5      elegir-camara    n=10 N1 b3a 8 sim=0.290 shopping_list  dirigido     ok
+[ 288] claude-opus-5      elegir-camara    n=10 N1 b0a 9 sim=0.186 config         responde     ok
+[ 289] claude-opus-5      elegir-camara    n=10 N1 b1a 9 sim=0.211 job_ad         cortado      ok
+[ 290] claude-opus-5      elegir-camara    n=10 N1 b2a 9 sim=0.284 meeting_notes  dirigido     ok
+[ 291] claude-opus-5      elegir-camara    n=10 N1 b3a 9 sim=0.315 note_to_self   presupone    ok
+[ 292] claude-opus-5      elegir-camara    n=10 N1 b0a10 sim=0.151 stacktrace     presupone    ok
+[ 293] claude-opus-5      elegir-camara    n=10 N1 b1a10 sim=0.229 job_ad         presupone    ok
+[ 294] claude-opus-5      elegir-camara    n=10 N1 b2a10 sim=0.238 note_to_self   responde     ok
+[ 295] claude-opus-5      elegir-camara    n=10 N1 b3a10 sim=0.306 job_ad         dirigido     ok
+[ 296] claude-opus-5      elegir-camara    n=10 N1 b0a11 sim=0.195 email          cortado      ok
+[ 297] claude-opus-5      elegir-camara    n=10 N1 b1a11 sim=0.213 email          cortado      ok
+[ 298] claude-opus-5      elegir-camara    n=10 N1 b2a11 sim=0.251 config         presupone    ok
+[ 299] claude-opus-5      elegir-camara    n=10 N1 b3a11 sim=0.297 meeting_notes  responde     ok
+[ 300] claude-opus-5      elegir-camara    n=10 N1 b0a12 sim=0.176 stacktrace     cortado      ok
+[ 301] claude-opus-5      elegir-camara    n=10 N1 b1a12 sim=0.221 recipe         dirigido     ok
+[ 302] claude-opus-5      elegir-camara    n=10 N1 b2a12 sim=0.256 changelog      presupone    ok
+[ 303] claude-opus-5      elegir-camara    n=10 N1 b3a12 sim=0.314 shopping_list  dirigido     ok
+[ 304] claude-opus-5      elegir-camara    n=10 N1 b0a13 sim=0.154 stacktrace     dirigido     ok
+[ 305] claude-opus-5      elegir-camara    n=10 N1 b1a13 sim=0.202 job_ad         responde     ok
+[ 306] claude-opus-5      elegir-camara    n=10 N1 b2a13 sim=0.271 prompt         dirigido     ok
+[ 307] claude-opus-5      elegir-camara    n=10 N1 b3a13 sim=0.364 shopping_list  responde     ok
+[ 308] claude-opus-5      elegir-camara    n=10 N1 b0a14 sim=0.162 stacktrace     presupone    ok
+[ 309] claude-opus-5      elegir-camara    n=10 N1 b1a14 sim=0.203 stacktrace     responde     ok
+[ 310] claude-opus-5      elegir-camara    n=10 N1 b2a14 sim=0.270 meeting_notes  presupone    ok
+[ 311] claude-opus-5      elegir-camara    n=10 N1 b3a14 sim=0.381 email          dirigido     ok
+[ 312] claude-opus-5      elegir-camara    n=10 N1 b0a15 sim=0.157 stacktrace     responde     ok
+[ 313] claude-opus-5      elegir-camara    n=10 N1 b1a15 sim=0.208 changelog      cortado      ok
+[ 314] claude-opus-5      elegir-camara    n=10 N1 b2a15 sim=0.258 prompt         cortado      ok
+[ 315] claude-opus-5      elegir-camara    n=10 N1 b3a15 sim=0.320 note_to_self   dirigido     ok
+[ 316] claude-opus-5      elegir-camara    n=10 N1 b0a16 sim=0.172 meeting_notes  presupone    ok
+[ 317] claude-opus-5      elegir-camara    n=10 N1 b1a16 sim=0.206 recipe         responde     ok
+[ 318] claude-opus-5      elegir-camara    n=10 N1 b2a16 sim=0.258 shopping_list  cortado      ok
+[ 319] claude-opus-5      elegir-camara    n=10 N1 b3a16 sim=0.293 config         presupone    ok
+[ 320] claude-opus-5      elegir-camara    n=10 N1 b0a17 sim=0.162 sql            responde     ok
+[ 321] claude-opus-5      elegir-camara    n=10 N1 b1a17 sim=0.209 job_ad         cortado      ok
+[ 322] claude-opus-5      elegir-camara    n=10 N1 b2a17 sim=0.238 meeting_notes  cortado      ok
+[ 323] claude-opus-5      elegir-camara    n=10 N1 b3a17 sim=0.291 note_to_self   presupone    ok
+[ 324] claude-opus-5      elegir-camara    n=10 N1 b0a18 sim=0.161 sql            cortado      ok
+[ 325] claude-opus-5      elegir-camara    n=10 N1 b1a18 sim=0.230 sql            dirigido     ok
+[ 326] claude-opus-5      elegir-camara    n=10 N1 b2a18 sim=0.239 email          presupone    ok
+[ 327] claude-opus-5      elegir-camara    n=10 N1 b3a18 sim=0.285 prompt         responde     ok
+[ 328] claude-opus-5      elegir-camara    n=10 N1 b0a19 sim=0.192 email          responde     ok
+[ 329] claude-opus-5      elegir-camara    n=10 N1 b1a19 sim=0.206 job_ad         cortado      ok
+[ 330] claude-opus-5      elegir-camara    n=10 N1 b2a19 sim=0.257 sql            presupone    ok
+[ 331] claude-opus-5      elegir-camara    n=10 N1 b3a19 sim=0.364 note_to_self   presupone    ok
+[ 332] claude-opus-5      elegir-camara    n=10 N1 b0a20 sim=0.162 config         cortado      ok
+[ 333] claude-opus-5      elegir-camara    n=10 N1 b1a20 sim=0.222 sql            responde     ok
+[ 334] claude-opus-5      elegir-camara    n=10 N1 b2a20 sim=0.275 prompt         presupone    ok
+[ 335] claude-opus-5      elegir-camara    n=10 N1 b3a20 sim=0.352 note_to_self   cortado      ok
+[ 336] claude-opus-5      elegir-colegio   n=2  N1 b0a 0 sim=0.175 stacktrace     presupone    ok
+[ 337] claude-opus-5      elegir-colegio   n=2  N1 b1a 0 sim=0.220 changelog      presupone    ok
+[ 338] claude-opus-5      elegir-colegio   n=2  N1 b2a 0 sim=0.240 email          presupone    ok
+[ 339] claude-opus-5      elegir-colegio   n=2  N1 b3a 0 sim=0.385 meeting_notes  responde     ok
+[ 340] claude-opus-5      elegir-colegio   n=2  N1 b0a 1 sim=0.184 sql            responde     ok
+[ 341] claude-opus-5      elegir-colegio   n=2  N1 b1a 1 sim=0.195 shopping_list  cortado      ok
+[ 342] claude-opus-5      elegir-colegio   n=2  N1 b2a 1 sim=0.252 email          presupone    ok
+[ 343] claude-opus-5      elegir-colegio   n=2  N1 b3a 1 sim=0.330 meeting_notes  dirigido     ok
+[ 344] claude-opus-5      elegir-colegio   n=2  N1 b0a 2 sim=0.183 recipe         presupone    ok
+[ 345] claude-opus-5      elegir-colegio   n=2  N1 b1a 2 sim=0.208 config         responde     ok
+[ 346] claude-opus-5      elegir-colegio   n=2  N1 b2a 2 sim=0.236 job_ad         cortado      ok
+[ 347] claude-opus-5      elegir-colegio   n=2  N1 b3a 2 sim=0.371 note_to_self   presupone    ok
+[ 348] claude-opus-5      elegir-colegio   n=2  N1 b0a 3 sim=0.152 config         responde     ok
+[ 349] claude-opus-5      elegir-colegio   n=2  N1 b1a 3 sim=0.212 sql            cortado      ok
+[ 350] claude-opus-5      elegir-colegio   n=2  N1 b2a 3 sim=0.245 shopping_list  dirigido     ok
+[ 351] claude-opus-5      elegir-colegio   n=2  N1 b3a 3 sim=0.276 note_to_self   cortado      ok
+[ 352] claude-opus-5      elegir-colegio   n=2  N1 b0a 4 sim=0.153 config         cortado      ok
+[ 353] claude-opus-5      elegir-colegio   n=2  N1 b1a 4 sim=0.200 email          cortado      ok
+[ 354] claude-opus-5      elegir-colegio   n=2  N1 b2a 4 sim=0.259 prompt         dirigido     ok
+[ 355] claude-opus-5      elegir-colegio   n=2  N1 b3a 4 sim=0.272 changelog      dirigido     ok
+[ 356] claude-opus-5      elegir-colegio   n=2  N1 b0a 5 sim=0.089 recipe         cortado      ok
+[ 357] claude-opus-5      elegir-colegio   n=2  N1 b1a 5 sim=0.222 config         presupone    ok
+[ 358] claude-opus-5      elegir-colegio   n=2  N1 b2a 5 sim=0.245 sql            cortado      ok
+[ 359] claude-opus-5      elegir-colegio   n=2  N1 b3a 5 sim=0.276 shopping_list  cortado      ok
+[ 360] claude-opus-5      elegir-colegio   n=2  N1 b0a 6 sim=0.129 recipe         presupone    ok
+[ 361] claude-opus-5      elegir-colegio   n=2  N1 b1a 6 sim=0.210 sql            presupone    ok
+[ 362] claude-opus-5      elegir-colegio   n=2  N1 b2a 6 sim=0.250 note_to_self   cortado      ok
+[ 363] claude-opus-5      elegir-colegio   n=2  N1 b3a 6 sim=0.384 meeting_notes  responde     ok
+[ 364] claude-opus-5      elegir-colegio   n=2  N1 b0a 7 sim=0.188 stacktrace     responde     ok
+[ 365] claude-opus-5      elegir-colegio   n=2  N1 b1a 7 sim=0.191 email          responde     ok
+[ 366] claude-opus-5      elegir-colegio   n=2  N1 b2a 7 sim=0.255 job_ad         dirigido     ok
+[ 367] claude-opus-5      elegir-colegio   n=2  N1 b3a 7 sim=0.358 job_ad         cortado      ok
+[ 368] claude-opus-5      elegir-colegio   n=2  N1 b0a 8 sim=0.172 email          cortado      ok
+[ 369] claude-opus-5      elegir-colegio   n=2  N1 b1a 8 sim=0.193 sql            presupone    ok
+[ 370] claude-opus-5      elegir-colegio   n=2  N1 b2a 8 sim=0.242 changelog      presupone    ok
+[ 371] claude-opus-5      elegir-colegio   n=2  N1 b3a 8 sim=0.304 prompt         cortado      ok
+[ 372] claude-opus-5      elegir-colegio   n=2  N1 b0a 9 sim=0.174 recipe         dirigido     ok
+[ 373] claude-opus-5      elegir-colegio   n=2  N1 b1a 9 sim=0.232 meeting_notes  presupone    ok
+[ 374] claude-opus-5      elegir-colegio   n=2  N1 b2a 9 sim=0.247 job_ad         cortado      ok
+[ 375] claude-opus-5      elegir-colegio   n=2  N1 b3a 9 sim=0.375 email          dirigido     ok
+[ 376] claude-opus-5      elegir-colegio   n=2  N1 b0a10 sim=0.185 config         dirigido     ok
+[ 377] claude-opus-5      elegir-colegio   n=2  N1 b1a10 sim=0.195 changelog      responde     ok
+[ 378] claude-opus-5      elegir-colegio   n=2  N1 b2a10 sim=0.239 sql            responde     ok
+[ 379] claude-opus-5      elegir-colegio   n=2  N1 b3a10 sim=0.341 changelog      dirigido     ok
+[ 380] claude-opus-5      elegir-colegio   n=2  N1 b0a11 sim=0.134 config         presupone    ok
+[ 381] claude-opus-5      elegir-colegio   n=2  N1 b1a11 sim=0.215 shopping_list  dirigido     ok
+[ 382] claude-opus-5      elegir-colegio   n=2  N1 b2a11 sim=0.257 shopping_list  responde     ok
+[ 383] claude-opus-5      elegir-colegio   n=2  N1 b3a11 sim=0.315 meeting_notes  dirigido     ok
+[ 384] claude-opus-5      elegir-colegio   n=2  N1 b0a12 sim=0.131 stacktrace     presupone    ok
+[ 385] claude-opus-5      elegir-colegio   n=2  N1 b1a12 sim=0.214 prompt         responde     ok
+[ 386] claude-opus-5      elegir-colegio   n=2  N1 b2a12 sim=0.243 shopping_list  dirigido     ok
+[ 387] claude-opus-5      elegir-colegio   n=2  N1 b3a12 sim=0.279 note_to_self   presupone    ok
+[ 388] claude-opus-5      elegir-colegio   n=2  N1 b0a13 sim=0.168 stacktrace     dirigido     ok
+[ 389] claude-opus-5      elegir-colegio   n=2  N1 b1a13 sim=0.213 note_to_self   responde     ok
+[ 390] claude-opus-5      elegir-colegio   n=2  N1 b2a13 sim=0.245 note_to_self   dirigido     ok
+[ 391] claude-opus-5      elegir-colegio   n=2  N1 b3a13 sim=0.281 config         responde     ok
+[ 392] claude-opus-5      elegir-colegio   n=2  N1 b0a14 sim=0.187 stacktrace     cortado      ok
+[ 393] claude-opus-5      elegir-colegio   n=2  N1 b1a14 sim=0.197 sql            responde     ok
+[ 394] claude-opus-5      elegir-colegio   n=2  N1 b2a14 sim=0.241 changelog      cortado      ok
+[ 395] claude-opus-5      elegir-colegio   n=2  N1 b3a14 sim=0.318 job_ad         presupone    ok
+[ 396] claude-opus-5      elegir-colegio   n=2  N1 b0a15 sim=0.176 recipe         responde     ok
+[ 397] claude-opus-5      elegir-colegio   n=2  N1 b1a15 sim=0.233 prompt         presupone    truncated
+[ 398] claude-opus-5      elegir-colegio   n=2  N1 b2a15 sim=0.257 job_ad         dirigido     ok
+[ 399] claude-opus-5      elegir-colegio   n=2  N1 b3a15 sim=0.263 changelog      dirigido     ok
+[ 400] claude-opus-5      elegir-colegio   n=2  N1 b0a16 sim=0.164 config         cortado      ok
+[ 401] claude-opus-5      elegir-colegio   n=2  N1 b1a16 sim=0.212 changelog      cortado      ok
+[ 402] claude-opus-5      elegir-colegio   n=2  N1 b2a16 sim=0.258 meeting_notes  presupone    ok
+[ 403] claude-opus-5      elegir-colegio   n=2  N1 b3a16 sim=0.296 prompt         cortado      ok
+[ 404] claude-opus-5      elegir-colegio   n=2  N1 b0a17 sim=0.159 stacktrace     dirigido     ok
+[ 405] claude-opus-5      elegir-colegio   n=2  N1 b1a17 sim=0.202 prompt         responde     ok
+[ 406] claude-opus-5      elegir-colegio   n=2  N1 b2a17 sim=0.256 meeting_notes  dirigido     ok
+[ 407] claude-opus-5      elegir-colegio   n=2  N1 b3a17 sim=0.286 note_to_self   presupone    ok
+[ 408] claude-opus-5      elegir-colegio   n=2  N1 b0a18 sim=0.152 stacktrace     responde     ok
+[ 409] claude-opus-5      elegir-colegio   n=2  N1 b1a18 sim=0.226 shopping_list  dirigido     ok
+[ 410] claude-opus-5      elegir-colegio   n=2  N1 b2a18 sim=0.250 prompt         cortado      ok
+[ 411] claude-opus-5      elegir-colegio   n=2  N1 b3a18 sim=0.285 meeting_notes  cortado      ok
+[ 412] claude-opus-5      elegir-colegio   n=2  N1 b0a19 sim=0.136 recipe         responde     ok
+[ 413] claude-opus-5      elegir-colegio   n=2  N1 b1a19 sim=0.230 sql            dirigido     ok
+[ 414] claude-opus-5      elegir-colegio   n=2  N1 b2a19 sim=0.260 job_ad         responde     ok
+[ 415] claude-opus-5      elegir-colegio   n=2  N1 b3a19 sim=0.305 note_to_self   presupone    ok
+[ 416] claude-opus-5      elegir-colegio   n=2  N1 b0a20 sim=0.173 recipe         responde     ok
+[ 417] claude-opus-5      elegir-colegio   n=2  N1 b1a20 sim=0.189 recipe         dirigido     ok
+[ 418] claude-opus-5      elegir-colegio   n=2  N1 b2a20 sim=0.238 email          responde     ok
+[ 419] claude-opus-5      elegir-colegio   n=2  N1 b3a20 sim=0.280 email          presupone    ok
+[ 420] claude-opus-5      elegir-colegio   n=10 N1 b0a 0 sim=0.197 config         cortado      ok
+[ 421] claude-opus-5      elegir-colegio   n=10 N1 b1a 0 sim=0.224 email          presupone    ok
+[ 422] claude-opus-5      elegir-colegio   n=10 N1 b2a 0 sim=0.309 prompt         cortado      ok
+[ 423] claude-opus-5      elegir-colegio   n=10 N1 b3a 0 sim=0.327 changelog      dirigido     ok
+[ 424] claude-opus-5      elegir-colegio   n=10 N1 b0a 1 sim=0.182 stacktrace     responde     ok
+[ 425] claude-opus-5      elegir-colegio   n=10 N1 b1a 1 sim=0.245 email          responde     ok
+[ 426] claude-opus-5      elegir-colegio   n=10 N1 b2a 1 sim=0.303 meeting_notes  dirigido     ok
+[ 427] claude-opus-5      elegir-colegio   n=10 N1 b3a 1 sim=0.321 changelog      dirigido     ok
+[ 428] claude-opus-5      elegir-colegio   n=10 N1 b0a 2 sim=0.189 config         responde     ok
+[ 429] claude-opus-5      elegir-colegio   n=10 N1 b1a 2 sim=0.231 sql            presupone    ok
+[ 430] claude-opus-5      elegir-colegio   n=10 N1 b2a 2 sim=0.313 email          presupone    ok
+[ 431] claude-opus-5      elegir-colegio   n=10 N1 b3a 2 sim=0.331 prompt         dirigido     ok
+[ 432] claude-opus-5      elegir-colegio   n=10 N1 b0a 3 sim=0.218 recipe         presupone    ok
+[ 433] claude-opus-5      elegir-colegio   n=10 N1 b1a 3 sim=0.254 prompt         responde     ok
+[ 434] claude-opus-5      elegir-colegio   n=10 N1 b2a 3 sim=0.274 note_to_self   cortado      ok
+[ 435] claude-opus-5      elegir-colegio   n=10 N1 b3a 3 sim=0.379 meeting_notes  dirigido     ok
+[ 436] claude-opus-5      elegir-colegio   n=10 N1 b0a 4 sim=0.148 recipe         presupone    ok
+[ 437] claude-opus-5      elegir-colegio   n=10 N1 b1a 4 sim=0.241 sql            cortado      ok
+[ 438] claude-opus-5      elegir-colegio   n=10 N1 b2a 4 sim=0.307 note_to_self   dirigido     ok
+[ 439] claude-opus-5      elegir-colegio   n=10 N1 b3a 4 sim=0.338 note_to_self   presupone    ok
+[ 440] claude-opus-5      elegir-colegio   n=10 N1 b0a 5 sim=0.169 recipe         responde     ok
+[ 441] claude-opus-5      elegir-colegio   n=10 N1 b1a 5 sim=0.250 email          cortado      ok
+[ 442] claude-opus-5      elegir-colegio   n=10 N1 b2a 5 sim=0.281 config         presupone    ok
+[ 443] claude-opus-5      elegir-colegio   n=10 N1 b3a 5 sim=0.430 changelog      dirigido     ok
+[ 444] claude-opus-5      elegir-colegio   n=10 N1 b0a 6 sim=0.181 config         dirigido     ok
+[ 445] claude-opus-5      elegir-colegio   n=10 N1 b1a 6 sim=0.220 sql            responde     ok
+[ 446] claude-opus-5      elegir-colegio   n=10 N1 b2a 6 sim=0.277 note_to_self   cortado      ok
+[ 447] claude-opus-5      elegir-colegio   n=10 N1 b3a 6 sim=0.342 shopping_list  cortado      ok
+[ 448] claude-opus-5      elegir-colegio   n=10 N1 b0a 7 sim=0.188 note_to_self   responde     ok
+[ 449] claude-opus-5      elegir-colegio   n=10 N1 b1a 7 sim=0.264 shopping_list  dirigido     ok
+[ 450] claude-opus-5      elegir-colegio   n=10 N1 b2a 7 sim=0.290 email          presupone    ok
+[ 451] claude-opus-5      elegir-colegio   n=10 N1 b3a 7 sim=0.321 job_ad         dirigido     ok
+[ 452] claude-opus-5      elegir-colegio   n=10 N1 b0a 8 sim=0.173 stacktrace     presupone    ok
+[ 453] claude-opus-5      elegir-colegio   n=10 N1 b1a 8 sim=0.236 recipe         dirigido     ok
+[ 454] claude-opus-5      elegir-colegio   n=10 N1 b2a 8 sim=0.292 prompt         responde     ok
+[ 455] claude-opus-5      elegir-colegio   n=10 N1 b3a 8 sim=0.383 job_ad         cortado      ok
+[ 456] claude-opus-5      elegir-colegio   n=10 N1 b0a 9 sim=0.195 stacktrace     dirigido     ok
+[ 457] claude-opus-5      elegir-colegio   n=10 N1 b1a 9 sim=0.270 shopping_list  responde     ok
+[ 458] claude-opus-5      elegir-colegio   n=10 N1 b2a 9 sim=0.294 job_ad         cortado      ok
+[ 459] claude-opus-5      elegir-colegio   n=10 N1 b3a 9 sim=0.333 note_to_self   presupone    ok
+[ 460] claude-opus-5      elegir-colegio   n=10 N1 b0a10 sim=0.213 recipe         responde     ok
+[ 461] claude-opus-5      elegir-colegio   n=10 N1 b1a10 sim=0.219 changelog      cortado      ok
+[ 462] claude-opus-5      elegir-colegio   n=10 N1 b2a10 sim=0.303 prompt         presupone    ok
+[ 463] claude-opus-5      elegir-colegio   n=10 N1 b3a10 sim=0.368 job_ad         presupone    ok
+[ 464] claude-opus-5      elegir-colegio   n=10 N1 b0a11 sim=0.217 shopping_list  cortado      ok
+[ 465] claude-opus-5      elegir-colegio   n=10 N1 b1a11 sim=0.225 sql            cortado      ok
+[ 466] claude-opus-5      elegir-colegio   n=10 N1 b2a11 sim=0.302 job_ad         responde     ok
+[ 467] claude-opus-5      elegir-colegio   n=10 N1 b3a11 sim=0.349 prompt         cortado      ok
+[ 468] claude-opus-5      elegir-colegio   n=10 N1 b0a12 sim=0.189 config         cortado      ok
+[ 469] claude-opus-5      elegir-colegio   n=10 N1 b1a12 sim=0.242 sql            presupone    ok
+[ 470] claude-opus-5      elegir-colegio   n=10 N1 b2a12 sim=0.279 meeting_notes  presupone    ok
+[ 471] claude-opus-5      elegir-colegio   n=10 N1 b3a12 sim=0.350 config         responde     ok
+[ 472] claude-opus-5      elegir-colegio   n=10 N1 b0a13 sim=0.215 recipe         responde     ok
+[ 473] claude-opus-5      elegir-colegio   n=10 N1 b1a13 sim=0.272 changelog      presupone    ok
+[ 474] claude-opus-5      elegir-colegio   n=10 N1 b2a13 sim=0.303 meeting_notes  presupone    ok
+[ 475] claude-opus-5      elegir-colegio   n=10 N1 b3a13 sim=0.407 email          dirigido     ok
+[ 476] claude-opus-5      elegir-colegio   n=10 N1 b0a14 sim=0.179 stacktrace     cortado      ok
+[ 477] claude-opus-5      elegir-colegio   n=10 N1 b1a14 sim=0.241 sql            dirigido     ok
+[ 478] claude-opus-5      elegir-colegio   n=10 N1 b2a14 sim=0.291 shopping_list  dirigido     ok
+[ 479] claude-opus-5      elegir-colegio   n=10 N1 b3a14 sim=0.400 note_to_self   presupone    ok
+[ 480] claude-opus-5      elegir-colegio   n=10 N1 b0a15 sim=0.206 sql            responde     ok
+[ 481] claude-opus-5      elegir-colegio   n=10 N1 b1a15 sim=0.251 email          responde     ok
+[ 482] claude-opus-5      elegir-colegio   n=10 N1 b2a15 sim=0.279 sql            responde     ok
+[ 483] claude-opus-5      elegir-colegio   n=10 N1 b3a15 sim=0.440 meeting_notes  responde     ok
+[ 484] claude-opus-5      elegir-colegio   n=10 N1 b0a16 sim=0.097 recipe         cortado      ok
+[ 485] claude-opus-5      elegir-colegio   n=10 N1 b1a16 sim=0.242 config         responde     ok
+[ 486] claude-opus-5      elegir-colegio   n=10 N1 b2a16 sim=0.299 job_ad         cortado      ok
+[ 487] claude-opus-5      elegir-colegio   n=10 N1 b3a16 sim=0.390 note_to_self   presupone    ok
+[ 488] claude-opus-5      elegir-colegio   n=10 N1 b0a17 sim=0.196 email          cortado      ok
+[ 489] claude-opus-5      elegir-colegio   n=10 N1 b1a17 sim=0.220 stacktrace     presupone    ok
+[ 490] claude-opus-5      elegir-colegio   n=10 N1 b2a17 sim=0.289 changelog      cortado      ok
+[ 491] claude-opus-5      elegir-colegio   n=10 N1 b3a17 sim=0.320 meeting_notes  cortado      ok
+[ 492] claude-opus-5      elegir-colegio   n=10 N1 b0a18 sim=0.172 stacktrace     dirigido     ok
+[ 493] claude-opus-5      elegir-colegio   n=10 N1 b1a18 sim=0.256 shopping_list  dirigido     ok
+[ 494] claude-opus-5      elegir-colegio   n=10 N1 b2a18 sim=0.275 changelog      presupone    ok
+[ 495] claude-opus-5      elegir-colegio   n=10 N1 b3a18 sim=0.377 meeting_notes  responde     ok
+[ 496] claude-opus-5      elegir-colegio   n=10 N1 b0a19 sim=0.211 config         presupone    ok
+[ 497] claude-opus-5      elegir-colegio   n=10 N1 b1a19 sim=0.236 recipe         dirigido     ok
+[ 498] claude-opus-5      elegir-colegio   n=10 N1 b2a19 sim=0.298 shopping_list  dirigido     ok
+[ 499] claude-opus-5      elegir-colegio   n=10 N1 b3a19 sim=0.363 meeting_notes  dirigido     ok
+[ 500] claude-opus-5      elegir-colegio   n=10 N1 b0a20 sim=0.197 stacktrace     responde     ok
+[ 501] claude-opus-5      elegir-colegio   n=10 N1 b1a20 sim=0.251 changelog      responde     ok
+[ 502] claude-opus-5      elegir-colegio   n=10 N1 b2a20 sim=0.313 job_ad         dirigido     ok
+[ 503] claude-opus-5      elegir-colegio   n=10 N1 b3a20 sim=0.345 prompt         cortado      ok
+[ 504] claude-opus-5      factura-luz      n=2  N1 b0a 0 sim=0.244 job_ad         responde     ok
+[ 505] claude-opus-5      factura-luz      n=2  N1 b1a 0 sim=0.291 changelog      presupone    ok
+[ 506] claude-opus-5      factura-luz      n=2  N1 b2a 0 sim=0.336 changelog      dirigido     ok
+[ 507] claude-opus-5      factura-luz      n=2  N1 b3a 0 sim=0.367 changelog      responde     ok
+[ 508] claude-opus-5      factura-luz      n=2  N1 b0a 1 sim=0.253 prompt         responde     ok
+[ 509] claude-opus-5      factura-luz      n=2  N1 b1a 1 sim=0.262 config         responde     ok
+[ 510] claude-opus-5      factura-luz      n=2  N1 b2a 1 sim=0.326 changelog      dirigido     ok
+[ 511] claude-opus-5      factura-luz      n=2  N1 b3a 1 sim=0.396 meeting_notes  responde     ok
+[ 512] claude-opus-5      factura-luz      n=2  N1 b0a 2 sim=0.236 recipe         presupone    ok
+[ 513] claude-opus-5      factura-luz      n=2  N1 b1a 2 sim=0.280 config         cortado      ok
+[ 514] claude-opus-5      factura-luz      n=2  N1 b2a 2 sim=0.353 email          presupone    ok
+[ 515] claude-opus-5      factura-luz      n=2  N1 b3a 2 sim=0.386 note_to_self   presupone    ok
+[ 516] claude-opus-5      factura-luz      n=2  N1 b0a 3 sim=0.247 job_ad         cortado      ok
+[ 517] claude-opus-5      factura-luz      n=2  N1 b1a 3 sim=0.291 stacktrace     presupone    ok
+[ 518] claude-opus-5      factura-luz      n=2  N1 b2a 3 sim=0.308 note_to_self   dirigido     ok
+[ 519] claude-opus-5      factura-luz      n=2  N1 b3a 3 sim=0.368 config         presupone    ok
+[ 520] claude-opus-5      factura-luz      n=2  N1 b0a 4 sim=0.234 prompt         cortado      ok
+[ 521] claude-opus-5      factura-luz      n=2  N1 b1a 4 sim=0.265 recipe         dirigido     ok
+[ 522] claude-opus-5      factura-luz      n=2  N1 b2a 4 sim=0.343 job_ad         dirigido     ok
+[ 523] claude-opus-5      factura-luz      n=2  N1 b3a 4 sim=0.355 meeting_notes  dirigido     ok
+[ 524] claude-opus-5      factura-luz      n=2  N1 b0a 5 sim=0.094 recipe         cortado      ok
+[ 525] claude-opus-5      factura-luz      n=2  N1 b1a 5 sim=0.271 shopping_list  dirigido     ok
+[ 526] claude-opus-5      factura-luz      n=2  N1 b2a 5 sim=0.331 email          presupone    ok
+[ 527] claude-opus-5      factura-luz      n=2  N1 b3a 5 sim=0.374 changelog      cortado      ok
+[ 528] claude-opus-5      factura-luz      n=2  N1 b0a 6 sim=0.172 shopping_list  cortado      ok
+[ 529] claude-opus-5      factura-luz      n=2  N1 b1a 6 sim=0.268 config         responde     ok
+[ 530] claude-opus-5      factura-luz      n=2  N1 b2a 6 sim=0.309 prompt         dirigido     ok
+[ 531] claude-opus-5      factura-luz      n=2  N1 b3a 6 sim=0.463 note_to_self   presupone    ok
+[ 532] claude-opus-5      factura-luz      n=2  N1 b0a 7 sim=0.195 stacktrace     responde     ok
+[ 533] claude-opus-5      factura-luz      n=2  N1 b1a 7 sim=0.300 sql            dirigido     ok
+[ 534] claude-opus-5      factura-luz      n=2  N1 b2a 7 sim=0.337 note_to_self   presupone    ok
+[ 535] claude-opus-5      factura-luz      n=2  N1 b3a 7 sim=0.414 meeting_notes  dirigido     ok
+[ 536] claude-opus-5      factura-luz      n=2  N1 b0a 8 sim=0.224 sql            responde     ok
+[ 537] claude-opus-5      factura-luz      n=2  N1 b1a 8 sim=0.272 shopping_list  dirigido     ok
+[ 538] claude-opus-5      factura-luz      n=2  N1 b2a 8 sim=0.355 prompt         cortado      ok
+[ 539] claude-opus-5      factura-luz      n=2  N1 b3a 8 sim=0.363 email          responde     ok
+[ 540] claude-opus-5      factura-luz      n=2  N1 b0a 9 sim=0.254 sql            responde     ok
+[ 541] claude-opus-5      factura-luz      n=2  N1 b1a 9 sim=0.283 shopping_list  dirigido     ok
+[ 542] claude-opus-5      factura-luz      n=2  N1 b2a 9 sim=0.315 job_ad         dirigido     ok
+[ 543] claude-opus-5      factura-luz      n=2  N1 b3a 9 sim=0.369 note_to_self   cortado      ok
+[ 544] claude-opus-5      factura-luz      n=2  N1 b0a10 sim=0.184 note_to_self   responde     ok
+[ 545] claude-opus-5      factura-luz      n=2  N1 b1a10 sim=0.265 sql            cortado      ok
+[ 546] claude-opus-5      factura-luz      n=2  N1 b2a10 sim=0.337 email          presupone    ok
+[ 547] claude-opus-5      factura-luz      n=2  N1 b3a10 sim=0.377 meeting_notes  presupone    ok
+[ 548] claude-opus-5      factura-luz      n=2  N1 b0a11 sim=0.169 recipe         responde     ok
+[ 549] claude-opus-5      factura-luz      n=2  N1 b1a11 sim=0.263 prompt         responde     ok
+[ 550] claude-opus-5      factura-luz      n=2  N1 b2a11 sim=0.305 sql            responde     ok
+[ 551] claude-opus-5      factura-luz      n=2  N1 b3a11 sim=0.361 stacktrace     presupone    ok
+[ 552] claude-opus-5      factura-luz      n=2  N1 b0a12 sim=0.206 recipe         dirigido     ok
+[ 553] claude-opus-5      factura-luz      n=2  N1 b1a12 sim=0.279 shopping_list  dirigido     ok
+[ 554] claude-opus-5      factura-luz      n=2  N1 b2a12 sim=0.334 note_to_self   cortado      ok
+[ 555] claude-opus-5      factura-luz      n=2  N1 b3a12 sim=0.394 sql            cortado      ok
+[ 556] claude-opus-5      factura-luz      n=2  N1 b0a13 sim=0.165 recipe         presupone    ok
+[ 557] claude-opus-5      factura-luz      n=2  N1 b1a13 sim=0.280 prompt         presupone    ok
+[ 558] claude-opus-5      factura-luz      n=2  N1 b2a13 sim=0.332 email          responde     ok
+[ 559] claude-opus-5      factura-luz      n=2  N1 b3a13 sim=0.365 config         presupone    ok
+[ 560] claude-opus-5      factura-luz      n=2  N1 b0a14 sim=0.218 job_ad         cortado      ok
+[ 561] claude-opus-5      factura-luz      n=2  N1 b1a14 sim=0.297 sql            presupone    ok
+[ 562] claude-opus-5      factura-luz      n=2  N1 b2a14 sim=0.308 changelog      cortado      ok
+[ 563] claude-opus-5      factura-luz      n=2  N1 b3a14 sim=0.374 stacktrace     cortado      ok
+[ 564] claude-opus-5      factura-luz      n=2  N1 b0a15 sim=0.233 config         responde     ok
+[ 565] claude-opus-5      factura-luz      n=2  N1 b1a15 sim=0.292 meeting_notes  responde     ok
+[ 566] claude-opus-5      factura-luz      n=2  N1 b2a15 sim=0.312 config         cortado      ok
+[ 567] claude-opus-5      factura-luz      n=2  N1 b3a15 sim=0.383 job_ad         presupone    ok
+[ 568] claude-opus-5      factura-luz      n=2  N1 b0a16 sim=0.200 shopping_list  responde     ok
+[ 569] claude-opus-5      factura-luz      n=2  N1 b1a16 sim=0.302 stacktrace     dirigido     ok
+[ 570] claude-opus-5      factura-luz      n=2  N1 b2a16 sim=0.329 sql            presupone    ok
+[ 571] claude-opus-5      factura-luz      n=2  N1 b3a16 sim=0.374 email          cortado      ok
+[ 572] claude-opus-5      factura-luz      n=2  N1 b0a17 sim=0.175 recipe         responde     ok
+[ 573] claude-opus-5      factura-luz      n=2  N1 b1a17 sim=0.285 prompt         cortado      ok
+[ 574] claude-opus-5      factura-luz      n=2  N1 b2a17 sim=0.354 changelog      dirigido     ok
+[ 575] claude-opus-5      factura-luz      n=2  N1 b3a17 sim=0.359 changelog      presupone    ok
+[ 576] claude-opus-5      factura-luz      n=2  N1 b0a18 sim=0.173 recipe         responde     ok
+[ 577] claude-opus-5      factura-luz      n=2  N1 b1a18 sim=0.280 meeting_notes  presupone    ok
+[ 578] claude-opus-5      factura-luz      n=2  N1 b2a18 sim=0.318 stacktrace     responde     ok
+[ 579] claude-opus-5      factura-luz      n=2  N1 b3a18 sim=0.394 meeting_notes  dirigido     ok
+[ 580] claude-opus-5      factura-luz      n=2  N1 b0a19 sim=0.211 stacktrace     dirigido     ok
+[ 581] claude-opus-5      factura-luz      n=2  N1 b1a19 sim=0.298 meeting_notes  cortado      ok
+[ 582] claude-opus-5      factura-luz      n=2  N1 b2a19 sim=0.304 config         dirigido     ok
+[ 583] claude-opus-5      factura-luz      n=2  N1 b3a19 sim=0.376 note_to_self   presupone    ok
+[ 584] claude-opus-5      factura-luz      n=2  N1 b0a20 sim=0.232 job_ad         cortado      ok
+[ 585] claude-opus-5      factura-luz      n=2  N1 b1a20 sim=0.260 shopping_list  cortado      ok
+[ 586] claude-opus-5      factura-luz      n=2  N1 b2a20 sim=0.332 email          cortado      ok
+[ 587] claude-opus-5      factura-luz      n=2  N1 b3a20 sim=0.408 email          dirigido     ok
+[ 588] claude-opus-5      factura-luz      n=10 N1 b0a 0 sim=0.220 recipe         responde     ok
+[ 589] claude-opus-5      factura-luz      n=10 N1 b1a 0 sim=0.317 changelog      cortado      ok
+[ 590] claude-opus-5      factura-luz      n=10 N1 b2a 0 sim=0.335 sql            dirigido     ok
+[ 591] claude-opus-5      factura-luz      n=10 N1 b3a 0 sim=0.428 note_to_self   presupone    ok
+[ 592] claude-opus-5      factura-luz      n=10 N1 b0a 1 sim=0.262 config         responde     ok
+[ 593] claude-opus-5      factura-luz      n=10 N1 b1a 1 sim=0.323 email          responde     ok
+[ 594] claude-opus-5      factura-luz      n=10 N1 b2a 1 sim=0.331 recipe         dirigido     ok
+[ 595] claude-opus-5      factura-luz      n=10 N1 b3a 1 sim=0.448 email          dirigido     ok
+[ 596] claude-opus-5      factura-luz      n=10 N1 b0a 2 sim=0.209 stacktrace     responde     ok
+[ 597] claude-opus-5      factura-luz      n=10 N1 b1a 2 sim=0.294 job_ad         cortado      ok
+[ 598] claude-opus-5      factura-luz      n=10 N1 b2a 2 sim=0.361 changelog      responde     ok
+[ 599] claude-opus-5      factura-luz      n=10 N1 b3a 2 sim=0.372 email          presupone    ok
+[ 600] claude-opus-5      factura-luz      n=10 N1 b0a 3 sim=0.208 recipe         responde     ok
+[ 601] claude-opus-5      factura-luz      n=10 N1 b1a 3 sim=0.309 stacktrace     presupone    ok
+[ 602] claude-opus-5      factura-luz      n=10 N1 b2a 3 sim=0.342 prompt         responde     ok
+[ 603] claude-opus-5      factura-luz      n=10 N1 b3a 3 sim=0.381 meeting_notes  responde     ok
+[ 604] claude-opus-5      factura-luz      n=10 N1 b0a 4 sim=0.276 shopping_list  responde     ok
+[ 605] claude-opus-5      factura-luz      n=10 N1 b1a 4 sim=0.301 sql            responde     ok
+[ 606] claude-opus-5      factura-luz      n=10 N1 b2a 4 sim=0.341 shopping_list  dirigido     ok
+[ 607] claude-opus-5      factura-luz      n=10 N1 b3a 4 sim=0.377 email          cortado      ok
+[ 608] claude-opus-5      factura-luz      n=10 N1 b0a 5 sim=0.283 shopping_list  cortado      ok
+[ 609] claude-opus-5      factura-luz      n=10 N1 b1a 5 sim=0.324 sql            presupone    ok
+[ 610] claude-opus-5      factura-luz      n=10 N1 b2a 5 sim=0.364 changelog      dirigido     ok
+[ 611] claude-opus-5      factura-luz      n=10 N1 b3a 5 sim=0.394 email          presupone    ok
+[ 612] claude-opus-5      factura-luz      n=10 N1 b0a 6 sim=0.237 shopping_list  cortado      ok
+[ 613] claude-opus-5      factura-luz      n=10 N1 b1a 6 sim=0.315 shopping_list  dirigido     ok
+[ 614] claude-opus-5      factura-luz      n=10 N1 b2a 6 sim=0.329 shopping_list  dirigido     ok
+[ 615] claude-opus-5      factura-luz      n=10 N1 b3a 6 sim=0.365 note_to_self   cortado      ok
+[ 616] claude-opus-5      factura-luz      n=10 N1 b0a 7 sim=0.208 recipe         responde     ok
+[ 617] claude-opus-5      factura-luz      n=10 N1 b1a 7 sim=0.289 sql            cortado      ok
+[ 618] claude-opus-5      factura-luz      n=10 N1 b2a 7 sim=0.337 changelog      presupone    ok
+[ 619] claude-opus-5      factura-luz      n=10 N1 b3a 7 sim=0.378 changelog      dirigido     ok
+[ 620] claude-opus-5      factura-luz      n=10 N1 b0a 8 sim=0.285 job_ad         cortado      ok
+[ 621] claude-opus-5      factura-luz      n=10 N1 b1a 8 sim=0.323 config         cortado      ok
+[ 622] claude-opus-5      factura-luz      n=10 N1 b2a 8 sim=0.348 sql            presupone    ok
+[ 623] claude-opus-5      factura-luz      n=10 N1 b3a 8 sim=0.369 config         presupone    ok
+[ 624] claude-opus-5      factura-luz      n=10 N1 b0a 9 sim=0.235 recipe         presupone    ok
+[ 625] claude-opus-5      factura-luz      n=10 N1 b1a 9 sim=0.292 stacktrace     responde     ok
+[ 626] claude-opus-5      factura-luz      n=10 N1 b2a 9 sim=0.335 config         dirigido     ok
+[ 627] claude-opus-5      factura-luz      n=10 N1 b3a 9 sim=0.380 prompt         presupone    ok
+[ 628] claude-opus-5      factura-luz      n=10 N1 b0a10 sim=0.231 recipe         presupone    ok
+[ 629] claude-opus-5      factura-luz      n=10 N1 b1a10 sim=0.320 prompt         cortado      ok
+[ 630] claude-opus-5      factura-luz      n=10 N1 b2a10 sim=0.334 config         responde     ok
+[ 631] claude-opus-5      factura-luz      n=10 N1 b3a10 sim=0.388 job_ad         presupone    ok
+[ 632] claude-opus-5      factura-luz      n=10 N1 b0a11 sim=0.247 job_ad         responde     ok
+[ 633] claude-opus-5      factura-luz      n=10 N1 b1a11 sim=0.305 shopping_list  dirigido     ok
+[ 634] claude-opus-5      factura-luz      n=10 N1 b2a11 sim=0.346 sql            cortado      ok
+[ 635] claude-opus-5      factura-luz      n=10 N1 b3a11 sim=0.366 meeting_notes  dirigido     ok
+[ 636] claude-opus-5      factura-luz      n=10 N1 b0a12 sim=0.231 meeting_notes  presupone    ok
+[ 637] claude-opus-5      factura-luz      n=10 N1 b1a12 sim=0.323 sql            responde     ok
+[ 638] claude-opus-5      factura-luz      n=10 N1 b2a12 sim=0.361 changelog      presupone    ok
+[ 639] claude-opus-5      factura-luz      n=10 N1 b3a12 sim=0.400 prompt         cortado      ok
+[ 640] claude-opus-5      factura-luz      n=10 N1 b0a13 sim=0.285 config         responde     ok
+[ 641] claude-opus-5      factura-luz      n=10 N1 b1a13 sim=0.293 stacktrace     dirigido     ok
+[ 642] claude-opus-5      factura-luz      n=10 N1 b2a13 sim=0.340 config         presupone    ok
+[ 643] claude-opus-5      factura-luz      n=10 N1 b3a13 sim=0.406 job_ad         dirigido     ok
+[ 644] claude-opus-5      factura-luz      n=10 N1 b0a14 sim=0.252 stacktrace     presupone    ok
+[ 645] claude-opus-5      factura-luz      n=10 N1 b1a14 sim=0.319 email          cortado      ok
+[ 646] claude-opus-5      factura-luz      n=10 N1 b2a14 sim=0.352 note_to_self   dirigido     ok
+[ 647] claude-opus-5      factura-luz      n=10 N1 b3a14 sim=0.472 note_to_self   presupone    ok
+[ 648] claude-opus-5      factura-luz      n=10 N1 b0a15 sim=0.238 stacktrace     dirigido     ok
+[ 649] claude-opus-5      factura-luz      n=10 N1 b1a15 sim=0.324 meeting_notes  cortado      ok
+[ 650] claude-opus-5      factura-luz      n=10 N1 b2a15 sim=0.349 note_to_self   cortado      ok
+[ 651] claude-opus-5      factura-luz      n=10 N1 b3a15 sim=0.460 meeting_notes  dirigido     ok
+[ 652] claude-opus-5      factura-luz      n=10 N1 b0a16 sim=0.137 recipe         cortado      ok
+[ 653] claude-opus-5      factura-luz      n=10 N1 b1a16 sim=0.303 meeting_notes  responde     ok
+[ 654] claude-opus-5      factura-luz      n=10 N1 b2a16 sim=0.332 prompt         responde     ok
+[ 655] claude-opus-5      factura-luz      n=10 N1 b3a16 sim=0.373 note_to_self   presupone    ok
+[ 656] claude-opus-5      factura-luz      n=10 N1 b0a17 sim=0.286 job_ad         cortado      ok
+[ 657] claude-opus-5      factura-luz      n=10 N1 b1a17 sim=0.315 config         cortado      ok
+[ 658] claude-opus-5      factura-luz      n=10 N1 b2a17 sim=0.350 changelog      dirigido     ok
+[ 659] claude-opus-5      factura-luz      n=10 N1 b3a17 sim=0.400 meeting_notes  dirigido     ok
+[ 660] claude-opus-5      factura-luz      n=10 N1 b0a18 sim=0.254 sql            responde     ok
+[ 661] claude-opus-5      factura-luz      n=10 N1 b1a18 sim=0.312 email          responde     ok
+[ 662] claude-opus-5      factura-luz      n=10 N1 b2a18 sim=0.350 prompt         cortado      ok
+[ 663] claude-opus-5      factura-luz      n=10 N1 b3a18 sim=0.425 note_to_self   presupone    ok
+[ 664] claude-opus-5      factura-luz      n=10 N1 b0a19 sim=0.272 recipe         dirigido     ok
+[ 665] claude-opus-5      factura-luz      n=10 N1 b1a19 sim=0.291 changelog      cortado      ok
+[ 666] claude-opus-5      factura-luz      n=10 N1 b2a19 sim=0.351 email          presupone    ok
+[ 667] claude-opus-5      factura-luz      n=10 N1 b3a19 sim=0.376 job_ad         dirigido     ok
+[ 668] claude-opus-5      factura-luz      n=10 N1 b0a20 sim=0.224 note_to_self   responde     ok
+[ 669] claude-opus-5      factura-luz      n=10 N1 b1a20 sim=0.312 stacktrace     cortado      ok
+[ 670] claude-opus-5      factura-luz      n=10 N1 b2a20 sim=0.348 meeting_notes  presupone    ok
+[ 671] claude-opus-5      factura-luz      n=10 N1 b3a20 sim=0.394 prompt         dirigido     ok
+[ 672] claude-opus-5      hacer-pan        n=2  N1 b0a 0 sim=0.144 email          cortado      ok
+[ 673] claude-opus-5      hacer-pan        n=2  N1 b1a 0 sim=0.208 note_to_self   cortado      ok
+[ 674] claude-opus-5      hacer-pan        n=2  N1 b2a 0 sim=0.242 config         presupone    ok
+[ 675] claude-opus-5      hacer-pan        n=2  N1 b3a 0 sim=0.433 recipe         dirigido     ok
+[ 676] claude-opus-5      hacer-pan        n=2  N1 b0a 1 sim=0.166 job_ad         cortado      ok
+[ 677] claude-opus-5      hacer-pan        n=2  N1 b1a 1 sim=0.206 job_ad         presupone    ok
+[ 678] claude-opus-5      hacer-pan        n=2  N1 b2a 1 sim=0.261 prompt         dirigido     ok
+[ 679] claude-opus-5      hacer-pan        n=2  N1 b3a 1 sim=0.375 shopping_list  dirigido     ok
+[ 680] claude-opus-5      hacer-pan        n=2  N1 b0a 2 sim=0.163 config         responde     ok
+[ 681] claude-opus-5      hacer-pan        n=2  N1 b1a 2 sim=0.210 changelog      dirigido     ok
+[ 682] claude-opus-5      hacer-pan        n=2  N1 b2a 2 sim=0.270 changelog      dirigido     ok
+[ 683] claude-opus-5      hacer-pan        n=2  N1 b3a 2 sim=0.272 email          dirigido     ok
+[ 684] claude-opus-5      hacer-pan        n=2  N1 b0a 3 sim=0.170 meeting_notes  responde     ok
+[ 685] claude-opus-5      hacer-pan        n=2  N1 b1a 3 sim=0.205 config         responde     ok
+[ 686] claude-opus-5      hacer-pan        n=2  N1 b2a 3 sim=0.234 prompt         responde     ok
+[ 687] claude-opus-5      hacer-pan        n=2  N1 b3a 3 sim=0.289 prompt         presupone    ok
+[ 688] claude-opus-5      hacer-pan        n=2  N1 b0a 4 sim=0.127 sql            cortado      ok
+[ 689] claude-opus-5      hacer-pan        n=2  N1 b1a 4 sim=0.230 email          presupone    ok
+[ 690] claude-opus-5      hacer-pan        n=2  N1 b2a 4 sim=0.246 shopping_list  cortado      ok
+[ 691] claude-opus-5      hacer-pan        n=2  N1 b3a 4 sim=0.275 recipe         responde     ok
+[ 692] claude-opus-5      hacer-pan        n=2  N1 b0a 5 sim=0.144 note_to_self   responde     ok
+[ 693] claude-opus-5      hacer-pan        n=2  N1 b1a 5 sim=0.188 stacktrace     responde     ok
+[ 694] claude-opus-5      hacer-pan        n=2  N1 b2a 5 sim=0.232 stacktrace     dirigido     ok
+[ 695] claude-opus-5      hacer-pan        n=2  N1 b3a 5 sim=0.369 recipe         responde     ok
+[ 696] claude-opus-5      hacer-pan        n=2  N1 b0a 6 sim=0.141 meeting_notes  responde     ok
+[ 697] claude-opus-5      hacer-pan        n=2  N1 b1a 6 sim=0.225 changelog      presupone    ok
+[ 698] claude-opus-5      hacer-pan        n=2  N1 b2a 6 sim=0.236 meeting_notes  dirigido     ok
+[ 699] claude-opus-5      hacer-pan        n=2  N1 b3a 6 sim=0.299 note_to_self   presupone    ok
+[ 700] claude-opus-5      hacer-pan        n=2  N1 b0a 7 sim=0.125 sql            responde     ok
+[ 701] claude-opus-5      hacer-pan        n=2  N1 b1a 7 sim=0.184 meeting_notes  cortado      ok
+[ 702] claude-opus-5      hacer-pan        n=2  N1 b2a 7 sim=0.259 changelog      dirigido     ok
+[ 703] claude-opus-5      hacer-pan        n=2  N1 b3a 7 sim=0.387 recipe         dirigido     ok
+[ 704] claude-opus-5      hacer-pan        n=2  N1 b0a 8 sim=0.178 stacktrace     cortado      ok
+[ 705] claude-opus-5      hacer-pan        n=2  N1 b1a 8 sim=0.193 changelog      presupone    ok
+[ 706] claude-opus-5      hacer-pan        n=2  N1 b2a 8 sim=0.243 prompt         cortado      ok
+[ 707] claude-opus-5      hacer-pan        n=2  N1 b3a 8 sim=0.294 note_to_self   presupone    ok
+[ 708] claude-opus-5      hacer-pan        n=2  N1 b0a 9 sim=0.149 email          responde     ok
+[ 709] claude-opus-5      hacer-pan        n=2  N1 b1a 9 sim=0.215 job_ad         dirigido     ok
+[ 710] claude-opus-5      hacer-pan        n=2  N1 b2a 9 sim=0.246 job_ad         dirigido     ok
+[ 711] claude-opus-5      hacer-pan        n=2  N1 b3a 9 sim=0.283 prompt         cortado      ok
+[ 712] claude-opus-5      hacer-pan        n=2  N1 b0a10 sim=0.101 sql            presupone    ok
+[ 713] claude-opus-5      hacer-pan        n=2  N1 b1a10 sim=0.200 job_ad         cortado      ok
+[ 714] claude-opus-5      hacer-pan        n=2  N1 b2a10 sim=0.232 changelog      cortado      ok
+[ 715] claude-opus-5      hacer-pan        n=2  N1 b3a10 sim=0.291 config         presupone    ok
+[ 716] claude-opus-5      hacer-pan        n=2  N1 b0a11 sim=0.181 email          presupone    ok
+[ 717] claude-opus-5      hacer-pan        n=2  N1 b1a11 sim=0.201 config         responde     ok
+[ 718] claude-opus-5      hacer-pan        n=2  N1 b2a11 sim=0.244 note_to_self   presupone    ok
+[ 719] claude-opus-5      hacer-pan        n=2  N1 b3a11 sim=0.345 shopping_list  dirigido     ok
+[ 720] claude-opus-5      hacer-pan        n=2  N1 b0a12 sim=0.140 meeting_notes  presupone    ok
+[ 721] claude-opus-5      hacer-pan        n=2  N1 b1a12 sim=0.208 prompt         cortado      ok
+[ 722] claude-opus-5      hacer-pan        n=2  N1 b2a12 sim=0.269 prompt         responde     ok
+[ 723] claude-opus-5      hacer-pan        n=2  N1 b3a12 sim=0.296 shopping_list  cortado      ok
+[ 724] claude-opus-5      hacer-pan        n=2  N1 b0a13 sim=0.144 sql            responde     ok
+[ 725] claude-opus-5      hacer-pan        n=2  N1 b1a13 sim=0.228 note_to_self   dirigido     ok
+[ 726] claude-opus-5      hacer-pan        n=2  N1 b2a13 sim=0.240 config         cortado      ok
+[ 727] claude-opus-5      hacer-pan        n=2  N1 b3a13 sim=0.373 shopping_list  dirigido     ok
+[ 728] claude-opus-5      hacer-pan        n=2  N1 b0a14 sim=0.157 email          presupone    ok
+[ 729] claude-opus-5      hacer-pan        n=2  N1 b1a14 sim=0.218 stacktrace     dirigido     ok
+[ 730] claude-opus-5      hacer-pan        n=2  N1 b2a14 sim=0.249 email          responde     ok
+[ 731] claude-opus-5      hacer-pan        n=2  N1 b3a14 sim=0.276 shopping_list  responde     ok
+[ 732] claude-opus-5      hacer-pan        n=2  N1 b0a15 sim=0.104 job_ad         responde     ok
+[ 733] claude-opus-5      hacer-pan        n=2  N1 b1a15 sim=0.211 changelog      cortado      ok
+[ 734] claude-opus-5      hacer-pan        n=2  N1 b2a15 sim=0.235 meeting_notes  dirigido     ok
+[ 735] claude-opus-5      hacer-pan        n=2  N1 b3a15 sim=0.298 stacktrace     responde     ok
+[ 736] claude-opus-5      hacer-pan        n=2  N1 b0a16 sim=0.135 sql            presupone    ok
+[ 737] claude-opus-5      hacer-pan        n=2  N1 b1a16 sim=0.193 config         cortado      ok
+[ 738] claude-opus-5      hacer-pan        n=2  N1 b2a16 sim=0.232 stacktrace     presupone    ok
+[ 739] claude-opus-5      hacer-pan        n=2  N1 b3a16 sim=0.281 shopping_list  dirigido     ok
+[ 740] claude-opus-5      hacer-pan        n=2  N1 b0a17 sim=0.180 changelog      responde     ok
+[ 741] claude-opus-5      hacer-pan        n=2  N1 b1a17 sim=0.214 note_to_self   cortado      ok
+[ 742] claude-opus-5      hacer-pan        n=2  N1 b2a17 sim=0.252 config         dirigido     ok
+[ 743] claude-opus-5      hacer-pan        n=2  N1 b3a17 sim=0.355 recipe         responde     ok
+[ 744] claude-opus-5      hacer-pan        n=2  N1 b0a18 sim=0.131 sql            cortado      ok
+[ 745] claude-opus-5      hacer-pan        n=2  N1 b1a18 sim=0.193 email          cortado      ok
+[ 746] claude-opus-5      hacer-pan        n=2  N1 b2a18 sim=0.237 stacktrace     presupone    ok
+[ 747] claude-opus-5      hacer-pan        n=2  N1 b3a18 sim=0.342 recipe         cortado      ok
+[ 748] claude-opus-5      hacer-pan        n=2  N1 b0a19 sim=0.130 meeting_notes  presupone    ok
+[ 749] claude-opus-5      hacer-pan        n=2  N1 b1a19 sim=0.198 meeting_notes  dirigido     ok
+[ 750] claude-opus-5      hacer-pan        n=2  N1 b2a19 sim=0.244 job_ad         cortado      ok
+[ 751] claude-opus-5      hacer-pan        n=2  N1 b3a19 sim=0.474 recipe         presupone    ok
+[ 752] claude-opus-5      hacer-pan        n=2  N1 b0a20 sim=0.125 sql            responde     ok
+[ 753] claude-opus-5      hacer-pan        n=2  N1 b1a20 sim=0.198 sql            dirigido     ok
+[ 754] claude-opus-5      hacer-pan        n=2  N1 b2a20 sim=0.267 note_to_self   presupone    ok
+[ 755] claude-opus-5      hacer-pan        n=2  N1 b3a20 sim=0.324 recipe         presupone    ok
+[ 756] claude-opus-5      hacer-pan        n=10 N1 b0a 0 sim=0.213 email          responde     ok
+[ 757] claude-opus-5      hacer-pan        n=10 N1 b1a 0 sim=0.269 stacktrace     presupone    ok
+[ 758] claude-opus-5      hacer-pan        n=10 N1 b2a 0 sim=0.332 shopping_list  cortado      ok
+[ 759] claude-opus-5      hacer-pan        n=10 N1 b3a 0 sim=0.363 prompt         cortado      ok
+[ 760] claude-opus-5      hacer-pan        n=10 N1 b0a 1 sim=0.172 sql            presupone    ok
+[ 761] claude-opus-5      hacer-pan        n=10 N1 b1a 1 sim=0.242 sql            dirigido     ok
+[ 762] claude-opus-5      hacer-pan        n=10 N1 b2a 1 sim=0.328 config         presupone    ok
+[ 763] claude-opus-5      hacer-pan        n=10 N1 b3a 1 sim=0.376 note_to_self   presupone    ok
+[ 764] claude-opus-5      hacer-pan        n=10 N1 b0a 2 sim=0.192 stacktrace     cortado      ok
+[ 765] claude-opus-5      hacer-pan        n=10 N1 b1a 2 sim=0.285 email          presupone    ok
+[ 766] claude-opus-5      hacer-pan        n=10 N1 b2a 2 sim=0.331 changelog      dirigido     ok
+[ 767] claude-opus-5      hacer-pan        n=10 N1 b3a 2 sim=0.438 shopping_list  dirigido     ok
+[ 768] claude-opus-5      hacer-pan        n=10 N1 b0a 3 sim=0.200 sql            cortado      ok
+[ 769] claude-opus-5      hacer-pan        n=10 N1 b1a 3 sim=0.278 note_to_self   cortado      ok
+[ 770] claude-opus-5      hacer-pan        n=10 N1 b2a 3 sim=0.336 prompt         cortado      ok
+[ 771] claude-opus-5      hacer-pan        n=10 N1 b3a 3 sim=0.512 recipe         presupone    ok
+[ 772] claude-opus-5      hacer-pan        n=10 N1 b0a 4 sim=0.230 job_ad         cortado      ok
+[ 773] claude-opus-5      hacer-pan        n=10 N1 b1a 4 sim=0.276 meeting_notes  cortado      ok
+[ 774] claude-opus-5      hacer-pan        n=10 N1 b2a 4 sim=0.326 prompt         dirigido     ok
+[ 775] claude-opus-5      hacer-pan        n=10 N1 b3a 4 sim=0.392 shopping_list  dirigido     ok
+[ 776] claude-opus-5      hacer-pan        n=10 N1 b0a 5 sim=0.216 config         cortado      refusal
+[ 777] claude-opus-5      hacer-pan        n=10 N1 b1a 5 sim=0.243 config         responde     ok
+[ 778] claude-opus-5      hacer-pan        n=10 N1 b2a 5 sim=0.296 prompt         responde     ok
+[ 779] claude-opus-5      hacer-pan        n=10 N1 b3a 5 sim=0.352 shopping_list  cortado      ok
+[ 780] claude-opus-5      hacer-pan        n=10 N1 b0a 6 sim=0.228 stacktrace     responde     ok
+[ 781] claude-opus-5      hacer-pan        n=10 N1 b1a 6 sim=0.245 changelog      cortado      ok
+[ 782] claude-opus-5      hacer-pan        n=10 N1 b2a 6 sim=0.307 email          cortado      ok
+[ 783] claude-opus-5      hacer-pan        n=10 N1 b3a 6 sim=0.403 recipe         responde     ok
+[ 784] claude-opus-5      hacer-pan        n=10 N1 b0a 7 sim=0.221 sql            responde     ok
+[ 785] claude-opus-5      hacer-pan        n=10 N1 b1a 7 sim=0.243 job_ad         cortado      ok
+[ 786] claude-opus-5      hacer-pan        n=10 N1 b2a 7 sim=0.296 note_to_self   presupone    ok
+[ 787] claude-opus-5      hacer-pan        n=10 N1 b3a 7 sim=0.407 note_to_self   presupone    ok
+[ 788] claude-opus-5      hacer-pan        n=10 N1 b0a 8 sim=0.206 sql            presupone    ok
+[ 789] claude-opus-5      hacer-pan        n=10 N1 b1a 8 sim=0.254 job_ad         cortado      ok
+[ 790] claude-opus-5      hacer-pan        n=10 N1 b2a 8 sim=0.313 job_ad         dirigido     ok
+[ 791] claude-opus-5      hacer-pan        n=10 N1 b3a 8 sim=0.416 recipe         cortado      ok
+[ 792] claude-opus-5      hacer-pan        n=10 N1 b0a 9 sim=0.215 config         responde     ok
+[ 793] claude-opus-5      hacer-pan        n=10 N1 b1a 9 sim=0.270 note_to_self   cortado      ok
+[ 794] claude-opus-5      hacer-pan        n=10 N1 b2a 9 sim=0.330 changelog      dirigido     ok
+[ 795] claude-opus-5      hacer-pan        n=10 N1 b3a 9 sim=0.367 config         presupone    ok
+[ 796] claude-opus-5      hacer-pan        n=10 N1 b0a10 sim=0.182 sql            responde     ok
+[ 797] claude-opus-5      hacer-pan        n=10 N1 b1a10 sim=0.234 changelog      responde     ok
+[ 798] claude-opus-5      hacer-pan        n=10 N1 b2a10 sim=0.308 meeting_notes  responde     ok
+[ 799] claude-opus-5      hacer-pan        n=10 N1 b3a10 sim=0.371 recipe         responde     ok
+[ 800] claude-opus-5      hacer-pan        n=10 N1 b0a11 sim=0.210 meeting_notes  responde     ok
+[ 801] claude-opus-5      hacer-pan        n=10 N1 b1a11 sim=0.258 config         cortado      ok
+[ 802] claude-opus-5      hacer-pan        n=10 N1 b2a11 sim=0.310 stacktrace     responde     ok
+[ 803] claude-opus-5      hacer-pan        n=10 N1 b3a11 sim=0.426 recipe         dirigido     ok
+[ 804] claude-opus-5      hacer-pan        n=10 N1 b0a12 sim=0.231 stacktrace     presupone    ok
+[ 805] claude-opus-5      hacer-pan        n=10 N1 b1a12 sim=0.278 prompt         cortado      ok
+[ 806] claude-opus-5      hacer-pan        n=10 N1 b2a12 sim=0.321 shopping_list  responde     ok
+[ 807] claude-opus-5      hacer-pan        n=10 N1 b3a12 sim=0.425 recipe         dirigido     ok
+[ 808] claude-opus-5      hacer-pan        n=10 N1 b0a13 sim=0.184 job_ad         responde     ok
+[ 809] claude-opus-5      hacer-pan        n=10 N1 b1a13 sim=0.283 meeting_notes  dirigido     ok
+[ 810] claude-opus-5      hacer-pan        n=10 N1 b2a13 sim=0.330 changelog      dirigido     ok
+[ 811] claude-opus-5      hacer-pan        n=10 N1 b3a13 sim=0.373 shopping_list  dirigido     ok
+[ 812] claude-opus-5      hacer-pan        n=10 N1 b0a14 sim=0.231 stacktrace     dirigido     ok
+[ 813] claude-opus-5      hacer-pan        n=10 N1 b1a14 sim=0.273 config         dirigido     ok
+[ 814] claude-opus-5      hacer-pan        n=10 N1 b2a14 sim=0.337 email          responde     ok
+[ 815] claude-opus-5      hacer-pan        n=10 N1 b3a14 sim=0.350 email          dirigido     ok
+[ 816] claude-opus-5      hacer-pan        n=10 N1 b0a15 sim=0.150 sql            cortado      ok
+[ 817] claude-opus-5      hacer-pan        n=10 N1 b1a15 sim=0.267 config         responde     ok
+[ 818] claude-opus-5      hacer-pan        n=10 N1 b2a15 sim=0.330 prompt         presupone    ok
+[ 819] claude-opus-5      hacer-pan        n=10 N1 b3a15 sim=0.388 note_to_self   presupone    ok
+[ 820] claude-opus-5      hacer-pan        n=10 N1 b0a16 sim=0.195 note_to_self   responde     ok
+[ 821] claude-opus-5      hacer-pan        n=10 N1 b1a16 sim=0.260 stacktrace     dirigido     ok
+[ 822] claude-opus-5      hacer-pan        n=10 N1 b2a16 sim=0.287 changelog      presupone    ok
+[ 823] claude-opus-5      hacer-pan        n=10 N1 b3a16 sim=0.406 recipe         presupone    ok
+[ 824] claude-opus-5      hacer-pan        n=10 N1 b0a17 sim=0.216 meeting_notes  presupone    ok
+[ 825] claude-opus-5      hacer-pan        n=10 N1 b1a17 sim=0.271 job_ad         presupone    ok
+[ 826] claude-opus-5      hacer-pan        n=10 N1 b2a17 sim=0.348 changelog      presupone    ok
+[ 827] claude-opus-5      hacer-pan        n=10 N1 b3a17 sim=0.415 shopping_list  dirigido     ok
+[ 828] claude-opus-5      hacer-pan        n=10 N1 b0a18 sim=0.212 email          cortado      ok
+[ 829] claude-opus-5      hacer-pan        n=10 N1 b1a18 sim=0.234 meeting_notes  presupone    ok
+[ 830] claude-opus-5      hacer-pan        n=10 N1 b2a18 sim=0.287 changelog      cortado      ok
+[ 831] claude-opus-5      hacer-pan        n=10 N1 b3a18 sim=0.385 recipe         responde     ok
+[ 832] claude-opus-5      hacer-pan        n=10 N1 b0a19 sim=0.190 sql            responde     ok
+[ 833] claude-opus-5      hacer-pan        n=10 N1 b1a19 sim=0.276 email          presupone    ok
+[ 834] claude-opus-5      hacer-pan        n=10 N1 b2a19 sim=0.346 meeting_notes  dirigido     ok
+[ 835] claude-opus-5      hacer-pan        n=10 N1 b3a19 sim=0.352 note_to_self   dirigido     ok
+[ 836] claude-opus-5      hacer-pan        n=10 N1 b0a20 sim=0.233 email          presupone    ok
+[ 837] claude-opus-5      hacer-pan        n=10 N1 b1a20 sim=0.277 job_ad         dirigido     ok
+[ 838] claude-opus-5      hacer-pan        n=10 N1 b2a20 sim=0.310 prompt         responde     ok
+[ 839] claude-opus-5      hacer-pan        n=10 N1 b3a20 sim=0.357 meeting_notes  dirigido     ok
+[ 840] claude-opus-5      huerto-balcon    n=2  N1 b0a 0 sim=0.169 sql            presupone    ok
+[ 841] claude-opus-5      huerto-balcon    n=2  N1 b1a 0 sim=0.190 changelog      dirigido     ok
+[ 842] claude-opus-5      huerto-balcon    n=2  N1 b2a 0 sim=0.271 job_ad         cortado      ok
+[ 843] claude-opus-5      huerto-balcon    n=2  N1 b3a 0 sim=0.336 job_ad         dirigido     ok
+[ 844] claude-opus-5      huerto-balcon    n=2  N1 b0a 1 sim=0.144 stacktrace     responde     truncated
+[ 845] claude-opus-5      huerto-balcon    n=2  N1 b1a 1 sim=0.209 stacktrace     cortado      ok
+[ 846] claude-opus-5      huerto-balcon    n=2  N1 b2a 1 sim=0.251 recipe         responde     ok
+[ 847] claude-opus-5      huerto-balcon    n=2  N1 b3a 1 sim=0.346 email          dirigido     ok
+[ 848] claude-opus-5      huerto-balcon    n=2  N1 b0a 2 sim=0.159 prompt         presupone    ok
+[ 849] claude-opus-5      huerto-balcon    n=2  N1 b1a 2 sim=0.188 note_to_self   cortado      ok
+[ 850] claude-opus-5      huerto-balcon    n=2  N1 b2a 2 sim=0.275 config         presupone    ok
+[ 851] claude-opus-5      huerto-balcon    n=2  N1 b3a 2 sim=0.382 note_to_self   dirigido     ok
+[ 852] claude-opus-5      huerto-balcon    n=2  N1 b0a 3 sim=0.181 changelog      responde     ok
+[ 853] claude-opus-5      huerto-balcon    n=2  N1 b1a 3 sim=0.213 stacktrace     presupone    ok
+[ 854] claude-opus-5      huerto-balcon    n=2  N1 b2a 3 sim=0.260 config         cortado      ok
+[ 855] claude-opus-5      huerto-balcon    n=2  N1 b3a 3 sim=0.331 shopping_list  dirigido     ok
+[ 856] claude-opus-5      huerto-balcon    n=2  N1 b0a 4 sim=0.133 meeting_notes  presupone    ok
+[ 857] claude-opus-5      huerto-balcon    n=2  N1 b1a 4 sim=0.234 email          presupone    ok
+[ 858] claude-opus-5      huerto-balcon    n=2  N1 b2a 4 sim=0.280 meeting_notes  responde     ok
+[ 859] claude-opus-5      huerto-balcon    n=2  N1 b3a 4 sim=0.400 shopping_list  dirigido     ok
+[ 860] claude-opus-5      huerto-balcon    n=2  N1 b0a 5 sim=0.162 config         dirigido     ok
+[ 861] claude-opus-5      huerto-balcon    n=2  N1 b1a 5 sim=0.237 stacktrace     dirigido     ok
+[ 862] claude-opus-5      huerto-balcon    n=2  N1 b2a 5 sim=0.284 job_ad         dirigido     ok
+[ 863] claude-opus-5      huerto-balcon    n=2  N1 b3a 5 sim=0.406 email          cortado      ok
+[ 864] claude-opus-5      huerto-balcon    n=2  N1 b0a 6 sim=0.181 stacktrace     presupone    ok
+[ 865] claude-opus-5      huerto-balcon    n=2  N1 b1a 6 sim=0.211 meeting_notes  responde     ok
+[ 866] claude-opus-5      huerto-balcon    n=2  N1 b2a 6 sim=0.268 changelog      cortado      ok
+[ 867] claude-opus-5      huerto-balcon    n=2  N1 b3a 6 sim=0.340 recipe         responde     ok
+[ 868] claude-opus-5      huerto-balcon    n=2  N1 b0a 7 sim=0.177 prompt         cortado      ok
+[ 869] claude-opus-5      huerto-balcon    n=2  N1 b1a 7 sim=0.209 job_ad         responde     ok
+[ 870] claude-opus-5      huerto-balcon    n=2  N1 b2a 7 sim=0.240 config         cortado      ok
+[ 871] claude-opus-5      huerto-balcon    n=2  N1 b3a 7 sim=0.310 config         presupone    ok
+[ 872] claude-opus-5      huerto-balcon    n=2  N1 b0a 8 sim=0.161 prompt         responde     ok
+[ 873] claude-opus-5      huerto-balcon    n=2  N1 b1a 8 sim=0.235 prompt         cortado      ok
+[ 874] claude-opus-5      huerto-balcon    n=2  N1 b2a 8 sim=0.269 meeting_notes  cortado      ok
+[ 875] claude-opus-5      huerto-balcon    n=2  N1 b3a 8 sim=0.390 recipe         dirigido     ok
+[ 876] claude-opus-5      huerto-balcon    n=2  N1 b0a 9 sim=0.187 email          presupone    ok
+[ 877] claude-opus-5      huerto-balcon    n=2  N1 b1a 9 sim=0.203 meeting_notes  presupone    ok
+[ 878] claude-opus-5      huerto-balcon    n=2  N1 b2a 9 sim=0.280 note_to_self   presupone    ok
+[ 879] claude-opus-5      huerto-balcon    n=2  N1 b3a 9 sim=0.322 note_to_self   presupone    ok
+[ 880] claude-opus-5      huerto-balcon    n=2  N1 b0a10 sim=0.174 stacktrace     dirigido     ok
+[ 881] claude-opus-5      huerto-balcon    n=2  N1 b1a10 sim=0.202 prompt         responde     ok
+[ 882] claude-opus-5      huerto-balcon    n=2  N1 b2a10 sim=0.255 job_ad         presupone    ok
+[ 883] claude-opus-5      huerto-balcon    n=2  N1 b3a10 sim=0.310 shopping_list  cortado      ok
+[ 884] claude-opus-5      huerto-balcon    n=2  N1 b0a11 sim=0.133 sql            cortado      ok
+[ 885] claude-opus-5      huerto-balcon    n=2  N1 b1a11 sim=0.205 config         responde     ok
+[ 886] claude-opus-5      huerto-balcon    n=2  N1 b2a11 sim=0.251 changelog      dirigido     ok
+[ 887] claude-opus-5      huerto-balcon    n=2  N1 b3a11 sim=0.316 recipe         cortado      ok
+[ 888] claude-opus-5      huerto-balcon    n=2  N1 b0a12 sim=0.154 email          cortado      ok
+[ 889] claude-opus-5      huerto-balcon    n=2  N1 b1a12 sim=0.226 stacktrace     responde     ok
+[ 890] claude-opus-5      huerto-balcon    n=2  N1 b2a12 sim=0.277 note_to_self   presupone    ok
+[ 891] claude-opus-5      huerto-balcon    n=2  N1 b3a12 sim=0.330 shopping_list  responde     ok
+[ 892] claude-opus-5      huerto-balcon    n=2  N1 b0a13 sim=0.186 sql            dirigido     ok
+[ 893] claude-opus-5      huerto-balcon    n=2  N1 b1a13 sim=0.230 note_to_self   responde     ok
+[ 894] claude-opus-5      huerto-balcon    n=2  N1 b2a13 sim=0.260 changelog      cortado      ok
+[ 895] claude-opus-5      huerto-balcon    n=2  N1 b3a13 sim=0.407 recipe         dirigido     ok
+[ 896] claude-opus-5      huerto-balcon    n=2  N1 b0a14 sim=0.184 note_to_self   cortado      ok
+[ 897] claude-opus-5      huerto-balcon    n=2  N1 b1a14 sim=0.229 sql            responde     ok
+[ 898] claude-opus-5      huerto-balcon    n=2  N1 b2a14 sim=0.296 meeting_notes  dirigido     ok
+[ 899] claude-opus-5      huerto-balcon    n=2  N1 b3a14 sim=0.322 shopping_list  dirigido     ok
+[ 900] claude-opus-5      huerto-balcon    n=2  N1 b0a15 sim=0.112 sql            cortado      ok
+[ 901] claude-opus-5      huerto-balcon    n=2  N1 b1a15 sim=0.192 sql            presupone    ok
+[ 902] claude-opus-5      huerto-balcon    n=2  N1 b2a15 sim=0.280 meeting_notes  dirigido     ok
+[ 903] claude-opus-5      huerto-balcon    n=2  N1 b3a15 sim=0.317 shopping_list  cortado      ok
+[ 904] claude-opus-5      huerto-balcon    n=2  N1 b0a16 sim=0.184 config         responde     ok
+[ 905] claude-opus-5      huerto-balcon    n=2  N1 b1a16 sim=0.201 note_to_self   presupone    ok
+[ 906] claude-opus-5      huerto-balcon    n=2  N1 b2a16 sim=0.239 changelog      presupone    ok
+[ 907] claude-opus-5      huerto-balcon    n=2  N1 b3a16 sim=0.317 email          responde     ok
+[ 908] claude-opus-5      huerto-balcon    n=2  N1 b0a17 sim=0.170 email          responde     ok
+[ 909] claude-opus-5      huerto-balcon    n=2  N1 b1a17 sim=0.238 recipe         presupone    ok
+[ 910] claude-opus-5      huerto-balcon    n=2  N1 b2a17 sim=0.269 prompt         dirigido     ok
+[ 911] claude-opus-5      huerto-balcon    n=2  N1 b3a17 sim=0.340 recipe         presupone    ok
+[ 912] claude-opus-5      huerto-balcon    n=2  N1 b0a18 sim=0.178 changelog      presupone    ok
+[ 913] claude-opus-5      huerto-balcon    n=2  N1 b1a18 sim=0.233 changelog      dirigido     ok
+[ 914] claude-opus-5      huerto-balcon    n=2  N1 b2a18 sim=0.256 job_ad         cortado      ok
+[ 915] claude-opus-5      huerto-balcon    n=2  N1 b3a18 sim=0.305 meeting_notes  dirigido     ok
+[ 916] claude-opus-5      huerto-balcon    n=2  N1 b0a19 sim=0.120 sql            responde     ok
+[ 917] claude-opus-5      huerto-balcon    n=2  N1 b1a19 sim=0.221 email          presupone    ok
+[ 918] claude-opus-5      huerto-balcon    n=2  N1 b2a19 sim=0.258 prompt         cortado      ok
+[ 919] claude-opus-5      huerto-balcon    n=2  N1 b3a19 sim=0.354 shopping_list  dirigido     ok
+[ 920] claude-opus-5      huerto-balcon    n=2  N1 b0a20 sim=0.177 sql            responde     ok
+[ 921] claude-opus-5      huerto-balcon    n=2  N1 b1a20 sim=0.238 config         responde     ok
+[ 922] claude-opus-5      huerto-balcon    n=2  N1 b2a20 sim=0.277 recipe         responde     ok
+[ 923] claude-opus-5      huerto-balcon    n=2  N1 b3a20 sim=0.300 job_ad         cortado      ok
+[ 924] claude-opus-5      huerto-balcon    n=10 N1 b0a 0 sim=0.231 sql            presupone    ok
+[ 925] claude-opus-5      huerto-balcon    n=10 N1 b1a 0 sim=0.277 config         cortado      ok
+[ 926] claude-opus-5      huerto-balcon    n=10 N1 b2a 0 sim=0.301 recipe         responde     ok
+[ 927] claude-opus-5      huerto-balcon    n=10 N1 b3a 0 sim=0.427 meeting_notes  dirigido     ok
+[ 928] claude-opus-5      huerto-balcon    n=10 N1 b0a 1 sim=0.214 stacktrace     responde     truncated
+[ 929] claude-opus-5      huerto-balcon    n=10 N1 b1a 1 sim=0.259 email          responde     ok
+[ 930] claude-opus-5      huerto-balcon    n=10 N1 b2a 1 sim=0.316 meeting_notes  cortado      ok
+[ 931] claude-opus-5      huerto-balcon    n=10 N1 b3a 1 sim=0.369 job_ad         dirigido     ok
+[ 932] claude-opus-5      huerto-balcon    n=10 N1 b0a 2 sim=0.210 config         responde     ok
+[ 933] claude-opus-5      huerto-balcon    n=10 N1 b1a 2 sim=0.286 sql            responde     ok
+[ 934] claude-opus-5      huerto-balcon    n=10 N1 b2a 2 sim=0.310 config         responde     ok
+[ 935] claude-opus-5      huerto-balcon    n=10 N1 b3a 2 sim=0.396 shopping_list  dirigido     ok
+[ 936] claude-opus-5      huerto-balcon    n=10 N1 b0a 3 sim=0.204 sql            responde     ok
+[ 937] claude-opus-5      huerto-balcon    n=10 N1 b1a 3 sim=0.243 sql            dirigido     ok
+[ 938] claude-opus-5      huerto-balcon    n=10 N1 b2a 3 sim=0.304 changelog      dirigido     ok
+[ 939] claude-opus-5      huerto-balcon    n=10 N1 b3a 3 sim=0.375 email          dirigido     ok
+[ 940] claude-opus-5      huerto-balcon    n=10 N1 b0a 4 sim=0.218 sql            cortado      ok
+[ 941] claude-opus-5      huerto-balcon    n=10 N1 b1a 4 sim=0.284 prompt         responde     ok
+[ 942] claude-opus-5      huerto-balcon    n=10 N1 b2a 4 sim=0.315 prompt         cortado      ok
+[ 943] claude-opus-5      huerto-balcon    n=10 N1 b3a 4 sim=0.361 meeting_notes  dirigido     ok
+[ 944] claude-opus-5      huerto-balcon    n=10 N1 b0a 5 sim=0.233 meeting_notes  presupone    ok
+[ 945] claude-opus-5      huerto-balcon    n=10 N1 b1a 5 sim=0.297 shopping_list  cortado      ok
+[ 946] claude-opus-5      huerto-balcon    n=10 N1 b2a 5 sim=  -   config         -            timeout
+[ 947] claude-opus-5      huerto-balcon    n=10 N1 b3a 5 sim=  -   meeting_notes  -            http_error
+[ 948] claude-opus-5      huerto-balcon    n=10 N1 b0a 6 sim=  -   stacktrace     -            http_error
+[ 949] claude-opus-5      huerto-balcon    n=10 N1 b1a 6 sim=  -   prompt         -            http_error
+[ 950] claude-opus-5      huerto-balcon    n=10 N1 b2a 6 sim=  -   prompt         -            http_error
+[ 951] claude-opus-5      huerto-balcon    n=10 N1 b3a 6 sim=  -   note_to_self   -            http_error
+[ 952] claude-opus-5      huerto-balcon    n=10 N1 b0a 7 sim=  -   changelog      -            http_error
+[ 953] claude-opus-5      huerto-balcon    n=10 N1 b1a 7 sim=  -   job_ad         -            http_error
+[ 954] claude-opus-5      huerto-balcon    n=10 N1 b2a 7 sim=  -   changelog      -            http_error
+[ 955] claude-opus-5      huerto-balcon    n=10 N1 b3a 7 sim=  -   prompt         -            http_error
+[ 956] claude-opus-5      huerto-balcon    n=10 N1 b0a 8 sim=  -   stacktrace     -            http_error
+[ 957] claude-opus-5      huerto-balcon    n=10 N1 b1a 8 sim=  -   email          -            http_error
+[ 958] claude-opus-5      huerto-balcon    n=10 N1 b2a 8 sim=  -   meeting_notes  -            http_error
+[ 959] claude-opus-5      huerto-balcon    n=10 N1 b3a 8 sim=  -   recipe         -            http_error
+[ 960] claude-opus-5      huerto-balcon    n=10 N1 b0a 9 sim=  -   config         -            http_error
+[ 961] claude-opus-5      huerto-balcon    n=10 N1 b1a 9 sim=  -   job_ad         -            http_error
+[ 962] claude-opus-5      huerto-balcon    n=10 N1 b2a 9 sim=  -   job_ad         -            http_error
+[ 963] claude-opus-5      huerto-balcon    n=10 N1 b3a 9 sim=  -   shopping_list  -            http_error
+[ 964] claude-opus-5      huerto-balcon    n=10 N1 b0a10 sim=  -   stacktrace     -            http_error
+[ 965] claude-opus-5      huerto-balcon    n=10 N1 b1a10 sim=  -   meeting_notes  -            http_error
+[ 966] claude-opus-5      huerto-balcon    n=10 N1 b2a10 sim=  -   email          -            http_error
+[ 967] claude-opus-5      huerto-balcon    n=10 N1 b3a10 sim=  -   shopping_list  -            http_error
+[ 968] claude-opus-5      huerto-balcon    n=10 N1 b0a11 sim=  -   stacktrace     -            http_error
+[ 969] claude-opus-5      huerto-balcon    n=10 N1 b1a11 sim=  -   note_to_self   -            http_error
+[ 970] claude-opus-5      huerto-balcon    n=10 N1 b2a11 sim=  -   changelog      -            http_error
+[ 971] claude-opus-5      huerto-balcon    n=10 N1 b3a11 sim=  -   email          -            http_error
+[ 972] claude-opus-5      huerto-balcon    n=10 N1 b0a12 sim=  -   email          -            http_error
+[ 973] claude-opus-5      huerto-balcon    n=10 N1 b1a12 sim=  -   job_ad         -            http_error
+[ 974] claude-opus-5      huerto-balcon    n=10 N1 b2a12 sim=  -   recipe         -            http_error
+[ 975] claude-opus-5      huerto-balcon    n=10 N1 b3a12 sim=  -   recipe         -            http_error
+[ 976] claude-opus-5      huerto-balcon    n=10 N1 b0a13 sim=  -   sql            -            http_error
+[ 977] claude-opus-5      huerto-balcon    n=10 N1 b1a13 sim=  -   email          -            http_error
+[ 978] claude-opus-5      huerto-balcon    n=10 N1 b2a13 sim=  -   recipe         -            http_error
+[ 979] claude-opus-5      huerto-balcon    n=10 N1 b3a13 sim=  -   recipe         -            http_error
+[ 980] claude-opus-5      huerto-balcon    n=10 N1 b0a14 sim=  -   prompt         -            http_error
+[ 981] claude-opus-5      huerto-balcon    n=10 N1 b1a14 sim=  -   recipe         -            http_error
+[ 982] claude-opus-5      huerto-balcon    n=10 N1 b2a14 sim=  -   changelog      -            http_error
+[ 983] claude-opus-5      huerto-balcon    n=10 N1 b3a14 sim=  -   job_ad         -            http_error
+[ 984] claude-opus-5      huerto-balcon    n=10 N1 b0a15 sim=  -   config         -            http_error
+[ 985] claude-opus-5      huerto-balcon    n=10 N1 b1a15 sim=  -   note_to_self   -            http_error
+[ 986] claude-opus-5      huerto-balcon    n=10 N1 b2a15 sim=  -   changelog      -            http_error
+[ 987] claude-opus-5      huerto-balcon    n=10 N1 b3a15 sim=  -   note_to_self   -            http_error
+[ 988] claude-opus-5      huerto-balcon    n=10 N1 b0a16 sim=  -   stacktrace     -            http_error
+[ 989] claude-opus-5      huerto-balcon    n=10 N1 b1a16 sim=  -   stacktrace     -            http_error
+[ 990] claude-opus-5      huerto-balcon    n=10 N1 b2a16 sim=  -   email          -            http_error
+[ 991] claude-opus-5      huerto-balcon    n=10 N1 b3a16 sim=  -   shopping_list  -            http_error
+[ 992] claude-opus-5      huerto-balcon    n=10 N1 b0a17 sim=  -   config         -            http_error
+[ 993] claude-opus-5      huerto-balcon    n=10 N1 b1a17 sim=  -   prompt         -            http_error
+[ 994] claude-opus-5      huerto-balcon    n=10 N1 b2a17 sim=  -   recipe         -            http_error
+[ 995] claude-opus-5      huerto-balcon    n=10 N1 b3a17 sim=  -   meeting_notes  -            http_error
+[ 996] claude-opus-5      huerto-balcon    n=10 N1 b0a18 sim=  -   note_to_self   -            http_error
+[ 997] claude-opus-5      huerto-balcon    n=10 N1 b1a18 sim=  -   shopping_list  -            http_error
+[ 998] claude-opus-5      huerto-balcon    n=10 N1 b2a18 sim=  -   config         -            http_error
+[ 999] claude-opus-5      huerto-balcon    n=10 N1 b3a18 sim=  -   note_to_self   -            http_error
+[1000] claude-opus-5      huerto-balcon    n=10 N1 b0a19 sim=  -   sql            -            http_error
+[1001] claude-opus-5      huerto-balcon    n=10 N1 b1a19 sim=  -   changelog      -            http_error
+[1002] claude-opus-5      huerto-balcon    n=10 N1 b2a19 sim=  -   changelog      -            http_error
+[1003] claude-opus-5      huerto-balcon    n=10 N1 b3a19 sim=  -   note_to_self   -            http_error
+[1004] claude-opus-5      huerto-balcon    n=10 N1 b0a20 sim=  -   sql            -            http_error
+[1005] claude-opus-5      huerto-balcon    n=10 N1 b1a20 sim=  -   job_ad         -            http_error
+[1006] claude-opus-5      huerto-balcon    n=10 N1 b2a20 sim=  -   note_to_self   -            http_error
+[1007] claude-opus-5      huerto-balcon    n=10 N1 b3a20 sim=  -   shopping_list  -            http_error
+[1008] claude-opus-5      mudanza          n=2  N1 b0a 0 sim=  -   -              -            harness_error
+[1009] claude-opus-5      mudanza          n=2  N1 b1a 0 sim=  -   -              -            harness_error
+[1010] claude-opus-5      mudanza          n=2  N1 b2a 0 sim=  -   -              -            harness_error
+[1011] claude-opus-5      mudanza          n=2  N1 b3a 0 sim=  -   -              -            harness_error
+[1012] claude-opus-5      mudanza          n=2  N1 b0a 1 sim=  -   -              -            harness_error
+[1013] claude-opus-5      mudanza          n=2  N1 b1a 1 sim=  -   -              -            harness_error
+[1014] claude-opus-5      mudanza          n=2  N1 b2a 1 sim=  -   -              -            harness_error
+[1015] claude-opus-5      mudanza          n=2  N1 b3a 1 sim=  -   -              -            harness_error
+[1016] claude-opus-5      mudanza          n=2  N1 b0a 2 sim=  -   -              -            harness_error
+[1017] claude-opus-5      mudanza          n=2  N1 b1a 2 sim=  -   -              -            harness_error
+[1018] claude-opus-5      mudanza          n=2  N1 b2a 2 sim=  -   email          -            http_error
+[1019] claude-opus-5      mudanza          n=2  N1 b3a 2 sim=  -   note_to_self   -            http_error
+[1020] claude-opus-5      mudanza          n=2  N1 b0a 3 sim=  -   sql            -            http_error
+[1021] claude-opus-5      mudanza          n=2  N1 b1a 3 sim=  -   email          -            http_error
+[1022] claude-opus-5      mudanza          n=2  N1 b2a 3 sim=  -   changelog      -            http_error
+[1023] claude-opus-5      mudanza          n=2  N1 b3a 3 sim=  -   meeting_notes  -            http_error
+[1024] claude-opus-5      mudanza          n=2  N1 b0a 4 sim=  -   sql            -            http_error
+[1025] claude-opus-5      mudanza          n=2  N1 b1a 4 sim=  -   changelog      -            http_error
+[1026] claude-opus-5      mudanza          n=2  N1 b2a 4 sim=  -   meeting_notes  -            http_error
+[1027] claude-opus-5      mudanza          n=2  N1 b3a 4 sim=  -   meeting_notes  -            http_error
+[1028] claude-opus-5      mudanza          n=2  N1 b0a 5 sim=  -   stacktrace     -            http_error
+[1029] claude-opus-5      mudanza          n=2  N1 b1a 5 sim=  -   note_to_self   -            http_error
+[1030] claude-opus-5      mudanza          n=2  N1 b2a 5 sim=  -   meeting_notes  -            http_error
+[1031] claude-opus-5      mudanza          n=2  N1 b3a 5 sim=  -   job_ad         -            http_error
+[1032] claude-opus-5      mudanza          n=2  N1 b0a 6 sim=  -   stacktrace     -            http_error
+[1033] claude-opus-5      mudanza          n=2  N1 b1a 6 sim=  -   note_to_self   -            http_error
+[1034] claude-opus-5      mudanza          n=2  N1 b2a 6 sim=  -   changelog      -            http_error
+[1035] claude-opus-5      mudanza          n=2  N1 b3a 6 sim=  -   note_to_self   -            http_error
+[1036] claude-opus-5      mudanza          n=2  N1 b0a 7 sim=  -   config         -            http_error
+[1037] claude-opus-5      mudanza          n=2  N1 b1a 7 sim=  -   stacktrace     -            http_error
+[1038] claude-opus-5      mudanza          n=2  N1 b2a 7 sim=  -   meeting_notes  -            http_error
+[1039] claude-opus-5      mudanza          n=2  N1 b3a 7 sim=  -   job_ad         -            http_error
+[1040] claude-opus-5      mudanza          n=2  N1 b0a 8 sim=  -   prompt         -            http_error
+[1041] claude-opus-5      mudanza          n=2  N1 b1a 8 sim=  -   sql            -            http_error
+[1042] claude-opus-5      mudanza          n=2  N1 b2a 8 sim=  -   shopping_list  -            http_error
+[1043] claude-opus-5      mudanza          n=2  N1 b3a 8 sim=  -   meeting_notes  -            http_error
+[1044] claude-opus-5      mudanza          n=2  N1 b0a 9 sim=  -   config         -            http_error
+[1045] claude-opus-5      mudanza          n=2  N1 b1a 9 sim=  -   changelog      -            http_error
+[1046] claude-opus-5      mudanza          n=2  N1 b2a 9 sim=  -   config         -            http_error
+[1047] claude-opus-5      mudanza          n=2  N1 b3a 9 sim=  -   note_to_self   -            http_error
+[1048] claude-opus-5      mudanza          n=2  N1 b0a10 sim=  -   stacktrace     -            http_error
+[1049] claude-opus-5      mudanza          n=2  N1 b1a10 sim=  -   sql            -            http_error
+[1050] claude-opus-5      mudanza          n=2  N1 b2a10 sim=  -   job_ad         -            http_error
+[1051] claude-opus-5      mudanza          n=2  N1 b3a10 sim=  -   job_ad         -            http_error
+[1052] claude-opus-5      mudanza          n=2  N1 b0a11 sim=  -   prompt         -            http_error
+[1053] claude-opus-5      mudanza          n=2  N1 b1a11 sim=  -   stacktrace     -            http_error
+[1054] claude-opus-5      mudanza          n=2  N1 b2a11 sim=  -   shopping_list  -            http_error
+[1055] claude-opus-5      mudanza          n=2  N1 b3a11 sim=  -   prompt         -            http_error
+[1056] claude-opus-5      mudanza          n=2  N1 b0a12 sim=  -   recipe         -            http_error
+[1057] claude-opus-5      mudanza          n=2  N1 b1a12 sim=  -   stacktrace     -            http_error
+[1058] claude-opus-5      mudanza          n=2  N1 b2a12 sim=  -   config         -            http_error
+[1059] claude-opus-5      mudanza          n=2  N1 b3a12 sim=  -   note_to_self   -            http_error
+[1060] claude-opus-5      mudanza          n=2  N1 b0a13 sim=  -   recipe         -            http_error
+[1061] claude-opus-5      mudanza          n=2  N1 b1a13 sim=  -   recipe         -            http_error
+[1062] claude-opus-5      mudanza          n=2  N1 b2a13 sim=  -   job_ad         -            http_error
+[1063] claude-opus-5      mudanza          n=2  N1 b3a13 sim=  -   job_ad         -            http_error
+[1064] claude-opus-5      mudanza          n=2  N1 b0a14 sim=  -   sql            -            http_error
+[1065] claude-opus-5      mudanza          n=2  N1 b1a14 sim=  -   meeting_notes  -            http_error
+[1066] claude-opus-5      mudanza          n=2  N1 b2a14 sim=  -   sql            -            http_error
+[1067] claude-opus-5      mudanza          n=2  N1 b3a14 sim=  -   email          -            http_error
+[1068] claude-opus-5      mudanza          n=2  N1 b0a15 sim=  -   recipe         -            http_error
+[1069] claude-opus-5      mudanza          n=2  N1 b1a15 sim=  -   stacktrace     -            http_error
+[1070] claude-opus-5      mudanza          n=2  N1 b2a15 sim=  -   note_to_self   -            http_error
+[1071] claude-opus-5      mudanza          n=2  N1 b3a15 sim=  -   email          -            http_error
+[1072] claude-opus-5      mudanza          n=2  N1 b0a16 sim=  -   recipe         -            http_error
+[1073] claude-opus-5      mudanza          n=2  N1 b1a16 sim=  -   changelog      -            http_error
+[1074] claude-opus-5      mudanza          n=2  N1 b2a16 sim=  -   email          -            http_error
+[1075] claude-opus-5      mudanza          n=2  N1 b3a16 sim=  -   email          -            http_error
+[1076] claude-opus-5      mudanza          n=2  N1 b0a17 sim=  -   recipe         -            http_error
+[1077] claude-opus-5      mudanza          n=2  N1 b1a17 sim=  -   shopping_list  -            http_error
+[1078] claude-opus-5      mudanza          n=2  N1 b2a17 sim=  -   changelog      -            http_error
+[1079] claude-opus-5      mudanza          n=2  N1 b3a17 sim=  -   note_to_self   -            http_error
+[1080] claude-opus-5      mudanza          n=2  N1 b0a18 sim=  -   changelog      -            http_error
+[1081] claude-opus-5      mudanza          n=2  N1 b1a18 sim=  -   email          -            http_error
+[1082] claude-opus-5      mudanza          n=2  N1 b2a18 sim=  -   job_ad         -            http_error
+[1083] claude-opus-5      mudanza          n=2  N1 b3a18 sim=  -   meeting_notes  -            http_error
+[1084] claude-opus-5      mudanza          n=2  N1 b0a19 sim=  -   recipe         -            http_error
+[1085] claude-opus-5      mudanza          n=2  N1 b1a19 sim=  -   changelog      -            http_error
+[1086] claude-opus-5      mudanza          n=2  N1 b2a19 sim=  -   shopping_list  -            http_error
+[1087] claude-opus-5      mudanza          n=2  N1 b3a19 sim=  -   shopping_list  -            http_error
+[1088] claude-opus-5      mudanza          n=2  N1 b0a20 sim=  -   config         -            http_error
+[1089] claude-opus-5      mudanza          n=2  N1 b1a20 sim=  -   config         -            http_error
+[1090] claude-opus-5      mudanza          n=2  N1 b2a20 sim=  -   sql            -            http_error
+[1091] claude-opus-5      mudanza          n=2  N1 b3a20 sim=  -   prompt         -            http_error
+[1092] claude-opus-5      mudanza          n=10 N1 b0a 0 sim=  -   stacktrace     -            http_error
+[1093] claude-opus-5      mudanza          n=10 N1 b1a 0 sim=  -   email          -            http_error
+[1094] claude-opus-5      mudanza          n=10 N1 b2a 0 sim=  -   config         -            http_error
+[1095] claude-opus-5      mudanza          n=10 N1 b3a 0 sim=  -   prompt         -            http_error
+[1096] claude-opus-5      mudanza          n=10 N1 b0a 1 sim=  -   config         -            http_error
+[1097] claude-opus-5      mudanza          n=10 N1 b1a 1 sim=  -   sql            -            http_error
+[1098] claude-opus-5      mudanza          n=10 N1 b2a 1 sim=  -   changelog      -            http_error
+[1099] claude-opus-5      mudanza          n=10 N1 b3a 1 sim=  -   note_to_self   -            http_error
+[1100] claude-opus-5      mudanza          n=10 N1 b0a 2 sim=  -   config         -            http_error
+[1101] claude-opus-5      mudanza          n=10 N1 b1a 2 sim=  -   email          -            http_error
+[1102] claude-opus-5      mudanza          n=10 N1 b2a 2 sim=  -   config         -            http_error
+[1103] claude-opus-5      mudanza          n=10 N1 b3a 2 sim=  -   shopping_list  -            http_error
+[1104] claude-opus-5      mudanza          n=10 N1 b0a 3 sim=  -   stacktrace     -            http_error
+[1105] claude-opus-5      mudanza          n=10 N1 b1a 3 sim=  -   job_ad         -            http_error
+[1106] claude-opus-5      mudanza          n=10 N1 b2a 3 sim=  -   sql            -            http_error
+[1107] claude-opus-5      mudanza          n=10 N1 b3a 3 sim=  -   shopping_list  -            http_error
+[1108] claude-opus-5      mudanza          n=10 N1 b0a 4 sim=  -   sql            -            http_error
+[1109] claude-opus-5      mudanza          n=10 N1 b1a 4 sim=  -   recipe         -            http_error
+[1110] claude-opus-5      mudanza          n=10 N1 b2a 4 sim=  -   changelog      -            http_error
+[1111] claude-opus-5      mudanza          n=10 N1 b3a 4 sim=  -   shopping_list  -            http_error
+[1112] claude-opus-5      mudanza          n=10 N1 b0a 5 sim=  -   changelog      -            http_error
+[1113] claude-opus-5      mudanza          n=10 N1 b1a 5 sim=  -   meeting_notes  -            http_error
+[1114] claude-opus-5      mudanza          n=10 N1 b2a 5 sim=  -   prompt         -            http_error
+[1115] claude-opus-5      mudanza          n=10 N1 b3a 5 sim=  -   job_ad         -            http_error
+[1116] claude-opus-5      mudanza          n=10 N1 b0a 6 sim=  -   sql            -            http_error
+[1117] claude-opus-5      mudanza          n=10 N1 b1a 6 sim=  -   prompt         -            http_error
+[1118] claude-opus-5      mudanza          n=10 N1 b2a 6 sim=  -   recipe         -            http_error
+[1119] claude-opus-5      mudanza          n=10 N1 b3a 6 sim=  -   meeting_notes  -            http_error
+[1120] claude-opus-5      mudanza          n=10 N1 b0a 7 sim=  -   sql            -            http_error
+[1121] claude-opus-5      mudanza          n=10 N1 b1a 7 sim=  -   changelog      -            http_error
+[1122] claude-opus-5      mudanza          n=10 N1 b2a 7 sim=  -   prompt         -            http_error
+[1123] claude-opus-5      mudanza          n=10 N1 b3a 7 sim=  -   note_to_self   -            http_error
+[1124] claude-opus-5      mudanza          n=10 N1 b0a 8 sim=  -   recipe         -            http_error
+[1125] claude-opus-5      mudanza          n=10 N1 b1a 8 sim=  -   job_ad         -            http_error
+[1126] claude-opus-5      mudanza          n=10 N1 b2a 8 sim=  -   note_to_self   -            http_error
+[1127] claude-opus-5      mudanza          n=10 N1 b3a 8 sim=  -   prompt         -            http_error
+[1128] claude-opus-5      mudanza          n=10 N1 b0a 9 sim=  -   meeting_notes  -            http_error
+[1129] claude-opus-5      mudanza          n=10 N1 b1a 9 sim=  -   recipe         -            http_error
+[1130] claude-opus-5      mudanza          n=10 N1 b2a 9 sim=  -   note_to_self   -            http_error
+[1131] claude-opus-5      mudanza          n=10 N1 b3a 9 sim=  -   shopping_list  -            http_error
+[1132] claude-opus-5      mudanza          n=10 N1 b0a10 sim=  -   config         -            http_error
+[1133] claude-opus-5      mudanza          n=10 N1 b1a10 sim=  -   config         -            http_error
+[1134] claude-opus-5      mudanza          n=10 N1 b2a10 sim=  -   email          -            http_error
+[1135] claude-opus-5      mudanza          n=10 N1 b3a10 sim=  -   email          -            http_error
+[1136] claude-opus-5      mudanza          n=10 N1 b0a11 sim=  -   stacktrace     -            http_error
+[1137] claude-opus-5      mudanza          n=10 N1 b1a11 sim=  -   meeting_notes  -            http_error
+[1138] claude-opus-5      mudanza          n=10 N1 b2a11 sim=  -   changelog      -            http_error
+[1139] claude-opus-5      mudanza          n=10 N1 b3a11 sim=  -   meeting_notes  -            http_error
+[1140] claude-opus-5      mudanza          n=10 N1 b0a12 sim=  -   sql            -            http_error
+[1141] claude-opus-5      mudanza          n=10 N1 b1a12 sim=  -   email          -            http_error
+[1142] claude-opus-5      mudanza          n=10 N1 b2a12 sim=  -   changelog      -            http_error
+[1143] claude-opus-5      mudanza          n=10 N1 b3a12 sim=  -   job_ad         -            http_error
+[1144] claude-opus-5      mudanza          n=10 N1 b0a13 sim=  -   stacktrace     -            http_error
+[1145] claude-opus-5      mudanza          n=10 N1 b1a13 sim=  -   job_ad         -            http_error
+[1146] claude-opus-5      mudanza          n=10 N1 b2a13 sim=  -   changelog      -            http_error
+[1147] claude-opus-5      mudanza          n=10 N1 b3a13 sim=  -   shopping_list  -            http_error
+[1148] claude-opus-5      mudanza          n=10 N1 b0a14 sim=  -   recipe         -            http_error
+[1149] claude-opus-5      mudanza          n=10 N1 b1a14 sim=  -   recipe         -            http_error
+[1150] claude-opus-5      mudanza          n=10 N1 b2a14 sim=  -   meeting_notes  -            http_error
+[1151] claude-opus-5      mudanza          n=10 N1 b3a14 sim=  -   note_to_self   -            http_error
+[1152] claude-opus-5      mudanza          n=10 N1 b0a15 sim=  -   config         -            http_error
+[1153] claude-opus-5      mudanza          n=10 N1 b1a15 sim=  -   sql            -            http_error
+[1154] claude-opus-5      mudanza          n=10 N1 b2a15 sim=  -   email          -            http_error
+[1155] claude-opus-5      mudanza          n=10 N1 b3a15 sim=  -   prompt         -            http_error
+[1156] claude-opus-5      mudanza          n=10 N1 b0a16 sim=  -   stacktrace     -            http_error
+[1157] claude-opus-5      mudanza          n=10 N1 b1a16 sim=  -   email          -            http_error
+[1158] claude-opus-5      mudanza          n=10 N1 b2a16 sim=  -   note_to_self   -            http_error
+[1159] claude-opus-5      mudanza          n=10 N1 b3a16 sim=  -   shopping_list  -            http_error
+[1160] claude-opus-5      mudanza          n=10 N1 b0a17 sim=  -   stacktrace     -            http_error
+[1161] claude-opus-5      mudanza          n=10 N1 b1a17 sim=  -   note_to_self   -            http_error
+[1162] claude-opus-5      mudanza          n=10 N1 b2a17 sim=  -   email          -            http_error
+[1163] claude-opus-5      mudanza          n=10 N1 b3a17 sim=  -   meeting_notes  -            http_error
+[1164] claude-opus-5      mudanza          n=10 N1 b0a18 sim=  -   config         -            http_error
+[1165] claude-opus-5      mudanza          n=10 N1 b1a18 sim=  -   recipe         -            http_error
+[1166] claude-opus-5      mudanza          n=10 N1 b2a18 sim=  -   shopping_list  -            http_error
+[1167] claude-opus-5      mudanza          n=10 N1 b3a18 sim=  -   job_ad         -            http_error
+[1168] claude-opus-5      mudanza          n=10 N1 b0a19 sim=  -   sql            -            http_error
+[1169] claude-opus-5      mudanza          n=10 N1 b1a19 sim=  -   recipe         -            http_error
+[1170] claude-opus-5      mudanza          n=10 N1 b2a19 sim=  -   prompt         -            http_error
+[1171] claude-opus-5      mudanza          n=10 N1 b3a19 sim=  -   note_to_self   -            http_error
+[1172] claude-opus-5      mudanza          n=10 N1 b0a20 sim=  -   stacktrace     -            http_error
+[1173] claude-opus-5      mudanza          n=10 N1 b1a20 sim=  -   job_ad         -            http_error
+[1174] claude-opus-5      mudanza          n=10 N1 b2a20 sim=  -   changelog      -            http_error
+[1175] claude-opus-5      mudanza          n=10 N1 b3a20 sim=  -   meeting_notes  -            http_error
+[1176] claude-opus-5      viaje-japon      n=2  N1 b0a 0 sim=  -   recipe         -            http_error
+[1177] claude-opus-5      viaje-japon      n=2  N1 b1a 0 sim=  -   email          -            http_error
+[1178] claude-opus-5      viaje-japon      n=2  N1 b2a 0 sim=  -   stacktrace     -            http_error
+[1179] claude-opus-5      viaje-japon      n=2  N1 b3a 0 sim=  -   note_to_self   -            http_error
+[1180] claude-opus-5      viaje-japon      n=2  N1 b0a 1 sim=  -   stacktrace     -            http_error
+[1181] claude-opus-5      viaje-japon      n=2  N1 b1a 1 sim=  -   stacktrace     -            http_error
+[1182] claude-opus-5      viaje-japon      n=2  N1 b2a 1 sim=  -   shopping_list  -            http_error
+[1183] claude-opus-5      viaje-japon      n=2  N1 b3a 1 sim=  -   meeting_notes  -            http_error
+[1184] claude-opus-5      viaje-japon      n=2  N1 b0a 2 sim=  -   sql            -            http_error
+[1185] claude-opus-5      viaje-japon      n=2  N1 b1a 2 sim=  -   recipe         -            http_error
+[1186] claude-opus-5      viaje-japon      n=2  N1 b2a 2 sim=  -   meeting_notes  -            http_error
+[1187] claude-opus-5      viaje-japon      n=2  N1 b3a 2 sim=  -   prompt         -            http_error
+[1188] claude-opus-5      viaje-japon      n=2  N1 b0a 3 sim=  -   recipe         -            http_error
+[1189] claude-opus-5      viaje-japon      n=2  N1 b1a 3 sim=  -   email          -            http_error
+[1190] claude-opus-5      viaje-japon      n=2  N1 b2a 3 sim=  -   shopping_list  -            http_error
+[1191] claude-opus-5      viaje-japon      n=2  N1 b3a 3 sim=  -   note_to_self   -            http_error
+[1192] claude-opus-5      viaje-japon      n=2  N1 b0a 4 sim=  -   recipe         -            http_error
+[1193] claude-opus-5      viaje-japon      n=2  N1 b1a 4 sim=  -   config         -            http_error
+[1194] claude-opus-5      viaje-japon      n=2  N1 b2a 4 sim=  -   job_ad         -            http_error
+[1195] claude-opus-5      viaje-japon      n=2  N1 b3a 4 sim=  -   job_ad         -            http_error
+[1196] claude-opus-5      viaje-japon      n=2  N1 b0a 5 sim=  -   note_to_self   -            http_error
+[1197] claude-opus-5      viaje-japon      n=2  N1 b1a 5 sim=  -   shopping_list  -            http_error
+[1198] claude-opus-5      viaje-japon      n=2  N1 b2a 5 sim=  -   prompt         -            http_error
+[1199] claude-opus-5      viaje-japon      n=2  N1 b3a 5 sim=  -   job_ad         -            http_error
+[1200] claude-opus-5      viaje-japon      n=2  N1 b0a 6 sim=  -   changelog      -            http_error
+[1201] claude-opus-5      viaje-japon      n=2  N1 b1a 6 sim=  -   recipe         -            http_error
+[1202] claude-opus-5      viaje-japon      n=2  N1 b2a 6 sim=  -   job_ad         -            http_error
+[1203] claude-opus-5      viaje-japon      n=2  N1 b3a 6 sim=  -   meeting_notes  -            http_error
+[1204] claude-opus-5      viaje-japon      n=2  N1 b0a 7 sim=  -   config         -            http_error
+[1205] claude-opus-5      viaje-japon      n=2  N1 b1a 7 sim=  -   note_to_self   -            http_error
+[1206] claude-opus-5      viaje-japon      n=2  N1 b2a 7 sim=  -   email          -            http_error
+[1207] claude-opus-5      viaje-japon      n=2  N1 b3a 7 sim=  -   changelog      -            http_error
+[1208] claude-opus-5      viaje-japon      n=2  N1 b0a 8 sim=  -   config         -            http_error
+[1209] claude-opus-5      viaje-japon      n=2  N1 b1a 8 sim=  -   changelog      -            http_error
+[1210] claude-opus-5      viaje-japon      n=2  N1 b2a 8 sim=  -   prompt         -            http_error
+[1211] claude-opus-5      viaje-japon      n=2  N1 b3a 8 sim=  -   config         -            http_error
+[1212] claude-opus-5      viaje-japon      n=2  N1 b0a 9 sim=  -   stacktrace     -            http_error
+[1213] claude-opus-5      viaje-japon      n=2  N1 b1a 9 sim=  -   sql            -            http_error
+[1214] claude-opus-5      viaje-japon      n=2  N1 b2a 9 sim=  -   job_ad         -            http_error
+[1215] claude-opus-5      viaje-japon      n=2  N1 b3a 9 sim=  -   changelog      -            http_error
+[1216] claude-opus-5      viaje-japon      n=2  N1 b0a10 sim=  -   email          -            http_error

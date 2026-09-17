@@ -1,0 +1,48 @@
+{
+  "run_id": "20260916T163736",
+  "path": "runs/phase1d/20260916T163736.jsonl",
+  "post_turns": 0,
+  "roster": [
+    "claude-opus-5"
+  ],
+  "planned": 1344,
+  "completed": 398,
+  "failed": 0,
+  "skipped": 946,
+  "by_band": {
+    "0": {
+      "completed": 99,
+      "failed": 0,
+      "skipped": 237
+    },
+    "1": {
+      "completed": 99,
+      "failed": 0,
+      "skipped": 237
+    },
+    "2": {
+      "completed": 100,
+      "failed": 0,
+      "skipped": 236
+    },
+    "3": {
+      "completed": 100,
+      "failed": 0,
+      "skipped": 236
+    }
+  },
+  "call_budget": {
+    "cells": 1344,
+    "by_level": {
+      "N1": 1344
+    },
+    "by_model": {
+      "claude-opus-5": 1344
+    },
+    "evaluated_model_calls": 1344,
+    "simulated_user_calls": 0,
+    "contradiction_calls": 0,
+    "prefixes": 16,
+    "post_turns": 0
+  }
+}
